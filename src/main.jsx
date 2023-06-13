@@ -2,8 +2,8 @@ import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import ErrorPage from './routes/ErrorPage'
-import App from './routes/App'
 import './index.css'
+import App from './routes/root'
 
 const domNode = document.getElementById('root')
 const root = createRoot(domNode)
@@ -11,13 +11,13 @@ const root = createRoot(domNode)
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <div>Hello world!</div>,
+		element: <App />,
 		errorElement: <ErrorPage />,
 		children: [
-			{
-				path: '/',
-				element: <App />,
-			},
+			// {
+			// 	path: '/login',
+			// 	element: <Login />,
+			// },
 		],
 	},
 ])

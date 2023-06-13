@@ -13,14 +13,16 @@ module.exports = {
 		'standard',
 		'plugin:react/jsx-runtime',
 		'plugin:react/recommended',
-		'plugin:prettier/recommended',
 		'eslint:recommended',
 		'prettier',
 	],
 	parserOptions: {
 		ecmaVersion: 'latest',
 		sourceType: 'module',
+		ecmaFeatures: {
+			jsx: true,
+		}
 	},
-	plugins: ['react'],
+	plugins: ['react', 'react-hooks'],
 	rules: {},
 }
