@@ -15,7 +15,7 @@ const ErrorPage = () => {
 					<img
 						src='https://images.unsplash.com/photo-1546527868-ccb7ee7dfa6a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NjEyMzZ8MHwxfHNlYXJjaHwxfHxwdXBweXxlbnwwfHx8fDE2ODY2NzYyNjd8MA&ixlib=rb-4.0.3&q=80&w=400'
 						className='card-img-bottom mb-3'
-						alt='...'
+						alt='Cachorro'
 					/>
 					<Link to='/' className='btn btn-primary'>
 						Volver
