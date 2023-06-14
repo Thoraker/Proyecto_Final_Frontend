@@ -27,9 +27,6 @@ const App = () => {
 	return (
 		<AppContext.Provider value={state}>
 			<Sidebar />
-			<div id='carousel1'>
-				<Carousel photos={state.store.slides} />
-			</div>
 			<Outlet />
 		</AppContext.Provider>
 	)
