@@ -3,6 +3,8 @@ import React, { createContext, useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import getState from '../resources/Flux'
 
+
+
 export const AppContext = createContext(null)
 
 const App = () => {
@@ -19,11 +21,14 @@ const App = () => {
 	)
 
 	useEffect(() => {
-		state.actions.loadInitialData()
+		// state.actions.loadInitialData()
 	}, [])
 
 	return (
 		<AppContext.Provider value={state}>
+			{/* <navbar /> */}
+			{/* <sideBar /> */}
+			{/* <footer /> */}
 			<Outlet />
 		</AppContext.Provider>
 	)
