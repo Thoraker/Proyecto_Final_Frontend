@@ -1,10 +1,8 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import getState from '../resources/Flux'
+import Sidebar from '../components/sideBar'
 import './App.css'
-import React, { createContext, useEffect, useState } from 'react'
-import { Outlet } from 'react-router-dom'
-import getState from '../resources/Flux'
 import Carousel from '../components/carousel'
 
 export const AppContext = createContext(null)
@@ -28,8 +26,9 @@ const App = () => {
 
 	return (
 		<AppContext.Provider value={state}>
+			<Sidebar />
 			<div id='carousel1'>
-				<Carousel slides={state.store.slides} />
+				<Carousel photos={state.store.slides} />
 			</div>
 			<Outlet />
 		</AppContext.Provider>

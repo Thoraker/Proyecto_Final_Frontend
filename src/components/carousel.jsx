@@ -1,54 +1,50 @@
 import React from 'react'
+import './carousel.css'
 
-const Carousel = ({ slides }) => {
+const Carousel = ({ photos }) => {
 	const [index, setIndex] = React.useState(0)
 
-	const parentStyles = {
-		height: '100%',
-		width: '100%',
-		position: 'relative',
-	}
-
-	const rightArrowStyles = {
-		position: 'absolute',
-		top: '50%',
-		transform: 'translate(0, -50%)',
-		right: '32px',
-		fontSize: '45px',
-		color: '#fff',
-		zIndex: 1,
-		cursor: 'pointer',
-	}
-
-	const leftArrowStyles = {
-		position: 'absolute',
-		top: '50%',
-		transform: 'translate(0, -50%)',
-		left: '32px',
-		fontSize: '45px',
-		color: '#fff',
-		zIndex: 1,
-		cursor: 'pointer',
-	}
-
 	const carouselStyles = {
-		backgroundImage: `url(${slides[index].url})`,
+		backgroundImage: `url(${photos[index].url})`,
 		height: '100%',
 		with: '100%',
+		borderRadius: '10px',
 		backgroundSize: 'cover',
 		backgroundPosition: 'center',
-		borderRadius: '10px',
+	}
+
+	const goToNext = () => {
+		const isLastSlide = index === photos.length - 1
+		const newIndex = isLastSlide ? 0 : index + 1
+		setIndex(newIndex)
+	}
+
+	const goToPrev = () => {
+		const isFirstSlide = index === 0
+		const newIndex = isFirstSlide ? photos.length - 1 : index - 1
+		setIndex(newIndex)
+	}
+
+	const goTo = (photo) => {
+		setIndex(photo)
 	}
 
 	return (
-		<div style={parentStyles}>
-			<div style={leftArrowStyles}>
+		<div id='parent'>
+			<div className='leftArrowStyles' onClick={goToNext}>
 				<i className='bi bi-caret-left'></i>
 			</div>
-			<div style={rightArrowStyles}>
+			<div style={carouselStyles}></div>
+			<div className='rightArrowStyles' onClick={goToPrev}>
 				<i className='bi bi-caret-right'></i>
 			</div>
-			<div style={carouselStyles}></div>
+			<div className='squares-container'>
+				{photos.map((slide, index) => (
+					<div key={index} className='square' onClick={() => goTo(index)}>
+						<i className='bi bi-square-fill'></i>
+					</div>
+				))}
+			</div>
 		</div>
 	)
 }

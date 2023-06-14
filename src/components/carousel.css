@@ -1,0 +1,38 @@
+#parent {
+    height: 100%;
+    position: relative;
+}
+
+.rightArrowStyles {
+    position: absolute;
+    transform: translate(0, -50%);
+    right: 1rem;
+    font-size: 1.5rem;
+    color: orange;
+    top: 50%;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.leftArrowStyles {
+    position: absolute;
+    transform: translate(0, -50%);
+    left: 1rem;
+    font-size: 1.5rem;
+    color: orange;
+    top: 50%;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.squares-container {
+    display: flex;
+    justify-content: center;
+}
+
+.square {
+    font-size: 0.75rem;
+    cursor: pointer;
+    margin: 0 3px;
+    color: orange;
+}
