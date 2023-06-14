@@ -1,9 +1,11 @@
-import './Root.css'
 import React, { createContext, useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import getState from '../resources/Flux'
-
-
+import './App.css'
+import React, { createContext, useEffect, useState } from 'react'
+import { Outlet } from 'react-router-dom'
+import getState from '../resources/Flux'
+import Carousel from '../components/carousel'
 
 export const AppContext = createContext(null)
 
@@ -21,14 +23,14 @@ const App = () => {
 	)
 
 	useEffect(() => {
-		// state.actions.loadInitialData()
+		state.actions.loadInitialData()
 	}, [])
 
 	return (
 		<AppContext.Provider value={state}>
-			{/* <navbar /> */}
-			{/* <sideBar /> */}
-			{/* <footer /> */}
+			<div id='carousel1'>
+				<Carousel slides={state.store.slides} />
+			</div>
 			<Outlet />
 		</AppContext.Provider>
 	)
