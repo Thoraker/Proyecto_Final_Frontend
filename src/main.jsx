@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import ErrorPage from './routes/ErrorPage'
 import './index.css'
-import App from './routes/Root.jsx'
+import App from './routes/App.jsx'
 
 const domNode = document.getElementById('root')
 const root = createRoot(domNode)

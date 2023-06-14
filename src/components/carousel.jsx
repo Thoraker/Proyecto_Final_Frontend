@@ -43,10 +43,10 @@ const Carousel = ({ slides }) => {
 	return (
 		<div style={parentStyles}>
 			<div style={leftArrowStyles}>
-				<i className='bi bi-caret-right'></i>
+				<i className='bi bi-caret-left'></i>
 			</div>
 			<div style={rightArrowStyles}>
-				<i className='bi bi-caret-left'></i>
+				<i className='bi bi-caret-right'></i>
 			</div>
 			<div style={carouselStyles}></div>
 		</div>
