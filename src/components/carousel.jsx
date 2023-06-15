@@ -30,7 +30,7 @@ const Carousel = ({ photos }) => {
 	}
 
 	return (
-		<div id='parent'>
+		<div className='carouselParentStyle'>
 			<div className='leftArrowStyles' onClick={goToNext}>
 				<i className='bi bi-caret-left'></i>
 			</div>

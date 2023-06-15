@@ -1,5 +1,7 @@
 import React from 'react'
 import './login.css'
+import { Link } from 'react-router-dom'
+
 const Login = () => {
 	return (
 		<main>
@@ -21,7 +23,7 @@ const Login = () => {
 					<input type='submit' value='LOG IN' />
 					<br />
 					<span>
-						<a href='#'>Forgot Password?</a>
+						<Link to='/forgotpassword'>Forgot Password?</Link>
 					</span>
 				</form>
 			</div>
