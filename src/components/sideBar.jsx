@@ -5,7 +5,7 @@ import './sidebar.css'
 const Sidebar = () => {
 	return (
 		<>
-			<div className='sidebar'>
+			<div className='w-100 vh-100 bg-secondary border-primary d-flex flex-column'>
 				<h1>Proyecto Dame la Pata</h1>
 				<form id='search-form' role='search'>
 					<input id='q' aria-label='Search contacts' placeholder='Search' type='search' name='q' />
@@ -16,13 +16,16 @@ const Sidebar = () => {
 					<button type='submit'>New</button>
 				</form>
 				<div>
-					<img src='src/assets/Logo.svg' className='img-fluid border' alt='Logo' />
+					<img src='src/assets/Logo.svg' className='img-fluid bg-light' alt='Logo' />
 				</div>
 				<div>
 					<Link to='/'>Home</Link>
 				</div>
 				<div>
 					<Link to='/login'>Login</Link>
+				</div>
+				<div>
+					<Link to='/carrusel'>Carrusel</Link>
 				</div>
 			</div>
 		</>

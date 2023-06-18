@@ -26,8 +26,17 @@ const App = () => {
 
 	return (
 		<AppContext.Provider value={state}>
-			<Sidebar />
-			<Outlet />
+			<div className='container-fluid'>
+				<div className='row'>
+					<div className='col-2'>
+						<Sidebar />
+					</div>
+					<div className='col'>
+						{/* <Carousel /> */}
+						<Outlet />
+					</div>
+				</div>
+			</div>
 		</AppContext.Provider>
 	)
 }
