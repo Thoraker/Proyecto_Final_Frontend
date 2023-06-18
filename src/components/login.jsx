@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Login = () => {
 	return (
 		<main>
-			<div className='wrapper'>
+			<div className='wrapper position-absolute top-50'>
 				<form action=''>
 					<img
 						src='https://img.pikbest.com/backgrounds/20190924/technology-background-with-blue-gradient-background-v_1559315jpg!w700wp'

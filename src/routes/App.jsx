@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom'
 import getState from '../resources/Flux'
 import Sidebar from '../components/sideBar'
 import './App.css'
-import Carousel from '../components/carousel'
+import Navbar from '../components/navbar'
 
 export const AppContext = createContext(null)
 
@@ -28,11 +28,13 @@ const App = () => {
 		<AppContext.Provider value={state}>
 			<div className='container-fluid'>
 				<div className='row'>
+					<Navbar />
+				</div>
+				<div className='row'>
 					<div className='col-2'>
 						<Sidebar />
 					</div>
 					<div className='col'>
-						{/* <Carousel /> */}
 						<Outlet />
 					</div>
 				</div>
