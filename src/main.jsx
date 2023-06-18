@@ -5,6 +5,7 @@ import ErrorPage from './routes/ErrorPage'
 import './index.css'
 import App from './routes/App.jsx'
 import LoginPage from './routes/LoginPage'
+import Carousel from './components/carousel'
 
 const domNode = document.getElementById('root')
 const root = createRoot(domNode)
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
 			{
 				path: '/login',
 				element: <LoginPage />,
+			},
+			{
+				path: '/carrusel',
+				element: <Carousel />,
 			},
 		],
 	},

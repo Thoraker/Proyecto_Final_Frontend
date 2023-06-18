@@ -1,8 +1,0 @@
-.sidebar {
-    width: 15rem;
-    height: 100vh;
-    background-color: lightyellow;
-    border-right: solid 1px #e3e3e3;
-    display: flex;
-    flex-direction: column;
-}
