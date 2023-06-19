@@ -7,7 +7,7 @@
 section {
     height: 100vh;
     background: rgb(189, 209, 117);
-    background: linear-gradient(90deg, rgba(17, 110, 42, 1) 22%, rgb(171, 202, 105) 84%);
+    background: linear-gradient(90deg, rgba(171, 202, 105, 1) 22%, rgb(17, 110, 42, 1) 84%);
     background-size: cover;
     font-family: cursive;
 }
