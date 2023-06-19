@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section {
+    height: 100vh;
+    background: rgb(189, 209, 117);
+    background: linear-gradient(90deg, rgba(171, 202, 105, 1) 22%, rgb(17, 110, 42, 1) 84%);
+    background-size: cover;
+    font-family: cursive;
+}
+
+.formpet {
+    margin: 0 auto;
+    width: 400px;
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+}
