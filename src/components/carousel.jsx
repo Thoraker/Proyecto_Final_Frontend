@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import './carousel.css'
 import { AppContext } from '../routes/App'
 
 const Carousel = () => {

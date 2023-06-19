@@ -1,13 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './sidebar.css'
 
 const Sidebar = () => {
 	return (
 		<>
-			<div className='container w-100 vh-100 bg-body-secondary border-primary d-flex flex-column p-2'>
+			<div className='container w-100 vh-100 bg-body-secondary d-flex flex-column'>
 				<h3>Proyecto Dame la Pata</h3>
-				<div className='p-2'>
+				<div className=''>
 					<img src='src/assets/Logo.svg' className='img-fluid bg-light' alt='Logo' />
 				</div>
 				<div className=''>

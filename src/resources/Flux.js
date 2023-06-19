@@ -20,7 +20,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			loadInitialData: () => {
 				
-			}
+			},
+			postPet: async() => {
+				const myHeaders = new Headers()
+				myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOiIxYWNhODVmYi02OWNiLTQyOGItODhkMC1lMmM3YjFlNGU3ZmYifQ.NJMA8CAPYmCXe3fOle6MBQ5HX2yvEcYOggJjeB6meIc");
+				myHeaders.append("Content-Type", "application/json");
+
+				const raw = JSON.stringify({
+					"name": "Lola",
+					"specie": 2,
+					"age": "5 años",
+					"size": 1,
+					"photo_url": null,
+					"need_backyard": false
+				});
+
+				const requestOptions = {
+					method: 'POST',
+					headers: myHeaders,
+					body: raw,
+					redirect: 'follow'
+				};
+				fetch("localhost:3000/pet", requestOptions)
+					.then(response => response.text())
+					.then(result => console.log(result))
+					.catch(error => console.log('error', error));
+				}
 		},
 	}
 }
