@@ -1,12 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-
-
 const Sidebar = () => {
 	return (
 		<>
-			<div className='container w-100 vh-100 bg-body-secondary border-primary d-flex flex-column p-2'>
+			<div className='container w-100 vh-100 bg-body-secondary d-flex flex-column'>
 				<h3>Proyecto Dame la Pata</h3>
 				<div className=''>
 					{/* <form id='search-form' role='search'>
