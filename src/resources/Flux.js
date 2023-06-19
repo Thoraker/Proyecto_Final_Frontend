@@ -23,7 +23,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			postPet: async() => {
 				const myHeaders = new Headers()
-				myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOiIxYWNhODVmYi02OWNiLTQyOGItODhkMC1lMmM3YjFlNGU3ZmYifQ.NJMA8CAPYmCXe3fOle6MBQ5HX2yvEcYOggJjeB6meIc");
+				myHeaders.append("Authorization", "Bearer xxx");
 				myHeaders.append("Content-Type", "application/json");
 
 				const raw = JSON.stringify({
