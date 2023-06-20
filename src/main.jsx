@@ -7,6 +7,8 @@ import App from './routes/App.jsx'
 import LoginPage from './routes/LoginPage'
 // import Carousel from './components/carousel'
 import PetForm from './components/petForm'
+import RegisterPage from './routes/RegisterPage'
+import LandingPage from './routes/LandingPage'
 
 const domNode = document.getElementById('root')
 const root = createRoot(domNode)
@@ -19,8 +21,16 @@ const router = createBrowserRouter([
 
 		children: [
 			{
+				path: '/',
+				element: <LandingPage />,
+			},
+			{
 				path: '/login',
 				element: <LoginPage />,
+			},
+			{
+				path: '/register',
+				element: <RegisterPage />,
 			},
 			{
 				path: '/prueba',

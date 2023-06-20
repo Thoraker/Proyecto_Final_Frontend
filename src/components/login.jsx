@@ -1,4 +1,5 @@
 import React from 'react'
+import './login.css'
 import { Link } from 'react-router-dom'
 import './login.css'
 
@@ -12,9 +13,14 @@ const Login = () => {
 							src='https://img.freepik.com/vector-premium/perfil-avatar-ilustraciones-vectoriales-sitio-web-redes-sociales-icono-perfil-usuario_495897-224.jpg?w=360'
 							alt=''
 						/>
-						<input className='diseño' type='text' placeholder='Name'/>
+						<input className='diseño' type='text' placeholder='Name' />
 						<br />
-						<input className='diseño' type='password' placeholder='Insert Password' aria-labelledby='passwordHelpInline' />
+						<input
+							className='diseño'
+							type='password'
+							placeholder='Insert Password'
+							aria-labelledby='passwordHelpInline'
+						/>
 						<br />
 						<div className='col-auto'>
 							<span id='passwordHelpInline' className='form-text'>
