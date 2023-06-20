@@ -1,6 +1,7 @@
 import React from 'react'
 import './login.css'
 import { Link } from 'react-router-dom'
+import './login.css'
 
 const Login = () => {
 	return (
@@ -9,7 +10,7 @@ const Login = () => {
 				<div className='wrapper position-absolute top-50'>
 					<form action=''>
 						<img
-							src='https://img.pikbest.com/backgrounds/20190924/technology-background-with-blue-gradient-background-v_1559315jpg!w700wp'
+							src='https://img.freepik.com/vector-premium/perfil-avatar-ilustraciones-vectoriales-sitio-web-redes-sociales-icono-perfil-usuario_495897-224.jpg?w=360'
 							alt=''
 						/>
 						<input className='diseño' type='text' placeholder='Name' />
