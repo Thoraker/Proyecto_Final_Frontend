@@ -29,6 +29,7 @@ const PetForm = () => {
     const handleEspecieChange = (event) => {
         setEspecie(event.target.value);
         actualizarProgreso();
+        // NO ESTA CAMBIANDO LA BARRA PROGRESS OJOOOOOOOOOOOOOOO
     };
 
     const handleTamanoChange = (event) => {
@@ -104,7 +105,7 @@ const PetForm = () => {
                     </div>
 
 
-                    <div className="progress">
+                    <div className="progress mb-3" >
                         <div
                             className="progress-bar"
                             role="progressbar"
