@@ -33,7 +33,7 @@ const Navbar = () => {
 							</li>
 							<li className='nav-item'>
 								<a className='nav-link' href='#'>
-									Pricing
+									Eventos
 								</a>
 							</li>
 							<li className='nav-item dropdown'>

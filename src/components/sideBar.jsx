@@ -28,6 +28,7 @@ const Sidebar = () => {
 				<div>
 					<Link to='/carrusel'>Carrusel</Link>
 				</div>
+				
 
 				<div className='p-2'>
 					<img src='src/assets/Logo.svg' className='img-fluid bg-light' alt='Logo' />

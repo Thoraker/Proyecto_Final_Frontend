@@ -3,8 +3,18 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import './form2.css';
 
 
+
+
 const Formulario = () => {
     const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
+    // const [progreso, setProgreso] = useState(0);
+
+    // const actualizarProgreso = (valores) => {
+    //     const camposCompletados = Object.values(valores).filter((valor) => valor !== '').length;
+    //     const totalCampos = Object.keys(valores).length;
+    //     const porcentaje = (camposCompletados / totalCampos) * 100;
+    //     setProgreso(porcentaje);
+    // };
 
     return (
         <Formik
@@ -13,6 +23,7 @@ const Formulario = () => {
                 lastname: '',
                 email: ''
             }}
+            validateOnChange
             validate={(valores) => {
                 const errors = {};
                 if (!valores.name) {
@@ -40,6 +51,7 @@ const Formulario = () => {
                 } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.email)) {
                     errors.email = 'El correo solo puede ocntener letras, numeros, puntos, guiones y guion bajo'
                 }
+                // actualizarProgreso(valores);
             }}
             onSubmit={(valores, {resetForm}) => {
                 resetForm();
@@ -105,6 +117,9 @@ const Formulario = () => {
                     <div>
                         <Field name='mensaje' as='textarea' placeholder='Description' />
                     </div>
+                    {/* <div>
+                    <ProgressBar now={progreso} label={`${progreso}%`} />
+                    </div> */}
 
                     <div><button type='submit' id="botonReg">Enviar</button></div>
                     {formularioEnviado && <p className='exito'>Formulario enviado con éxito!</p>}

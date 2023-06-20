@@ -48,54 +48,52 @@ const PetForm = () => {
     return (
         <section>
             <div className="containerForm">
-
-                <form className='formpet pb-2'>
+                <form className="formpet pb-2">
                     <p>Publica tu Mascota</p>
 
                     <div className="form-group pb-2">
                         <input
-                            type="text pl-3"
-                            className="NombreyEdad"
+                            type="text"
+                            className="form-control"
                             placeholder="Nombre de tu mascota"
                             value={nombre}
                             onChange={handleNombreChange}
                         />
                     </div>
+
                     <div className="form-group pb-2">
                         <input
                             type="text"
-                            className="NombreyEdad"
+                            className="form-control"
                             placeholder="Edad"
                             value={edad}
                             onChange={handleEdadChange}
                         />
+                    </div>
 
-                    </div>
-                    <div className="dropdown me-2 pb-2">
-                        <button className="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Tamaño
-                        </button>
-                        <ul className="dropdown-menu">
-                            <li><a className="dropdown-item" onClick={() => handleTamanoChange('Pequeño')}>Pequeño</a></li>
-                            <li><a className="dropdown-item" onClick={() => handleTamanoChange('Mediano')}>Mediano</a></li>
-                            <li><a className="dropdown-item" onClick={() => handleTamanoChange('Grande')}>Grande</a></li>
-                        </ul>
-                    </div>
-                    <div className="dropdown me-2 pb-2">
-                        <button className="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Selecciona una raza
-                        </button>
-                        <ul className="dropdown-menu">
-                            <li><a className="dropdown-item" onClick={() => handleEspecieChange('Perros')}>Perros</a></li>
-                            <li><a className="dropdown-item" onClick={() => handleEspecieChange('Gatos')}>Gatos</a></li>
-                            <li><a className="dropdown-item" onClick={() => handleEspecieChange('Aves')}>Aves</a></li>
-                            <li><hr className="dropdown-divider"></hr></li>
-                            <li><a className="dropdown-item" onClick={() => handleEspecieChange('Otros')}>Otros</a></li>
-                        </ul>
-                    </div>
                     <div className="form-group pb-2">
+                        <div className="d-flex align-items-center">
+                            <select className="form-select me-2" value={especie} onChange={handleEspecieChange}>
+                                <option value="">Especie</option>
+                                <option value="Perros">Perros</option>
+                                <option value="Gatos">Gatos</option>
+                                <option value="Aves">Aves</option>
+                                <option value="Otros">Otros</option>
+                            </select>
+
+                            <select className="form-select" value={tamano} onChange={handleTamanoChange}>
+                                <option value="">Tamaño</option>
+                                <option value="Pequeño">Pequeño</option>
+                                <option value="Mediano">Mediano</option>
+                                <option value="Grande">Grande</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div className="form-group pb-2 d-flex flex-column align-items-center">
                         <textarea
                             className="form-control"
+                            id="Descripction1"
                             placeholder="Descripción"
                             rows="3"
                             value={descripcion}
@@ -104,6 +102,8 @@ const PetForm = () => {
                         ></textarea>
                         <p>Remaining characters: {100 - descripcion.length}</p>
                     </div>
+
+
                     <div className="progress">
                         <div
                             className="progress-bar"
@@ -114,14 +114,15 @@ const PetForm = () => {
                             aria-valuemax="100"
                         ></div>
                     </div>
-                    <div className='pb-2'>
-                        <button type="submit" className="btn-Petform ">
+
+                    <div className="pb-2">
+                        <button type="submit" className="btn-Petform">
                             Publicar
                         </button>
                     </div>
                 </form>
-            </div >
-        </section >
+            </div>
+        </section>
     );
 };
 

@@ -32,6 +32,12 @@ section {
     cursor: pointer;
     transition: backgraund-color .3s;
 }
+#Descripction1 {
+    border-radius: 8px;
+    height: 70px;
+    width: 220px;
+    background: rgb(222, 242, 219);
+}
 
 .btn-Petform {
     border: none;
