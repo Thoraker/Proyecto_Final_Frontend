@@ -113,7 +113,6 @@ const PetForm = () => {
                             aria-valuemax="100"
                         ></div>
                     </div>
-
                     <div className='pb-2'>
                         <button type="submit" className="btn-Petform ">
                             Publicar
