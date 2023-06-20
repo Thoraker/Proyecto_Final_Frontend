@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import getState from '../resources/Flux'
 import Sidebar from '../components/sideBar'
-import './App.css'
+
 import Navbar from '../components/navbar'
 
 export const AppContext = createContext(null)
