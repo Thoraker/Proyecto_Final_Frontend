@@ -40,16 +40,16 @@ const Formulario = () => {
                 } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.email)) {
                     errors.email = 'El correo solo puede ocntener letras, numeros, puntos, guiones y guion bajo'
                 }
-
             }}
-            onSubmit={(valores, { resetForm }) => {
+            onSubmit={(valores, {resetForm}) => {
                 resetForm();
                 cambiarFormularioEnviado(true);
                 setTimeout(() => cambiarFormularioEnviado(false), 4000);
+
                 console.log('Formulario enviado');
             }}
         >
-            {({ errors }) => (
+            {( {errors} ) => (
                 <Form className='formulario'>
                     <div>
                         <label htmlFor='name'>Name</label>
@@ -58,11 +58,9 @@ const Formulario = () => {
                             id='name'
                             name='name'
                             placeholder='Bev'
-
                         ></Field>
                         <ErrorMessage name='name' component={() => (<div className='error'>{errors.name}</div>
                         )}></ErrorMessage>
-
                     </div>
                     <div>
                         <label htmlFor="lastname">Last Name</label>
@@ -108,7 +106,7 @@ const Formulario = () => {
                         <Field name='mensaje' as='textarea' placeholder='Description' />
                     </div>
 
-                    <div><button type='submit'>Enviar</button></div>
+                    <div><button type='submit' id="botonReg">Enviar</button></div>
                     {formularioEnviado && <p className='exito'>Formulario enviado con éxito!</p>}
                 </Form>
             )}
