@@ -7,6 +7,8 @@ import App from './routes/App.jsx'
 import LoginPage from './routes/LoginPage'
 // import Carousel from './components/carousel'
 import PetForm from './components/petForm'
+import Formulario from './components/formRegister'
+
 
 const domNode = document.getElementById('root')
 const root = createRoot(domNode)
@@ -24,7 +26,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: '/prueba',
-				element: <PetForm />,
+				element: <Formulario />,
 			},
 		],
 	},

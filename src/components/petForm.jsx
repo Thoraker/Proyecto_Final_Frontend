@@ -69,6 +69,7 @@ const PetForm = () => {
                             value={edad}
                             onChange={handleEdadChange}
                         />
+
                     </div>
                     <div className="dropdown me-2 pb-2">
                         <button className="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
