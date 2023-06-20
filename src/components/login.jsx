@@ -1,4 +1,5 @@
 import React from 'react'
+import './login.css'
 import { Link } from 'react-router-dom'
 
 const Login = () => {
@@ -11,9 +12,14 @@ const Login = () => {
 							src='https://img.pikbest.com/backgrounds/20190924/technology-background-with-blue-gradient-background-v_1559315jpg!w700wp'
 							alt=''
 						/>
-						<input className='diseño' type='text' placeholder='Name'/>
+						<input className='diseño' type='text' placeholder='Name' />
 						<br />
-						<input className='diseño' type='password' placeholder='Insert Password' aria-labelledby='passwordHelpInline' />
+						<input
+							className='diseño'
+							type='password'
+							placeholder='Insert Password'
+							aria-labelledby='passwordHelpInline'
+						/>
 						<br />
 						<div className='col-auto'>
 							<span id='passwordHelpInline' className='form-text'>
@@ -28,7 +34,7 @@ const Login = () => {
 					</form>
 				</div>
 			</div>
-		</div>
+		</main>
 	)
 }
 
