@@ -10,6 +10,9 @@ body {
 }
 
 .formulario {
+    display: flex;
+    align-items: center;
+    justify-content: ;
     min-width: 450px;
     margin-top: 50px;
     background: rgb(17, 110, 42);
@@ -21,7 +24,7 @@ body {
 }
 
 #botonReg {
-    display: inline-flex;
+    display:flex; 
     align-items: center;
     justify-content: center;
     width: 25%;
@@ -92,4 +95,3 @@ body {
     background-color: #0a5b1a;
     transition: width 0.5s ease-in-out;
 }
-

@@ -8,6 +8,9 @@ import LoginPage from './routes/LoginPage'
 // import Carousel from './components/carousel'
 import PetForm from './components/petForm'
 import Formulario from './components/formRegister'
+import InviteFriends from './components/inviteFri'
+
+
 
 
 const domNode = document.getElementById('root')
@@ -26,10 +29,6 @@ const router = createBrowserRouter([
 			},
 			{
 				path: '/prueba',
-				element: <Formulario />,
-			},
-			{
-				path: '/1',
 				element: <Formulario />,
 			},
 			
