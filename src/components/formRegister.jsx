@@ -100,7 +100,9 @@ const Formulario = () => {
                     </div>
 
                     <div>
+                        <label>
                         <ProgressBar now={progreso} label={`${progreso}%`} />
+                        </label>
                     </div>
 
                     <div><button type='submit' id="botonReg">Enviar</button></div>
