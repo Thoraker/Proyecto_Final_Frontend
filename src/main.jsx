@@ -11,6 +11,7 @@ import Formulario from './components/formRegister'
 import InviteFriends from './components/inviteFri'
 import RegisterPage from './routes/RegisterPage'
 import LandingPage from './routes/LandingPage'
+import PhotoUploader from './components/photoUploader'
 
 const domNode = document.getElementById('root')
 const root = createRoot(domNode)
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: '/prueba',
-				element: <Formulario />,
+				element: <PhotoUploader />,
 			},
 			
 		],

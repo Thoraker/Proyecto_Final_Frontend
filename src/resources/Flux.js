@@ -3,19 +3,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			slides: [
 				{
-					url: 'https://picsum.photos/id/37/580/300',
+					url: 'https://res.cloudinary.com/dqehz6slh/image/upload/v1687397371/lqlhggzj8souxquvercq.jpg',
 					title: 'Slide 1',
 				},
 				{
-					url: 'https://picsum.photos/id/27/580/300',
+					url: 'http://res.cloudinary.com/dqehz6slh/image/upload/v1687452386/j13abkvxjzk0icj09gqt.jpg',
 					title: 'Slide 2',
 				},
 				{
-					url: 'https://picsum.photos/id/23/580/300',
+					url: 'https://res.cloudinary.com/dqehz6slh/image/upload/v1687397803/lihibq4hco4nw7thlwuw.jpg',
 					title: 'Slide 3',
+				},
+				// {
+				// 	url: 'https://res.cloudinary.com/dqehz6slh/image/upload/v1687231671/samples/animals/kitten-playing.gif',
+				// 	title: 'Slide 3',
+				// },
+				{
+					url: 'https://res.cloudinary.com/dqehz6slh/image/upload/v1687231664/samples/animals/three-dogs.jpg',
+					title: 'Slide 4',
+				},
+				{
+					url: 'https://res.cloudinary.com/dqehz6slh/image/upload/v1687231658/samples/animals/cat.jpg',
+					title: 'Slide 4',
 				},
 			],
 			token: '',
+			photo: {},
 		},
 
 		actions: {

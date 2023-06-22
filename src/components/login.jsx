@@ -41,17 +41,25 @@ const Login = () => {
 							value={password}
 							onChange={handlePasswordChange}
 						/>
-
 						<br />
+
+						<div className='col-auto'>
+							<span id='passwordHelpInline' className='form-text'>
+								Must be 8-20 characters long.
+							</span>
+						</div>
+						<input type='submit' value='LOG IN' />
+						<br />
+						<span>
+							<Link to='/forgotten'>Forgot Password?</Link>
+						</span>
 						{password && (
 							<div className='col-auto'>
-
 							</div>
 						)}
 						{isLoggedIn ? (
 							<>
 								<p>¡Has iniciado sesión correctamente!</p>
-
 								{/* <button id='botLog'>Cerrar sesión</button> */}
 							</>
 						) : (
