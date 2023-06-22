@@ -4,34 +4,27 @@ import { Link } from 'react-router-dom'
 const Sidebar = () => {
 	return (
 		<>
-			<div className='container w-100 vh-100 bg-body-secondary d-flex flex-column'>
-				<div className='p-2'>
-					<img src='src/assets/Logo.svg' className='img-fluid bg-light img-thumbnail' alt='Logo' />
+			<div className='vh-100 bg-body-secondary'>
+				<div className='d-flex'>
+					<img
+						src='src/assets/Logo.svg'
+						className='img-fluid bg-dark-subtle rounded-pill w-75 mt-5 mx-auto'
+						alt='Logo'
+					/>
 				</div>
-				<div className=''>
-					{/* <form id='search-form' role='search'>
-						<input id='q' aria-label='Search contacts' placeholder='Search' type='search' name='q' />
-						<div id='search-spinner' aria-hidden hidden={true} />
-						<div className='sr-only' aria-live='polite'></div>
-					</form> */}
-					{/* <form method='post'>
-						<button type='submit'>New</button>
-					</form> */}
-				</div>
-				<div>
-					<Link to='/'>Home</Link>
-				</div>
-				{/* <div>
-					<Link to='/petForm'>Publica tu mascota</Link>
-				</div> */}
-				<div>
-					<Link to='/login'>Login</Link>
-				</div>
-				<div>
-					<Link to='/register'>Registro</Link>
-				</div>
-				<div>
-					<Link to='/prueba'>Prueba</Link>
+				<div className='container-fluid p-5 my-5'>
+					<div>
+						<Link to='/'>Home</Link>
+					</div>
+					<div>
+						<Link to='/login'>Login</Link>
+					</div>
+					<div>
+						<Link to='/register'>Registro</Link>
+					</div>
+					<div>
+						<Link to='/prueba'>Prueba</Link>
+					</div>
 				</div>
 			</div>
 		</>
