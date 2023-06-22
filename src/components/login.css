@@ -69,7 +69,7 @@ form {
 }
 
 
-input[type="submit"] {
+#botLog {
     border: none;
     border-radius: 8px;
     border-bottom: 0;
@@ -81,13 +81,13 @@ input[type="submit"] {
     transition: background-color .3s;
 }
 
-input[type="submit"]:hover {
-    background: rgba(171,77,160,1);
+#botLog:hover {
+    background: rgb(63, 9, 57);
     color: rgb(249, 245, 245);
 
 }
 
 span a {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(7, 52, 5, 0.8);
 
 }

@@ -1,0 +1,32 @@
+#sidebar {
+    background-color: rgb(205, 222, 205);
+}
+
+a {
+    text-decoration: none;
+    font-size: medium;
+    padding-left: 5px;
+    margin-left: 3px;
+
+}
+
+
+a:link {}
+
+a:visited {
+    color: #663b87;
+}
+
+a:focus {
+    border-bottom: 1px solid;
+}
+
+a:hover {
+    border-bottom: 1px solid;
+    background: rgb(189, 209, 189);
+}
+
+a:active {
+    background: rgb(52, 86, 63);
+    color: white;
+}

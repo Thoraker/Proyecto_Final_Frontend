@@ -1,8 +1,27 @@
+
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import React from 'react'
 import './login.css'
-import { Link } from 'react-router-dom'
 
 const Login = () => {
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	const [password, setPassword] = useState('');
+	const history = useNavigate();
+
+
+	const handleLogin = () => {
+		// Lógica para realizar la autenticación y establecer isLoggedIn en true
+		setIsLoggedIn(true)
+		history("/home");
+	};
+
+	const handlePasswordChange = (event) => {
+		setPassword(event.target.value);
+	};
+
+	
+
 	return (
 		<main>
 			<div className='container'>
@@ -19,8 +38,11 @@ const Login = () => {
 							type='password'
 							placeholder='Insert Password'
 							aria-labelledby='passwordHelpInline'
+							value={password}
+							onChange={handlePasswordChange}
 						/>
 						<br />
+
 						<div className='col-auto'>
 							<span id='passwordHelpInline' className='form-text'>
 								Must be 8-20 characters long.
@@ -31,11 +53,32 @@ const Login = () => {
 						<span>
 							<Link to='/forgotten'>Forgot Password?</Link>
 						</span>
+						{password && (
+							<div className='col-auto'>
+							</div>
+						)}
+						{isLoggedIn ? (
+							<>
+								<p>¡Has iniciado sesión correctamente!</p>
+								{/* <button id='botLog'>Cerrar sesión</button> */}
+							</>
+						) : (
+							<>
+								<button id='botLog' onClick={handleLogin}>
+									Únete ahora
+								</button>
+								<div>
+									<span>
+										<Link to='/forgotpassword'>Forgot Password?</Link>
+									</span>
+								</div>
+							</>
+						)}
 					</form>
 				</div>
 			</div>
 		</main>
-	)
-}
+	);
+};
 
-export default Login
+export default Login;
