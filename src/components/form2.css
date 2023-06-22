@@ -1,0 +1,97 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.formulario {
+    display: flex;
+    align-items: center;
+    justify-content: ;
+    min-width: 450px;
+    margin-top: 50px;
+    background: rgb(17, 110, 42);
+    background: linear-gradient(90deg, rgba(17, 110, 42, 0.6168592436974789) 19%, rgba(198, 182, 39, 1) 71%);
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: rgba(0, 0 0, 0, 16) 0px 1px 4px;
+
+}
+
+#botonReg {
+    display:flex; 
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 40px;
+    background: #054b12;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: .5s ease all;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+#botonReg::after {
+    content: "";
+    width: 1px;
+    height: 1px;
+    background: none;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transition: .5s ease-in-out all;
+    border-radius: 100px;
+    transform-origin: center;
+}
+
+#botonReg:hover::after {
+    transform: scale(160);
+    background: #24954d;
+    color: bisque;
+
+}
+
+#botonReg:hover {
+    color: bisque;
+} 
+
+.exito {
+    color: rgb(11, 77, 11);
+    font-style: bold;
+    
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.progress {
+    width: 100%;
+    height: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-bar {
+    background-color: #0a5b1a;
+    transition: width 0.5s ease-in-out;
+}

@@ -25,17 +25,13 @@ const App = () => {
 
 	return (
 		<AppContext.Provider value={state}>
-			<div className='container-fluid'>
-				<div className='row'>
-					<Navbar />
+			<div className='row'>
+				<Navbar />
+				<div className='col-2 me-0 pe-0'>
+					<Sidebar />
 				</div>
-				<div className='row'>
-					<div className='col-2'>
-						<Sidebar />
-					</div>
-					<div className='col'>
-						<Outlet />
-					</div>
+				<div className='col ms-0 ps-0'>
+					<Outlet />
 				</div>
 			</div>
 		</AppContext.Provider>
