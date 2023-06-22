@@ -11,8 +11,11 @@ body {
 
 .formulario {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: ;
+    
+    justify-content: space-evenly;
+
     min-width: 450px;
     margin-top: 50px;
     background: rgb(17, 110, 42);
@@ -24,10 +27,10 @@ body {
 }
 
 #botonReg {
-    display:flex; 
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: 25%;
+    width: 105%;
     height: 40px;
     background: #054b12;
     color: #fff;
@@ -66,12 +69,12 @@ body {
 
 #botonReg:hover {
     color: bisque;
-} 
+}
 
 .exito {
     color: rgb(11, 77, 11);
     font-style: bold;
-    
+
 }
 
 .error {
