@@ -28,6 +28,10 @@ const router = createBrowserRouter([
 				path: '/prueba',
 				element: <Formulario />,
 			},
+			{
+				path: '/1',
+				element: <Formulario />,
+			},
 			
 		],
 	},

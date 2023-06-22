@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './sideBar.css'
+import Formulario from './formRegister'
 
 const Sidebar = () => {
 	return (
@@ -35,6 +36,9 @@ const Sidebar = () => {
 				</div>
 				<div>
 					<Link to='/login'>Login</Link>
+				</div>
+				<div>
+					<Link to='/Formulario'>Registrate aquí</Link>
 				</div>
 				<div>
 					<Link to='/carrusel'>Carrusel</Link>

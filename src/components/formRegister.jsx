@@ -3,7 +3,6 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { ProgressBar } from 'react-bootstrap';
 import './form2.css';
 
-
 const Formulario = () => {
     const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
     const [progreso, setProgreso] = useState(0);
@@ -14,7 +13,6 @@ const Formulario = () => {
         const porcentaje = (camposCompletados / totalCampos) * 100;
         setProgreso(porcentaje);
     };
-
 
     return (
         <Formik
@@ -31,13 +29,11 @@ const Formulario = () => {
                 } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.name)) {
                     errors.name = 'El nombre solo puede contener letras y espacios';
                 }
-
                 if (!valores.lastname) {
                     errors.lastname = 'Por favor ingresa un apellido';
                 } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.lastname)) {
                     errors.lastname = 'El apellido solo puede contener letras y espacios';
                 }
-
                 if (!valores.email) {
                     errors.email = 'Por favor ingresa un correo';
                 } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.email)) {
@@ -93,29 +89,16 @@ const Formulario = () => {
                         )}></ErrorMessage>
                     </div>
                     <div>
-                        <Field name='pais' as='select'>
+                        <Field name='pais' as='select' >
                             <option value="Chile">Chile</option>
                             <option value="Argentina">Argentina</option>
                             <option value="Venezuela">Venezuela</option>
                         </Field>
-                    </div>
-
-                    <div>
-                        <label>
-                            <Field type='radio' name='sexo' value='Hombre' />Hombre
-                        </label>
-                        <label>
-                            <Field type='radio' name='sexo' value='Mujer' />Mujer
-                        </label>
-                    </div>
-
-                    <div>
-                        <Field name='mensaje' as='textarea' placeholder='Description' />
-                    </div>
+                    </div>     
+                    
                     <div>
                         <ProgressBar now={progreso} /* label={`${progreso}%`} */ />
                     </div>
-
 
                     <div><button type='submit' id="botonReg">Enviar</button></div>
                     {formularioEnviado && <p className='exito'>Formulario enviado con éxito!</p>}
