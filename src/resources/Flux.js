@@ -7,8 +7,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					title: 'Slide 1',
 				},
 				{
-					url: 'https://res.cloudinary.com/dqehz6slh/image/upload/v1687397803/lihibq4hco4nw7thlwuw.jpg',
+					url: 'http://res.cloudinary.com/dqehz6slh/image/upload/v1687452386/j13abkvxjzk0icj09gqt.jpg',
 					title: 'Slide 2',
+				},
+				{
+					url: 'https://res.cloudinary.com/dqehz6slh/image/upload/v1687397803/lihibq4hco4nw7thlwuw.jpg',
+					title: 'Slide 3',
 				},
 				// {
 				// 	url: 'https://res.cloudinary.com/dqehz6slh/image/upload/v1687231671/samples/animals/kitten-playing.gif',
@@ -24,6 +28,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				},
 			],
 			token: '',
+			photo: {},
 		},
 
 		actions: {
