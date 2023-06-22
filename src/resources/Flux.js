@@ -19,7 +19,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 
 		actions: {
-			loadInitialData: () => {				
+			loadInitialData: () => {
+				
 			},
 			createUser: async(input) => {
 				const myHeaders = new Headers();

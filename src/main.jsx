@@ -9,9 +9,8 @@ import LoginPage from './routes/LoginPage'
 import PetForm from './components/petForm'
 import Formulario from './components/formRegister'
 import InviteFriends from './components/inviteFri'
-
-
-
+import RegisterPage from './routes/RegisterPage'
+import LandingPage from './routes/LandingPage'
 
 const domNode = document.getElementById('root')
 const root = createRoot(domNode)
@@ -24,8 +23,16 @@ const router = createBrowserRouter([
 
 		children: [
 			{
+				path: '/',
+				element: <LandingPage />,
+			},
+			{
 				path: '/login',
 				element: <LoginPage />,
+			},
+			{
+				path: '/register',
+				element: <RegisterPage />,
 			},
 			{
 				path: '/prueba',

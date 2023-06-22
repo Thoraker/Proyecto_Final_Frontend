@@ -78,7 +78,7 @@ form {
     background: rgb(4, 79, 33);
     color: white;
     cursor: pointer;
-    transition: backgraund-color .3s;
+    transition: background-color .3s;
 }
 
 #botLog:hover {

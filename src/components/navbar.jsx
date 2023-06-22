@@ -1,14 +1,16 @@
 import React from 'react'
 import Logout from './logout.jsx'
+import { Link } from 'react-router-dom'
+
 
 const Navbar = () => {
 	return (
 		<div className='container'>
 			<nav className='navbar navbar-expand-lg bg-body-secondary'>
 				<div className='container-fluid'>
-					<a className='navbar-brand' href='#'>
-						Navbar
-					</a>
+					<Link to='/' className='navbar-brand fs-2 container-fluid col-2'>
+						Dame Una Pata
+					</Link>
 					<button
 						className='navbar-toggler'
 						type='button'
@@ -23,9 +25,9 @@ const Navbar = () => {
 					<div className='collapse navbar-collapse' id='navbarNavDropdown'>
 						<ul className='navbar-nav'>
 							<li className='nav-item'>
-								<a className='nav-link active' aria-current='page' href='#'>
+								<Link to='/' className='nav-link active' aria-current='page'>
 									Home
-								</a>
+								</Link>
 							</li>
 							<li className='nav-item'>
 								
@@ -37,9 +39,10 @@ const Navbar = () => {
 								<a className='nav-link' href='#'>
 									Eventos
 								</a>
+								<Link className='nav-link'>Features</Link>
 							</li>
 							<li className='nav-item dropdown'>
-								<a
+								<Link
 									className='nav-link dropdown-toggle'
 									href='#'
 									role='button'
@@ -47,20 +50,23 @@ const Navbar = () => {
 									aria-expanded='false'
 								>
 									Dropdown link
-								</a>
+								</Link>
 								<ul className='dropdown-menu'>
 									<li>
-										<a className='dropdown-item' href='#'>
-											Action
-										</a>
+										<a className='dropdown-item'>Action</a>
 									</li>
 									<li>
-										<a className='dropdown-item' href='#'>
-											Another action
-										</a>
+										<Link className='dropdown-item'>Another action</Link>
 									</li>
-									
+									<li>
+										<Link className='dropdown-item'>Something else here</Link>
+									</li>
 								</ul>
+							</li>
+							<li className='nav-item position-absolute end-0 me-5'>
+								<Link className='nav-link' to='/login'>
+									Login
+								</Link>
 							</li>
 						</ul>
 					</div>

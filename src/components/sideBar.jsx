@@ -6,8 +6,11 @@ import Formulario from './formRegister'
 const Sidebar = () => {
 	return (
 		<>
-			<div className='container w-100 vh-100 d-flex flex-column' id='sidebar'>
-				<h3>Proyecto Dame la Pata</h3>
+
+			<div className='container w-100 vh-100 bg-body-secondary d-flex flex-column'>
+				<div className='p-2'>
+					<img src='src/assets/Logo.svg' className='img-fluid bg-light img-thumbnail' alt='Logo' />
+				</div>
 				<div className=''>
 					{/* <form id='search-form' role='search'>
 						<input id='q' aria-label='Search contacts' placeholder='Search' type='search' name='q' />
@@ -43,10 +46,13 @@ const Sidebar = () => {
 				<div>
 					<Link to='/carrusel'>Carrusel</Link>
 				</div>
-
-
 				<div className='p-2'>
 					<img src='src/assets/Logo.svg' className='img-fluid bg-light' alt='Logo' />
+					<Link to='/register'>Registro</Link>
+				</div>
+				<div>
+					<Link to='/prueba'>Prueba</Link>
+
 				</div>
 			</div>
 		</>
