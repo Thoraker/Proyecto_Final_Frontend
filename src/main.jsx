@@ -26,7 +26,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: '/prueba',
-				element: <PetForm />,
+				element: <Formulario />,
 			},
 			
 		],

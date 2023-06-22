@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './petForm.css';
 
 const PetForm = () => {
@@ -8,11 +8,12 @@ const PetForm = () => {
     const [tamano, setTamano] = useState('');
     const [descripcion, setDescripcion] = useState('');
     const [progreso, setProgreso] = useState(0);
+    useEffect(()=> actualizarProgreso(), [especie,tamano])
 
     const actualizarProgreso = () => {
         const camposLlenos = [nombre, edad, especie, tamano, descripcion].filter((campo) => campo !== '');
         const nuevoProgreso = (camposLlenos.length / 5) * 100; // Suponiendo 5 campos en total
-
+        console.log(especie)
         setProgreso(nuevoProgreso);
     };
 
@@ -27,9 +28,8 @@ const PetForm = () => {
     };
 
     const handleEspecieChange = (event) => {
-        setEspecie(event.target.value);
-        actualizarProgreso();
-        // NO ESTA CAMBIANDO LA BARRA PROGRESS OJOOOOOOOOOOOOOOO
+        setEspecie(especie=> event.target.value);
+    
     };
 
     const handleTamanoChange = (event) => {

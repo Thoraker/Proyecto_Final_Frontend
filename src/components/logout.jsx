@@ -1,15 +1,18 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // eslint-disable-next-line react/prop-types
-function Logout({ onLogout }) {
+function Logout({clase}) {
+    const history = useNavigate();
+
     const handleLogout = () => {
-        // Lógica para cerrar sesión
-        onLogout();
+        history('/home');
+        // OJJJJOOO : O usar history.replace('/home') en lugar de history.push si deseas reemplazar la página actual en lugar de agregarla al historial de navegación.
     };
 
     return (
         <div>
-            <button onClick={handleLogout}>Cerrar sesión</button>
+            <button className={clase} onClick={handleLogout}>Cerrar sesión</button>
         </div>
     );
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import Logout from './logout.jsx'
 
 const Navbar = () => {
 	return (
@@ -27,9 +28,10 @@ const Navbar = () => {
 								</a>
 							</li>
 							<li className='nav-item'>
-								<a className='nav-link' href='#'>
-									Features
-								</a>
+								
+									<Logout clase={"nav-link active"}/>
+								
+								
 							</li>
 							<li className='nav-item'>
 								<a className='nav-link' href='#'>
@@ -57,11 +59,7 @@ const Navbar = () => {
 											Another action
 										</a>
 									</li>
-									<li>
-										<a className='dropdown-item' href='#'>
-											Something else here
-										</a>
-									</li>
+									
 								</ul>
 							</li>
 						</ul>

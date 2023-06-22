@@ -82,12 +82,12 @@ form {
 }
 
 #botLog:hover {
-    background: rgba(171,77,160,1);
+    background: rgb(63, 9, 57);
     color: rgb(249, 245, 245);
 
 }
 
 span a {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(7, 52, 5, 0.8);
 
 }

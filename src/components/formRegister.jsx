@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { ProgressBar } from 'react-bootstrap';
 import './form2.css';
-
-
 
 
 const Formulario = () => {
     const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
-    // const [progreso, setProgreso] = useState(0);
+    const [progreso, setProgreso] = useState(0);
 
-    // const actualizarProgreso = (valores) => {
-    //     const camposCompletados = Object.values(valores).filter((valor) => valor !== '').length;
-    //     const totalCampos = Object.keys(valores).length;
-    //     const porcentaje = (camposCompletados / totalCampos) * 100;
-    //     setProgreso(porcentaje);
-    // };
+    const actualizarProgreso = (valores) => {
+        const camposCompletados = Object.values(valores).filter((valor) => valor !== '').length;
+        const totalCampos = Object.keys(valores).length;
+        const porcentaje = (camposCompletados / totalCampos) * 100;
+        setProgreso(porcentaje);
+    };
+
 
     return (
         <Formik
@@ -27,41 +27,35 @@ const Formulario = () => {
             validate={(valores) => {
                 const errors = {};
                 if (!valores.name) {
-                    errors.name = 'Por favor ingresa un nombre'
-                    // ErrorMessage.name = 'Por fav.... '
-                    // ErrorMessage = 'Por favor ingresa un nombre'
-                    console.log('Favor ingresa un nombre')
+                    errors.name = 'Por favor ingresa un nombre';
                 } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.name)) {
-                    errors.name = 'El nombre solo puede ocntener letras y espacios'
+                    errors.name = 'El nombre solo puede contener letras y espacios';
                 }
 
                 if (!valores.lastname) {
-                    errors.lastname = 'Por favor ingresa un apellido'
-                    // ErrorMessage.lastname = 'Por fav.... '
-                    // ErrorMessage = 'Por favor ingresa un apellido'
-                    console.log('Favor ingresa un apellido')
+                    errors.lastname = 'Por favor ingresa un apellido';
                 } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.lastname)) {
-                    errors.lastname = 'El apellido solo puede contener letras y espacios'
+                    errors.lastname = 'El apellido solo puede contener letras y espacios';
                 }
+
                 if (!valores.email) {
-                    errors.email = 'Por favor ingresa un correo'
-                    // ErrorMessage.email = 'Por fav.... '
-                    // ErrorMessage = 'Por favor ingresa un correo'
-                    console.log('Favor ingresa un correo')
+                    errors.email = 'Por favor ingresa un correo';
                 } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.email)) {
-                    errors.email = 'El correo solo puede ocntener letras, numeros, puntos, guiones y guion bajo'
+                    errors.email = 'El correo solo puede contener letras, números, puntos, guiones y guion bajo';
                 }
-                // actualizarProgreso(valores);
+                actualizarProgreso(valores);
+                return errors;
             }}
-            onSubmit={(valores, {resetForm}) => {
+            onSubmit={(valores, { resetForm }) => {
                 resetForm();
                 cambiarFormularioEnviado(true);
                 setTimeout(() => cambiarFormularioEnviado(false), 4000);
+                setProgreso(0);
 
                 console.log('Formulario enviado');
             }}
         >
-            {( {errors} ) => (
+            {({ errors }) => (
                 <Form className='formulario'>
                     <div>
                         <label htmlFor='name'>Name</label>
@@ -105,6 +99,7 @@ const Formulario = () => {
                             <option value="Venezuela">Venezuela</option>
                         </Field>
                     </div>
+
                     <div>
                         <label>
                             <Field type='radio' name='sexo' value='Hombre' />Hombre
@@ -117,9 +112,10 @@ const Formulario = () => {
                     <div>
                         <Field name='mensaje' as='textarea' placeholder='Description' />
                     </div>
-                    {/* <div>
-                    <ProgressBar now={progreso} label={`${progreso}%`} />
-                    </div> */}
+                    <div>
+                        <ProgressBar now={progreso} /* label={`${progreso}%`} */ />
+                    </div>
+
 
                     <div><button type='submit' id="botonReg">Enviar</button></div>
                     {formularioEnviado && <p className='exito'>Formulario enviado con éxito!</p>}

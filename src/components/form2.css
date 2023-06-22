@@ -33,43 +33,43 @@ body {
 }
 
 #botonReg {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: 25%;
-	height: 40px;
-	background: #054b12;
-	color: #fff;
-	font-family: 'Roboto', sans-serif;
-	font-size: 20px;
-	font-weight: 500;
-	border: none;
-	cursor: pointer;
-	text-transform: uppercase;
-	transition: .5s ease all;
-	border-radius: 5px;
-	position: relative;
-	overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 40px;
+    background: #054b12;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: .5s ease all;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
 }
 
 #botonReg::after {
-	content: "";
-	width: 1px;
-	height: 1px;
-	background: none;   
-	position: absolute;
-	z-index: 1;
-	top: 50%;
-	left: 50%;
-	transition: .5s ease-in-out all;
-	border-radius: 100px;
-	transform-origin: center;
+    content: "";
+    width: 1px;
+    height: 1px;
+    background: none;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transition: .5s ease-in-out all;
+    border-radius: 100px;
+    transform-origin: center;
 }
 
 #botonReg:hover::after {
-	transform: scale(160);
-	background: #24954d;
-    
+    transform: scale(160);
+    background: #24954d;
+
 }
 
 /* #botonReg::after {
@@ -95,6 +95,23 @@ body {
 } */
 
 .exito {
-        color: rgb(11, 77, 11);
-        font-style: bold;
-    }
+    color: rgb(11, 77, 11);
+    font-style: bold;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.progress {
+    height: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: #0a5b1a;
+}
+
