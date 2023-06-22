@@ -1,26 +1,21 @@
-
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import React from 'react'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import './login.css'
 
 const Login = () => {
-	const [isLoggedIn, setIsLoggedIn] = useState(false);
-	const [password, setPassword] = useState('');
-	const history = useNavigate();
-
+	const [isLoggedIn, setIsLoggedIn] = useState(false)
+	const [password, setPassword] = useState('')
+	const history = useNavigate()
 
 	const handleLogin = () => {
 		// Lógica para realizar la autenticación y establecer isLoggedIn en true
 		setIsLoggedIn(true)
-		history("/home");
-	};
+		history('/home')
+	}
 
 	const handlePasswordChange = (event) => {
-		setPassword(event.target.value);
-	};
-
-	
+		setPassword(event.target.value)
+	}
 
 	return (
 		<main>
@@ -53,10 +48,7 @@ const Login = () => {
 						<span>
 							<Link to='/forgotten'>Forgot Password?</Link>
 						</span>
-						{password && (
-							<div className='col-auto'>
-							</div>
-						)}
+						{password && <div className='col-auto'></div>}
 						{isLoggedIn ? (
 							<>
 								<p>¡Has iniciado sesión correctamente!</p>
@@ -78,7 +70,7 @@ const Login = () => {
 				</div>
 			</div>
 		</main>
-	);
-};
+	)
+}
 
-export default Login;
+export default Login
