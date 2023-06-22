@@ -2,7 +2,6 @@ import React from 'react'
 import Logout from './logout.jsx'
 import { Link } from 'react-router-dom'
 
-
 const Navbar = () => {
 	return (
 		<div className='container'>
@@ -30,10 +29,7 @@ const Navbar = () => {
 								</Link>
 							</li>
 							<li className='nav-item'>
-								
-									<Logout clase={"nav-link active"}/>
-								
-								
+								<Logout clase={'nav-link active'} />
 							</li>
 							<li className='nav-item'>
 								<a className='nav-link' href='#'>
