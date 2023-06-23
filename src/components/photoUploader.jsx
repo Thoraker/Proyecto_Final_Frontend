@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useRef } from 'react'
-import AppContext from '../routes/App'
+import React, { useEffect, useRef } from 'react'
+// import AppContext from '../routes/App'
 import '../resources/Flux.js'
 
 const PhotoUploader = () => {
-	const state = useContext(AppContext)
+	// const state = useContext(AppContext)
 	const cloudinaryRef = useRef()
 	const widgetRef = useRef()
 
@@ -15,9 +15,8 @@ const PhotoUploader = () => {
 				uploadPreset: import.meta.env.VITE_UPLOAD_PRESET,
 			},
 			function (error, result) {
-				console.log(state.store, 'state')
 				if (!error && result && result.event === 'success') {
-					console.log('Done! Here is the image info: ', result.info)
+					console.log('Done! Here is the image info: ', result)
 				} else if (error) {
 					console.log(error)
 				}

@@ -27,14 +27,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					title: 'Slide 4',
 				},
 			],
-			token: '',
-			photo: {},
+			User : {
+				token: '',
+			}
 		},
 
 		actions: {
 			loadInitialData: () => {
 				
 			},
+			// getPetPhoto: (url) =>{
+				
+			// },
 			login: async(user, pass) => {
 				const myHeaders = new Headers();
 					myHeaders.append("Content-Type", "application/json");		
@@ -53,7 +57,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				fetch("http://127.0.0.1:3000/login", requestOptions)
 				.then(response => response.json())
-				.then(result => {setStore(result); console.log(result)})
+				.then(result => {setStore({User : {
+					token: result.token,}
+				}); console.log(result)})
 				.catch(error => console.log('error', error));
 			},
 			createUser: async(input) => {

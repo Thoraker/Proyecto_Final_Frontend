@@ -4,7 +4,7 @@ import { AppContext } from './App'
 
 const LandingPage = () => {
 	const state = useContext(AppContext)
-
+	console.log(state)
 	return (
 		<div>
 			<h1>Dame una Pata</h1>

@@ -12,7 +12,6 @@ body {
 .formulario {
     display: flex;
     align-items: center;
-    justify-content: ;
     min-width: 450px;
     margin-top: 50px;
     background: rgb(17, 110, 42);

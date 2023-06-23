@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
-import './login.css'
 import { AppContext } from '../routes/App'
 
 const Login = () => {
