@@ -23,7 +23,7 @@ const Carousel = () => {
 	}
 
 	return (
-		<div className='h-75 position-relative m-5'>
+		<div className='position-relative m-5'>
 			<div
 				className='position-absolute top-50 z-1 start-0 translate-middle-y fs-1 text-light'
 				role='button'
@@ -31,10 +31,9 @@ const Carousel = () => {
 			>
 				<i className='bi bi-caret-left'></i>
 			</div>
-			<div
-				className='h-100 w-100 border-radius-10'
-				style={{ backgroundImage: `url(${photos[index].url})`, backgroundSize: 'cover' }}
-			></div>
+			<div className='ratio ratio-16x9'>
+				<img src={photos[index].url} alt='' />
+			</div>
 			<div
 				className='position-absolute top-50 z-1 end-0 translate-middle-y fs-1 text-light'
 				role='button'
@@ -42,7 +41,7 @@ const Carousel = () => {
 			>
 				<i className='bi bi-caret-right'></i>
 			</div>
-			<div className='position-absolute bottom-0 start-50'>
+			<div className='position-absolute bottom-0 start-50 translate-middle-x'>
 				<div className='d-flex'>
 					{photos.map((slide, index) => (
 						<div key={index} className='m-1 fs-5 text-light ' role='button' onClick={() => goTo(index)}>

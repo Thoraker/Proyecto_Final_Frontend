@@ -1,16 +1,13 @@
 import React from 'react'
 import Logout from './logout.jsx'
 import { Link } from 'react-router-dom'
-
+import PhotoUploader from './photoUploader.jsx'
 
 const Navbar = () => {
 	return (
 		<div className='container'>
 			<nav className='navbar navbar-expand-lg bg-body-secondary'>
 				<div className='container-fluid'>
-					<Link to='/' className='navbar-brand fs-2 container-fluid col-2'>
-						Dame Una Pata
-					</Link>
 					<button
 						className='navbar-toggler'
 						type='button'
@@ -20,7 +17,11 @@ const Navbar = () => {
 						aria-expanded='false'
 						aria-label='Toggle navigation'
 					>
-						<span className='navbar-toggler-icon'></span>
+						<span className='navbar-toggler-icon'>
+							<Link to='/' className='navbar-brand fs-2 container-fluid col-2'>
+								Dame Una Pata
+							</Link>
+						</span>
 					</button>
 					<div className='collapse navbar-collapse' id='navbarNavDropdown'>
 						<ul className='navbar-nav'>
@@ -30,45 +31,44 @@ const Navbar = () => {
 								</Link>
 							</li>
 							<li className='nav-item'>
-								
-									<Logout clase={"nav-link active"}/>
-								
-								
+								<Link className='nav-link'>Features</Link>
+							</li>
+							<li className='nav-item'>
+								<Logout clase={'nav-link active'} />
 							</li>
 							<li className='nav-item'>
 								<a className='nav-link' href='#'>
 									Eventos
 								</a>
-								<Link className='nav-link'>Features</Link>
-							</li>
-							<li className='nav-item dropdown'>
-								<Link
-									className='nav-link dropdown-toggle'
-									href='#'
-									role='button'
-									data-bs-toggle='dropdown'
-									aria-expanded='false'
-								>
-									Dropdown link
-								</Link>
-								<ul className='dropdown-menu'>
-									<li>
-										<a className='dropdown-item'>Action</a>
-									</li>
-									<li>
-										<Link className='dropdown-item'>Another action</Link>
-									</li>
-									<li>
-										<Link className='dropdown-item'>Something else here</Link>
-									</li>
-								</ul>
-							</li>
-							<li className='nav-item position-absolute end-0 me-5'>
-								<Link className='nav-link' to='/login'>
-									Login
-								</Link>
 							</li>
 						</ul>
+					</div>
+					<div>
+						<li className='nav-item dropdown d-flex'>
+							<Link
+								className='nav-link dropdown-toggle'
+								href='#'
+								role='button'
+								data-bs-toggle='dropdown'
+								aria-expanded='false'
+							>
+								<i className='bi bi-person-fill'></i> Login/Register
+							</Link>
+							<PhotoUploader />
+							<ul className='dropdown-menu'>
+								<li>
+									<Link className='nav-link' to='/login'>
+										Login
+									</Link>
+								</li>
+								<li>
+									<Link className='dropdown-item'>Another action</Link>
+								</li>
+								<li>
+									<Link className='dropdown-item'>Something else here</Link>
+								</li>
+							</ul>
+						</li>
 					</div>
 				</div>
 			</nav>
