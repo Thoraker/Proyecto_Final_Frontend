@@ -1,4 +1,4 @@
-* {
+/* * {
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
@@ -104,4 +104,4 @@ body {
 .progress-bar {
     background-color: #0a5b1a;
     transition: width 0.5s ease-in-out;
-}
+} */
