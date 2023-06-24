@@ -1,126 +1,129 @@
-import React, { useState, useEffect } from 'react'
-// import './petForm.css'
+import React, { useState, useEffect, useContext } from 'react'
+import PhotoUploader from './photoUploader'
+import { AppContext } from '../routes/App'
 
 const PetForm = () => {
-	const [nombre, setNombre] = useState('')
-	const [edad, setEdad] = useState('')
-	const [especie, setEspecie] = useState('')
-	const [tamano, setTamano] = useState('')
-	const [descripcion, setDescripcion] = useState('')
-	const [progreso, setProgreso] = useState(0)
-	useEffect(() => actualizarProgreso(), [especie, tamano])
+	const state = useContext(AppContext)
+	const [name, setName] = useState('')
+	const [age, setAge] = useState('')
+	const [specie, setSpecie] = useState('')
+	const [size, setSize] = useState('')
+	const [description, setDescription] = useState('')
+	const [progress, setProgress] = useState(0)
 
-	const actualizarProgreso = () => {
-		const camposLlenos = [nombre, edad, especie, tamano, descripcion].filter((campo) => campo !== '')
-		const nuevoProgreso = (camposLlenos.length / 5) * 100 // Suponiendo 5 campos en total
-		console.log(especie)
-		setProgreso(nuevoProgreso)
-	}
+	useEffect(() => progressUpdate(), [specie, size])
 
-	const handleNombreChange = (event) => {
-		setNombre(event.target.value)
-		actualizarProgreso()
-	}
-
-	const handleEdadChange = (event) => {
-		setEdad(event.target.value)
-		actualizarProgreso()
-	}
-
-	const handleEspecieChange = (event) => {
-		setEspecie((especie) => event.target.value)
-	}
-
-	const handleTamanoChange = (event) => {
-		setTamano(event.target.value)
-		actualizarProgreso()
-	}
-
-	const handleDescripcionChange = (event) => {
-		const inputValue = event.target.value
-		if (inputValue.length <= 100) {
-			setDescripcion(inputValue)
-			actualizarProgreso()
-		}
+	const progressUpdate = () => {
+		const fullFields = [name, age, specie, size, description].filter((field) => field !== '')
+		const newProgress = (fullFields.length / 5) * 100 // Suponiendo 5 campos en total
+		console.log(specie)
+		setProgress(newProgress)
 	}
 
 	return (
-		<section>
-			<div className='containerForm'>
-				<form className='formpet pb-2'>
-					<p>Publica tu Mascota</p>
+		<div className='container fst-italic bg-success bg-gradient rounded-3'>
+			<form
+				className='p-3 m-3'
+				onSubmit={(ev) => {
+					ev.preventDefault()
+					state.actions.createPet(name, age, specie, size, description)
+				}}
+			>
+				<h3>Cuéntanos acerca de la Mascota</h3>
+				<div className='form-group pb-2'>
+					<input
+						type='text'
+						className='form-control'
+						placeholder='Nombre'
+						value={name}
+						onChange={(ev) => {
+							setName(ev.target.value)
+							progressUpdate()
+						}}
+					/>
+				</div>
 
-					<div className='form-group pb-2'>
-						<input
-							type='text'
-							className='form-control'
-							placeholder='Nombre de tu mascota'
-							value={nombre}
-							onChange={handleNombreChange}
-						/>
+				<div className='form-group pb-2'>
+					<input
+						type='text'
+						className='form-control'
+						placeholder='Edad'
+						value={age}
+						onChange={(ev) => {
+							setAge(ev.target.value)
+							progressUpdate()
+						}}
+					/>
+				</div>
+
+				<div className='form-group pb-2'>
+					<div className='d-flex align-items-center'>
+						<select
+							className='form-select me-2'
+							value={specie}
+							onChange={(ev) => {
+								setSpecie(ev.target.value)
+								progressUpdate()
+							}}
+						>
+							<option value=''>Especie</option>
+							<option value='Perros'>Perros</option>
+							<option value='Gatos'>Gatos</option>
+							<option value='Aves'>Aves</option>
+							<option value='Otros'>Otros</option>
+						</select>
+
+						<select
+							className='form-select'
+							value={size}
+							onChange={(ev) => {
+								setSize(ev.target.value)
+								progressUpdate()
+							}}
+						>
+							<option value=''>Tamaño</option>
+							<option value='Pequeño'>Pequeño</option>
+							<option value='Mediano'>Mediano</option>
+							<option value='Grande'>Grande</option>
+						</select>
 					</div>
+				</div>
 
-					<div className='form-group pb-2'>
-						<input
-							type='text'
-							className='form-control'
-							placeholder='Edad'
-							value={edad}
-							onChange={handleEdadChange}
-						/>
-					</div>
+				<div className='form-group pb-2 d-flex flex-column align-items-center'>
+					<textarea
+						className='form-control'
+						id='Description1'
+						placeholder='Su Historia'
+						rows='3'
+						value={description}
+						onChange={(ev) => {
+							setDescription(ev.target.value)
+							progressUpdate()
+						}}
+						maxLength={100}
+					></textarea>
+					<p>Remaining characters: {100 - description.length}</p>
+				</div>
 
-					<div className='form-group pb-2'>
-						<div className='d-flex align-items-center'>
-							<select className='form-select me-2' value={especie} onChange={handleEspecieChange}>
-								<option value=''>Especie</option>
-								<option value='Perros'>Perros</option>
-								<option value='Gatos'>Gatos</option>
-								<option value='Aves'>Aves</option>
-								<option value='Otros'>Otros</option>
-							</select>
+				<div className='progress mb-3'>
+					<div
+						className='progress-bar'
+						role='progressbar'
+						style={{ width: `${progress}%` }}
+						aria-valuenow={progress}
+						aria-valuemin='0'
+						aria-valuemax='100'
+					></div>
+				</div>
 
-							<select className='form-select' value={tamano} onChange={handleTamanoChange}>
-								<option value=''>Tamaño</option>
-								<option value='Pequeño'>Pequeño</option>
-								<option value='Mediano'>Mediano</option>
-								<option value='Grande'>Grande</option>
-							</select>
-						</div>
-					</div>
-
-					<div className='form-group pb-2 d-flex flex-column align-items-center'>
-						<textarea
-							className='form-control'
-							id='Descripction1'
-							placeholder='Descripción'
-							rows='3'
-							value={descripcion}
-							onChange={handleDescripcionChange}
-							maxLength={100}
-						></textarea>
-						<p>Remaining characters: {100 - descripcion.length}</p>
-					</div>
-
-					<div className='progress mb-3'>
-						<div
-							className='progress-bar'
-							role='progressbar'
-							style={{ width: `${progreso}%` }}
-							aria-valuenow={progreso}
-							aria-valuemin='0'
-							aria-valuemax='100'
-						></div>
-					</div>
-
-					<div className='pb-2'>
-						<button type='submit' className='btn-Petform'>
-							Publicar
-						</button>
-					</div>
-				</form>
-			</div>
-		</section>
+				<div className='pb-2'>
+					<button type='submit' className='btn btn-primary'>
+						Publicar
+					</button>
+					<PhotoUploader />
+				</div>
+			</form>
+		</div>
 	)
 }
 

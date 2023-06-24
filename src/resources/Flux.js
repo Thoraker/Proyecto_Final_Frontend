@@ -80,12 +80,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(result => console.log(result))
 					.catch(error => console.log('error', error))
 			},
-			createPet: async(input) => {
+			createPet: async({input}) => {
+				const Pet = {
+					"name": null,
+					"specie": null,
+					"age": null,
+					"size": null,
+					"photo_url": null,
+					"need_backyard": true
+				}
+
 				const myHeaders = new Headers()
 				myHeaders.append("Authorization", "Bearer " + this.state.token);
 				myHeaders.append("Content-Type", "application/json");
 
-				const raw = JSON.stringify(input);
+				const raw = JSON.stringify(Object.assign(Pet, input));
 
 				const requestOptions = {
 					method: 'POST',

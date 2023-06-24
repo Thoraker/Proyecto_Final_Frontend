@@ -1,7 +1,6 @@
 import React from 'react'
 import Logout from './logout.jsx'
 import { Link } from 'react-router-dom'
-import PhotoUploader from './photoUploader.jsx'
 
 const Navbar = () => {
 	return (
@@ -54,7 +53,6 @@ const Navbar = () => {
 							>
 								<i className='bi bi-person-fill'></i> Login/Register
 							</Link>
-							<PhotoUploader />
 							<ul className='dropdown-menu'>
 								<li>
 									<Link className='nav-link' to='/login'>

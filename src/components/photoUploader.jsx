@@ -24,7 +24,11 @@ const PhotoUploader = () => {
 			}
 		)
 	}, [])
-	return <button onClick={() => widgetRef.current.open()}>Upload Photo</button>
+	return (
+		<button className='btn btn-primary' onClick={() => widgetRef.current.open()}>
+			Upload Photo
+		</button>
+	)
 }
 
 export default PhotoUploader
