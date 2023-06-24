@@ -13,6 +13,7 @@ import RegisterPage from './routes/RegisterPage'
 import LandingPage from './routes/LandingPage'
 import NewForm from './components/NewForm'
 
+
 const domNode = document.getElementById('root')
 const root = createRoot(domNode)
 

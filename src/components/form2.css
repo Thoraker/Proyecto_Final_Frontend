@@ -13,10 +13,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-
     margin: 0 auto;
     max-width: 400px;
+    min-width: 450px;
     margin-top: 50px;
     background: rgb(17, 110, 42);
     background: linear-gradient(90deg, rgba(17, 110, 42, 0.6168592436974789) 19%, rgba(198, 182, 39, 1) 71%);

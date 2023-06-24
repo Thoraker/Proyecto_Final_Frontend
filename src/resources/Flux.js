@@ -3,24 +3,64 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			slides: [
 				{
-					url: 'https://picsum.photos/id/37/580/300',
+					url: 'https://res.cloudinary.com/dqehz6slh/image/upload/v1687397371/lqlhggzj8souxquvercq.jpg',
 					title: 'Slide 1',
 				},
 				{
-					url: 'https://picsum.photos/id/27/580/300',
+					url: 'http://res.cloudinary.com/dqehz6slh/image/upload/v1687452386/j13abkvxjzk0icj09gqt.jpg',
 					title: 'Slide 2',
 				},
 				{
-					url: 'https://picsum.photos/id/23/580/300',
+					url: 'https://res.cloudinary.com/dqehz6slh/image/upload/v1687397803/lihibq4hco4nw7thlwuw.jpg',
 					title: 'Slide 3',
 				},
+				{
+					url: 'https://res.cloudinary.com/dqehz6slh/image/upload/v1687231671/samples/animals/kitten-playing.gif',
+					title: 'Slide 3',
+				},
+				{
+					url: 'https://res.cloudinary.com/dqehz6slh/image/upload/v1687231664/samples/animals/three-dogs.jpg',
+					title: 'Slide 4',
+				},
+				{
+					url: 'https://res.cloudinary.com/dqehz6slh/image/upload/v1687231658/samples/animals/cat.jpg',
+					title: 'Slide 4',
+				},
 			],
-			token: '',
+			User : {
+				token: '',
+			}
 		},
 
 		actions: {
 			loadInitialData: () => {
 				
+			},
+			// getPetPhoto: (url) =>{
+				
+			// },
+			login: async(user, pass) => {
+				const myHeaders = new Headers();
+					myHeaders.append("Content-Type", "application/json");		
+
+				const raw = JSON.stringify({
+					"user_name": user,
+					"password": pass
+					});
+
+				const requestOptions = {
+					method: 'POST',
+					headers: myHeaders,
+					body: raw,
+					redirect: 'follow'
+					};
+
+				fetch("http://127.0.0.1:3000/login", requestOptions)
+				.then(response => response.json())
+				.then(result => {setStore({User : {
+					token: result.token,}
+				}); console.log(result)})
+				.catch(error => console.log('error', error));
 			},
 			createUser: async(input) => {
 				const myHeaders = new Headers();
@@ -34,7 +74,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: 'follow'
 					};
 
-				fetch("localhost:3000/register", requestOptions)
+				fetch("http://127.0.0.1:3000/register", requestOptions)
 					.then(response => response.text())
 					.then(result => console.log(result))
 					.catch(error => console.log('error', error))
@@ -52,7 +92,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					body: raw,
 					redirect: 'follow'
 				};
-				fetch("localhost:3000/pet", requestOptions)
+				fetch("http://127.0.0.1:3000/pet", requestOptions)
 					.then(response => response.text())
 					.then(result => console.log(result))
 					.catch(error => console.log('error', error));

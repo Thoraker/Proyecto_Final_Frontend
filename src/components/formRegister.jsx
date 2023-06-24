@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import ProgressBar from 'react-bootstrap/ProgressBar'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './form2.css';
+import { ProgressBar } from 'react-bootstrap'
+// import './form2.css'
 
 const Formulario = () => {
-    const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
-    const [progreso, setProgreso] = useState(0);
+	const [formularioEnviado, cambiarFormularioEnviado] = useState(false)
+	const [progreso, setProgreso] = useState(0)
 
-    const actualizarProgreso = (valores) => {
-        const camposCompletados = Object.values(valores).filter((valor) => valor !== '').length;
-        const totalCampos = Object.keys(valores).length;
-        const porcentaje = (camposCompletados / totalCampos) * 100;
-        setProgreso(porcentaje);
-    };
+	const actualizarProgreso = (valores) => {
+		const camposCompletados = Object.values(valores).filter((valor) => valor !== '').length
+		const totalCampos = Object.keys(valores).length
+		const porcentaje = (camposCompletados / totalCampos) * 100
+		setProgreso(porcentaje)
+	}
 
     return (
         <Formik
