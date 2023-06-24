@@ -6,12 +6,13 @@ import './index.css'
 import App from './routes/App.jsx'
 import LoginPage from './routes/LoginPage'
 // import Carousel from './components/carousel'
-import PetForm from './components/petForm'
-import Formulario from './components/formRegister'
-import InviteFriends from './components/inviteFri'
+// import PetForm from './components/petForm'
+// import Formulario from './components/formRegister'
+// import InviteFriends from './components/inviteFri'
 import RegisterPage from './routes/RegisterPage'
 import LandingPage from './routes/LandingPage'
-import PhotoUploader from './components/photoUploader'
+import NewForm from './components/NewForm'
+
 
 const domNode = document.getElementById('root')
 const root = createRoot(domNode)
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: '/prueba',
-				element: <PhotoUploader />,
+				element: <NewForm />,
 			},
 			
 		],
