@@ -36,9 +36,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			loadInitialData: () => {
 				
 			},
-			// getPetPhoto: (url) =>{
-				
-			// },
+			getPetPhoto: (url) =>{
+				const petPhotos = getStore().Pet.Photos.push(url)
+				setStore({Pet: {Photos: petPhotos}})		
+			},
 			login: async(user, pass) => {
 				const myHeaders = new Headers();
 					myHeaders.append("Content-Type", "application/json");		
@@ -62,7 +63,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}); console.log(result)})
 				.catch(error => console.log('error', error));
 			},
-			createUser: async(input) => {
+			createUser: async({input}) => {
 				const myHeaders = new Headers();
 				myHeaders.append("Content-Type", "application/json");
 				const raw = JSON.stringify(input);
