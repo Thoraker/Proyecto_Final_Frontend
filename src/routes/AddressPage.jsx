@@ -11,12 +11,12 @@ const UserPage = () => {
 			<div className='card-header'>
 				<ul className='nav nav-tabs card-header-tabs'>
 					<li className='nav-item'>
-						<Link to='/user' className='nav-link active' aria-current='true'>
+						<Link to='/user' className='nav-link'>
 							Mis Datos
 						</Link>
 					</li>
 					<li className='nav-item'>
-						<Link to='/address' className='nav-link'>
+						<Link to='/address' className='nav-link active' aria-current='true'>
 							Mis Direcciones
 						</Link>
 					</li>

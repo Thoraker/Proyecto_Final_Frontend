@@ -8,6 +8,7 @@ import LoginPage from './routes/LoginPage'
 import RegisterPage from './routes/RegisterPage'
 import LandingPage from './routes/LandingPage'
 import PetForm from './components/petForm'
+import UserPage from './routes/UserPage'
 
 const domNode = document.getElementById('root')
 const root = createRoot(domNode)
@@ -17,7 +18,6 @@ const router = createBrowserRouter([
 		path: '/',
 		element: <App />,
 		errorElement: <ErrorPage />,
-
 		children: [
 			{
 				path: '/',
@@ -32,12 +32,20 @@ const router = createBrowserRouter([
 				element: <RegisterPage />,
 			},
 			{
+				path: '/user',
+				element: <UserPage />,
+			},
+			{
+				path: '/address',
+				element: <UserPage />,
+			},
+			{
 				path: '/pet',
 				element: <PetForm />,
 			},
 			{
 				path: '/prueba',
-				element: <PetForm />,
+				element: <UserPage />,
 			},
 		],
 	},
