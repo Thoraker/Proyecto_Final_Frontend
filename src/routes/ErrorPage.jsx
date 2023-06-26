@@ -2,7 +2,6 @@ import { Link, useRouteError } from 'react-router-dom'
 import React from 'react'
 const ErrorPage = () => {
 	const error = useRouteError()
-	console.log(error)
 
 	return (
 		<>
@@ -17,6 +16,7 @@ const ErrorPage = () => {
 						className='card-img-bottom mb-3'
 						alt='Cachorro'
 					/>
+					<p>{error.statusText || error.message}</p>
 					<Link to='/' className='btn btn-primary'>
 						Volver
 					</Link>

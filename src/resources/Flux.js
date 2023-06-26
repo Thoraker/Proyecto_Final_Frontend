@@ -28,8 +28,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				},
 			],
 			User : {
+				user: '',
 				token: '',
-			}
+				avatar: '',
+			},
 		},
 
 		actions: {
@@ -46,7 +48,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				const raw = JSON.stringify({
 					"user_name": user,
-					"password": pass
+					"password": pass,
 					});
 
 				const requestOptions = {
@@ -59,9 +61,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch("http://127.0.0.1:3000/login", requestOptions)
 				.then(response => response.json())
 				.then(result => {setStore({User : {
-					token: result.token,}
-				}); console.log(result)})
-				.catch(error => console.log('error', error));
+					user: result,
+					token: result.token,
+					avatar: result.avatar
+				}
+				})})
+				.catch(error => alert('error', error));
 			},
 			createUser: async({input}) => {
 				const myHeaders = new Headers();

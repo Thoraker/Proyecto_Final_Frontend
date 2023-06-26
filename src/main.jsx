@@ -32,6 +32,10 @@ const router = createBrowserRouter([
 				element: <RegisterPage />,
 			},
 			{
+				path: '/pet',
+				element: <PetForm />,
+			},
+			{
 				path: '/prueba',
 				element: <PetForm />,
 			},

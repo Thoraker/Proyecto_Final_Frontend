@@ -14,7 +14,7 @@ function NewForm() {
 	const schema = yup.object().shape({
 		firstName: yup.string().required(),
 		lastName: yup.string().required(),
-		username: yup.string().required(),
+		userName: yup.string().required(),
 		city: yup.string().required(),
 		terms: yup.bool().required().oneOf([true], 'Terms must be accepted'),
 	})
@@ -26,7 +26,7 @@ function NewForm() {
 			initialValues={{
 				firstName: '',
 				lastName: '',
-				username: '',
+				userName: '',
 				city: '',
 				terms: false,
 			}}
@@ -62,19 +62,19 @@ function NewForm() {
 								<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 							</Form.Group>
 							<Form.Group as={Col} md='4' controlId='validationFormikUsername'>
-								<Form.Label>Username</Form.Label>
+								<Form.Label>UserName</Form.Label>
 								<InputGroup hasValidation>
 									<InputGroup.Text id='inputGroupPrepend'>@</InputGroup.Text>
 									<Form.Control
 										type='text'
-										placeholder='Username'
+										placeholder='UserName'
 										aria-describedby='inputGroupPrepend'
-										name='username'
-										value={values.username}
+										name='UserName'
+										value={values.userName}
 										onChange={handleChange}
-										isInvalid={!!errors.username}
+										isInvalid={!!errors.userName}
 									/>
-									<Form.Control.Feedback type='invalid'>{errors.username}</Form.Control.Feedback>
+									<Form.Control.Feedback type='invalid'>{errors.userName}</Form.Control.Feedback>
 								</InputGroup>
 							</Form.Group>
 						</Row>
