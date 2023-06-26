@@ -61,10 +61,10 @@ function NewForm() {
 								/>
 								<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 							</Form.Group>
-							<Form.Group as={Col} md='4' controlId='validationFormikUsername'>
-								<Form.Label>UserName</Form.Label>
+							<Form.Group as={Col} md='4' controlId='validationFormik03'>
+								<Form.Label>User</Form.Label>
 								<InputGroup hasValidation>
-									<InputGroup.Text id='inputGroupPrepend'>@</InputGroup.Text>
+									<InputGroup.Text id='inputGroupPrepend'></InputGroup.Text>
 									<Form.Control
 										type='text'
 										placeholder='UserName'
@@ -72,14 +72,14 @@ function NewForm() {
 										name='UserName'
 										value={values.userName}
 										onChange={handleChange}
-										isInvalid={!!errors.userName}
+										isInvalid={touched.userName && !errors.userName}
 									/>
 									<Form.Control.Feedback type='invalid'>{errors.userName}</Form.Control.Feedback>
 								</InputGroup>
 							</Form.Group>
 						</Row>
 						<Row className='mb-3'>
-							<Form.Group as={Col} md='6' controlId='validationFormik03'>
+							<Form.Group as={Col} md='6' controlId='validationFormik04'>
 								<Form.Label>City</Form.Label>
 								<Form.Control
 									type='text'

@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 const UserDropdown = () => {
 	const state = useContext(AppContext)
 
+	const avatar = state.store.User.avatar
+	const user = state.store.User.user
 	return (
 		<div className='dropdown'>
 			<button
@@ -16,11 +18,11 @@ const UserDropdown = () => {
 				<div className='card'>
 					<div className='row'>
 						<div className='col-5'>
-							<img className='img-fluid' src={state.store.User.avatar} />
+							<img className='img-fluid' src={avatar} />
 						</div>
 						<div className='col-7'>
 							<div className='card-body'>
-								<h5 className='card-title'>{state.store.User.user}</h5>
+								<h5 className='card-title'>{user}</h5>
 							</div>
 						</div>
 					</div>

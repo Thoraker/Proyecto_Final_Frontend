@@ -61,7 +61,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch("http://127.0.0.1:3000/login", requestOptions)
 				.then(response => response.json())
 				.then(result => {setStore({User : {
-					user: result,
+					user: result.user,
 					token: result.token,
 					avatar: result.avatar
 				}
