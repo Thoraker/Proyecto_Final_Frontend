@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { AppContext } from '../routes/App'
 // import './petForm.css'
 
 const PetForm = () => {
@@ -9,6 +10,8 @@ const PetForm = () => {
 	const [descripcion, setDescripcion] = useState('')
 	const [progreso, setProgreso] = useState(0)
 	useEffect(() => actualizarProgreso(), [especie, tamano])
+
+	const {actions} = useContext(AppContext)
 
 	const actualizarProgreso = () => {
 		const camposLlenos = [nombre, edad, especie, tamano, descripcion].filter((campo) => campo !== '')
@@ -44,10 +47,21 @@ const PetForm = () => {
 		}
 	}
 
+	const enviarDatos = (e) => {
+		e.preventDefault();
+		console.log(nombre, edad, especie, tamano, descripcion)
+		actions.createPet({
+			nombre, edad, especie, tamano, descripcion
+		})
+
+		
+
+	}
+
 	return (
 		<section>
-			<div className='containerForm'>
-				<form className='formpet pb-2'>
+			<div className='containerForm m-3'>
+				<form className='formpet pb-2' id="petForm" onSubmit={(e) => enviarDatos(e) }>
 					<p>Publica tu Mascota</p>
 
 					<div className='form-group pb-2'>
@@ -114,7 +128,7 @@ const PetForm = () => {
 					</div>
 
 					<div className='pb-2'>
-						<button type='submit' className='btn-Petform'>
+						<button type='submit' className='btn-Petform' >
 							Publicar
 						</button>
 					</div>

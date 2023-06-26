@@ -81,7 +81,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			createPet: async(input) => {
 				const myHeaders = new Headers()
-				myHeaders.append("Authorization", "Bearer " + this.state.token);
+				// myHeaders.append("Authorization", "Bearer " + this.state.token);
 				myHeaders.append("Content-Type", "application/json");
 
 				const raw = JSON.stringify(input);
@@ -92,7 +92,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					body: raw,
 					redirect: 'follow'
 				};
-				fetch("http://127.0.0.1:3000/pet", requestOptions)
+				fetch("http://127.0.0.1:3000/mascotas/mascotas", requestOptions)
 					.then(response => response.text())
 					.then(result => console.log(result))
 					.catch(error => console.log('error', error));

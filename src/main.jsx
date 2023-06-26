@@ -6,12 +6,13 @@ import './index.css'
 import App from './routes/App.jsx'
 import LoginPage from './routes/LoginPage'
 // import Carousel from './components/carousel'
-// import PetForm from './components/petForm'
+import PetForm from './components/petForm'
 // import Formulario from './components/formRegister'
 // import InviteFriends from './components/inviteFri'
 import RegisterPage from './routes/RegisterPage'
 import LandingPage from './routes/LandingPage'
 import NewForm from './components/NewForm'
+import FundacionesDeAdopcion from './components/Fundaciones'
 
 
 const domNode = document.getElementById('root')
@@ -37,9 +38,10 @@ const router = createBrowserRouter([
 				element: <RegisterPage />,
 			},
 			{
-				path: '/prueba',
-				element: <NewForm />,
+				path: '/pet_form',
+				element: <PetForm />,
 			},
+			
 			
 		],
 	},
