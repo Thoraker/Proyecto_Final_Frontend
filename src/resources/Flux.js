@@ -92,7 +92,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					body: raw,
 					redirect: 'follow'
 				};
-				fetch("http://127.0.0.1:3000/mascotas/mascotas", requestOptions)
+				fetch("https://3000-66006600-proyectofinalb-0i10yo7gjo0.ws-us101.gitpod.io/mascotas/mascotas", requestOptions)
 					.then(response => response.text())
 					.then(result => console.log(result))
 					.catch(error => console.log('error', error));

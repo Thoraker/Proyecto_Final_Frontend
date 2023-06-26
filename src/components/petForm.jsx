@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { AppContext } from '../routes/App'
+import { FontStyle } from '@cloudinary/url-gen/qualifiers'
+import { border } from '@cloudinary/url-gen/qualifiers/background'
+import { justify } from '@cloudinary/url-gen/qualifiers/textAlignment'
 // import './petForm.css'
 
 const PetForm = () => {
@@ -11,7 +14,7 @@ const PetForm = () => {
 	const [progreso, setProgreso] = useState(0)
 	useEffect(() => actualizarProgreso(), [especie, tamano])
 
-	const {actions} = useContext(AppContext)
+	const { actions } = useContext(AppContext)
 
 	const actualizarProgreso = () => {
 		const camposLlenos = [nombre, edad, especie, tamano, descripcion].filter((campo) => campo !== '')
@@ -53,17 +56,21 @@ const PetForm = () => {
 		actions.createPet({
 			nombre, edad, especie, tamano, descripcion
 		})
-
-		
-
 	}
 
 	return (
-		<section>
-			<div className='containerForm m-3'>
-				<form className='formpet pb-2' id="petForm" onSubmit={(e) => enviarDatos(e) }>
-					<p>Publica tu Mascota</p>
-
+		<section >
+			<div className='containerForm m-2'
+				style={{					
+					background: 'rgb(102, 177, 87)',
+					backgroundSize: 'cover',
+					borderRadius: '15px',
+					display: 'flex',
+					justifyContent: 'center',
+					alignItems: 'center',
+				}} >
+				<form className='formpet shadow w-50 p-2' id="petForm" onSubmit={(e) => enviarDatos(e)}>
+					<p className='pb-2 d-flex justify-content-center'>Publica tu Mascota</p>
 					<div className='form-group pb-2'>
 						<input
 							type='text'
@@ -73,7 +80,6 @@ const PetForm = () => {
 							onChange={handleNombreChange}
 						/>
 					</div>
-
 					<div className='form-group pb-2'>
 						<input
 							type='text'
@@ -83,7 +89,6 @@ const PetForm = () => {
 							onChange={handleEdadChange}
 						/>
 					</div>
-
 					<div className='form-group pb-2'>
 						<div className='d-flex align-items-center'>
 							<select className='form-select me-2' value={especie} onChange={handleEspecieChange}>
@@ -93,7 +98,6 @@ const PetForm = () => {
 								<option value='Aves'>Aves</option>
 								<option value='Otros'>Otros</option>
 							</select>
-
 							<select className='form-select' value={tamano} onChange={handleTamanoChange}>
 								<option value=''>Tamaño</option>
 								<option value='Pequeño'>Pequeño</option>
@@ -102,7 +106,6 @@ const PetForm = () => {
 							</select>
 						</div>
 					</div>
-
 					<div className='form-group pb-2 d-flex flex-column align-items-center'>
 						<textarea
 							className='form-control'
@@ -115,26 +118,44 @@ const PetForm = () => {
 						></textarea>
 						<p>Remaining characters: {100 - descripcion.length}</p>
 					</div>
-
-					<div className='progress mb-3'>
+					<div className='progress mb-3 pb-2 d-flex justify-content-center' style={{
+						width: `${progreso}%`,
+						height: '8px',
+						backgroundColor: '#0a5b1a',
+						transition: 'width 0.5s ease-in-out',
+						transform: `translateX(-50%) scaleX(2)`,
+						transformOrigin: 'center'
+					}}
+					>
 						<div
 							className='progress-bar'
 							role='progressbar'
-							style={{ width: `${progreso}%` }}
 							aria-valuenow={progreso}
 							aria-valuemin='0'
 							aria-valuemax='100'
 						></div>
 					</div>
-
-					<div className='pb-2'>
-						<button type='submit' className='btn-Petform' >
+					<div className='pb-2 d-flex justify-content-center'>
+						<button
+							type='submit'
+							className='btn btn-Petform font-weight-bold btn-hover btn-hover-red'
+							style={{
+								border: 'none',
+								borderRadius: '8px',
+								borderBottom: '0',
+								height: '40px',
+								width: '120px',
+								backgroundColor: 'rgb(4, 79, 33)',
+								color: 'white',
+								cursor: 'pointer',
+								transition: 'background-color 0.3s'
+							}}>
 							Publicar
 						</button>
 					</div>
 				</form>
 			</div>
-		</section>
+		</section >
 	)
 }
 

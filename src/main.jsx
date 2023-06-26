@@ -11,8 +11,8 @@ import PetForm from './components/petForm'
 // import InviteFriends from './components/inviteFri'
 import RegisterPage from './routes/RegisterPage'
 import LandingPage from './routes/LandingPage'
-import NewForm from './components/NewForm'
-import FundacionesDeAdopcion from './components/Fundaciones'
+// import NewForm from './components/NewForm'
+// import FundacionesDeAdopcion from './components/Fundaciones'
 
 
 const domNode = document.getElementById('root')
