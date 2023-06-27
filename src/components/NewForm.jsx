@@ -68,7 +68,6 @@ function NewForm() {
 									<Form.Control
 										type='text'
 										placeholder='UserName'
-										aria-describedby='inputGroupPrepend'
 										name='UserName'
 										value={values.userName}
 										onChange={handleChange}

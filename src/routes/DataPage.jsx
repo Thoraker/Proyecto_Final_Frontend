@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { AppContext } from './App'
+import NewForm from '../components/NewForm'
 
 const DataPage = () => {
 	const state = useContext(AppContext)
@@ -11,7 +12,7 @@ const DataPage = () => {
 				<h5 className='card-title'>Mis Datos</h5>
 			</div>
 			<div className='card-body'>
-				<p className='card-text'>With supporting text below as a natural lead-in to additional content.</p>
+				<NewForm />
 			</div>
 		</div>
 	)
