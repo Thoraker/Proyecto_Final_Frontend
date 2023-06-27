@@ -7,8 +7,11 @@ import App from './routes/App.jsx'
 import LoginPage from './routes/LoginPage'
 import RegisterPage from './routes/RegisterPage'
 import LandingPage from './routes/LandingPage'
-import PetForm from './components/petForm'
 import UserPage from './routes/UserPage'
+import DataPage from './routes/DataPage'
+import AddressPage from './routes/AddressPage'
+import PetPage from './routes/PetPage'
+import Formulario from './components/formRegister'
 
 const domNode = document.getElementById('root')
 const root = createRoot(domNode)
@@ -34,18 +37,24 @@ const router = createBrowserRouter([
 			{
 				path: '/user',
 				element: <UserPage />,
-			},
-			{
-				path: '/address',
-				element: <UserPage />,
-			},
-			{
-				path: '/pet',
-				element: <PetForm />,
+				children: [
+					{
+						path: '/user/data',
+						element: <DataPage />,
+					},
+					{
+						path: '/user/address',
+						element: <AddressPage />,
+					},
+					{
+						path: '/user/pet',
+						element: <PetPage />,
+					},
+				],
 			},
 			{
 				path: '/prueba',
-				element: <UserPage />,
+				element: <Formulario />,
 			},
 		],
 	},

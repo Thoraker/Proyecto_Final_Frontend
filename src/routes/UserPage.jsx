@@ -1,35 +1,44 @@
-import React, { useContext } from 'react'
-import { AppContext } from './App'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, Outlet } from 'react-router-dom'
 
 const UserPage = () => {
-	const state = useContext(AppContext)
-	console.log(state)
+	const [section, setSection] = useState(0)
 
 	return (
 		<div className='card text-center'>
 			<div className='card-header'>
 				<ul className='nav nav-tabs card-header-tabs'>
 					<li className='nav-item'>
-						<Link to='/user' className='nav-link active' aria-current='true'>
+						<Link
+							to='/user/data'
+							className={section === 0 ? 'nav-link active' : 'nav-link'}
+							onClick={() => setSection(0)}
+						>
 							Mis Datos
 						</Link>
 					</li>
 					<li className='nav-item'>
-						<Link to='/address' className='nav-link'>
+						<Link
+							to='/user/address'
+							className={section === 1 ? 'nav-link active' : 'nav-link'}
+							onClick={() => setSection(1)}
+						>
 							Mis Direcciones
 						</Link>
 					</li>
 					<li className='nav-item'>
-						<Link to='/pet' className='nav-link'>
+						<Link
+							to='/user/pet'
+							className={section === 2 ? 'nav-link active' : 'nav-link'}
+							onClick={() => setSection(2)}
+						>
 							Mis Mascotas
 						</Link>
 					</li>
 				</ul>
 			</div>
 			<div className='card-body'>
-				<h5 className='card-title'>Mis Datos</h5>
-				<p className='card-text'>With supporting text below as a natural lead-in to additional content.</p>
+				<Outlet />
 				<Link to='/' className='btn btn-primary'>
 					Volver al inicio
 				</Link>

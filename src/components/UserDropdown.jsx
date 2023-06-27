@@ -30,17 +30,17 @@ const UserDropdown = () => {
 			</button>
 			<ul className='dropdown-menu'>
 				<li>
-					<Link className='dropdown-item' to='/user'>
+					<Link className='dropdown-item' to='/user/data'>
 						Mis Datos
 					</Link>
 				</li>
 				<li>
-					<Link className='dropdown-item' to='/pet'>
+					<Link className='dropdown-item' to='/user/pet'>
 						Mis Mascotas
 					</Link>
 				</li>
 				<li>
-					<Link className='dropdown-item' to='/address'>
+					<Link className='dropdown-item' to='/user/address'>
 						Mis Direcciones
 					</Link>
 				</li>
