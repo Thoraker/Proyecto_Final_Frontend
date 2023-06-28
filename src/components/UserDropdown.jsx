@@ -5,20 +5,20 @@ import { Link } from 'react-router-dom'
 const UserDropdown = () => {
 	const state = useContext(AppContext)
 
-	const avatar = state.store.User.avatar
-	const user = state.store.User.user
+	const avatar = state.store.User.UserData.Avatar
+	const user = state.store.User.UserData.Usuario
 
 	return (
 		<div className='dropdown'>
-			<button className='btn btn-success dropdown-toggle p-1' type='button' data-bs-toggle='dropdown'>
+			<button className='btn btn-outline-success' type='button' data-bs-toggle='dropdown'>
 				<div className='card'>
-					<div className='row'>
-						<div className='col-5'>
+					<div className='row g-0'>
+						<div className='col-4'>
 							<img className='img-fluid' src={avatar} />
 						</div>
-						<div className='col-7'>
+						<div className='col-8'>
 							<div className='card-body'>
-								<h5 className='card-title'>{user}</h5>
+								<h5 className='card-text'>{user}</h5>
 							</div>
 						</div>
 					</div>

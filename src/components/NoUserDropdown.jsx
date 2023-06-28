@@ -1,16 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { AppContext } from '../routes/App'
 
 const NoUserDropdown = () => {
+	const state = useContext(AppContext)
+
+	const avatar = state.store.User.UserData.Avatar
 	return (
 		<div className='dropdown'>
-			<button className='btn btn-outline-primary dropdown-toggle p-1' type='button' data-bs-toggle='dropdown'>
+			<button className='btn btn-outline-primary' type='button' data-bs-toggle='dropdown'>
 				<div className='card'>
-					<div className='row'>
-						<div className='col-5'>
-							<img className='img-fluid' src='src/assets/invitado.png' />
+					<div className='row g-0'>
+						<div className='col-4'>
+							<img className='img-fluid' src={avatar} />
 						</div>
-						<div className='col-7'>
+						<div className='col-8'>
 							<div className='card-body'>
 								<h5 className='card-title'>Ingreso</h5>
 							</div>

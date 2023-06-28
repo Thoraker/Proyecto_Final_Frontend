@@ -28,9 +28,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 				},
 			],
 			User: {
-				user: '',
-				token: '',
-				avatar: '',
+				UserData: {
+					Usuario: '',
+					Email: '',
+					Nombre: '',
+					Apellido: '',
+					Avatar: 'src/assets/invitado.png',
+					Dador: false,
+					Direcciones: [],
+					Mascotas: [],
+				},
+				Token: '',
 			},
 		},
 
@@ -61,9 +69,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then((result) => {
 						setStore({
 							User: {
-								user: result.user,
-								token: result.token,
-								avatar: result.avatar,
+								UserData: result.User,
+								Token: result.Token,
 							},
 						})
 					})

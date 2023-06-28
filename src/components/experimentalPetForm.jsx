@@ -59,7 +59,7 @@ MyCheckbox.propTypes = {
 	children: PropTypes.string,
 }
 
-const SignupForm = () => {
+const MascotForm = () => {
 	const state = useContext(AppContext)
 
 	return (
@@ -178,4 +178,4 @@ const SignupForm = () => {
 	)
 }
 
-export default SignupForm
+export default MascotForm
