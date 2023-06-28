@@ -37,7 +37,7 @@ function NewForm() {
 				const completedPercentage = (completedFields / totalFields) * 100
 
 				return (
-					<Form noValidate onSubmit={handleSubmit} className='bg-secondary p-3 bg-gradient '>
+					<Form noValidate onSubmit={handleSubmit} className='bg-secondary p-3 bg-gradient'>
 						<Row className='mb-3 '>
 							<Form.Group as={Col} md='4' controlId='validationFormik01'>
 								<Form.Label>First name</Form.Label>
