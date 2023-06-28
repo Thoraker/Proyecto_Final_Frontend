@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { AppContext } from './App'
-// import RegisterForm from '../components/registerForm'
-import SignupForm from '../components/experimentalRegisterForm'
+import RegisterForm from '../components/registerForm'
 
 const DataPage = () => {
 	const state = useContext(AppContext)
@@ -13,7 +12,7 @@ const DataPage = () => {
 				<h5 className='card-title'>Mis Datos</h5>
 			</div>
 			<div className='card-body'>
-				<SignupForm />
+				<RegisterForm />
 			</div>
 		</div>
 	)
