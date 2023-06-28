@@ -5,7 +5,7 @@ const UserPage = () => {
 	const [section, setSection] = useState(0)
 
 	return (
-		<div className='card text-center'>
+		<div className='card text-center bg-info'>
 			<div className='card-header'>
 				<ul className='nav nav-tabs card-header-tabs'>
 					<li className='nav-item'>
@@ -39,9 +39,6 @@ const UserPage = () => {
 			</div>
 			<div className='card-body'>
 				<Outlet />
-				<Link to='/' className='btn btn-primary'>
-					Volver al inicio
-				</Link>
 			</div>
 		</div>
 	)

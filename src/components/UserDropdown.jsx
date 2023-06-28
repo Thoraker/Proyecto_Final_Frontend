@@ -7,14 +7,10 @@ const UserDropdown = () => {
 
 	const avatar = state.store.User.avatar
 	const user = state.store.User.user
+
 	return (
 		<div className='dropdown'>
-			<button
-				className='btn btn-success dropdown-toggle p-1'
-				type='button'
-				data-bs-toggle='dropdown'
-				aria-expanded='false'
-			>
+			<button className='btn btn-success dropdown-toggle p-1' type='button' data-bs-toggle='dropdown'>
 				<div className='card'>
 					<div className='row'>
 						<div className='col-5'>

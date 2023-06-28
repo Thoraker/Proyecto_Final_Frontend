@@ -27,7 +27,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					title: 'Slide 4',
 				},
 			],
-			User : {
+			User: {
 				user: '',
 				token: '',
 				avatar: '',
@@ -35,71 +35,53 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 
 		actions: {
-			loadInitialData: () => {
-				
-			},
-			getPetPhoto: (url) =>{
+			loadInitialData: () => {},
+			getPetPhoto: (url) => {
 				const petPhotos = getStore().Pet.Photos.push(url)
-				setStore({Pet: {Photos: petPhotos}})		
+				setStore({ Pet: { Photos: petPhotos } })
 			},
-			login: async(user, pass) => {
-				const myHeaders = new Headers();
-					myHeaders.append("Content-Type", "application/json");		
+			login: async (user, pass) => {
+				const myHeaders = new Headers()
+				myHeaders.append('Content-Type', 'application/json')
 
 				const raw = JSON.stringify({
-					"user_name": user,
-					"password": pass,
-					});
+					user_name: user,
+					password: pass,
+				})
 
 				const requestOptions = {
 					method: 'POST',
 					headers: myHeaders,
 					body: raw,
-					redirect: 'follow'
-					};
-
-				fetch("http://127.0.0.1:3000/login", requestOptions)
-				.then(response => response.json())
-				.then(result => {setStore({User : {
-					user: result.user,
-					token: result.token,
-					avatar: result.avatar
-				}
-				})})
-				.catch(error => alert('error', error));
-			},
-			createUser: async({input}) => {
-				const myHeaders = new Headers();
-				myHeaders.append("Content-Type", "application/json");
-				const raw = JSON.stringify(input);
-
-				const requestOptions = {
-					method: 'POST',
-					headers: myHeaders,
-					body: raw,
-					redirect: 'follow'
-					};
-
-				fetch("http://127.0.0.1:3000/register", requestOptions)
-					.then(response => response.text())
-					.then(result => console.log(result))
-					.catch(error => console.log('error', error))
-			},
-			createPet: async({input}) => {
-				const Pet = {
-					"name": null,
-					"specie": null,
-					"age": null,
-					"size": null,
-					"photo_url": null,
-					"need_backyard": true
+					redirect: 'follow',
 				}
 
+				fetch('http://127.0.0.1:3000/login', requestOptions)
+					.then((response) => response.json())
+					.then((result) => {
+						setStore({
+							User: {
+								user: result.user,
+								token: result.token,
+								avatar: result.avatar,
+							},
+						})
+					})
+					.catch((error) => alert('error', error))
+			},
+			createUser: async (values) => {
 				const myHeaders = new Headers()
-				myHeaders.append("Authorization", "Bearer " + this.state.token);
-				myHeaders.append("Content-Type", "application/json");
+				myHeaders.append("Content-Type", "application/json")
 
-				const raw = JSON.stringify(Object.assign(Pet, input));
+				const raw = JSON.stringify({
+					"user_name": values.userName,
+					"email": values.email,
+					"password": values.password,
+					"first_name": values.firstName,
+					"last_name": values.lastName,
+					"avatar": values.avatar,
+					"donor": values.donor,
+				})
 
 				const requestOptions = {
 					method: 'POST',
@@ -107,11 +89,39 @@ const getState = ({ getStore, getActions, setStore }) => {
 					body: raw,
 					redirect: 'follow'
 				};
-				fetch("http://127.0.0.1:3000/pet", requestOptions)
+
+				fetch("http://127.0.0.1:3000/register", requestOptions)
 					.then(response => response.text())
-					.then(result => console.log(result))
-					.catch(error => console.log('error', error));
+					.then(result => alert(result))
+					.catch(error => alert('error', error))
+},
+			createPet: async ({ input }) => {
+				const Pet = {
+					name: null,
+					specie: null,
+					age: null,
+					size: null,
+					photo_url: null,
+					need_backyard: true,
 				}
+
+				const myHeaders = new Headers()
+				myHeaders.append('Authorization', 'Bearer ' + this.state.token)
+				myHeaders.append('Content-Type', 'application/json')
+
+				const raw = JSON.stringify(Object.assign(Pet, input))
+
+				const requestOptions = {
+					method: 'POST',
+					headers: myHeaders,
+					body: raw,
+					redirect: 'follow',
+				}
+				fetch('http://127.0.0.1:3000/pet', requestOptions)
+					.then((response) => response.text())
+					.then((result) => console.log(result))
+					.catch((error) => console.log('error', error))
+			},
 		},
 	}
 }

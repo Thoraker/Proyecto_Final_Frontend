@@ -9,19 +9,13 @@ module.exports = {
 			version: 'detect',
 		},
 	},
-	extends: [
-		'standard',
-		'plugin:react/jsx-runtime',
-		'plugin:react/recommended',
-		'eslint:recommended',
-		'prettier',
-	],
+	extends: ['standard', 'plugin:react/jsx-runtime', 'plugin:react/recommended', 'eslint:recommended', 'prettier'],
 	parserOptions: {
 		ecmaVersion: 'latest',
 		sourceType: 'module',
 		ecmaFeatures: {
 			jsx: true,
-		}
+		},
 	},
 	plugins: ['react', 'react-hooks'],
 	rules: {},

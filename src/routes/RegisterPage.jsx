@@ -1,6 +1,5 @@
 import React from 'react'
-// import NewForm from '../components/NewForm'
-import Register from '../components/registerForm'
+import SignupForm from '../components/experimentalRegisterForm'
 
 const RegisterPage = () => {
 	return (
@@ -9,8 +8,7 @@ const RegisterPage = () => {
 				<h3>Registro</h3>
 			</div>
 			<div className='card-body'>
-				<Register />
-				{/* <NewForm /> */}
+				<SignupForm />
 			</div>
 		</div>
 	)

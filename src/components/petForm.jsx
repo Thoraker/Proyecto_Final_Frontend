@@ -106,14 +106,7 @@ const PetForm = () => {
 				</div>
 
 				<div className='progress mb-3'>
-					<div
-						className='progress-bar'
-						role='progressbar'
-						style={{ width: `${progress}%` }}
-						aria-valuenow={progress}
-						aria-valuemin='0'
-						aria-valuemax='100'
-					></div>
+					<div className='progress-bar' role='progressbar' style={{ width: `${progress}%` }}></div>
 				</div>
 
 				<div className='pb-2'>

@@ -11,7 +11,7 @@ import UserPage from './routes/UserPage'
 import DataPage from './routes/DataPage'
 import AddressPage from './routes/AddressPage'
 import PetPage from './routes/PetPage'
-import Formulario from './components/formRegister'
+import RegisterForm from './components/registerForm'
 
 const domNode = document.getElementById('root')
 const root = createRoot(domNode)
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: '/prueba',
-				element: <Formulario />,
+				element: <RegisterForm />,
 			},
 		],
 	},

@@ -37,7 +37,6 @@ const Login = () => {
 						className='fs-5 text-light border-0 border-bottom bg-transparent my-2 mx-5'
 						type='password'
 						placeholder='Contraseña'
-						aria-labelledby='passwordHelpInline'
 						value={password}
 						onChange={(ev) => setPassword(ev.target.value)}
 					/>

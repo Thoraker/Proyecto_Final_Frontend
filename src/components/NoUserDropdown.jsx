@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const NoUserDropdown = () => {
 	return (
 		<div className='dropdown'>
-			<button className='btn btn-success dropdown-toggle p-1' type='button' data-bs-toggle='dropdown'>
+			<button className='btn btn-outline-primary dropdown-toggle p-1' type='button' data-bs-toggle='dropdown'>
 				<div className='card'>
 					<div className='row'>
 						<div className='col-5'>

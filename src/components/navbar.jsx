@@ -15,24 +15,21 @@ const Navbar = () => {
 					type='button'
 					data-bs-toggle='collapse'
 					data-bs-target='#navbarTogglerDemo01'
-					aria-controls='navbarTogglerDemo01'
-					aria-expanded='false'
-					aria-label='Toggle navigation'
 				>
 					<span className='navbar-toggler-icon'></span>
 				</button>
-				<Link className='navbar-brand mx-3 fs-2 fw-bold' to='/'>
+				<Link className='navbar-brand fw-bold' to='/'>
 					Dame una Pata
 				</Link>
-				<div className='collapse navbar-collapse' id='navbarTogglerDemo01'>
-					<ul className='navbar-nav me-auto m-2 mb-lg-0'>
+				<div className='collapse navbar-collapse'>
+					<ul className='navbar-nav'>
 						<li className='nav-item'>
-							<Link className='nav-link active' aria-current='page' to='/register'>
+							<Link to='/register' className='nav-link'>
 								Regístrate
 							</Link>
 						</li>
 						<li className='nav-item'>
-							<Link className='nav-link active' to='/pet'>
+							<Link to='/pet' className='nav-link'>
 								Registra una mascota
 							</Link>
 						</li>
