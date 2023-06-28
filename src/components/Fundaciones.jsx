@@ -47,7 +47,7 @@ const FundacionesDeAdopcion = () => {
     ));
 
     return (
-        <Container className="Cards" style={{ backgroundImage:'url(https://a-static.besthdwallpaper.com/bubble-reflection-in-front-of-blurry-forest-and-lights-wallpaper-1920x1080-95137_48.jpg)'}}>
+        <Container className="Cards" style={{ backgroundImage:'url(C:./src/assets/images/dogs y bunnies (3).jpg)'}}>
             <div>
                 <h1> Fundaciones <BsFill6CircleFill /> </h1>
                 <h5> Aquí te mostramos las fundaciones en alianza con nuestra aplicación donde podrás conocer más a fondo la labor de cada una de estas organizaciones dedicadas al rescate, rehabilitación, cuidado, reubicación y adopcion de mascotas abandonadas. 

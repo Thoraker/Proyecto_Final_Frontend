@@ -11,7 +11,8 @@ import PetForm from './components/petForm'
 // import InviteFriends from './components/inviteFri'
 import RegisterPage from './routes/RegisterPage'
 import LandingPage from './routes/LandingPage'
-// import NewForm from './components/NewForm'
+import FundationsPage from './routes/FundationsPage'
+import FormRegister from './components/registroForm'
 // import FundacionesDeAdopcion from './components/Fundaciones'
 
 
@@ -35,11 +36,15 @@ const router = createBrowserRouter([
 			},
 			{
 				path: '/register',
-				element: <RegisterPage />,
+				element: <FormRegister />,
 			},
 			{
 				path: '/pet_form',
 				element: <PetForm />,
+			},
+			{
+				path: '/fundations',
+				element: <FundationsPage />,
 			},
 			
 			

@@ -1,8 +1,9 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import getState from '../resources/Flux'
-// import Sidebar from '../components/sideBar'
+import Sidebar from '../components/sideBar'
 import Navbar from '../components/navbar'
+
 
 export const AppContext = createContext(null)
 
@@ -26,10 +27,10 @@ const App = () => {
 	return (
 		<AppContext.Provider value={state}>
 			<div className='row'>
-				<Navbar />
-				{/* <div className='col-2 me-0 pe-0'>
+				<Navbar />				
+				<div className='col-2 me-0 pe-0'>
 					<Sidebar />
-				</div> */}
+				</div>
 				<div className='col'>
 					<Outlet />
 				</div>

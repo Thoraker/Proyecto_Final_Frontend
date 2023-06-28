@@ -31,12 +31,12 @@ const Navbar = () => {
 								</Link>
 							</li>
 							<li className='nav-item'>
-								<Link to='/FundationsPage' className='nav-link active' aria-current='page'>
+								<Link to='/Fundations_Page' className='nav-link active' aria-current='page'>
 									Fundations
 								</Link>
 							</li>
 							<li className='nav-item'>
-								<Link className='nav-link'>Features</Link>
+								<Link className='nav-link'>Publica tu Mascota</Link>
 							</li>
 							<li className='nav-item'>
 								<Logout clase={'nav-link active'} />
@@ -76,7 +76,7 @@ const Navbar = () => {
 						</li>
 					</div>
 				</div>
-			</nav>
+			</nav>			
 		</div>
 	)
 }
