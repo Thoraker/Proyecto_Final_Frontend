@@ -6,6 +6,13 @@ const Login = () => {
 	const state = useContext(AppContext)
 	const [user, setUser] = useState('')
 	const [password, setPassword] = useState('')
+
+	// const enviarData = (e) => {
+	// 	e.preventDefault();
+	// 	console.log(user, password)
+	// 	actions.login({user, password
+	// 	})
+	// }
 	// const history = useNavigate()
 
 	return (
