@@ -5,16 +5,12 @@ import ErrorPage from './routes/ErrorPage'
 import './index.css'
 import App from './routes/App.jsx'
 import LoginPage from './routes/LoginPage'
-// import Carousel from './components/carousel'
-import PetForm from './components/petForm'
-// import Formulario from './components/formRegister'
-// import InviteFriends from './components/inviteFri'
-// import RegisterPage from './routes/RegisterPage'
 import LandingPage from './routes/LandingPage'
-import FundationsPage from './routes/FundationsPage'
-import FormRegister from './components/registroForm'
-import FundacionesDeAdopcion from './components/Fundaciones'
-
+import UserPage from './routes/UserPage'
+import DataPage from './routes/DataPage'
+import AddressPage from './routes/AddressPage'
+import PetPage from './routes/PetPage'
+import RegisterForm from './components/registerForm'
 
 const domNode = document.getElementById('root')
 const root = createRoot(domNode)
@@ -24,7 +20,6 @@ const router = createBrowserRouter([
 		path: '/',
 		element: <App />,
 		errorElement: <ErrorPage />,
-
 		children: [
 			{
 				path: '/',
@@ -39,15 +34,27 @@ const router = createBrowserRouter([
 				element: <FormRegister />,
 			},
 			{
-				path: '/pet_form',
-				element: <PetForm />,
+				path: '/user',
+				element: <UserPage />,
+				children: [
+					{
+						path: '/user/data',
+						element: <DataPage />,
+					},
+					{
+						path: '/user/address',
+						element: <AddressPage />,
+					},
+					{
+						path: '/user/pet',
+						element: <PetPage />,
+					},
+				],
 			},
 			{
-				path: '/fundations',
-				element: <FundacionesDeAdopcion />,
+				path: '/prueba',
+				element: <RegisterForm />,
 			},
-			
-			
 		],
 	},
 ])

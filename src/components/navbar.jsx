@@ -1,83 +1,45 @@
-import React from 'react'
-import Logout from './logout.jsx'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import PhotoUploader from './photoUploader.jsx'
+import UserDropdown from './UserDropdown'
+import NoUserDropdown from './NoUserDropdown'
+import { AppContext } from '../routes/App'
 
 const Navbar = () => {
+	const state = useContext(AppContext)
+
 	return (
-		<div className='container'>
-			<nav className='navbar navbar-expand-lg bg-body-secondary'>
-				<div className='container-fluid'>
-					<button
-						className='navbar-toggler'
-						type='button'
-						data-bs-toggle='collapse'
-						data-bs-target='#navbarNavDropdown'
-						aria-controls='navbarNavDropdown'
-						aria-expanded='false'
-						aria-label='Toggle navigation'
-					>
-						<span className='navbar-toggler-icon'>
-							<Link to='/' className='navbar-brand fs-2 container-fluid col-2'>
-								Dame Una Pata
+		<nav className='navbar navbar-expand-lg bg-body-tertiary fst-italic'>
+			<div className='container-fluid'>
+				<button
+					className='navbar-toggler'
+					type='button'
+					data-bs-toggle='collapse'
+					data-bs-target='#navbarTogglerDemo01'
+				>
+					<span className='navbar-toggler-icon'></span>
+				</button>
+				<Link className='navbar-brand fw-bold' to='/'>
+					Dame una Pata
+				</Link>
+				<div className='collapse navbar-collapse'>
+					<ul className='navbar-nav'>
+						<li className='nav-item'>
+							<Link to='/register' className='nav-link'>
+								Regístrate
 							</Link>
-						</span>
-					</button>
-					<div className='collapse navbar-collapse' id='navbarNavDropdown'>
-						<ul className='navbar-nav'>
-							<li className='nav-item'>
-								<Link to='/' className='nav-link active' aria-current='page'>
-									Home
-								</Link>
-							</li>
-							<li className='nav-item'>
-								<Link to='/Fundations_Page' className='nav-link active' aria-current='page'>
-									Fundations
-								</Link>
-							</li>
-							<li className='nav-item'>
-								<Link className='nav-link'>Publica tu Mascota</Link>
-							</li>
-							<li className='nav-item'>
-								<Logout clase={'nav-link active'} />
-							</li>
-							<li className='nav-item'>
-								<a className='nav-link' href='#'>
-									Eventos
-								</a>
-							</li>
-						</ul>
-					</div>
-					<div>
-						<li className='nav-item dropdown d-flex'>
-							<Link
-								className='nav-link dropdown-toggle'
-								href='#'
-								role='button'
-								data-bs-toggle='dropdown'
-								aria-expanded='false'
-							>
-								<i className='bi bi-person-fill'></i> Login/Register
-							</Link>
-							<PhotoUploader />
-							<ul className='dropdown-menu'>
-								<li>
-									<Link className='nav-link' to='/login'>
-										Login
-									</Link>
-								</li>
-								<li>
-									<Link className='dropdown-item'>Another action</Link>
-								</li>
-								<li>
-									<Link className='dropdown-item'>Something else here</Link>
-								</li>
-							</ul>
 						</li>
-					</div>
+						<li className='nav-item'>
+							<Link to='/pet' className='nav-link'>
+								Registra una mascota
+							</Link>
+						</li>
+					</ul>
 				</div>
-			</nav>			
-		</div>
+				<div className='col-2'>
+					{state.store.User.UserData.Usuario !== '' ? <UserDropdown /> : <NoUserDropdown />}
+				</div>
+			</div>
+		</nav>
 	)
 }
 
