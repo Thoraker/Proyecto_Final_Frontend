@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-import { BsFill6CircleFill } from "react-icons/bs";
-import { FcCancel } from "react-icons/fc";
+import { RiHomeSmileFill } from "react-icons/ri";
+
 
 const FundacionesDeAdopcion = () => {
     // Datos de ejemplo de fundaciones
@@ -32,9 +32,9 @@ const FundacionesDeAdopcion = () => {
         },
     ];
     const tarjetas = fundaciones.map((fundacion, index) => (
-        <Col key={index} sm={6} md={4} lg={2}>
-            <Card className="h-80 w-100 m-5 shadow-lg d-flex flex-column align-items-center justify-content-center" style={{ backgroundColor: '#F3DBD6' }}>
-                <Card.Img variant="top" src={fundacion.foto} />
+        <Col key={index} >
+            <Card className="shadow-lg d-flex h-100 p-2" style={{ backgroundColor: '#dbe6de' }}>
+                <Card.Img variant="top"  src={fundacion.foto} />
                 <Card.Body>
                     <Card.Title>{fundacion.nombre}</Card.Title>
                     <Card.Text>{fundacion.descripcion}</Card.Text>
@@ -47,12 +47,16 @@ const FundacionesDeAdopcion = () => {
     ));
 
     return (
-        <Container className="Cards" style={{ backgroundImage:'url(C:./src/assets/images/dogs y bunnies (3).jpg)'}}>
+        <Container className="Cards" style={{
+            background: 'rgb(180, 222, 191)',
+            background: 'linear-gradient(90deg, rgba(180, 222, 191, 0.6168592436974789) 19%, rgba(126, 148, 84, 1) 71%)'
+        }}>
+
             <div>
-                <h1> Fundaciones <BsFill6CircleFill /> </h1>
-                <h5> Aquí te mostramos las fundaciones en alianza con nuestra aplicación donde podrás conocer más a fondo la labor de cada una de estas organizaciones dedicadas al rescate, rehabilitación, cuidado, reubicación y adopcion de mascotas abandonadas. 
-                    Cada mascota tiene su historia  <FcCancel />
-                    
+                <h1 className="text-center mb-4"> Fundaciones <RiHomeSmileFill /> </h1>
+                <h5> Aquí te mostramos las fundaciones en alianza con nuestra aplicación donde podrás conocer más a fondo la labor de cada una de estas organizaciones dedicadas al rescate, rehabilitación, cuidado, reubicación y adopcion de mascotas abandonadas.
+                    Cada mascota tiene su historia 
+
                     particular y todos necesitan tu aporte. Puedes ser voluntario, realizar aportes monetarios, difundir la pagina de la fundación, contactarte con ellos entre otros. </h5>
             </div>
 
