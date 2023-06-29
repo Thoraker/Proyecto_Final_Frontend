@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react'
-import PhotoUploader from './photoUploader'
 import { AppContext } from '../routes/App'
 
 const RegisterForm = () => {
@@ -113,7 +112,6 @@ const RegisterForm = () => {
 					<button type='submit' className='btn btn-primary'>
 						Publicar
 					</button>
-					<PhotoUploader />
 				</div>
 			</form>
 		</div>
