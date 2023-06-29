@@ -129,6 +129,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then((result) => console.log(result))
 					.catch((error) => console.log('error', error))
 			},
+			clearData: async () => {
+				setStore({
+					User: {
+						UserData: {
+							Usuario: '',
+							Email: '',
+							Nombre: '',
+							Apellido: '',
+							Avatar: 'src/assets/invitado.png',
+							Dador: false,
+							Direcciones: [],
+							Mascotas: [],
+						},
+						Token: '',
+					},
+				})
+			}
 		},
 	}
 }
