@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import PhotoUploader from './photoUploader'
 import { AppContext } from '../routes/App'
 
-const PetForm = () => {
+const RegisterForm = () => {
 	const state = useContext(AppContext)
 	const [name, setName] = useState('')
 	const [age, setAge] = useState('')
@@ -120,4 +120,4 @@ const PetForm = () => {
 	)
 }
 
-export default PetForm
+export default RegisterForm

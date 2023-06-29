@@ -27,64 +27,68 @@ const getState = ({ getStore, getActions, setStore }) => {
 					title: 'Slide 4',
 				},
 			],
-			User : {
-				token: '',
-			}
+			User: {
+				UserData: {
+					Usuario: '',
+					Email: '',
+					Nombre: '',
+					Apellido: '',
+					Avatar: 'src/assets/invitado.png',
+					Dador: false,
+					Direcciones: [],
+					Mascotas: [],
+				},
+				Token: '',
+			},
 		},
 
 		actions: {
-			loadInitialData: () => {
-				
+			loadInitialData: () => {},
+			getPetPhoto: (url) => {
+				const petPhotos = getStore().Pet.Photos.push(url)
+				setStore({ Pet: { Photos: petPhotos } })
 			},
-			// getPetPhoto: (url) =>{
-				
-			// },
-			login: async(user, pass) => {
-				const myHeaders = new Headers();
-					myHeaders.append("Content-Type", "application/json");		
+			login: async (user, pass) => {
+				const myHeaders = new Headers()
+				myHeaders.append('Content-Type', 'application/json')
 
 				const raw = JSON.stringify({
-					"user_name": user,
-					"password": pass
-					});
+					user_name: user,
+					password: pass,
+				})
 
 				const requestOptions = {
 					method: 'POST',
 					headers: myHeaders,
 					body: raw,
-					redirect: 'follow'
-					};
+					redirect: 'follow',
+				}
 
-				fetch("http://127.0.0.1:3000/login", requestOptions)
-				.then(response => response.json())
-				.then(result => {setStore({User : {
-					token: result.token,}
-				}); console.log(result)})
-				.catch(error => console.log('error', error));
+				fetch('http://127.0.0.1:3000/login', requestOptions)
+					.then((response) => response.json())
+					.then((result) => {
+						setStore({
+							User: {
+								UserData: result.User,
+								Token: result.Token,
+							},
+						})
+					})
+					.catch((error) => alert('error', error))
 			},
-			createUser: async(input) => {
-				const myHeaders = new Headers();
-				myHeaders.append("Content-Type", "application/json");
-				const raw = JSON.stringify(input);
-
-				const requestOptions = {
-					method: 'POST',
-					headers: myHeaders,
-					body: raw,
-					redirect: 'follow'
-					};
-
-				fetch("http://127.0.0.1:3000/register", requestOptions)
-					.then(response => response.text())
-					.then(result => console.log(result))
-					.catch(error => console.log('error', error))
-			},
-			createPet: async(input) => {
+			createUser: async (values) => {
 				const myHeaders = new Headers()
-				// myHeaders.append("Authorization", "Bearer " + this.state.token);
-				myHeaders.append("Content-Type", "application/json");
+				myHeaders.append("Content-Type", "application/json")
 
-				const raw = JSON.stringify(input);
+				const raw = JSON.stringify({
+					"user_name": values.userName,
+					"email": values.email,
+					"password": values.password,
+					"first_name": values.firstName,
+					"last_name": values.lastName,
+					"avatar": values.avatar,
+					"donor": values.donor,
+				})
 
 				const requestOptions = {
 					method: 'POST',
@@ -92,11 +96,39 @@ const getState = ({ getStore, getActions, setStore }) => {
 					body: raw,
 					redirect: 'follow'
 				};
-				fetch("https://3000-66006600-proyectofinalb-0i10yo7gjo0.ws-us101.gitpod.io/mascotas/mascotas", requestOptions)
+
+				fetch("http://127.0.0.1:3000/register", requestOptions)
 					.then(response => response.text())
-					.then(result => console.log(result))
-					.catch(error => console.log('error', error));
+					.then(result => alert(result))
+					.catch(error => alert('error', error))
+},
+			createPet: async ({ input }) => {
+				const Pet = {
+					name: null,
+					specie: null,
+					age: null,
+					size: null,
+					photo_url: null,
+					need_backyard: true,
 				}
+
+				const myHeaders = new Headers()
+				myHeaders.append('Authorization', 'Bearer ' + this.state.token)
+				myHeaders.append('Content-Type', 'application/json')
+
+				const raw = JSON.stringify(Object.assign(Pet, input))
+
+				const requestOptions = {
+					method: 'POST',
+					headers: myHeaders,
+					body: raw,
+					redirect: 'follow',
+				}
+				fetch('http://127.0.0.1:3000/pet', requestOptions)
+					.then((response) => response.text())
+					.then((result) => console.log(result))
+					.catch((error) => console.log('error', error))
+			},
 		},
 	}
 }
