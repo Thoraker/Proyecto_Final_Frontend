@@ -20,15 +20,19 @@ const RegisterForm = () => {
 	}
 
 	return (
-		<div className='container fst-italic bg-success bg-gradient rounded-3'>
+		<div className='container fst-italic rounded-3' style={{
+			backgroundColor: '#00DBDE',
+			backgroundImage: 'linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%)'
+		}}>
+
 			<form
 				className='p-3 m-3'
 				onSubmit={(ev) => {
 					ev.preventDefault()
 					state.actions.createPet(name, age, specie, size, description)
-				}}
-			>
-				<h3>Cuéntanos acerca de la Mascota</h3>
+				}}>
+
+				<h3 className='text-center'>Cuéntanos acerca de la Mascota</h3>
 				<div className='form-group pb-2'>
 					<input
 						type='text'
@@ -104,12 +108,21 @@ const RegisterForm = () => {
 					<p>Remaining characters: {100 - description.length}</p>
 				</div>
 
-				<div className='progress mb-3'>
-					<div className='progress-bar' role='progressbar' style={{ width: `${progress}%` }}></div>
+				<div className='progress mb-3 pb-2' style={{
+					width: `${progress}%`,
+					height: '8px',
+					backgroundColor: '#0a5b1a',
+					transition: 'width 0.5s ease-in-out',
+					transform: `translateX(-50%) scaleX(2)`,
+					transformOrigin: 'center'
+				}}>
 				</div>
+				
 
-				<div className='pb-2'>
-					<button type='submit' className='btn btn-primary'>
+				<div>  <PhotoUploader /> </div>
+
+				<div className='pb-2 text-center'>
+					<button type='submit' className='me-2 bg-transparent rounded-pill border border-purple'>
 						Publicar
 					</button>
 				</div>
