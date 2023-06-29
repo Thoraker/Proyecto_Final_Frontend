@@ -47,7 +47,7 @@ const FundacionesDeAdopcion = () => {
     ));
 
     return (
-        <Container className="Cards" style={{
+        <Container className="Cards p-4" style={{
             background: 'rgb(180, 222, 191)',
             background: 'linear-gradient(90deg, rgba(180, 222, 191, 0.6168592436974789) 19%, rgba(126, 148, 84, 1) 71%)'
         }}>
