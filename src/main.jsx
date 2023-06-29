@@ -5,7 +5,6 @@ import ErrorPage from './routes/ErrorPage'
 import './index.css'
 import App from './routes/App.jsx'
 import LoginPage from './routes/LoginPage'
-import RegisterPage from './routes/RegisterPage'
 import LandingPage from './routes/LandingPage'
 import UserPage from './routes/UserPage'
 import DataPage from './routes/DataPage'
@@ -32,7 +31,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: '/register',
-				element: <RegisterPage />,
+				element: <RegisterForm />,
 			},
 			{
 				path: '/user',
