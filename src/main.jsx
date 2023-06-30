@@ -11,6 +11,7 @@ import DataPage from './routes/DataPage'
 import AddressPage from './routes/AddressPage'
 import PetPage from './routes/PetPage'
 import RegisterForm from './components/registerForm'
+import Pagina from './components/landingPage'
 
 const domNode = document.getElementById('root')
 const root = createRoot(domNode)
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
 			{
 				path: '/prueba',
 				element: <RegisterForm />,
+			},
+			{
+				path: '/inicio',
+				element: <Pagina />,
 			},
 		],
 	},

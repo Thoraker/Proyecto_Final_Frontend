@@ -8,7 +8,7 @@ const Navbar = () => {
 	const state = useContext(AppContext)
 
 	return (
-		<nav className='navbar navbar-expand-lg bg-body-tertiary fst-italic'>
+		<nav className='navbar navbar-expand-lg navbar bg-transparent fst-italic'>
 			<div className='container-fluid'>
 				<button
 					className='navbar-toggler'
