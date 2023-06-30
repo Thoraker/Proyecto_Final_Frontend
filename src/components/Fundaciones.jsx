@@ -1,7 +1,5 @@
-import React from 'react';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-import { RiHomeSmileFill } from "react-icons/ri";
-
+import React from 'react'
+import { Container, Row, Col, Card, Button } from 'react-bootstrap'
 
 const FundacionesDeAdopcion = () => {
     // Datos de ejemplo de fundaciones
@@ -56,13 +54,33 @@ const FundacionesDeAdopcion = () => {
                 <h1 className="text-center mb-4"> Fundaciones <RiHomeSmileFill /> </h1>
                 <h5> Aquí te mostramos las fundaciones en alianza con nuestra aplicación donde podrás conocer más a fondo la labor de cada una de estas organizaciones dedicadas al rescate, rehabilitación, cuidado, reubicación y adopcion de mascotas abandonadas.
                     Cada mascota tiene su historia 
+	return (
+		<Container
+			className='Cards'
+			style={{
+				background: 'rgb(180, 222, 191)',
+				background:
+					'linear-gradient(90deg, rgba(180, 222, 191, 0.6168592436974789) 19%, rgba(126, 148, 84, 1) 71%)',
+			}}
+		>
+			<div>
+				<h1 className='text-center m-4'>
+					{' '}
+					Fundaciones <i className='bi bi-house-door-fill'></i>{' '}
+				</h1>
+				<h5>
+					{' '}
+					Aquí te mostramos las fundaciones en alianza con nuestra aplicación donde podrás conocer más a fondo
+					la labor de cada una de estas organizaciones dedicadas al rescate, rehabilitación, cuidado,
+					reubicación y adopcion de mascotas abandonadas. Cada mascota tiene su historia particular y todos
+					necesitan tu aporte. Puedes ser voluntario, realizar aportes monetarios, difundir la pagina de la
+					fundación, contactarte con ellos entre otros.{' '}
+				</h5>
+			</div>
 
-                    particular y todos necesitan tu aporte. Puedes ser voluntario, realizar aportes monetarios, difundir la pagina de la fundación, contactarte con ellos entre otros. </h5>
-            </div>
+			<Row className='h-100 align-items-stretch'>{tarjetas}</Row>
+		</Container>
+	)
+}
 
-            <Row className="h-100 align-items-stretch">{tarjetas}</Row>
-        </Container>
-    );
-};
-
-export default FundacionesDeAdopcion;
+export default FundacionesDeAdopcion
