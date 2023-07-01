@@ -104,13 +104,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(result => alert(result))
 					.catch(error => alert('error', error))
 			},
-			
+
 			createPet: async (values) => {
 				const Pet = {
-					name: null,
-					specie: null,
-					age: null,
-					size: null,
+					name: values.name,
+					specie: values.specie,
+					age: values.age,
+					size: values.size,
 					photo_url: null,
 					need_backyard: true,
 				}
@@ -129,8 +129,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 				fetch('http://127.0.0.1:3000/pet', requestOptions)
 					.then((response) => response.text())
-					.then((result) => console.log(result))
-					.catch((error) => console.log('error', error))
+					.then((result) => alert(result))
+					.catch((error) => alert('error', error))
 			},
 			createAddress: async (values) => {
 				console.log(getStore().User.Token, 'token')
@@ -156,10 +156,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				fetch("http://127.0.0.1:3000/address", requestOptions)
 					.then(response => response.text())
-					.then(result => console.log(result))
-					.catch(error => console.log('error', error));
-				
+					.then(result => alert(result))
+					.catch(error => alert('error', error));
 			},
+
 			clearData: async () => {
 				setStore({
 					User: {

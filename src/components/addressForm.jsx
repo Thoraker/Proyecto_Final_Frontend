@@ -25,7 +25,14 @@ const AddressForm = () => {
 				className='p-3 m-3'
 				onSubmit={(ev) => {
 					ev.preventDefault()
-					state.actions.createPet({ street, buildingNumber, departmentNumber, commune, region, hasBackyard })
+					state.actions.createAddress({
+						street,
+						buildingNumber,
+						departmentNumber,
+						commune,
+						region,
+						hasBackyard,
+					})
 				}}
 			>
 				<h3>Cuéntanos acerca de la Mascota</h3>
@@ -33,7 +40,7 @@ const AddressForm = () => {
 					<input
 						type='text'
 						className='form-control'
-						placeholder='Nombre'
+						placeholder='Calle'
 						value={street}
 						onChange={(ev) => {
 							setStreet(ev.target.value)
@@ -46,7 +53,7 @@ const AddressForm = () => {
 					<input
 						type='text'
 						className='form-control'
-						placeholder='Edad'
+						placeholder='Numero de casa'
 						value={buildingNumber}
 						onChange={(ev) => {
 							SetBuildingNumber(ev.target.value)
@@ -59,7 +66,7 @@ const AddressForm = () => {
 					<input
 						type='text'
 						className='form-control'
-						placeholder='Edad'
+						placeholder='numero de departamento'
 						value={departmentNumber}
 						onChange={(ev) => {
 							setDepartmentNumber(ev.target.value)
@@ -72,7 +79,7 @@ const AddressForm = () => {
 					<input
 						type='text'
 						className='form-control'
-						placeholder='Edad'
+						placeholder='Comuna'
 						value={commune}
 						onChange={(ev) => {
 							setCommune(ev.target.value)
@@ -91,9 +98,7 @@ const AddressForm = () => {
 								progressUpdate()
 							}}
 						>
-							<option value='' selected='selected'>
-								Selecciona la región
-							</option>
+							<option value=''>Selecciona la región</option>
 							<option value='1'>1 Tarapacá</option>
 							<option value='2'>2 Antofagasta</option>
 							<option value='3'>3 Atacama</option>
