@@ -48,6 +48,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const petPhotos = getStore().Pet.Photos.push(url)
 				setStore({ Pet: { Photos: petPhotos } })
 			},
+
 			login: async (user, pass) => {
 				const myHeaders = new Headers()
 				myHeaders.append('Content-Type', 'application/json')
@@ -76,6 +77,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch((error) => alert('error', error))
 			},
+
 			createUser: async (values) => {
 				const myHeaders = new Headers()
 				myHeaders.append("Content-Type", "application/json")
@@ -101,7 +103,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => response.text())
 					.then(result => alert(result))
 					.catch(error => alert('error', error))
-},
+			},
+			
 			createPet: async (values) => {
 				const Pet = {
 					name: null,
@@ -113,7 +116,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 
 				const myHeaders = new Headers()
-				myHeaders.append('Authorization', 'Bearer ' + this.state.token)
+				myHeaders.append('Authorization', 'Bearer ' + getStore().User.Token)
 				myHeaders.append('Content-Type', 'application/json')
 
 				const raw = JSON.stringify(Object.assign(Pet, values))
@@ -130,17 +133,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch((error) => console.log('error', error))
 			},
 			createAddress: async (values) => {
+				console.log(getStore().User.Token, 'token')
 				const myHeaders = new Headers();
-				myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOiIzOWQxNzg5MC01ZGYyLTRmNWQtYWRlMC1mNTQ5OGFjZmE4OTIiLCJleHAiOjE2ODgxNDYyMDB9.n72gZtF370uRK8aqIfP8a9mr2_BnxoGLVVB4uHuwZow");
+				myHeaders.append("Authorization", "Bearer " + getStore().User.Token);
 				myHeaders.append("Content-Type", "application/json");
 
 				const raw = JSON.stringify({
-					"street": "Psje. dos",
-					"building_number": 1484,
-					"department_number": 302,
-					"commune": 5,
-					"region": 13,
-					"has_backyard": false
+					"street": values.street,
+					"building_number": values.buildingNumber,
+					"department_number": values.departmentNumber,
+					"commune": values.commune,
+					"region": values.region,
+					"has_backyard": values.hasBackyard
 				});
 
 				const requestOptions = {
