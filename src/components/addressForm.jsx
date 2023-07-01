@@ -3,19 +3,19 @@ import { AppContext } from '../routes/App'
 
 const AddressForm = () => {
 	const state = useContext(AppContext)
-	const [name, setName] = useState('')
-	const [age, setAge] = useState('')
-	const [specie, setSpecie] = useState('')
-	const [size, setSize] = useState('')
-	const [description, setDescription] = useState('')
+	const [street, setStreet] = useState('')
+	const [buildingNumber, SetBuildingNumber] = useState('')
+	const [departmentNumber, setDepartmentNumber] = useState('')
+	const [region, setRegion] = useState('')
+	const [commune, setCommune] = useState('')
+	const [hasBackyard, setHasBackyard] = useState(false)
 	const [progress, setProgress] = useState(0)
 
-	useEffect(() => progressUpdate(), [specie, size])
+	useEffect(() => progressUpdate(), [region, commune])
 
 	const progressUpdate = () => {
-		const fullFields = [name, age, specie, size, description].filter((field) => field !== '')
-		const newProgress = (fullFields.length / 5) * 100 // Suponiendo 5 campos en total
-		console.log(specie)
+		const fullFields = [street, buildingNumber, departmentNumber, commune, region].filter((field) => field !== '')
+		const newProgress = (fullFields.length / 5) * 100
 		setProgress(newProgress)
 	}
 
@@ -25,7 +25,7 @@ const AddressForm = () => {
 				className='p-3 m-3'
 				onSubmit={(ev) => {
 					ev.preventDefault()
-					state.actions.createPet(name, age, specie, size, description)
+					state.actions.createPet({ street, buildingNumber, departmentNumber, commune, region, hasBackyard })
 				}}
 			>
 				<h3>Cuéntanos acerca de la Mascota</h3>
@@ -34,9 +34,9 @@ const AddressForm = () => {
 						type='text'
 						className='form-control'
 						placeholder='Nombre'
-						value={name}
+						value={street}
 						onChange={(ev) => {
-							setName(ev.target.value)
+							setStreet(ev.target.value)
 							progressUpdate()
 						}}
 					/>
@@ -47,9 +47,35 @@ const AddressForm = () => {
 						type='text'
 						className='form-control'
 						placeholder='Edad'
-						value={age}
+						value={buildingNumber}
 						onChange={(ev) => {
-							setAge(ev.target.value)
+							SetBuildingNumber(ev.target.value)
+							progressUpdate()
+						}}
+					/>
+				</div>
+
+				<div className='form-group pb-2'>
+					<input
+						type='text'
+						className='form-control'
+						placeholder='Edad'
+						value={departmentNumber}
+						onChange={(ev) => {
+							setDepartmentNumber(ev.target.value)
+							progressUpdate()
+						}}
+					/>
+				</div>
+
+				<div className='form-group pb-2'>
+					<input
+						type='text'
+						className='form-control'
+						placeholder='Edad'
+						value={commune}
+						onChange={(ev) => {
+							setCommune(ev.target.value)
 							progressUpdate()
 						}}
 					/>
@@ -58,58 +84,61 @@ const AddressForm = () => {
 				<div className='form-group pb-2'>
 					<div className='d-flex align-items-center'>
 						<select
-							className='form-select me-2'
-							value={specie}
-							onChange={(ev) => {
-								setSpecie(ev.target.value)
-								progressUpdate()
-							}}
-						>
-							<option value=''>Especie</option>
-							<option value='Perros'>Perros</option>
-							<option value='Gatos'>Gatos</option>
-							<option value='Aves'>Aves</option>
-							<option value='Otros'>Otros</option>
-						</select>
-
-						<select
 							className='form-select'
-							value={size}
+							value={region}
 							onChange={(ev) => {
-								setSize(ev.target.value)
+								setRegion(ev.target.value)
 								progressUpdate()
 							}}
 						>
-							<option value=''>Tamaño</option>
-							<option value='Pequeño'>Pequeño</option>
-							<option value='Mediano'>Mediano</option>
-							<option value='Grande'>Grande</option>
+							<option value='' selected='selected'>
+								Selecciona la región
+							</option>
+							<option value='1'>1 Tarapacá</option>
+							<option value='2'>2 Antofagasta</option>
+							<option value='3'>3 Atacama</option>
+							<option value='4'>4 Coquimbo</option>
+							<option value='5'>5 Valparaiso</option>
+							<option value='6'>6 O`Higgins</option>
+							<option value='7'>7 Maule</option>
+							<option value='8'>8 Bio - Bio</option>
+							<option value='9'>9 Araucania</option>
+							<option value='10'>10 Los Lagos</option>
+							<option value='11'>11 Aysén</option>
+							<option value='12'>12 Magallanes Y Antártica</option>
+							<option value='13'>13 Metropolitana</option>
+							<option value='14'>14 Los Rios</option>
+							<option value='15'>15 Arica y Parinacota</option>
 						</select>
 					</div>
 				</div>
 
-				<div className='form-group pb-2 d-flex flex-column align-items-center'>
-					<textarea
-						className='form-control'
-						id='Description1'
-						placeholder='Su Historia'
-						rows='3'
-						value={description}
+				<div className='form-check my-3'>
+					<input
+						type='checkbox'
+						name='myCheckbox'
+						value={hasBackyard}
 						onChange={(ev) => {
-							setDescription(ev.target.value)
+							setHasBackyard(!hasBackyard)
 							progressUpdate()
 						}}
-						maxLength={100}
-					></textarea>
-					<p>Remaining characters: {100 - description.length}</p>
+					/>
+					<label className='form-check-label'>Tengo un jardín amplio para mi mascota</label>
 				</div>
 
-				<div className='progress mb-3'>
-					<div className='progress-bar' role='progressbar' style={{ width: `${progress}%` }}></div>
-				</div>
+				<div
+					className='progress mb-3 pb-2 mx-auto'
+					style={{
+						width: `${progress}%`,
+						height: '8px',
+						backgroundColor: '#0a5b1a',
+						transition: 'width 0.5s ease-in-out',
+						transformOrigin: 'center',
+					}}
+				></div>
 
-				<div className='pb-2'>
-					<button type='submit' className='btn btn-primary'>
+				<div className='pb-2 text-center'>
+					<button type='submit' className='w-50 me-2 btn btn-outline-light rounded-pill'>
 						Publicar
 					</button>
 				</div>

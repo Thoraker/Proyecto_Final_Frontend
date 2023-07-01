@@ -25,8 +25,8 @@ const PhotoUploader = () => {
 		)
 	}, [])
 	return (
-		<button className='btn btn-primary' onClick={() => widgetRef.current.open()}>
-			Upload Photo
+		<button className='w-25 me-2 btn btn-outline-light rounded-pill' onClick={() => widgetRef.current.open()}>
+			Subir Foto
 		</button>
 	)
 }

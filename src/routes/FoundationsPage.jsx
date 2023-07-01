@@ -1,10 +1,10 @@
 import React from 'react'
-import FundacionesDeAdopcion from '../components/Fundaciones'
+import AssociatedFoundations from '../components/Fundaciones'
 
 const FoundationsPage = () => {
 	return (
 		<div className='container-fluid'>
-			<FundacionesDeAdopcion />
+			<AssociatedFoundations />
 		</div>
 	)
 }
