@@ -38,7 +38,11 @@ const RegisterForm = () => {
 				<h3 className='text-center'>Regístrate</h3>
 				<div className='row'>
 					<div className='col-4'>
-						<img className='img-fluid rounded-5 p-3' src={avatar} alt='Avatar' />
+						<img
+							className='img-fluid rounded-5 p-3'
+							src={avatar === '' ? 'src/assets/invitado.png' : avatar}
+							alt='Avatar'
+						/>
 					</div>
 					<div className='col-8 p-3'>
 						<div className='form-group pb-2'>

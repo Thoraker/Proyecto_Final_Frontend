@@ -102,7 +102,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(result => alert(result))
 					.catch(error => alert('error', error))
 },
-			createPet: async ({ input }) => {
+			createPet: async (values) => {
 				const Pet = {
 					name: null,
 					specie: null,
@@ -116,7 +116,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				myHeaders.append('Authorization', 'Bearer ' + this.state.token)
 				myHeaders.append('Content-Type', 'application/json')
 
-				const raw = JSON.stringify(Object.assign(Pet, input))
+				const raw = JSON.stringify(Object.assign(Pet, values))
 
 				const requestOptions = {
 					method: 'POST',
@@ -128,6 +128,33 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then((response) => response.text())
 					.then((result) => console.log(result))
 					.catch((error) => console.log('error', error))
+			},
+			createAddress: async (values) => {
+				const myHeaders = new Headers();
+				myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOiIzOWQxNzg5MC01ZGYyLTRmNWQtYWRlMC1mNTQ5OGFjZmE4OTIiLCJleHAiOjE2ODgxNDYyMDB9.n72gZtF370uRK8aqIfP8a9mr2_BnxoGLVVB4uHuwZow");
+				myHeaders.append("Content-Type", "application/json");
+
+				const raw = JSON.stringify({
+					"street": "Psje. dos",
+					"building_number": 1484,
+					"department_number": 302,
+					"commune": 5,
+					"region": 13,
+					"has_backyard": false
+				});
+
+				const requestOptions = {
+				method: 'POST',
+				headers: myHeaders,
+				body: raw,
+				redirect: 'follow'
+				};
+
+				fetch("http://127.0.0.1:3000/address", requestOptions)
+					.then(response => response.text())
+					.then(result => console.log(result))
+					.catch(error => console.log('error', error));
+				
 			},
 			clearData: async () => {
 				setStore({
