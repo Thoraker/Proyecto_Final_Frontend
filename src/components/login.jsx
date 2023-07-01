@@ -7,17 +7,8 @@ const Login = () => {
 	const [user, setUser] = useState('')
 	const [password, setPassword] = useState('')
 
-	// const enviarData = (e) => {
-	// 	e.preventDefault();
-	// 	console.log(user, password)
-	// 	actions.login({user, password
-	// 	})
-	// }
-	// const history = useNavigate()
-
 	return (
-		<div
-			className='container-fluid vh-100 fst-italic'
+		<div className='container-fluid vh-100 fst-italic'
 			style={{ background: 'linear-gradient( 90deg, rgba(17,110,42,1) 22%, rgba(171,77,160,1) 84%)' }}
 		>
 			<div className='col-3 h-75 position-absolute m-5 start-50 translate-middle-x bg-success bg-gradient rounded-3'>

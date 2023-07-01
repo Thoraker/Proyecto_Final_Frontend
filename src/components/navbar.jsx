@@ -24,14 +24,10 @@ const Navbar = () => {
 				<div className='collapse navbar-collapse'>
 					<ul className='navbar-nav'>
 						<li className='nav-item'>
-							<Link to='/register' className='nav-link'>
-								Regístrate
-							</Link>
+						<p><a href="#" className="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Registrate</a></p>
 						</li>
 						<li className='nav-item'>
-							<Link to='/foundations' className='nav-link'>
-								Fundaciones
-							</Link>
+						<p><a href="#" className="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Success link</a></p>
 						</li>
 						{/* Solo como ejemplo  */}
 						<li className='nav-item'>
