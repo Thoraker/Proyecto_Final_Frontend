@@ -14,7 +14,6 @@ import RegisterForm from './components/registerForm'
 import Pagina from './components/landingPage'
 import FoundationsPage from './routes/FoundationsPage'
 // import Pagina from './components/landingPage'
-import FoundationsPage from './routes/FoundationsPage'
 import InviteFriends from './components/inviteFri'
 
 const domNode = document.getElementById('root')
@@ -70,7 +69,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: '/inicio',
-				// element: <Pagina />,
+				element: <Pagina />,
 			},
 		],
 	},

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-// import PhotoUploader from './photoUploader'
+import PhotoUploader from './photoUploader'
 import { AppContext } from '../routes/App'
 
 const PetForm = () => {
@@ -123,7 +123,7 @@ const PetForm = () => {
 					}}
 				></div>
 				<div className='pb-2 text-center'>
-					{/* <PhotoUploader /> */}
+					<PhotoUploader />
 					<button type='submit' className='w-25 me-2 btn btn-outline-light rounded-pill'>
 						Publicar
 					</button>

@@ -39,14 +39,58 @@ const getState = ({ getStore, getActions, setStore }) => {
 					Mascotas: [],
 				},
 				Token: '',
+				ActivePet: 	{
+					Nombre: '',
+					Especie: '',
+					Edad: '',
+					Tamaño: '',
+					Necesita_Patio: false,
+					Fotos: [
+						{
+							url: 'src/assets/RespetoAnimal.webp',
+						}
+					],
+				},
 			},
 		},
 
 		actions: {
 			loadInitialData: () => {},
-			getPetPhoto: (url) => {
-				const petPhotos = getStore().Pet.Photos.push(url)
-				setStore({ Pet: { Photos: petPhotos } })
+
+			getPetPhoto: (link) => {
+				const petPhoto = {url: link}
+				setStore(
+					{
+						User:{
+							ActivePet:{
+								Fotos: [...petPhoto]
+						}
+					}}
+				)
+
+				console.log(getStore().User.ActivePet.Fotos)
+
+				const myHeaders = new Headers()
+				myHeaders.append('Authorization', 'Bearer ' + getStore().User.Token)
+				myHeaders.append('Content-Type', 'application/json')
+
+				const raw = JSON.stringify({
+					'url': 'http://res.cloudinary.com/dqehz6slh/image/upload/v1687452386/j13abkvxjzk0icj09gqt.jpg/lqlhggzj8souxquvercq.jpg',
+				})
+
+				const requestOptions = {
+					method: 'POST',
+					headers: myHeaders,
+					body: raw,
+					redirect: 'follow'
+			}
+
+				fetch('http://127.0.0.1:3000/photo', requestOptions)
+					.then(response => response.text())
+					.then(result => console.log(result))
+					.catch(error => console.log('error', error))
+
+
 			},
 
 			login: async (user, pass) => {
@@ -80,16 +124,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			createUser: async (values) => {
 				const myHeaders = new Headers()
-				myHeaders.append("Content-Type", "application/json")
+				myHeaders.append('Content-Type', 'application/json')
 
 				const raw = JSON.stringify({
-					"user_name": values.userName,
-					"email": values.email,
-					"password": values.password,
-					"first_name": values.firstName,
-					"last_name": values.lastName,
-					"avatar": values.avatar,
-					"donor": values.donor,
+					'user_name': values.userName,
+					'email': values.email,
+					'password': values.password,
+					'first_name': values.firstName,
+					'last_name': values.lastName,
+					'avatar': values.avatar,
+					'donor': values.donor,
 				})
 
 				const requestOptions = {
@@ -97,9 +141,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					headers: myHeaders,
 					body: raw,
 					redirect: 'follow'
-				};
+				}
 
-				fetch("http://127.0.0.1:3000/register", requestOptions)
+				fetch('http://127.0.0.1:3000/register', requestOptions)
 					.then(response => response.text())
 					.then(result => alert(result))
 					.catch(error => alert('error', error))
@@ -135,48 +179,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 			createAddress: async (values) => {
 				console.log(getStore().User.Token, 'token')
 				const myHeaders = new Headers();
-				myHeaders.append("Authorization", "Bearer " + getStore().User.Token);
-				myHeaders.append("Content-Type", "application/json");
+				myHeaders.append('Authorization', 'Bearer ' + getStore().User.Token);
+				myHeaders.append('Content-Type', 'application/json');
 
 				const raw = JSON.stringify({
-					"street": values.street,
-					"building_number": values.buildingNumber,
-					"department_number": values.departmentNumber,
-					"commune": values.commune,
-					"region": values.region,
-					"has_backyard": values.hasBackyard
-				});
+					'street': values.street,
+					'building_number': values.buildingNumber,
+					'department_number': values.departmentNumber,
+					'commune': values.commune,
+					'region': values.region,
+					'has_backyard': values.hasBackyard
+				})
 
 				const requestOptions = {
 				method: 'POST',
 				headers: myHeaders,
 				body: raw,
 				redirect: 'follow'
-				};
+				}
 
-				fetch("http://127.0.0.1:3000/address", requestOptions)
+				fetch('http://127.0.0.1:3000/address', requestOptions)
 					.then(response => response.text())
 					.then(result => alert(result))
 					.catch(error => alert('error', error));
 			},
-
-			clearData: async () => {
-				setStore({
-					User: {
-						UserData: {
-							Usuario: '',
-							Email: '',
-							Nombre: '',
-							Apellido: '',
-							Avatar: 'src/assets/invitado.png',
-							Dador: false,
-							Direcciones: [],
-							Mascotas: [],
-						},
-						Token: '',
-					},
-				})
-			}
 		},
 	}
 }

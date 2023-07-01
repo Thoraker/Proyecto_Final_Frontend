@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-// import Carousel from '../components/carousel'
 import { AppContext } from './App'
 import Pagina from '../components/landingPage'
 
