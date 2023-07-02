@@ -20,7 +20,13 @@ const AddressForm = () => {
 	}
 
 	return (
-		<div className='container fst-italic bg-success bg-gradient rounded-3'>
+		<div
+			className='container fst-italic rounded-3 w-50'
+			style={{
+				background:
+					'linear-gradient(90deg, rgba(117,37,110,1) 16%, rgba(141,172,172,1) 47%, rgba(234,222,235,1) 75%)',
+			}}
+		>
 			<form
 				className='p-3 m-3'
 				onSubmit={(ev) => {
@@ -39,6 +45,7 @@ const AddressForm = () => {
 				<div className='form-group pb-2'>
 					<input
 						type='text'
+						style={{ background: '#ebdedf' }}
 						className='form-control'
 						placeholder='Calle'
 						value={street}
@@ -52,6 +59,7 @@ const AddressForm = () => {
 				<div className='form-group pb-2'>
 					<input
 						type='text'
+						style={{ background: '#ebdedf' }}
 						className='form-control'
 						placeholder='Numero de casa'
 						value={buildingNumber}
@@ -65,6 +73,7 @@ const AddressForm = () => {
 				<div className='form-group pb-2'>
 					<input
 						type='text'
+						style={{ background: '#ebdedf' }}
 						className='form-control'
 						placeholder='numero de departamento'
 						value={departmentNumber}
@@ -78,6 +87,7 @@ const AddressForm = () => {
 				<div className='form-group pb-2'>
 					<input
 						type='text'
+						style={{ background: '#ebdedf' }}
 						className='form-control'
 						placeholder='Comuna'
 						value={commune}
@@ -92,13 +102,16 @@ const AddressForm = () => {
 					<div className='d-flex align-items-center'>
 						<select
 							className='form-select'
+							style={{ background: '#ebdedf' }}
 							value={region}
 							onChange={(ev) => {
 								setRegion(ev.target.value)
 								progressUpdate()
 							}}
 						>
-							<option value=''>Selecciona la región</option>
+							<option value='' selected='selected '>
+								Selecciona la región
+							</option>
 							<option value='1'>1 Tarapacá</option>
 							<option value='2'>2 Antofagasta</option>
 							<option value='3'>3 Atacama</option>
@@ -117,7 +130,6 @@ const AddressForm = () => {
 						</select>
 					</div>
 				</div>
-
 				<div className='form-check my-3'>
 					<input
 						type='checkbox'
@@ -143,7 +155,7 @@ const AddressForm = () => {
 				></div>
 
 				<div className='pb-2 text-center'>
-					<button type='submit' className='w-50 me-2 btn btn-outline-light rounded-pill'>
+					<button type='submit' className='w-50 me-2 btn btn-outline-light rounded-pill '>
 						Publicar
 					</button>
 				</div>

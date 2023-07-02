@@ -15,6 +15,7 @@ import FoundationsPage from './routes/FoundationsPage'
 // import Pagina from './components/landingPage'
 // import InviteFriends from './components/inviteFri'
 import Pagina from './components/landingPage'
+import InviteFriends from './components/inviteFri'
 
 const domNode = document.getElementById('root')
 const root = createRoot(domNode)
@@ -67,6 +68,14 @@ const router = createBrowserRouter([
 				path: '/inicio',
 				element: <Pagina />,
 			},
+			{
+				path: '/prueba',
+				element: <InviteFriends />,
+			},
+			// {
+			// 	path: '/inicio',
+			// 	element: <Modal />,
+			// },
 		],
 	},
 ])

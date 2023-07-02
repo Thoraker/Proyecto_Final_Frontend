@@ -2,6 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { QRCodeSVG } from 'qrcode.react'
 import { PiPawPrintBold } from 'react-icons/pi'
+import './landingStyles.css'
 
 const Pagina = () => {
 	return (
@@ -17,28 +18,35 @@ const Pagina = () => {
 				<div className='row vh-100'>
 					<div className='col-7'>{/* Contenido de la parte izquierda */}</div>
 					<div
-						className='col-5 d-flex align-items-center px-3'
+						className='col-md-4 d-flex align-items-center '
 						style={{
-							background: '#A40E0E',
+							background:
+								'linear-gradient(90deg, rgba(130,6,21,1) 10%, rgba(222,137,34,1) 50%, rgba(130,6,21,1) 89%)',
+							height: '100vh',
+							overflow: 'hidden',
+							padding: '',
 						}}
 					>
 						<div className='text-center text-white'>
-							<h1 className='title display-4 font-weight-bold mt-md-5'>BIENVENIDO</h1>
-							<div className='display-5 font-weight-bold'>
-								<p>Adopta tu mascota y descubre más opciones.</p>
-							</div>
+							<h1 className='title font-weight-bold mt-md-4' id='appTitle'>
+								BIENVENIDO !
+							</h1>
+							<div className=' font-weight-bold p-5'>Adopta tu mascota y descubre más opciones.</div>
 							<button
-								className='btn btn-outline-light mt-3 rounded-pill border-2 w-50'
-								// style={{
-								// 	color: '#fff',
-								// 	border: '2px solid #fff',
-								// 	width: '180px',
-								// }}
+								className='btn btn-danger mt-3 rounded-pill'
+								style={{
+									backgroundColor: 'transparent',
+									color: '#fff',
+									border: '2px solid #fff',
+									width: '180px',
+								}}
 							>
 								Ingresa <PiPawPrintBold />
 							</button>
-							<div className='m-4'>
-								<p>Escanee el código QR para acceder a la aplicación:</p>
+							<div className=' p-5'>
+								<label>
+									<p>Escanee el código QR para acceder a la aplicación:</p>
+								</label>
 								<label className='border border-white'>
 									<QRCodeSVG value='https://localhost:5173' />
 								</label>
