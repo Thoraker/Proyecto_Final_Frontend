@@ -13,7 +13,9 @@ import PetPage from './routes/PetPage'
 import RegisterForm from './components/registerForm'
 import FoundationsPage from './routes/FoundationsPage'
 import InviteFriends from './components/inviteFri'
-import Pagina from './components/landingPage'
+
+
+
 
 
 const domNode = document.getElementById('root')
@@ -67,10 +69,10 @@ const router = createBrowserRouter([
 				path: '/prueba',
 				element: <InviteFriends />,
 			},
-			{
-				path: '/inicio',
-				element: <Pagina />,
-			},
+			// {
+			// 	path: '/inicio',
+			// 	element: <Modal />,
+			// },
 		],
 	},
 ])

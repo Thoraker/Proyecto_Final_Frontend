@@ -1,5 +1,7 @@
 import React from 'react';
 import { Formik, Field, Form, ErrorMessage, FieldArray } from 'formik';
+import { BsTrash3 } from "react-icons/bs";
+
 
 const initialValues = {
 	friends: [
@@ -63,7 +65,7 @@ const InviteFriends = () => (
 														className="btn btn-danger position-absolute bottom-0"
 														onClick={() => remove(index)}
 													>
-														X
+														<BsTrash3 />
 													</button>
 												</div>
 											</div>
