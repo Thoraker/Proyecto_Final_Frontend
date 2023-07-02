@@ -13,7 +13,7 @@ import PetPage from './routes/PetPage'
 import RegisterForm from './components/registerForm'
 import FoundationsPage from './routes/FoundationsPage'
 // import Pagina from './components/landingPage'
-import InviteFriends from './components/inviteFri'
+// import InviteFriends from './components/inviteFri'
 import Pagina from './components/landingPage'
 
 const domNode = document.getElementById('root')
@@ -62,10 +62,6 @@ const router = createBrowserRouter([
 						element: <PetPage />,
 					},
 				],
-			},
-			{
-				path: '/prueba',
-				element: <InviteFriends />,
 			},
 			{
 				path: '/inicio',

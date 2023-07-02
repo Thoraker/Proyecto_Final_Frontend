@@ -24,7 +24,7 @@ const App = () => {
 
 	return (
 		<AppContext.Provider value={state}>
-			<div className='container-fluid'>
+			<div className='container-fluid p-0'>
 				<div className='row'>
 					<Navbar />
 					<div className='col'>

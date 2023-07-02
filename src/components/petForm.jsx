@@ -8,21 +8,20 @@ const PetForm = () => {
 	const [specie, setSpecie] = useState('')
 	const [age, setAge] = useState('')
 	const [size, setSize] = useState('')
-	const [description, setDescription] = useState('')
+	const [needBackyard, setNeedBackyard] = useState(false)
 	const [progress, setProgress] = useState(0)
 
 	useEffect(() => progressUpdate(), [specie, size])
 
 	const progressUpdate = () => {
-		const fullFields = [name, age, specie, size, description].filter((field) => field !== '')
-		const newProgress = (fullFields.length / 5) * 100 // Suponiendo 5 campos en total
-		console.log(specie)
+		const fullFields = [name, specie, age, size].filter((field) => field !== '')
+		const newProgress = (fullFields.length / 4) * 100
 		setProgress(newProgress)
 	}
 
 	return (
 		<div
-			className='container fst-italic rounded-3'
+			className='container fst-italic rounded-3 pb-3'
 			style={{
 				backgroundColor: '#00DBDE',
 				backgroundImage: 'linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%)',
@@ -32,10 +31,10 @@ const PetForm = () => {
 				className='p-3 m-3'
 				onSubmit={(ev) => {
 					ev.preventDefault()
-					state.actions.createPet(name, age, specie, size, description)
+					state.actions.createPet({ name, age, specie, size, needBackyard })
 				}}
 			>
-				<h3 className='text-center'>Cuéntanos acerca de la Mascota</h3>
+				<h3 className='text-center'>Nombre</h3>
 				<div className='form-group pb-2'>
 					<input
 						type='text'
@@ -73,10 +72,10 @@ const PetForm = () => {
 							}}
 						>
 							<option value=''>Especie</option>
-							<option value='Perros'>Perros</option>
-							<option value='Gatos'>Gatos</option>
-							<option value='Aves'>Aves</option>
-							<option value='Otros'>Otros</option>
+							<option value={1}>Perros</option>
+							<option value={2}>Gatos</option>
+							<option value={3}>Aves</option>
+							<option value={4}>Otros</option>
 						</select>
 
 						<select
@@ -88,47 +87,41 @@ const PetForm = () => {
 							}}
 						>
 							<option value=''>Tamaño</option>
-							<option value='Pequeño'>Pequeño</option>
-							<option value='Mediano'>Mediano</option>
-							<option value='Grande'>Grande</option>
+							<option value={1}>Pequeño</option>
+							<option value={2}>Mediano</option>
+							<option value={3}>Grande</option>
 						</select>
 					</div>
 				</div>
 
-				<div className='form-group pb-2 d-flex flex-column align-items-center'>
-					<textarea
-						className='form-control'
-						id='Description1'
-						placeholder='Su Historia'
-						rows='3'
-						value={description}
+				<div className='form-check my-3'>
+					<input
+						type='checkbox'
+						name='myCheckbox'
+						value={needBackyard}
 						onChange={(ev) => {
-							setDescription(ev.target.value)
+							setNeedBackyard(!needBackyard)
 							progressUpdate()
 						}}
-						maxLength={100}
-					></textarea>
-					<p>Remaining characters: {100 - description.length}</p>
+					/>
+					<label className='form-check-label'>Necesita un jardín amplio</label>
 				</div>
 
 				<div
-					className='progress mb-3 pb-2'
+					className='progress mb-2 bg-success mx-auto'
 					style={{
 						width: `${progress}%`,
 						height: '8px',
-						backgroundColor: '#0a5b1a',
 						transition: 'width 0.5s ease-in-out',
-						transform: `translateX(-50%) scaleX(2)`,
-						transformOrigin: 'center',
 					}}
 				></div>
 				<div className='pb-2 text-center'>
-					<PhotoUploader />
 					<button type='submit' className='w-25 me-2 btn btn-outline-light rounded-pill'>
 						Publicar
 					</button>
 				</div>
 			</form>
+			<PhotoUploader />
 		</div>
 	)
 }

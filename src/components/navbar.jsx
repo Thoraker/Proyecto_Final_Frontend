@@ -8,7 +8,10 @@ const Navbar = () => {
 	const state = useContext(AppContext)
 
 	return (
-		<nav className='navbar navbar-expand-lg bg-transparent fst-italic fixed-top'>
+		<nav
+			className='navbar navbar-expand-lg fst-italic fixed-top container-fluid'
+			style={{ backgroundColor: 'rgba(255, 255, 255, 0.3)' }}
+		>
 			<div className='container-fluid'>
 				<button
 					className='navbar-toggler'
@@ -18,7 +21,7 @@ const Navbar = () => {
 				>
 					<span className='navbar-toggler-icon'></span>
 				</button>
-				<Link className='navbar-brand fs-1 p-5' to='/'>
+				<Link className='navbar-brand fs-1 px-5' to='/'>
 					Dame una Pata
 				</Link>
 				<div className='collapse navbar-collapse'>

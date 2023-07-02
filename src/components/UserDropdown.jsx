@@ -14,12 +14,12 @@ const UserDropdown = () => {
 		<div className='dropdown'>
 			<button className='btn btn-outline-success card' type='button' data-bs-toggle='dropdown'>
 				<div className='row g-0'>
-					<div className='col-4'>
+					<div className='col-3'>
 						<img className='img-fluid' src={avatar} />
 					</div>
-					<div className='col-8'>
+					<div className='col-9'>
 						<div className='card-body'>
-							<h5 className='card-text'>{user}</h5>
+							<h3 className='card-text'>{user}</h3>
 						</div>
 					</div>
 				</div>
