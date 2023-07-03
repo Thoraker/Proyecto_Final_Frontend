@@ -8,12 +8,25 @@ const PetInfo = () => {
 		<div className='card mb-3'>
 			<div className='row g-0'>
 				<div className='col-md-3 p-4'>
-					<ul>
-						<li>
-							{state.store.User.UserData.Mascotas.map((mascota, index) => {
-								return <li key={index}>{mascota.Nombre}</li>
-							})}
-						</li>
+					<ul className='nav nav-pills flex-column' id='pills-tab' role='tablist'>
+						{state.store.User.UserData.Mascotas.map((mascota, index) => {
+							return (
+								<li key={index} className='nav-item' role='presentation'>
+									<button
+										className='nav-link'
+										id='pills-home-tab'
+										data-bs-toggle='pill'
+										data-bs-target={'#pills' + index + 1}
+										type='button'
+										role='tab'
+										aria-controls={'pills' + index + 1}
+										aria-selected='true'
+									>
+										{mascota.Nombre}
+									</button>
+								</li>
+							)
+						})}
 					</ul>
 				</div>
 				<div className='col-md-8 m-2'>
