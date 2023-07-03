@@ -21,20 +21,20 @@ const AssociatedFoundations = () => {
 			description: 'Breve descripción de la fundación C.',
 			webpage: 'https://fundacionanimal.cl/',
 		},
-		{
-			name: 'Fundación D',
-			photo: 'ruta/a/la/foto-d.jpg',
-			description: 'Breve descripción de la fundación D.',
-			webpage: 'www.foundationD.com',
-		},
+		// {
+		// 	name: 'Fundación D',
+		// 	photo: 'ruta/a/la/foto-d.jpg',
+		// 	description: 'Breve descripción de la fundación D.',
+		// 	webpage: 'www.foundationD.com',
+		// },
 	]
 	const tarjetas = foundations.map((foundation, index) => (
 		<Col key={index}>
-			<Card className='h-100' style={{ backgroundColor: '#dbe6de' }}>
+			<Card className='bg-light'>
 				<Card.Header>
 					<Card.Title className='text-center'>{foundation.name}</Card.Title>
 				</Card.Header>
-				<Card.Img className='p-2' src={foundation.photo} />
+				<Card.Img className='mx-auto w-75' src={foundation.photo} />
 				<Card.Body className='position-relative'>
 					<Card.Text>{foundation.description}</Card.Text>
 				</Card.Body>
@@ -50,17 +50,17 @@ const AssociatedFoundations = () => {
 	return (
 		<Container
 			fluid
-			className='p-4'
+			className='vh-100'
 			style={{
-				background:
-					'linear-gradient(90deg, rgba(180, 222, 191, 0.6168592436974789) 19%, rgba(126, 148, 84, 1) 71%)',
+				background: 'linear-gradient(90deg, rgba(180, 222, 191, 1) 20%, rgba(126, 148, 84, 1) 70%)',
+				paddingTop: '6rem',
 			}}
 		>
 			<div>
-				<h1 className='text-center mb-3'>
+				<h1 className='text-center'>
 					Fundaciones <i className='bi bi-house-door-fill fs-1'></i>
 				</h1>
-				<h5 className='mb-5'>
+				<h5 className='m-3'>
 					Aquí te mostramos las fundaciones en alianza con nuestra aplicación donde podrás conocer más a fondo
 					la labor de cada una de estas organizaciones dedicadas al rescate, rehabilitación, cuidado,
 					reubicación y adopción de mascotas abandonadas. Cada mascota tiene su historia particular y todos
@@ -69,8 +69,10 @@ const AssociatedFoundations = () => {
 				</h5>
 			</div>
 
-			<Row xs={1} md={2} lg={4}>
+			<Row className='text-center' xs={1} md={3} lg={5}>
+				<div className='col'></div>
 				{tarjetas}
+				<div className='col'></div>
 			</Row>
 		</Container>
 	)

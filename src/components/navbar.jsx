@@ -9,7 +9,7 @@ const Navbar = () => {
 
 	return (
 		<nav
-			className='navbar navbar-expand-lg fst-italic fixed-top container-fluid'
+			className='navbar navbar-expand-lg fst-italic fixed-top'
 			style={{ backgroundColor: 'rgba(255, 255, 255, 0.3)' }}
 		>
 			<div className='container-fluid'>
@@ -33,18 +33,18 @@ const Navbar = () => {
 						</li>
 						<li className='nav-item'>
 							<p>
-								<Link to='/register' className='nav-link'>
-									Success link
+								<Link to='/foundations' className='nav-link'>
+									Fundaciones Amigas
 								</Link>
 							</p>
 						</li>
 						{/* Solo como ejemplo  */}
-						<li className='nav-item'>
+						{/* <li className='nav-item'>
 							<Link to='/login' className='nav-link'>
 								login
 							</Link>
-						</li>
-						<li className='nav-item'>
+						</li> */}
+						{/* <li className='nav-item'>
 							<Link to='/pet' className='nav-link'>
 								mascotas
 							</Link>
@@ -63,7 +63,7 @@ const Navbar = () => {
 							<Link to='/user/pet' className='nav-link'>
 								userPet
 							</Link>
-						</li>
+						</li> */}
 					</ul>
 				</div>
 				<div className='col-2'>

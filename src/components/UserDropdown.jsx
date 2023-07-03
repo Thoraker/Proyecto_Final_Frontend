@@ -14,12 +14,12 @@ const UserDropdown = () => {
 		<div className='dropdown'>
 			<button className='btn btn-outline-success card' type='button' data-bs-toggle='dropdown'>
 				<div className='row g-0'>
-					<div className='col-3'>
-						<img className='img-fluid' src={avatar} />
+					<div className='col-4'>
+						<img className='img-fluid' style={{ maxHeight: '70px' }} src={avatar} />
 					</div>
-					<div className='col-9'>
+					<div className='col-8'>
 						<div className='card-body'>
-							<h3 className='card-text'>{user}</h3>
+							<h5 className='card-text'>{user}</h5>
 						</div>
 					</div>
 				</div>
@@ -27,18 +27,13 @@ const UserDropdown = () => {
 
 			<ul className='dropdown-menu'>
 				<li>
-					<Link className='dropdown-item' to='/user/data'>
+					<Link className='dropdown-item' to='/user'>
 						Mis Datos
 					</Link>
 				</li>
 				<li>
 					<Link className='dropdown-item' to='/user/pet'>
-						Mis Mascotas
-					</Link>
-				</li>
-				<li>
-					<Link className='dropdown-item' to='/user/address'>
-						Mis Direcciones
+						Mis Mensajes
 					</Link>
 				</li>
 				<li>

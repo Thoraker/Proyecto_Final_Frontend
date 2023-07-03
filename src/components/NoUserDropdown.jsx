@@ -6,12 +6,16 @@ const NoUserDropdown = () => {
 		<div className='dropdown'>
 			<button className='btn btn-outline-primary card' type='button' data-bs-toggle='dropdown'>
 				<div className='row g-0'>
-					<div className='col-3'>
-						<img className='img-fluid' src='src/assets/invitado.png' />
+					<div className='col-4'>
+						<img
+							className='img-fluid'
+							src='https://res.cloudinary.com/dqehz6slh/image/upload/v1688397737/smhqmpxo8pvj3q8pcowx.png'
+							style={{ maxHeight: '70px' }}
+						/>
 					</div>
-					<div className='col-9 '>
+					<div className='col-8'>
 						<div className='card-body'>
-							<h3 className='card-text'>Ingreso</h3>
+							<h5 className='card-text'>Ingreso</h5>
 						</div>
 					</div>
 				</div>

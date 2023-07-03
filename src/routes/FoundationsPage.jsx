@@ -1,5 +1,5 @@
 import React from 'react'
-import AssociatedFoundations from '../components/Fundaciones'
+import AssociatedFoundations from '../components/associatedFoundations'
 
 const FoundationsPage = () => {
 	return (
