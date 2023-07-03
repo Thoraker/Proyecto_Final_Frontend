@@ -1,10 +1,7 @@
-import React, { useContext } from 'react'
-import { AppContext } from '../routes/App'
+import React, { useState } from 'react'
 
-const Carousel = () => {
-	const [index, setIndex] = React.useState(0)
-	const state = useContext(AppContext)
-	const photos = state.store.slides
+const Carousel = ({ photos }) => {
+	const [index, setIndex] = useState(0)
 
 	const goToNext = () => {
 		const isLastSlide = index === photos.length - 1
@@ -32,7 +29,11 @@ const Carousel = () => {
 				<i className='bi bi-caret-left'></i>
 			</div>
 			<div className='ratio ratio-16x9'>
-				<img src={photos[index].url} alt='' />
+				{photos.length < 1 ? (
+					<img src='src/assets/RespetoAnimal.web' alt='' />
+				) : (
+					<img src={photos[index].url} alt='' />
+				)}
 			</div>
 			<div
 				className='position-absolute top-50 z-1 end-0 translate-middle-y fs-1 text-light'

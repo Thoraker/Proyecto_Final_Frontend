@@ -45,7 +45,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				'Nombre': '',
 				'Especie': '',
 				'Tamano': '',
-				'Necesita Patio': '',
+				'Necesita_Patio': '',
 				'Fotos': [],
 			},
 		},
