@@ -20,21 +20,34 @@ const AddressForm = () => {
 	}
 
 	return (
-		<div className='container fst-italic rounded-3 w-50' style={{background: 'linear-gradient(90deg, rgba(117,37,110,1) 16%, rgba(141,172,172,1) 47%, rgba(234,222,235,1) 75%)'}} >
+		<div
+			className='container fst-italic rounded-3 w-50'
+			style={{
+				background:
+					'linear-gradient(90deg, rgba(117,37,110,1) 16%, rgba(141,172,172,1) 47%, rgba(234,222,235,1) 75%)',
+			}}
+		>
 			<form
 				className='p-3 m-3'
 				onSubmit={(ev) => {
 					ev.preventDefault()
-					state.actions.createPet({ street, buildingNumber, departmentNumber, commune, region, hasBackyard })
+					state.actions.createAddress({
+						street,
+						buildingNumber,
+						departmentNumber,
+						commune,
+						region,
+						hasBackyard,
+					})
 				}}
 			>
 				<h3>Cuéntanos acerca de la Mascota</h3>
 				<div className='form-group pb-2'>
 					<input
 						type='text'
-						style={{ background: '#ebdedf'}}
+						style={{ background: '#ebdedf' }}
 						className='form-control'
-						placeholder='Nombre'
+						placeholder='Calle'
 						value={street}
 						onChange={(ev) => {
 							setStreet(ev.target.value)
@@ -46,9 +59,9 @@ const AddressForm = () => {
 				<div className='form-group pb-2'>
 					<input
 						type='text'
-						style={{ background: '#ebdedf'}}
+						style={{ background: '#ebdedf' }}
 						className='form-control'
-						placeholder='Edad'
+						placeholder='Numero de casa'
 						value={buildingNumber}
 						onChange={(ev) => {
 							SetBuildingNumber(ev.target.value)
@@ -60,9 +73,9 @@ const AddressForm = () => {
 				<div className='form-group pb-2'>
 					<input
 						type='text'
-						style={{ background: '#ebdedf'}}
+						style={{ background: '#ebdedf' }}
 						className='form-control'
-						placeholder='Edad'
+						placeholder='numero de departamento'
 						value={departmentNumber}
 						onChange={(ev) => {
 							setDepartmentNumber(ev.target.value)
@@ -74,9 +87,9 @@ const AddressForm = () => {
 				<div className='form-group pb-2'>
 					<input
 						type='text'
-						style={{ background: '#ebdedf'}}
+						style={{ background: '#ebdedf' }}
 						className='form-control'
-						placeholder='Edad'
+						placeholder='Comuna'
 						value={commune}
 						onChange={(ev) => {
 							setCommune(ev.target.value)
@@ -89,7 +102,7 @@ const AddressForm = () => {
 					<div className='d-flex align-items-center'>
 						<select
 							className='form-select'
-							style={{ background: '#ebdedf'}}
+							style={{ background: '#ebdedf' }}
 							value={region}
 							onChange={(ev) => {
 								setRegion(ev.target.value)

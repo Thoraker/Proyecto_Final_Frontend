@@ -1,22 +1,14 @@
-import React, { useContext } from 'react'
-// import { useNavigate } froms 'react-router-dom'
-import { AppContext } from '../routes/App'
+import React from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
-// eslint-disable-next-line react/prop-types
-function Logout() {
-	const state = useContext(AppContext)
-	// const history = useNavigate
-
-	const handleLogout = () => {
-		state.actions.clearData()
-		// OJJJJOOO : O usar history.replace('/home') en lugar de history.push si deseas reemplazar la página actual en lugar de agregarla al historial de navegación.
-	}
+const Logout = () => {
+	const navigate = useNavigate()
 
 	return (
 		<div>
-			<button className='btn btn-outline-danger' onClick={(ev) => handleLogout()}>
+			<Link to='/' onClick={navigate(0)} className='dropdown-item'>
 				Cerrar sesión
-			</button>
+			</Link>
 		</div>
 	)
 }

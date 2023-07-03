@@ -33,21 +33,49 @@ const getState = ({ getStore, getActions, setStore }) => {
 					Email: '',
 					Nombre: '',
 					Apellido: '',
-					Avatar: 'src/assets/invitado.png',
+					Avatar: '',
 					Dador: false,
 					Direcciones: [],
 					Mascotas: [],
 				},
 				Token: '',
 			},
+			Pet: 	{
+				'id': '',
+				'Nombre': '',
+				'Especie': '',
+				'Tamano': '',
+				'Necesita Patio': '',
+				'Fotos': [],
+			},
 		},
 
 		actions: {
-			loadInitialData: () => {},
-			getPetPhoto: (url) => {
-				const petPhotos = getStore().Pet.Photos.push(url)
-				setStore({ Pet: { Photos: petPhotos } })
+			loadInitialData: () => {console.log('loadInitialData');},
+
+			getPetPhoto: async (link) => {
+				const myHeaders = new Headers()
+				myHeaders.append('Authorization', 'Bearer ' + getStore().User.Token)
+				myHeaders.append('Content-Type', 'application/json')
+
+				const raw = JSON.stringify({
+					'url': link,
+					'pet_id': getStore().Pet.id
+				})
+
+				const requestOptions = {
+					method: 'POST',
+					headers: myHeaders,
+					body: raw,
+					redirect: 'follow'
+				}
+
+				fetch('http://127.0.0.1:3000/photo', requestOptions)
+					.then(response => response.text())
+					.then(result => console.log(result))
+					.catch(error => console.log('error', error))
 			},
+
 			login: async (user, pass) => {
 				const myHeaders = new Headers()
 				myHeaders.append('Content-Type', 'application/json')
@@ -74,20 +102,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 							},
 						})
 					})
-					.catch((error) => alert('error', error))
+					.catch((error) => console.log('error', error))
 			},
+
 			createUser: async (values) => {
 				const myHeaders = new Headers()
-				myHeaders.append("Content-Type", "application/json")
+				myHeaders.append('Content-Type', 'application/json')
 
 				const raw = JSON.stringify({
-					"user_name": values.userName,
-					"email": values.email,
-					"password": values.password,
-					"first_name": values.firstName,
-					"last_name": values.lastName,
-					"avatar": values.avatar,
-					"donor": values.donor,
+					'user_name': values.userName,
+					'email': values.email,
+					'password': values.password,
+					'first_name': values.firstName,
+					'last_name': values.lastName,
+					'avatar': values.avatar,
+					'donor': values.donor,
 				})
 
 				const requestOptions = {
@@ -95,52 +124,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 					headers: myHeaders,
 					body: raw,
 					redirect: 'follow'
-				};
-
-				fetch("http://127.0.0.1:3000/register", requestOptions)
-					.then(response => response.text())
-					.then(result => alert(result))
-					.catch(error => alert('error', error))
-},
-			createPet: async (values) => {
-				const Pet = {
-					name: null,
-					specie: null,
-					age: null,
-					size: null,
-					photo_url: null,
-					need_backyard: true,
 				}
 
-				const myHeaders = new Headers()
-				myHeaders.append('Authorization', 'Bearer ' + this.state.token)
-				myHeaders.append('Content-Type', 'application/json')
-
-				const raw = JSON.stringify(Object.assign(Pet, values))
-
-				const requestOptions = {
-					method: 'POST',
-					headers: myHeaders,
-					body: raw,
-					redirect: 'follow',
-				}
-				fetch('http://127.0.0.1:3000/pet', requestOptions)
-					.then((response) => response.text())
-					.then((result) => console.log(result))
-					.catch((error) => console.log('error', error))
+				fetch('http://127.0.0.1:3000/register', requestOptions)
+					.then(response => response.json())
+					.then(result => console.log(result))
+					.catch(error => console.log('error', error))
 			},
-			createAddress: async (values) => {
+
+			createPet: async (values) => {
 				const myHeaders = new Headers();
-				myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOiIzOWQxNzg5MC01ZGYyLTRmNWQtYWRlMC1mNTQ5OGFjZmE4OTIiLCJleHAiOjE2ODgxNDYyMDB9.n72gZtF370uRK8aqIfP8a9mr2_BnxoGLVVB4uHuwZow");
-				myHeaders.append("Content-Type", "application/json");
+					myHeaders.append('Authorization', 'Bearer ' + getStore().User.Token)
+					myHeaders.append('Content-Type', 'application/json');
 
 				const raw = JSON.stringify({
-					"street": "Psje. dos",
-					"building_number": 1484,
-					"department_number": 302,
-					"commune": 5,
-					"region": 13,
-					"has_backyard": false
+					'name': values.name,
+					'specie': values.specie,
+					'age': values.age,
+					'size': values.size,
+					'need_backyard': values.needBackyard
 				});
 
 				const requestOptions = {
@@ -150,29 +152,44 @@ const getState = ({ getStore, getActions, setStore }) => {
 				redirect: 'follow'
 				};
 
-				fetch("http://127.0.0.1:3000/address", requestOptions)
-					.then(response => response.text())
+				fetch('http://127.0.0.1:3000/pet', requestOptions)
+					.then(response => response.json())
+					.then(result => {
+						setStore({							
+							Pet: result.Pet
+						})
+						console.log(result)
+					})
+					.catch(error => console.log('error', error))
+			},
+
+			createAddress: async (values) => {
+				console.log(getStore().User.Token, 'token')
+				const myHeaders = new Headers();
+				myHeaders.append('Authorization', 'Bearer ' + getStore().User.Token);
+				myHeaders.append('Content-Type', 'application/json');
+
+				const raw = JSON.stringify({
+					'street': values.street,
+					'building_number': values.buildingNumber,
+					'department_number': values.departmentNumber,
+					'commune': values.commune,
+					'region': values.region,
+					'has_backyard': values.hasBackyard
+				})
+
+				const requestOptions = {
+				method: 'POST',
+				headers: myHeaders,
+				body: raw,
+				redirect: 'follow'
+				}
+
+				fetch('http://127.0.0.1:3000/address', requestOptions)
+					.then(response => response.json())
 					.then(result => console.log(result))
 					.catch(error => console.log('error', error));
-				
 			},
-			clearData: async () => {
-				setStore({
-					User: {
-						UserData: {
-							Usuario: '',
-							Email: '',
-							Nombre: '',
-							Apellido: '',
-							Avatar: 'src/assets/invitado.png',
-							Dador: false,
-							Direcciones: [],
-							Mascotas: [],
-						},
-						Token: '',
-					},
-				})
-			}
 		},
 	}
 }

@@ -8,7 +8,10 @@ const Navbar = () => {
 	const state = useContext(AppContext)
 
 	return (
-		<nav className='navbar navbar-expand-lg navbar bg-transparent fst-italic'>
+		<nav
+			className='navbar navbar-expand-lg fst-italic fixed-top'
+			style={{ backgroundColor: 'rgba(255, 255, 255, 0.3)' }}
+		>
 			<div className='container-fluid'>
 				<button
 					className='navbar-toggler'
@@ -18,24 +21,30 @@ const Navbar = () => {
 				>
 					<span className='navbar-toggler-icon'></span>
 				</button>
-				<Link className='navbar-brand fw-bold' to='/'>
+				<Link className='navbar-brand fs-1 px-5' to='/'>
 					Dame una Pata
 				</Link>
 				<div className='collapse navbar-collapse'>
 					<ul className='navbar-nav'>
 						<li className='nav-item'>
-						<p><a href="#" className="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Registrate</a></p>
-						</li>
-						<li className='nav-item'>
-						<p><a href="#" className="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Success link</a></p>
-						</li>
-						{/* Solo como ejemplo  */}
-						<li className='nav-item'>
-							<Link to='/login' className='nav-link'>
-								login
+							<Link to='/register' className='nav-link'>
+								Regístrate
 							</Link>
 						</li>
 						<li className='nav-item'>
+							<p>
+								<Link to='/foundations' className='nav-link'>
+									Fundaciones Amigas
+								</Link>
+							</p>
+						</li>
+						{/* Solo como ejemplo  */}
+						{/* <li className='nav-item'>
+							<Link to='/login' className='nav-link'>
+								login
+							</Link>
+						</li> */}
+						{/* <li className='nav-item'>
 							<Link to='/pet' className='nav-link'>
 								mascotas
 							</Link>
@@ -54,7 +63,7 @@ const Navbar = () => {
 							<Link to='/user/pet' className='nav-link'>
 								userPet
 							</Link>
-						</li>
+						</li> */}
 					</ul>
 				</div>
 				<div className='col-2'>

@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useRef } from 'react'
-import AppContext from '../routes/App'
 import '../resources/Flux.js'
+import { AppContext } from '../routes/App.jsx'
 
 const PhotoUploader = () => {
-	const state = useContext(AppContext)
 	const cloudinaryRef = useRef()
 	const widgetRef = useRef()
+	const state = useContext(AppContext)
 
 	useEffect(() => {
 		cloudinaryRef.current = window.cloudinary
@@ -16,8 +16,9 @@ const PhotoUploader = () => {
 			},
 			function (error, result) {
 				if (!error && result && result.event === 'success') {
-					state.actions.getPetPhoto(result.info.url)
 					console.log('Done! Here is the image info: ', result)
+					state.actions.getPetPhoto(result.info.secure_url)
+					console.log(state.store)
 				} else if (error) {
 					console.log(error)
 				}

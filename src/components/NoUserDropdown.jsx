@@ -1,23 +1,21 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-import { AppContext } from '../routes/App'
 
 const NoUserDropdown = () => {
-	const state = useContext(AppContext)
-
-	const avatar = state.store.User.UserData.Avatar
 	return (
 		<div className='dropdown'>
-			<button className='btn btn-outline-primary' type='button' data-bs-toggle='dropdown'>
-				<div className='card'>
-					<div className='row g-0'>
-						<div className='col-4'>
-							<img className='img-fluid' src={avatar} />
-						</div>
-						<div className='col-8'>
-							<div className='card-body'>
-								<h5 className='card-title'>Ingreso</h5>
-							</div>
+			<button className='btn btn-outline-primary card' type='button' data-bs-toggle='dropdown'>
+				<div className='row g-0'>
+					<div className='col-4'>
+						<img
+							className='img-fluid'
+							src='https://res.cloudinary.com/dqehz6slh/image/upload/v1688397737/smhqmpxo8pvj3q8pcowx.png'
+							style={{ maxHeight: '70px' }}
+						/>
+					</div>
+					<div className='col-8'>
+						<div className='card-body'>
+							<h5 className='card-text'>Ingreso</h5>
 						</div>
 					</div>
 				</div>

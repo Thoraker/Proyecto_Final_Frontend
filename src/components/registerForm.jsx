@@ -39,7 +39,11 @@ const RegisterForm = () => {
 					<div className='col-4'>
 						<img
 							className='img-fluid rounded-5 p-3'
-							src={avatar === '' ? 'src/assets/invitado.png' : avatar}
+							src={
+								avatar === ''
+									? 'https://res.cloudinary.com/dqehz6slh/image/upload/v1688397737/smhqmpxo8pvj3q8pcowx.png'
+									: avatar
+							}
 							alt='Avatar'
 						/>
 					</div>
@@ -130,16 +134,36 @@ const RegisterForm = () => {
 								required
 							>
 								<option value=''>Elige tu Avatar</option>
-								<option value='src/assets/1.png'>Avatar 1</option>
-								<option value='src/assets/2.png'>Avatar 2</option>
-								<option value='src/assets/3.png'>Avatar 3</option>
-								<option value='src/assets/4.png'>Avatar 4</option>
-								<option value='src/assets/5.png'>Avatar 5</option>
-								<option value='src/assets/6.png'>Avatar 6</option>
-								<option value='src/assets/7.png'>Avatar 7</option>
-								<option value='src/assets/8.png'>Avatar 8</option>
-								<option value='src/assets/9.png'>Avatar 9</option>
-								<option value='src/assets/10.png'>Avatar 10</option>
+								<option value='https://res.cloudinary.com/dqehz6slh/image/upload/v1688397738/okcu1ufijajwgcpx3eu1.png'>
+									Avatar 1
+								</option>
+								<option value='https://res.cloudinary.com/dqehz6slh/image/upload/v1688397738/bgartaxungu0bmt8xgfx.png'>
+									Avatar 2
+								</option>
+								<option value='https://res.cloudinary.com/dqehz6slh/image/upload/v1688397738/lfydwioaujgmlktnlcki.png'>
+									Avatar 3
+								</option>
+								<option value='https://res.cloudinary.com/dqehz6slh/image/upload/v1688397738/gvfdavjl4djqxqv3d4nl.png'>
+									Avatar 4
+								</option>
+								<option value='https://res.cloudinary.com/dqehz6slh/image/upload/v1688397738/tmqwv0g0krkldtm6spbl.png'>
+									Avatar 5
+								</option>
+								<option value='https://res.cloudinary.com/dqehz6slh/image/upload/v1688397737/hp53n3rdqk0suszd6vlk.png'>
+									Avatar 6
+								</option>
+								<option value='https://res.cloudinary.com/dqehz6slh/image/upload/v1688397737/gasewvabuy3ylwnjtf4k.png'>
+									Avatar 7
+								</option>
+								<option value='https://res.cloudinary.com/dqehz6slh/image/upload/v1688397737/azjftzcgu890kgtqt7ii.png'>
+									Avatar 8
+								</option>
+								<option value='https://res.cloudinary.com/dqehz6slh/image/upload/v1688397737/xhoto8t9ltibj0dfpymx.png'>
+									Avatar 9
+								</option>
+								<option value='https://res.cloudinary.com/dqehz6slh/image/upload/v1688397737/i4ibsthpzo3cfxgp1ewy.png'>
+									Avatar 10
+								</option>
 							</select>
 						</div>
 
