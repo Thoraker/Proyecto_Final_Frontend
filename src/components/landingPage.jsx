@@ -45,7 +45,7 @@ const Pagina = () => {
 									border: '2px solid #fff',
 									width: '180px',
 								}}>
-								Ingresa <PiPawPrintBold />
+								INGRESA <PiPawPrintBold />
 							</button>
 							<div className=' p-5'>
 								<label>
