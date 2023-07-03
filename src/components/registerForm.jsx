@@ -1,28 +1,27 @@
-import React, { useState, useContext, useEffect } from 'react'
-import { AppContext } from '../routes/App'
+import React, { useState, useContext, useEffect } from 'react';
+import { AppContext } from '../routes/App';
 
 const RegisterForm = () => {
-	const state = useContext(AppContext)
-	const [userName, setUserName] = useState('')
-	const [email, setEmail] = useState('')
-	const [password, setPassword] = useState('')
-	const [firstName, setFirstName] = useState('')
-	const [lastName, setLastName] = useState('')
-	const [avatar, setAvatar] = useState('')
-	const [donor, setDonor] = useState(true)
-	const [progress, setProgress] = useState(0)
+	const state = useContext(AppContext);
+	const [userName, setUserName] = useState('');
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [firstName, setFirstName] = useState('');
+	const [lastName, setLastName] = useState('');
+	const [avatar, setAvatar] = useState('');
+	const [donor, setDonor] = useState(true);
+	const [progress, setProgress] = useState(0);
 
-	useEffect(() => progressUpdate(), [donor, avatar])
+	useEffect(() => progressUpdate(), [donor, avatar]);
 
 	const progressUpdate = () => {
-		const fullFields = [userName, email, password, firstName, lastName, avatar].filter((field) => field !== '')
-		const newProgress = (fullFields.length / 6) * 100
-		setProgress(newProgress)
-	}
+		const fullFields = [userName, email, password, firstName, lastName, avatar].filter((field) => field !== '');
+		const newProgress = (fullFields.length / 6) * 100;
+		setProgress(newProgress);
+	};
 
 	return (
-		<div
-			className='container fst-italic rounded-3'
+		<div className='container fst-italic rounded-3'
 			style={{
 				backgroundImage: 'linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%)',
 			}}
@@ -30,8 +29,8 @@ const RegisterForm = () => {
 			<form
 				className='p-3 m-3'
 				onSubmit={(ev) => {
-					ev.preventDefault()
-					state.actions.createUser({ userName, email, password, firstName, lastName, avatar, donor })
+					ev.preventDefault();
+					state.actions.createUser({ userName, email, password, firstName, lastName, avatar, donor });
 				}}
 				autoComplete='off'
 			>
@@ -56,22 +55,27 @@ const RegisterForm = () => {
 								placeholder='Nombre de Usuario'
 								value={userName}
 								onChange={(ev) => {
-									setUserName(ev.target.value)
-									progressUpdate()
+									setUserName(ev.target.value);
+									progressUpdate();
 								}}
+								required
+								pattern="[a-zA-Z0-9]+"
+								title="El nombre de usuario solo puede contener letras y números"
 							/>
 						</div>
 
 						<div className='form-group pb-2'>
 							<input
-								type='text'
+								type='email'
 								className='form-control'
 								placeholder='Correo'
 								value={email}
 								onChange={(ev) => {
-									setEmail(ev.target.value)
-									progressUpdate()
+									setEmail(ev.target.value);
+									progressUpdate();
 								}}
+								required
+								title="Por favor, introduce una dirección de correo válida"
 							/>
 						</div>
 
@@ -82,9 +86,12 @@ const RegisterForm = () => {
 								placeholder='Contraseña'
 								value={password}
 								onChange={(ev) => {
-									setPassword(ev.target.value)
-									progressUpdate()
+									setPassword(ev.target.value);
+									progressUpdate();
 								}}
+								required
+								minLength={8}
+								title="La contraseña debe tener al menos 8 caracteres"
 							/>
 						</div>
 
@@ -95,9 +102,10 @@ const RegisterForm = () => {
 								placeholder='Nombre'
 								value={firstName}
 								onChange={(ev) => {
-									setFirstName(ev.target.value)
-									progressUpdate()
+									setFirstName(ev.target.value);
+									progressUpdate();
 								}}
+								required
 							/>
 						</div>
 
@@ -108,9 +116,10 @@ const RegisterForm = () => {
 								placeholder='Apellido'
 								value={lastName}
 								onChange={(ev) => {
-									setLastName(ev.target.value)
-									progressUpdate()
+									setLastName(ev.target.value);
+									progressUpdate();
 								}}
+								required
 							/>
 						</div>
 
@@ -119,9 +128,10 @@ const RegisterForm = () => {
 								className='form-select me-2'
 								value={avatar}
 								onChange={(ev) => {
-									setAvatar(ev.target.value)
-									progressUpdate()
+									setAvatar(ev.target.value);
+									progressUpdate();
 								}}
+								required
 							>
 								<option value=''>Elige tu Avatar</option>
 								<option value='https://res.cloudinary.com/dqehz6slh/image/upload/v1688397738/okcu1ufijajwgcpx3eu1.png'>
@@ -161,10 +171,10 @@ const RegisterForm = () => {
 							<input
 								type='checkbox'
 								name='myCheckbox'
-								value={donor}
+								checked={donor}
 								onChange={(ev) => {
-									setDonor(!donor)
-									progressUpdate()
+									setDonor(!donor);
+									progressUpdate();
 								}}
 							/>
 							<label className='form-check-label'>Quiero dar mascotas en adopción</label>
@@ -189,7 +199,7 @@ const RegisterForm = () => {
 				</div>
 			</form>
 		</div>
-	)
-}
+	);
+};
 
-export default RegisterForm
+export default RegisterForm;
