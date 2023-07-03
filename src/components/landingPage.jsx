@@ -41,7 +41,7 @@ const Pagina = () => {
 									<p>Escanee el código QR para acceder a la aplicación:</p>
 								</label>
 								<label className='border border-white'>
-									<QRCodeSVG value='https://localhost:5173' />
+									<QRCodeSVG value='https://localhost:5173/pet:11' />
 								</label>
 							</div>
 						</div>

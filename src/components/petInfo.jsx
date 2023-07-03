@@ -1,65 +1,80 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { AppContext } from '../routes/App'
-import { Link } from 'react-router-dom'
+import Carousel from './carousel'
 
 const PetInfo = () => {
 	const state = useContext(AppContext)
+	const [tab, setTab] = useState(0)
+
+	const mascotas = state.store.User.UserData.Mascotas
+
+	const Specie = (specie) => {
+		if (specie === 1) {
+			return 'Perro'
+		} else if (specie === 2) {
+			return 'Gato'
+		} else if (specie === 3) {
+			return 'Ave'
+		} else if (specie === 4) {
+			return 'Otro'
+		}
+	}
+
+	const Size = (size) => {
+		if (size === 1) {
+			return 'Pequeño'
+		} else if (size === 2) {
+			return 'Mediano'
+		} else if (size === 3) {
+			return 'Grande'
+		}
+	}
+
 	return (
-		<div className='card mb-3'>
-			<div className='row g-0'>
-				<div className='col-md-3 p-4'>
-					<ul className='nav nav-pills flex-column' id='pills-tab' role='tablist'>
-						{state.store.User.UserData.Mascotas.map((mascota, index) => {
-							return (
-								<li key={index} className='nav-item' role='presentation'>
-									<button
-										className='nav-link'
-										id='pills-home-tab'
-										data-bs-toggle='pill'
-										data-bs-target={'#pills' + index + 1}
-										type='button'
-										role='tab'
-										aria-controls={'pills' + index + 1}
-										aria-selected='true'
-									>
-										{mascota.Nombre}
-									</button>
-								</li>
-							)
-						})}
-					</ul>
+		<div className='card'>
+			<div className='d-flex align-items-start'>
+				<div
+					className='nav flex-column nav-pills me-3'
+					id='v-pills-tab'
+					role='tablist'
+					aria-orientation='vertical'
+				>
+					{mascotas.map((mascota, index) => {
+						return (
+							<li className='nav-item' key={index} role='presentation'>
+								<button
+									className='nav-link'
+									id='profile-tab'
+									data-bs-toggle='tab'
+									data-bs-target='#profile-tab-pane'
+									type='button'
+									role='tab'
+									onClick={() => {
+										setTab(index)
+									}}
+									aria-selected='false'
+								>
+									{mascota.Nombre}
+								</button>
+							</li>
+						)
+					})}
 				</div>
-				<div className='col-md-8 m-2'>
-					<div className='card-body'>
-						<h3 className='card-title'>{state.store.User.UserData.Usuario}</h3>
-						<div className='card-text'>
-							<ul className='list-group list-group-horizontal my-2'>
-								<li className='list-group-item col-3'>Nombre</li>
-								<li className='list-group-item col-9'>{state.store.User.UserData.Nombre}</li>
-							</ul>
-							<ul className='list-group list-group-horizontal my-2'>
-								<li className='list-group-item col-3'>Apellido</li>
-								<li className='list-group-item col-9'>{state.store.User.UserData.Apellido}</li>
-							</ul>
-							<ul className='list-group list-group-horizontal my-2'>
-								<li className='list-group-item col-3'>Email</li>
-								<li className='list-group-item col-9'>{state.store.User.UserData.Email}</li>
-							</ul>
-							<ul className='list-group list-group-horizontal my-2'>
-								<li className='list-group-item col-3'>Buscas</li>
-								<li className='list-group-item col-9'>
-									{state.store.User.UserData.Dador
-										? 'Busco un hogar para mis mascotas'
-										: 'Busco una mascota para mi hogar'}
-								</li>
-							</ul>
+				<div className='tab-content' id='v-pills-tabContent'>
+					<div className='card' style={{ width: '18rem' }}>
+						<div className='card-body'>
+							<h4 className='card-title'>{mascotas[tab].Nombre}</h4>
+							<h5 className='card-subtitle mb-2 text-body-secondary'>{Specie(mascotas[tab].Especie)}</h5>
+							<p className='card-text'>Tamaño: {Size(mascotas[tab].Tamano)}</p>
+							<p className='card-text'>Edad : {mascotas[tab].Edad}</p>
+							<p className='card-text'>
+								{mascotas[tab].Necesita_Patio ? 'Necesita Patio' : 'No Necesita Patio'}
+							</p>
 						</div>
-						<p className='card-text'>
-							<small className='text-body-secondary'>
-								Si quieres modificar tu contraseña presiona <Link to='/forgotten'>aquí</Link>
-							</small>
-						</p>
 					</div>
+				</div>
+				<div className='col-4'>
+					<Carousel photos={mascotas[tab].Fotos} />
 				</div>
 			</div>
 		</div>
