@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Carousel } from 'bootstrap';
 
 const Card = ({ name, specie, age, size, needBackyard }) => {
     return (
         <div className="card">
             <h2>{name}</h2>
+            <Carousel />
             <p>Especie: {specie}</p>
             <p>Edad: {age}</p>
             <p>Tamaño: {size}</p>
