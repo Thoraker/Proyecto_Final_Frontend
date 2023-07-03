@@ -33,7 +33,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					Email: '',
 					Nombre: '',
 					Apellido: '',
-					Avatar: 'src/assets/invitado.png',
+					Avatar: '',
 					Dador: false,
 					Direcciones: [],
 					Mascotas: [],
