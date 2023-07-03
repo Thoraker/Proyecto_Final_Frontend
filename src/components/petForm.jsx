@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import PhotoUploader from './photoUploader'
 import { AppContext } from '../routes/App'
+import CardPets from './cardPets'
 
 const PetForm = () => {
 	const state = useContext(AppContext)
@@ -10,6 +11,7 @@ const PetForm = () => {
 	const [size, setSize] = useState('')
 	const [needBackyard, setNeedBackyard] = useState(false)
 	const [progress, setProgress] = useState(0)
+	const [showCard, setShowCard] = useState(false);
 
 	useEffect(() => progressUpdate(), [specie, size])
 
@@ -18,6 +20,11 @@ const PetForm = () => {
 		const newProgress = (fullFields.length / 4) * 100
 		setProgress(newProgress)
 	}
+
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		setShowCard(true);
+	};
 
 	return (
 		<div
@@ -121,6 +128,15 @@ const PetForm = () => {
 					</button>
 				</div>
 			</form>
+			{showCard && (
+				<CardPets
+					name={name}
+					specie={specie}
+					age={age}
+					size={size}
+					needBackyard={needBackyard}
+				/>
+			)}
 			<PhotoUploader />
 		</div>
 	)
