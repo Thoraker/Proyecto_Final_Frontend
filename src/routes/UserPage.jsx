@@ -18,7 +18,7 @@ const UserPage = () => {
 						aria-controls='home-tab-pane'
 						aria-selected='true'
 					>
-						Home
+						Mis Datos
 					</button>
 				</li>
 				<li className='nav-item' role='presentation'>
@@ -32,7 +32,7 @@ const UserPage = () => {
 						aria-controls='profile-tab-pane'
 						aria-selected='false'
 					>
-						Profile
+						Mis Mascotas
 					</button>
 				</li>
 				<li className='nav-item' role='presentation'>
@@ -46,22 +46,21 @@ const UserPage = () => {
 						aria-controls='contact-tab-pane'
 						aria-selected='false'
 					>
-						Contact
+						Mis Direcciones
 					</button>
 				</li>
 				<li className='nav-item' role='presentation'>
 					<button
 						className='nav-link'
-						id='disabled-tab'
+						id='contact-tab'
 						data-bs-toggle='tab'
-						data-bs-target='#disabled-tab-pane'
+						data-bs-target='#contact-tab-pane'
 						type='button'
 						role='tab'
-						aria-controls='disabled-tab-pane'
+						aria-controls='contact-tab-pane'
 						aria-selected='false'
-						disabled
 					>
-						Disabled
+						Mis Mensajes
 					</button>
 				</li>
 			</ul>
@@ -80,7 +79,7 @@ const UserPage = () => {
 					id='profile-tab-pane'
 					role='tabpanel'
 					aria-labelledby='profile-tab'
-					tabIndex='0'
+					tabIndex='1'
 				>
 					<PetInfo />
 				</div>
@@ -89,7 +88,7 @@ const UserPage = () => {
 					id='contact-tab-pane'
 					role='tabpanel'
 					aria-labelledby='contact-tab'
-					tabIndex='0'
+					tabIndex='2'
 				>
 					...
 				</div>
@@ -98,7 +97,7 @@ const UserPage = () => {
 					id='disabled-tab-pane'
 					role='tabpanel'
 					aria-labelledby='disabled-tab'
-					tabIndex='0'
+					tabIndex='3'
 				>
 					...
 				</div>
