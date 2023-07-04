@@ -23,7 +23,8 @@ const RegisterForm = () => {
 	return (
 		<div className='container fst-italic rounded-3'
 			style={{
-				backgroundImage: 'linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%)',
+				backgroundImage: 'linear-gradient(90deg, rgba(171,199,176,1) 16%, rgba(13,102,23,1) 89%)',
+				
 			}}
 		>
 			<form

@@ -23,8 +23,7 @@ const AddressForm = () => {
 		<div
 			className='container fst-italic rounded-3 w-50'
 			style={{
-				background:
-					'linear-gradient(90deg, rgba(117,37,110,1) 16%, rgba(141,172,172,1) 47%, rgba(234,222,235,1) 75%)',
+				background: 'linear - gradient(90deg, rgba(171, 199, 176, 1) 16 %, rgba(13, 102, 23, 1) 89 %)',
 			}}
 		>
 			<form

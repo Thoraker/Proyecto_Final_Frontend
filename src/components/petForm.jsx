@@ -25,7 +25,7 @@ const PetForm = () => {
 			className='container fst-italic rounded-3 pb-3'
 			style={{
 				backgroundColor: '#00DBDE',
-				backgroundImage: 'linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%)',
+				background: 'linear - gradient(90deg, rgba(171, 199, 176, 1) 16 %, rgba(13, 102, 23, 1) 89 %)',
 			}}
 		>
 			<form
@@ -123,12 +123,13 @@ const PetForm = () => {
 					}}
 				></div>
 				<div className='pb-2 text-center'>
-					<button type='submit' className='w-25 me-2 btn btn-outline-light rounded-pill'>
-						Publicar
+					<button type='submit' className='w-25 me-2 btn btn-outline-light rounded-pill'
+					style={{background: '#465084'}}>
+						Publicar 
 					</button>
 				</div>
 			</form>
-			<div className=''>
+			<div className='text-center'>
 				<PhotoUploader />
 			</div>
 			

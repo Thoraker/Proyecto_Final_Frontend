@@ -26,9 +26,13 @@ const PhotoUploader = () => {
 		)
 	}, [])
 	return (
-		<button className='w-25 me-2 btn btn-outline-light rounded-pill' onClick={() => widgetRef.current.open()}>
-			Subir Foto
-		</button>
+		<div>
+			<h5 className='p-6'>Subir Foto</h5>
+			<button className='w-25 me-2 btn btn-outline-light rounded-pill' onClick={() => widgetRef.current.open()}>
+				<i className="bi bi-upload"></i>
+			</button>
+		</div>
+
 	)
 }
 
