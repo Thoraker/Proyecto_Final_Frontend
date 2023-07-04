@@ -109,7 +109,7 @@ const AddressForm = () => {
 								progressUpdate()
 							}}
 						>
-							<option value='' selected='selected '>
+							<option value='' defaultValue>
 								Selecciona la región
 							</option>
 							<option value='1'>1 Tarapacá</option>

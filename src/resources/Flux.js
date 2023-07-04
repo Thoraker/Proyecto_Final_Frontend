@@ -2,15 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			slides: [
-				{
-					url: 'https://res.cloudinary.com/dqehz6slh/image/upload/v1687397371/lqlhggzj8souxquvercq.jpg',
-					title: 'Slide 1',
-				},
-				{
-					url: 'http://res.cloudinary.com/dqehz6slh/image/upload/v1687452386/j13abkvxjzk0icj09gqt.jpg',
-					title: 'Slide 2',
-				},
-				
+							
 			],
 			User: {
 				UserData: {
@@ -20,8 +12,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 					Apellido: '',
 					Avatar: '',
 					Dador: false,
-					Direcciones: [],
-					Mascotas: [],
+					Direcciones: [
+						{
+							"id": '',
+							"Calle": '',
+							"Numero": '',
+							"Departamento": '',
+							"Comuna": '',
+							"Region": '',
+							"Tiene Patio": '',
+						}
+					],
+					Mascotas: [
+						{
+							'id': '',
+							'Nombre': '',
+							'Especie': '',
+							'Tamano': '',
+							'Necesita_Patio': false,
+							'En_Adopcion': false,
+							'Fotos': [],
+						}
+					],
 				},
 				Token: '',
 			},
@@ -30,7 +42,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				'Nombre': '',
 				'Especie': '',
 				'Tamano': '',
-				'Necesita_Patio': '',
+				'Necesita_Patio': false,
+				'En_Adopcion': false,
 				'Fotos': [],
 			},
 		},
@@ -38,7 +51,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			loadInitialData: () => {console.log('loadInitialData');},
 
-			getPetPhoto: async (link) => {
+			createPetPhoto: async (link) => {
 				const myHeaders = new Headers()
 				myHeaders.append('Authorization', 'Bearer ' + getStore().User.Token)
 				myHeaders.append('Content-Type', 'application/json')
@@ -127,15 +140,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 					'specie': values.specie,
 					'age': values.age,
 					'size': values.size,
-					'need_backyard': values.needBackyard
-				});
+					'need_backyard': values.needBackyard,
+					'for_adoption': values.forAdoption
+				})
 
 				const requestOptions = {
 				method: 'POST',
 				headers: myHeaders,
 				body: raw,
 				redirect: 'follow'
-				};
+				}
 
 				fetch('http://127.0.0.1:3000/pet', requestOptions)
 					.then(response => response.json())

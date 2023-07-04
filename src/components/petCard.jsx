@@ -25,17 +25,19 @@ const PetCard = ({ pet }) => {
 		}
 	}
 	return (
-		<div className='row g-0'>
-			<div className='col-md-4'>
-				<Carousel photos={pet.Fotos} />
-			</div>
-			<div className='col-md-8'>
-				<div className='card-body'>
-					<h4 className='card-title'>{pet.Nombre}</h4>
-					<h5 className='card-subtitle mb-2 text-body-secondary'>{Specie(pet.Especie)}</h5>
-					<p className='card-text'>Tamaño: {Size(pet.Tamano)}</p>
-					<p className='card-text'>Edad : {pet.Edad}</p>
-					<p className='card-text'>{pet.Necesita_Patio ? 'Necesita Patio' : 'No Necesita Patio'}</p>
+		<div className='card col'>
+			<div className='row'>
+				<div className='col w-100'>
+					<Carousel photos={pet.Fotos} />
+				</div>
+				<div className='col-5'>
+					<div className='card-body p-5'>
+						<h4 className='card-title'>{pet.Nombre}</h4>
+						<h5 className='card-subtitle mb-2 text-body-secondary'>{Specie(pet.Especie)}</h5>
+						<p className='card-text'>Tamaño: {Size(pet.Tamano)}</p>
+						<p className='card-text'>Edad : {pet.Edad}</p>
+						<p className='card-text'>{pet.Necesita_Patio ? 'Necesita Patio' : 'No Necesita Patio'}</p>
+					</div>
 				</div>
 			</div>
 		</div>

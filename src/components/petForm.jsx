@@ -9,6 +9,8 @@ const PetForm = () => {
 	const [age, setAge] = useState('')
 	const [size, setSize] = useState('')
 	const [needBackyard, setNeedBackyard] = useState(false)
+	const [forAdoption, setForAdoption] = useState(false)
+	const [disabled, setDisabled] = useState(true)
 	const [progress, setProgress] = useState(0)
 
 	useEffect(() => progressUpdate(), [specie, size])
@@ -19,6 +21,14 @@ const PetForm = () => {
 		setProgress(newProgress)
 	}
 
+	useEffect(() => {
+		if (state.store.Pet.id === '' || state.store.Pet.Nombre !== name) {
+			setDisabled(true)
+		} else {
+			setDisabled(false)
+		}
+	}, [state.store.Pet])
+
 	return (
 		<div
 			className='container fst-italic rounded-3 pb-3'
@@ -28,13 +38,13 @@ const PetForm = () => {
 			}}
 		>
 			<form
-				className='p-3 m-3'
+				className='p-3 m-3 pb-0 mb-0'
 				onSubmit={(ev) => {
 					ev.preventDefault()
 					state.actions.createPet({ name, age, specie, size, needBackyard })
 				}}
 			>
-				<h3 className='text-center'>Nombre</h3>
+				<h3 className='text-center'>Inscribe tu Mascota</h3>
 				<div className='form-group pb-2'>
 					<input
 						type='text'
@@ -101,7 +111,18 @@ const PetForm = () => {
 						value={needBackyard}
 						onChange={(ev) => {
 							setNeedBackyard(!needBackyard)
-							progressUpdate()
+						}}
+					/>
+					<label className='form-check-label'>Necesita un jardín amplio</label>
+				</div>
+
+				<div className='form-check my-3'>
+					<input
+						type='checkbox'
+						name='myCheckbox'
+						value={forAdoption}
+						onChange={(ev) => {
+							setForAdoption(!forAdoption)
 						}}
 					/>
 					<label className='form-check-label'>Necesita un jardín amplio</label>
@@ -115,13 +136,13 @@ const PetForm = () => {
 						transition: 'width 0.5s ease-in-out',
 					}}
 				></div>
-				<div className='pb-2 text-center'>
+				<div className='text-center p-0 m-0'>
 					<button type='submit' className='w-25 me-2 btn btn-outline-light rounded-pill'>
-						Publicar
+						Inscribir
 					</button>
+					<PhotoUploader disabled={disabled} />
 				</div>
 			</form>
-			<PhotoUploader />
 		</div>
 	)
 }

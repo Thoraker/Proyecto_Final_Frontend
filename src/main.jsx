@@ -9,7 +9,6 @@ import LandingPage from './routes/LandingPage'
 import UserPage from './routes/UserPage'
 import PetPage from './routes/PetPage'
 import FoundationsPage from './routes/FoundationsPage'
-import Pagina from './components/landingPage'
 import InviteFriends from './components/inviteFri'
 import RegisterPage from './routes/RegisterPage'
 
@@ -45,10 +44,6 @@ const router = createBrowserRouter([
 			{
 				path: '/user',
 				element: <UserPage />,
-			},
-			{
-				path: '/inicio',
-				element: <Pagina />,
 			},
 			{
 				path: '/prueba',
