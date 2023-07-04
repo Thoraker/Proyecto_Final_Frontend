@@ -1,21 +1,21 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
 import UserInfo from '../components/userInfo'
 import PetInfo from '../components/petInfo'
+import AddressInfo from '../components/addressInfo'
 
 const UserPage = () => {
 	return (
 		<div className='card' style={{ paddingTop: '6rem' }}>
-			<ul className='nav nav-tabs' id='myTab' role='tablist'>
+			<ul className='nav nav-pills mb-3' id='pills-tab' role='tablist'>
 				<li className='nav-item' role='presentation'>
 					<button
 						className='nav-link active'
-						id='home-tab'
-						data-bs-toggle='tab'
-						data-bs-target='#home-tab-pane'
+						id='pills-home-tab'
+						data-bs-toggle='pill'
+						data-bs-target='#pills-home'
 						type='button'
 						role='tab'
-						aria-controls='home-tab-pane'
+						aria-controls='pills-home'
 						aria-selected='true'
 					>
 						Mis Datos
@@ -24,12 +24,12 @@ const UserPage = () => {
 				<li className='nav-item' role='presentation'>
 					<button
 						className='nav-link'
-						id='profile-tab'
-						data-bs-toggle='tab'
-						data-bs-target='#profile-tab-pane'
+						id='pills-profile-tab'
+						data-bs-toggle='pill'
+						data-bs-target='#pills-profile'
 						type='button'
 						role='tab'
-						aria-controls='profile-tab-pane'
+						aria-controls='pills-profile'
 						aria-selected='false'
 					>
 						Mis Mascotas
@@ -38,12 +38,12 @@ const UserPage = () => {
 				<li className='nav-item' role='presentation'>
 					<button
 						className='nav-link'
-						id='contact-tab'
-						data-bs-toggle='tab'
-						data-bs-target='#contact-tab-pane'
+						id='pills-contact-tab'
+						data-bs-toggle='pill'
+						data-bs-target='#pills-contact'
 						type='button'
 						role='tab'
-						aria-controls='contact-tab-pane'
+						aria-controls='pills-contact'
 						aria-selected='false'
 					>
 						Mis Direcciones
@@ -52,94 +52,58 @@ const UserPage = () => {
 				<li className='nav-item' role='presentation'>
 					<button
 						className='nav-link'
-						id='contact-tab'
-						data-bs-toggle='tab'
-						data-bs-target='#contact-tab-pane'
+						id='pills-disabled-tab'
+						data-bs-toggle='pill'
+						data-bs-target='#pills-disabled'
 						type='button'
 						role='tab'
-						aria-controls='contact-tab-pane'
+						aria-controls='pills-disabled'
 						aria-selected='false'
+						disabled
 					>
-						Mis Mensajes
+						Disabled
 					</button>
 				</li>
 			</ul>
-			<div className='tab-content' id='myTabContent'>
+			<div className='tab-content' id='pills-tabContent'>
 				<div
 					className='tab-pane fade show active'
-					id='home-tab-pane'
+					id='pills-home'
 					role='tabpanel'
-					aria-labelledby='home-tab'
+					aria-labelledby='pills-home-tab'
 					tabIndex='0'
 				>
 					<UserInfo />
 				</div>
 				<div
 					className='tab-pane fade'
-					id='profile-tab-pane'
+					id='pills-profile'
 					role='tabpanel'
-					aria-labelledby='profile-tab'
-					tabIndex='1'
+					aria-labelledby='pills-profile-tab'
+					tabIndex='0'
 				>
 					<PetInfo />
 				</div>
 				<div
 					className='tab-pane fade'
-					id='contact-tab-pane'
+					id='pills-contact'
 					role='tabpanel'
-					aria-labelledby='contact-tab'
-					tabIndex='2'
+					aria-labelledby='pills-contact-tab'
+					tabIndex='0'
 				>
-					...
+					<AddressInfo />
 				</div>
 				<div
 					className='tab-pane fade'
-					id='disabled-tab-pane'
+					id='pills-disabled'
 					role='tabpanel'
-					aria-labelledby='disabled-tab'
-					tabIndex='3'
+					aria-labelledby='pills-disabled-tab'
+					tabIndex='0'
 				>
 					...
 				</div>
 			</div>
 		</div>
-
-		// <div className='card text-center bg-info' style={{ paddingTop: '6rem' }}>
-		// 	<div className='card-header'>
-		// 		<ul className='nav nav-tabs card-header-tabs'>
-		// 			<li className='nav-item'>
-		// 				<Link
-		// 					to='/user/data'
-		// 					className={section === 0 ? 'nav-link active' : 'nav-link'}
-		// 					onClick={() => setSection(0)}
-		// 				>
-		// 					Mis Datos
-		// 				</Link>
-		// 			</li>
-		// 			<li className='nav-item'>
-		// 				<Link
-		// 					to='/user/address'
-		// 					className={section === 1 ? 'nav-link active' : 'nav-link'}
-		// 					onClick={() => setSection(1)}
-		// 				>
-		// 					Mis Direcciones
-		// 				</Link>
-		// 			</li>
-		// 			<li className='nav-item'>
-		// 				<Link
-		// 					to='/user/pet'
-		// 					className={section === 2 ? 'nav-link active' : 'nav-link'}
-		// 					onClick={() => setSection(2)}
-		// 				>
-		// 					Mis Mascotas
-		// 				</Link>
-		// 			</li>
-		// 		</ul>
-		// 	</div>
-		// 	<div className='card-body'>
-		// 		<Outlet />
-		// 	</div>
-		// </div>
 	)
 }
 

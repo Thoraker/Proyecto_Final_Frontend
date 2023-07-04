@@ -3,7 +3,7 @@ import AssociatedFoundations from '../components/associatedFoundations'
 
 const FoundationsPage = () => {
 	return (
-		<div className='container-fluid'>
+		<div className='container'>
 			<AssociatedFoundations />
 		</div>
 	)

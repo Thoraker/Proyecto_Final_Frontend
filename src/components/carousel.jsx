@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 
 const Carousel = ({ photos }) => {
 	const [index, setIndex] = useState(0)
@@ -30,7 +31,10 @@ const Carousel = ({ photos }) => {
 			</div>
 			<div className='ratio ratio-16x9'>
 				{photos.length < 1 ? (
-					<img src='src/assets/RespetoAnimal.web' alt='' />
+					<img
+						src='https://res.cloudinary.com/dqehz6slh/image/upload/v1688248915/kghpgp7zvkr8rqk6msgp.webp'
+						alt=''
+					/>
 				) : (
 					<img src={photos[index].url} alt='' />
 				)}
@@ -56,3 +60,7 @@ const Carousel = ({ photos }) => {
 }
 
 export default Carousel
+
+Carousel.propTypes = {
+	photos: PropTypes.array,
+}

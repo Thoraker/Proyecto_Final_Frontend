@@ -4,7 +4,7 @@ import Carousel from './carousel'
 
 const PetInfo = () => {
 	const state = useContext(AppContext)
-	const [tab, setTab] = useState(0)
+	const [pets, setPets] = useState(0)
 
 	const mascotas = state.store.User.UserData.Mascotas
 
@@ -33,24 +33,19 @@ const PetInfo = () => {
 	return (
 		<div className='card'>
 			<div className='d-flex align-items-start'>
-				<div
-					className='nav flex-column nav-pills me-3'
-					id='v-pills-tab'
-					role='tablist'
-					aria-orientation='vertical'
-				>
+				<div className='nav flex-column nav-pills' id='v-pets-tab' role='tablist'>
 					{mascotas.map((mascota, index) => {
 						return (
-							<li className='nav-item' key={index} role='presentation'>
+							<li className='nav-item ' key={index} role='presentation'>
 								<button
-									className='nav-link'
+									className='nav-link px-5 m-2 '
 									id='profile-tab'
 									data-bs-toggle='tab'
 									data-bs-target='#profile-tab-pane'
 									type='button'
 									role='tab'
 									onClick={() => {
-										setTab(index)
+										setPets(index)
 									}}
 									aria-selected='false'
 								>
@@ -60,21 +55,25 @@ const PetInfo = () => {
 						)
 					})}
 				</div>
-				<div className='tab-content' id='v-pills-tabContent'>
-					<div className='card' style={{ width: '18rem' }}>
-						<div className='card-body'>
-							<h4 className='card-title'>{mascotas[tab].Nombre}</h4>
-							<h5 className='card-subtitle mb-2 text-body-secondary'>{Specie(mascotas[tab].Especie)}</h5>
-							<p className='card-text'>Tamaño: {Size(mascotas[tab].Tamano)}</p>
-							<p className='card-text'>Edad : {mascotas[tab].Edad}</p>
-							<p className='card-text'>
-								{mascotas[tab].Necesita_Patio ? 'Necesita Patio' : 'No Necesita Patio'}
-							</p>
+				<div className='card col'>
+					<div className='row'>
+						<div className='col w-100'>
+							<Carousel photos={mascotas[pets].Fotos} />
+						</div>
+						<div className='col-5'>
+							<div className='card-body p-5'>
+								<h4 className='card-title'>{mascotas[pets].Nombre}</h4>
+								<h5 className='card-subtitle mb-2 text-body-secondary'>
+									{Specie(mascotas[pets].Especie)}
+								</h5>
+								<p className='card-text'>Tamaño: {Size(mascotas[pets].Tamano)}</p>
+								<p className='card-text'>Edad : {mascotas[pets].Edad}</p>
+								<p className='card-text'>
+									{mascotas[pets].Necesita_Patio ? 'Necesita Patio' : 'No Necesita Patio'}
+								</p>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div className='col-4'>
-					<Carousel photos={mascotas[tab].Fotos} />
 				</div>
 			</div>
 		</div>
