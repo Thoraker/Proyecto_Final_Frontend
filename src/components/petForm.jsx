@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import PhotoUploader from './photoUploader'
 import { AppContext } from '../routes/App'
-import CardPets from './cardPets'
 
 const PetForm = () => {
 	const state = useContext(AppContext)
@@ -11,7 +10,6 @@ const PetForm = () => {
 	const [size, setSize] = useState('')
 	const [needBackyard, setNeedBackyard] = useState(false)
 	const [progress, setProgress] = useState(0)
-	const [showCard, setShowCard] = useState(false);
 
 	useEffect(() => progressUpdate(), [specie, size])
 
@@ -21,10 +19,6 @@ const PetForm = () => {
 		setProgress(newProgress)
 	}
 
-	const handleSubmit = (event) => {
-		event.preventDefault();
-		setShowCard(true);
-	};
 
 	return (
 		<div
@@ -113,6 +107,12 @@ const PetForm = () => {
 					/>
 					<label className='form-check-label'>Necesita un jardín amplio</label>
 				</div>
+				<div>
+					<div className="">
+						<label htmlFor="exampleFormControlTextarea1" className="form-label"> * Cuéntanos sobre su historia, temperamento, si esta vacunada o desparasitada, cualquier dato relevante. </label>
+						<textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+					</div>
+				</div>
 
 				<div
 					className='progress mb-2 bg-success mx-auto'
@@ -128,16 +128,10 @@ const PetForm = () => {
 					</button>
 				</div>
 			</form>
-			{showCard && (
-				<CardPets
-					name={name}
-					specie={specie}
-					age={age}
-					size={size}
-					needBackyard={needBackyard}
-				/>
-			)}
-			<PhotoUploader />
+			<div className=''>
+				<PhotoUploader />
+			</div>
+			
 		</div>
 	)
 }

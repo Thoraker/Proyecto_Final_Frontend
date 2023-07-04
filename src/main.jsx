@@ -15,6 +15,7 @@ import FoundationsPage from './routes/FoundationsPage'
 import Pagina from './components/landingPage'
 import InviteFriends from './components/inviteFri'
 import RegisterPage from './routes/RegisterPage'
+import RegisterForm from './components/registerForm'
 // import UserData from './routes/UserData'
 
 const domNode = document.getElementById('root')
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
 			{
 				path: '/prueba',
 				element: <InviteFriends />,
+			},
+			{
+				path: '/post',
+				element: <RegisterForm />,
 			},
 		],
 	},
