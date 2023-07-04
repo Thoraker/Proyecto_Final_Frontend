@@ -5,14 +5,7 @@ import { PiPawPrintBold } from 'react-icons/pi'
 
 const Pagina = () => {
 	return (
-		<div
-			className='d-flex justify-content-center vh-100'
-			style={{
-				backgroundImage:
-					'url(https://media.istockphoto.com/id/1030390138/es/vector/gato-perro-lobo-conejo-huella-de-oso-conjunto-de-huellas-de-animales-de-la-pata.jpg?s=612x612&w=0&k=20&c=aIvTg8fv-mlQUwhIvZucVxfESTFPGbB2MUBNy8rPNs0=)',
-				backgroundSize: 'cover',
-			}}
-		>
+		<div className='d-flex justify-content-center vh-100'>
 			<div className='container'>
 				<div className='row vh-100'>
 					<div className='col-7'>{/* Contenido de la parte izquierda */}</div>
