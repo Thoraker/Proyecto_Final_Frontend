@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../routes/App'
 import { Link } from 'react-router-dom'
 import PetCard from './petCard'
@@ -6,6 +6,10 @@ import PetCard from './petCard'
 const PetInfo = () => {
 	const state = useContext(AppContext)
 	const [pets, setPets] = useState(0)
+
+	useEffect(() => {
+		state.actions.addPet(state.store.Mascotas[pets])
+	}, [])
 
 	return (
 		<div className='card'>

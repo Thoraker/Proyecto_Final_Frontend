@@ -71,7 +71,7 @@ const AddressInfo = () => {
 					})}
 				</div>
 				<div className='tab-content' id='v-addresses-tabContent'>
-					<div className='card bg-info col m-3'>
+					<div className='card bg-info col m-3 w-100'>
 						<div className='card-body py-5'>
 							<h4 className='card-title'>
 								{state.store.Direcciones[address].Calle} {state.store.Direcciones[address].Numero}

@@ -24,8 +24,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 
 		actions: {
-			loadInitialData: () => {
-				console.log('loadInitialData')
+			loadInitialData: async () => {
+				const requestOptions = {
+					method: 'GET',
+					redirect: 'follow'
+				  };
+				  
+				  fetch("http://127.0.0.1:3000/pets", requestOptions)
+					.then(response => response.json())
+					.then(result => {
+						setStore({
+							For_Adoption: result,
+						})
+						console.log(getStore().For_Adoption);
+					}
+						)
+					.catch(error => console.log('error', error));
 			},
 
 			createUser: async (values) => {
@@ -135,8 +149,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 
 				fetch('http://127.0.0.1:3000/photo', requestOptions)
-					.then((response) => response.text())
-					.then((result) => alert(result))
+					.then((response) => response.json())
+					.then((result) => {
+						setStore({
+							Mascotas: result.User.Mascotas,
+							ActivePet: result.Pet,
+						})
+						alert(result.Response)
+					})
 					.catch((error) => alert('error', error))
 			},
 
@@ -153,7 +173,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					commune: values.commune,
 					region: values.region,
 					has_backyard: values.hasBackyard,
-					for_adoption: values.forAdoption,
 				})
 
 				const requestOptions = {

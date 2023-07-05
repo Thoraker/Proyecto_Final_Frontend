@@ -1,11 +1,9 @@
 import React, { useContext } from 'react'
 import { AppContext } from '../routes/App'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const UserDropdown = () => {
 	const state = useContext(AppContext)
-
-	const navigate = useNavigate()
 
 	return (
 		<div className='dropdown'>
@@ -37,9 +35,9 @@ const UserDropdown = () => {
 					<hr className='dropdown-divider' />
 				</li>
 				<li>
-					<Link to='/' onClick={(ev) => navigate(0)} className='dropdown-item'>
+					<a href='/' onClick={(ev) => alert('Cerrando sesión')} className='dropdown-item'>
 						Cerrar sesión
-					</Link>
+					</a>
 				</li>
 			</ul>
 		</div>

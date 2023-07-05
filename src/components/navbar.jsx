@@ -32,22 +32,16 @@ const Navbar = () => {
 							</Link>
 						</li>
 						<li className='nav-item'>
+							<Link to='/adoption' className='nav-link'>
+								Mascotas en Adopción
+							</Link>
+						</li>
+						<li className='nav-item'>
 							<p>
 								<Link to='/foundations' className='nav-link'>
 									Fundaciones Amigas
 								</Link>
 							</p>
-						</li>
-						{/* Solo como ejemplo  */}
-						<li className='nav-item'>
-							<Link to='/login' className='nav-link'>
-								login
-							</Link>
-						</li>
-						<li className='nav-item'>
-							<Link to='/pet' className='nav-link'>
-								mascotas
-							</Link>
 						</li>
 					</ul>
 				</div>
