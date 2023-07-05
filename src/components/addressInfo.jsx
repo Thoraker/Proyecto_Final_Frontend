@@ -5,8 +5,6 @@ const AddressInfo = () => {
 	const state = useContext(AppContext)
 	const [tab, setTab] = useState(0)
 
-	const direcciones = state.store.User.UserData.Direcciones
-
 	const Region = (region) => {
 		if (region === 1) {
 			return 'Tarapacá'
@@ -50,9 +48,9 @@ const AddressInfo = () => {
 					role='addresses'
 					aria-orientation='vertical'
 				>
-					{direcciones.length === 0
+					{state.store.Direcciones.length === 0
 						? 'No hay direcciones'
-						: direcciones.map((direccion, index) => {
+						: state.store.Direcciones.map((direccion, index) => {
 								return (
 									<li className='nav-item' key={index} role='presentation'>
 										<button
@@ -77,13 +75,15 @@ const AddressInfo = () => {
 					<div className='card' style={{ width: '18rem' }}>
 						<div className='card-body'>
 							<h4 className='card-title'>
-								{direcciones[tab].Calle} {direcciones[tab].Numero}
+								{state.store.Direcciones[tab].Calle} {state.store.Direcciones[tab].Numero}
 							</h4>
-							<h5 className='card-subtitle mb-2 text-body-secondary'>{direcciones[tab].Comuna}</h5>
-							<p className='card-text'>Departamento : {direcciones[tab].Departamento}</p>
-							<p className='card-text'>Region: {Region(direcciones[tab].Region)}</p>
+							<h5 className='card-subtitle mb-2 text-body-secondary'>
+								{state.store.Direcciones[tab].Comuna}
+							</h5>
+							<p className='card-text'>Departamento : {state.store.Direcciones[tab].Departamento}</p>
+							<p className='card-text'>Region: {Region(state.store.Direcciones[tab].Region)}</p>
 							<p className='card-text'>
-								{direcciones[tab].Necesita_Patio ? 'Tiene Patio' : 'No Tiene Patio'}
+								{state.store.Direcciones[tab].Necesita_Patio ? 'Tiene Patio' : 'No Tiene Patio'}
 							</p>
 						</div>
 					</div>

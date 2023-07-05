@@ -8,18 +8,18 @@ import AddressForm from '../components/addressForm'
 
 const UserPage = () => {
 	const state = useContext(AppContext)
-	const [petView, setPetView] = useState(<AddressForm />)
+	const [petView, setPetView] = useState(<PetForm />)
 	const [addressView, setAddressView] = useState(<AddressForm />)
 
 	useEffect(() => {
-		if (state.store.User.UserData.Mascotas.length === 0) {
+		if (state.store.Mascotas.length === 0) {
 			setPetView(<PetForm />)
 		} else setPetView(<PetInfo />)
 
-		if (state.store.User.UserData.Direcciones.length === 0) {
+		if (state.store.Direcciones.length === 0) {
 			setAddressView(<AddressForm />)
 		} else setAddressView(<AddressInfo />)
-	}, [])
+	}, [state.store.Direcciones, state.store.Mascotas])
 
 	return (
 		<div className='card' style={{ paddingTop: '6rem' }}>

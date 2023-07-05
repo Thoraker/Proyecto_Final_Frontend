@@ -51,9 +51,7 @@ const Navbar = () => {
 						</li>
 					</ul>
 				</div>
-				<div className='col-2'>
-					{state.store.User.UserData.Usuario !== '' ? <UserDropdown /> : <NoUserDropdown />}
-				</div>
+				<div className='col-2'>{state.store.User.Usuario !== '' ? <UserDropdown /> : <NoUserDropdown />}</div>
 			</div>
 		</nav>
 	)

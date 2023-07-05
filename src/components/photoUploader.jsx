@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef } from 'react'
 import '../resources/Flux.js'
 import { AppContext } from '../routes/App.jsx'
 
-const PhotoUploader = (disabled) => {
+const PhotoUploader = () => {
 	const cloudinaryRef = useRef()
 	const widgetRef = useRef()
 	const state = useContext(AppContext)
@@ -18,7 +18,6 @@ const PhotoUploader = (disabled) => {
 				if (!error && result && result.event === 'success') {
 					console.log('Done! Here is the image info: ', result)
 					state.actions.createPetPhoto(result.info.secure_url)
-					console.log(state.store)
 				} else if (error) {
 					console.log(error)
 				}
@@ -27,10 +26,9 @@ const PhotoUploader = (disabled) => {
 	}, [])
 	return (
 		<button
-			className='w-25 btn btn-outline-light rounded-pill mx-4'
+			className='w-50 btn btn-outline-light rounded-pill mx-4'
 			type='button'
 			onClick={() => widgetRef.current.open()}
-			disabled={disabled}
 		>
 			Subir Foto
 		</button>

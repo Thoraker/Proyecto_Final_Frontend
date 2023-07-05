@@ -21,14 +21,13 @@ const AddressForm = () => {
 
 	return (
 		<div
-			className='container fst-italic rounded-3 w-50'
+			className='container fst-italic rounded-3 pb-3'
 			style={{
-				background:
-					'linear-gradient(90deg, rgba(117,37,110,1) 16%, rgba(141,172,172,1) 47%, rgba(234,222,235,1) 75%)',
+				background: 'linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%)',
 			}}
 		>
 			<form
-				className='p-3 m-3'
+				className='p-0 m-0'
 				onSubmit={(ev) => {
 					ev.preventDefault()
 					state.actions.createAddress({
@@ -41,8 +40,8 @@ const AddressForm = () => {
 					})
 				}}
 			>
-				<h3>Cuéntanos acerca de la Mascota</h3>
-				<div className='form-group pb-2'>
+				<h3 className='text-center pt-4'>Indícanos tu dirección</h3>
+				<div className='form-group p-2'>
 					<input
 						type='text'
 						style={{ background: '#ebdedf' }}
@@ -56,7 +55,7 @@ const AddressForm = () => {
 					/>
 				</div>
 
-				<div className='form-group pb-2'>
+				<div className='form-group p-2'>
 					<input
 						type='text'
 						style={{ background: '#ebdedf' }}
@@ -70,7 +69,7 @@ const AddressForm = () => {
 					/>
 				</div>
 
-				<div className='form-group pb-2'>
+				<div className='form-group p-2'>
 					<input
 						type='text'
 						style={{ background: '#ebdedf' }}
@@ -84,7 +83,7 @@ const AddressForm = () => {
 					/>
 				</div>
 
-				<div className='form-group pb-2'>
+				<div className='form-group p-2'>
 					<input
 						type='text'
 						style={{ background: '#ebdedf' }}
@@ -98,7 +97,7 @@ const AddressForm = () => {
 					/>
 				</div>
 
-				<div className='form-group pb-2'>
+				<div className='form-group p-2'>
 					<div className='d-flex align-items-center'>
 						<select
 							className='form-select'
@@ -130,7 +129,7 @@ const AddressForm = () => {
 						</select>
 					</div>
 				</div>
-				<div className='form-check my-3'>
+				<div className='form-check'>
 					<input
 						type='checkbox'
 						name='myCheckbox'
@@ -144,18 +143,16 @@ const AddressForm = () => {
 				</div>
 
 				<div
-					className='progress mb-3 pb-2 mx-auto'
+					className='progress bg-success mx-auto'
 					style={{
 						width: `${progress}%`,
 						height: '8px',
-						backgroundColor: '#0a5b1a',
 						transition: 'width 0.5s ease-in-out',
-						transformOrigin: 'center',
 					}}
 				></div>
 
-				<div className='pb-2 text-center'>
-					<button type='submit' className='w-50 me-2 btn btn-outline-light rounded-pill '>
+				<div className='text-center p-0 m-0'>
+					<button type='submit' className='w-50 btn btn-outline-light rounded-pill mb-2'>
 						Publicar
 					</button>
 				</div>
