@@ -1,9 +1,26 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { AppContext } from '../routes/App'
 import UserInfo from '../components/userInfo'
 import PetInfo from '../components/petInfo'
 import AddressInfo from '../components/addressInfo'
+import PetForm from '../components/petForm'
+import AddressForm from '../components/addressForm'
 
 const UserPage = () => {
+	const state = useContext(AppContext)
+	const [petView, setPetView] = useState(<PetForm />)
+	const [addressView, setAddressView] = useState(<AddressForm />)
+
+	useEffect(() => {
+		if (state.store.Mascotas.length === 0) {
+			setPetView(<PetForm />)
+		} else setPetView(<PetInfo />)
+
+		if (state.store.Direcciones.length === 0) {
+			setAddressView(<AddressForm />)
+		} else setAddressView(<AddressInfo />)
+	}, [state.store.Direcciones, state.store.Mascotas])
+
 	return (
 		<div className='card' style={{ paddingTop: '6rem' }}>
 			<ul className='nav nav-pills mb-3' id='pills-tab' role='tablist'>
@@ -82,7 +99,7 @@ const UserPage = () => {
 					aria-labelledby='pills-profile-tab'
 					tabIndex='0'
 				>
-					<PetInfo />
+					{petView}
 				</div>
 				<div
 					className='tab-pane fade'
@@ -91,7 +108,7 @@ const UserPage = () => {
 					aria-labelledby='pills-contact-tab'
 					tabIndex='0'
 				>
-					<AddressInfo />
+					{addressView}
 				</div>
 				<div
 					className='tab-pane fade'

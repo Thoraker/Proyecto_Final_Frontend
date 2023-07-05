@@ -39,36 +39,19 @@ const Navbar = () => {
 							</p>
 						</li>
 						{/* Solo como ejemplo  */}
-						{/* <li className='nav-item'>
+						<li className='nav-item'>
 							<Link to='/login' className='nav-link'>
 								login
 							</Link>
-						</li> */}
-						{/* <li className='nav-item'>
+						</li>
+						<li className='nav-item'>
 							<Link to='/pet' className='nav-link'>
 								mascotas
 							</Link>
 						</li>
-						<li className='nav-item'>
-							<Link to='/user/data' className='nav-link'>
-								userData
-							</Link>
-						</li>
-						<li className='nav-item'>
-							<Link to='/user/address' className='nav-link'>
-								userAddress
-							</Link>
-						</li>
-						<li className='nav-item'>
-							<Link to='/user/pet' className='nav-link'>
-								userPet
-							</Link>
-						</li> */}
 					</ul>
 				</div>
-				<div className='col-2'>
-					{state.store.User.UserData.Usuario !== '' ? <UserDropdown /> : <NoUserDropdown />}
-				</div>
+				<div className='col-2'>{state.store.User.Usuario !== '' ? <UserDropdown /> : <NoUserDropdown />}</div>
 			</div>
 		</nav>
 	)

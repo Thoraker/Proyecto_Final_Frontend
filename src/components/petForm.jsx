@@ -9,6 +9,7 @@ const PetForm = () => {
 	const [age, setAge] = useState('')
 	const [size, setSize] = useState('')
 	const [needBackyard, setNeedBackyard] = useState(false)
+	const [forAdoption, setForAdoption] = useState(false)
 	const [progress, setProgress] = useState(0)
 
 	useEffect(() => progressUpdate(), [specie, size])
@@ -23,19 +24,18 @@ const PetForm = () => {
 		<div
 			className='container fst-italic rounded-3 pb-3'
 			style={{
-				backgroundColor: '#00DBDE',
 				backgroundImage: 'linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%)',
 			}}
 		>
 			<form
-				className='p-3 m-3'
+				className='p-0 m-0'
 				onSubmit={(ev) => {
 					ev.preventDefault()
-					state.actions.createPet({ name, age, specie, size, needBackyard })
+					state.actions.createPet({ name, age, specie, size, needBackyard, forAdoption })
 				}}
 			>
-				<h3 className='text-center'>Nombre</h3>
-				<div className='form-group pb-2'>
+				<h3 className='text-center pt-4'>Inscribe tu Mascota</h3>
+				<div className='form-group p-2'>
 					<input
 						type='text'
 						className='form-control'
@@ -48,7 +48,7 @@ const PetForm = () => {
 					/>
 				</div>
 
-				<div className='form-group pb-2'>
+				<div className='form-group p-2'>
 					<input
 						type='text'
 						className='form-control'
@@ -61,10 +61,10 @@ const PetForm = () => {
 					/>
 				</div>
 
-				<div className='form-group pb-2'>
-					<div className='d-flex align-items-center'>
+				<div className='form-group p-2'>
+					<div className='d-flex align-items-center gap-2'>
 						<select
-							className='form-select me-2'
+							className='form-select'
 							value={specie}
 							onChange={(ev) => {
 								setSpecie(ev.target.value)
@@ -94,34 +94,47 @@ const PetForm = () => {
 					</div>
 				</div>
 
-				<div className='form-check my-3'>
+				<div className='form-check'>
 					<input
 						type='checkbox'
 						name='myCheckbox'
 						value={needBackyard}
 						onChange={(ev) => {
 							setNeedBackyard(!needBackyard)
-							progressUpdate()
 						}}
 					/>
 					<label className='form-check-label'>Necesita un jardín amplio</label>
 				</div>
 
+				<div className='form-check'>
+					<input
+						type='checkbox'
+						name='myCheckbox'
+						value={forAdoption}
+						onChange={(ev) => {
+							setForAdoption(!forAdoption)
+						}}
+					/>
+					<label className='form-check-label'>Le ofrezco en adopción</label>
+				</div>
+
 				<div
-					className='progress mb-2 bg-success mx-auto'
+					className='progress bg-success mx-auto'
 					style={{
 						width: `${progress}%`,
 						height: '8px',
 						transition: 'width 0.5s ease-in-out',
 					}}
 				></div>
-				<div className='pb-2 text-center'>
-					<button type='submit' className='w-25 me-2 btn btn-outline-light rounded-pill'>
-						Publicar
+				<div className='text-center p-0 m-0'>
+					<button type='submit' className='w-50 btn btn-outline-light rounded-pill mb-2'>
+						Inscribir
 					</button>
 				</div>
 			</form>
-			<PhotoUploader />
+			<div className='p-0 m-0 text-center'>
+				<PhotoUploader />
+			</div>
 		</div>
 	)
 }
