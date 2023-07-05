@@ -7,17 +7,16 @@ import App from './routes/App.jsx'
 import LoginPage from './routes/LoginPage'
 import LandingPage from './routes/LandingPage'
 import UserPage from './routes/UserPage'
-// import AddressPage from './routes/AddressPage'
 import PetPage from './routes/PetPage'
 import FoundationsPage from './routes/FoundationsPage'
-// import Pagina from './components/landingPage'
-// import InviteFriends from './components/inviteFri'
-import Pagina from './components/landingPage'
 import InviteFriends from './components/inviteFri'
 import RegisterPage from './routes/RegisterPage'
+<<<<<<< HEAD
 import RegisterForm from './components/registerForm'
 import InvitePage from './routes/InvitePage'
 // import UserData from './routes/UserData'
+=======
+>>>>>>> 96f2fc3a9e4372f2fab8e3a7f8431ab1569148e4
 
 const domNode = document.getElementById('root')
 const root = createRoot(domNode)
@@ -57,24 +56,6 @@ const router = createBrowserRouter([
 			{
 				path: '/user',
 				element: <UserPage />,
-				// children: [
-				// 	{
-				// 		path: '/user/data',
-				// 		element: <UserData />,
-				// 	},
-				// 	{
-				// 		path: '/user/address',
-				// 		element: <AddressPage />,
-				// 	},
-				// 	{
-				// 		path: '/user/pet',
-				// 		element: <PetPage />,
-				// 	},
-				// ],
-			},
-			{
-				path: '/inicio',
-				element: <Pagina />,
 			},
 			{
 				path: '/prueba',

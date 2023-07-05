@@ -1,79 +1,57 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			slides: [
-				{
-					url: 'https://res.cloudinary.com/dqehz6slh/image/upload/v1687397371/lqlhggzj8souxquvercq.jpg',
-					title: 'Slide 1',
-				},
-				{
-					url: 'http://res.cloudinary.com/dqehz6slh/image/upload/v1687452386/j13abkvxjzk0icj09gqt.jpg',
-					title: 'Slide 2',
-				},
-				{
-					url: 'https://res.cloudinary.com/dqehz6slh/image/upload/v1687397803/lihibq4hco4nw7thlwuw.jpg',
-					title: 'Slide 3',
-				},
-				{
-					url: 'https://res.cloudinary.com/dqehz6slh/image/upload/v1687231671/samples/animals/kitten-playing.gif',
-					title: 'Slide 3',
-				},
-				{
-					url: 'https://res.cloudinary.com/dqehz6slh/image/upload/v1687231664/samples/animals/three-dogs.jpg',
-					title: 'Slide 4',
-				},
-				{
-					url: 'https://res.cloudinary.com/dqehz6slh/image/upload/v1687231658/samples/animals/cat.jpg',
-					title: 'Slide 4',
-				},
-			],
+			For_Adoption: [],
+			Direcciones: [],
+			Mascotas: [],
 			User: {
-				UserData: {
-					Usuario: '',
-					Email: '',
-					Nombre: '',
-					Apellido: '',
-					Avatar: '',
-					Dador: false,
-					Direcciones: [],
-					Mascotas: [],
-				},
-				Token: '',
+				Usuario: '',
+				Email: '',
+				Nombre: '',
+				Apellido: '',
+				Avatar: '',
 			},
-			Pet: 	{
-				'id': '',
-				'Nombre': '',
-				'Especie': '',
-				'Tamano': '',
-				'Necesita_Patio': '',
-				'Fotos': [],
+			Token: '',
+			ActivePet: {
+				id: '',
+				Nombre: '',
+				Especie: '',
+				Tamano: '',
+				Necesita_Patio: false,
+				En_Adopcion: false,
+				Fotos: [],
 			},
 		},
 
 		actions: {
-			loadInitialData: () => {console.log('loadInitialData');},
+			loadInitialData: () => {
+				console.log('loadInitialData')
+			},
 
-			getPetPhoto: async (link) => {
+			createUser: async (values) => {
 				const myHeaders = new Headers()
-				myHeaders.append('Authorization', 'Bearer ' + getStore().User.Token)
 				myHeaders.append('Content-Type', 'application/json')
 
 				const raw = JSON.stringify({
-					'url': link,
-					'pet_id': getStore().Pet.id
+					user_name: values.userName,
+					email: values.email,
+					password: values.password,
+					first_name: values.firstName,
+					last_name: values.lastName,
+					avatar: values.avatar,
 				})
 
 				const requestOptions = {
 					method: 'POST',
 					headers: myHeaders,
 					body: raw,
-					redirect: 'follow'
+					redirect: 'follow',
 				}
 
-				fetch('http://127.0.0.1:3000/photo', requestOptions)
-					.then(response => response.text())
-					.then(result => console.log(result))
-					.catch(error => console.log('error', error))
+				fetch('http://127.0.0.1:3000/register', requestOptions)
+					.then((response) => response.json())
+					.then((result) => alert(result.Response))
+					.catch((error) => alert('error', error))
 			},
 
 			login: async (user, pass) => {
@@ -96,99 +74,118 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then((response) => response.json())
 					.then((result) => {
 						setStore({
-							User: {
-								UserData: result.User,
-								Token: result.Token,
-							},
+							User: result.User,
+							Direcciones: result.User.Direcciones,
+							Mascotas: result.User.Mascotas,
+							Token: result.Token,
 						})
+						alert('Login correcto')
 					})
-					.catch((error) => console.log('error', error))
+					.catch((error) => alert('error', error))
 			},
 
-			createUser: async (values) => {
+			createPet: async (values) => {
 				const myHeaders = new Headers()
+				myHeaders.append('Authorization', 'Bearer ' + getStore().Token)
 				myHeaders.append('Content-Type', 'application/json')
 
 				const raw = JSON.stringify({
-					'user_name': values.userName,
-					'email': values.email,
-					'password': values.password,
-					'first_name': values.firstName,
-					'last_name': values.lastName,
-					'avatar': values.avatar,
-					'donor': values.donor,
+					name: values.name,
+					specie: values.specie,
+					age: values.age,
+					size: values.size,
+					need_backyard: values.needBackyard,
+					for_adoption: values.forAdoption,
 				})
 
 				const requestOptions = {
 					method: 'POST',
 					headers: myHeaders,
 					body: raw,
-					redirect: 'follow'
+					redirect: 'follow',
 				}
 
-				fetch('http://127.0.0.1:3000/register', requestOptions)
-					.then(response => response.json())
-					.then(result => console.log(result))
-					.catch(error => console.log('error', error))
+				fetch('http://127.0.0.1:3000/pet', requestOptions)
+					.then((response) => response.json())
+					.then((result) => {
+						setStore({
+							Mascotas: result.User.Mascotas,
+						})
+						alert(result)
+					})
+					.catch((error) => alert('error', error))
 			},
 
-			createPet: async (values) => {
-				const myHeaders = new Headers();
-					myHeaders.append('Authorization', 'Bearer ' + getStore().User.Token)
-					myHeaders.append('Content-Type', 'application/json');
+			createPetPhoto: async (link) => {
+				const myHeaders = new Headers()
+				myHeaders.append('Authorization', 'Bearer ' + getStore().Token)
+				myHeaders.append('Content-Type', 'application/json')
 
 				const raw = JSON.stringify({
-					'name': values.name,
-					'specie': values.specie,
-					'age': values.age,
-					'size': values.size,
-					'need_backyard': values.needBackyard
-				});
+					url: link,
+					pet_id: getStore().ActivePet.id,
+				})
 
 				const requestOptions = {
-				method: 'POST',
-				headers: myHeaders,
-				body: raw,
-				redirect: 'follow'
-				};
+					method: 'POST',
+					headers: myHeaders,
+					body: raw,
+					redirect: 'follow',
+				}
 
-				fetch('http://127.0.0.1:3000/pet', requestOptions)
-					.then(response => response.json())
-					.then(result => {
-						setStore({							
-							Pet: result.Pet
-						})
-						console.log(result)
-					})
-					.catch(error => console.log('error', error))
+				fetch('http://127.0.0.1:3000/photo', requestOptions)
+					.then((response) => response.text())
+					.then((result) => alert(result))
+					.catch((error) => alert('error', error))
 			},
 
 			createAddress: async (values) => {
 				console.log(getStore().User.Token, 'token')
-				const myHeaders = new Headers();
-				myHeaders.append('Authorization', 'Bearer ' + getStore().User.Token);
-				myHeaders.append('Content-Type', 'application/json');
+				const myHeaders = new Headers()
+				myHeaders.append('Authorization', 'Bearer ' + getStore().Token)
+				myHeaders.append('Content-Type', 'application/json')
 
 				const raw = JSON.stringify({
-					'street': values.street,
-					'building_number': values.buildingNumber,
-					'department_number': values.departmentNumber,
-					'commune': values.commune,
-					'region': values.region,
-					'has_backyard': values.hasBackyard
+					street: values.street,
+					building_number: values.buildingNumber,
+					department_number: values.departmentNumber,
+					commune: values.commune,
+					region: values.region,
+					has_backyard: values.hasBackyard,
+					for_adoption: values.forAdoption,
 				})
 
 				const requestOptions = {
-				method: 'POST',
-				headers: myHeaders,
-				body: raw,
-				redirect: 'follow'
+					method: 'POST',
+					headers: myHeaders,
+					body: raw,
+					redirect: 'follow',
 				}
 
 				fetch('http://127.0.0.1:3000/address', requestOptions)
-					.then(response => response.json())
-					.then(result => console.log(result))
-					.catch(error => console.log('error', error));
+					.then((response) => response.json())
+					.then((result) => {
+						setStore({
+							User: result.User,
+						})
+						console.log(result)
+					})
+					.catch((error) => alert('error', error))
+			},
+
+			addPet: (value) => {
+				setStore({
+					ActivePet: {
+						id: value.id,
+						Nombre: value.Nombre,
+						Especie: value.Especie,
+						Tamano: value.Tamano,
+						Necesita_Patio: value.Necesita_Patio,
+						En_Adopcion: value.En_Adopcion,
+						Fotos: value.Fotos,
+					},
+				})
+				console.log(getStore().ActivePet, 'flux')
 			},
 		},
 	}

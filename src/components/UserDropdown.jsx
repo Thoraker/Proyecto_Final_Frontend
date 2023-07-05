@@ -7,19 +7,16 @@ const UserDropdown = () => {
 
 	const navigate = useNavigate()
 
-	const avatar = state.store.User.UserData.Avatar
-	const user = state.store.User.UserData.Usuario
-
 	return (
 		<div className='dropdown'>
 			<button className='btn btn-outline-success card' type='button' data-bs-toggle='dropdown'>
 				<div className='row g-0'>
 					<div className='col-4'>
-						<img className='img-fluid' style={{ maxHeight: '70px' }} src={avatar} />
+						<img className='img-fluid' style={{ maxHeight: '70px' }} src={state.store.User.Avatar} />
 					</div>
 					<div className='col-8'>
 						<div className='card-body'>
-							<h5 className='card-text'>{user}</h5>
+							<h5 className='card-text'>{state.store.User.Usuario}</h5>
 						</div>
 					</div>
 				</div>

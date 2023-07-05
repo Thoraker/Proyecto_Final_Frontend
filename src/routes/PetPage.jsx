@@ -3,10 +3,7 @@ import PetForm from '../components/petForm'
 
 const PetPage = () => {
 	return (
-		<div className='card'>
-			<div className='card-header'>
-				<h5 className='card-title'>Mis Mascotas</h5>
-			</div>
+		<div className='container vh-100' style={{ paddingTop: '6rem' }}>
 			<div className='card-body'>
 				<PetForm />
 			</div>

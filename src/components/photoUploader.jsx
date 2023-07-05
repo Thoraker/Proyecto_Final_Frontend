@@ -17,8 +17,7 @@ const PhotoUploader = () => {
 			function (error, result) {
 				if (!error && result && result.event === 'success') {
 					console.log('Done! Here is the image info: ', result)
-					state.actions.getPetPhoto(result.info.secure_url)
-					console.log(state.store)
+					state.actions.createPetPhoto(result.info.secure_url)
 				} else if (error) {
 					console.log(error)
 				}
@@ -26,6 +25,7 @@ const PhotoUploader = () => {
 		)
 	}, [])
 	return (
+<<<<<<< HEAD
 		<div>
 			<h5 className='p-6'>Subir Foto</h5>
 			<button className='w-25 me-2 btn btn-outline-light rounded-pill' onClick={() => widgetRef.current.open()}>
@@ -33,6 +33,15 @@ const PhotoUploader = () => {
 			</button>
 		</div>
 
+=======
+		<button
+			className='w-50 btn btn-outline-light rounded-pill mx-4'
+			type='button'
+			onClick={() => widgetRef.current.open()}
+		>
+			Subir Foto
+		</button>
+>>>>>>> 96f2fc3a9e4372f2fab8e3a7f8431ab1569148e4
 	)
 }
 
