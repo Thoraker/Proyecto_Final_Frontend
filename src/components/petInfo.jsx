@@ -10,7 +10,7 @@ const PetInfo = () => {
 	return (
 		<div className='card'>
 			<div className='d-flex align-items-start'>
-				<div className='nav flex-column nav-pills mt-2 col-3' id='v-pets-tab' role='tablist'>
+				<div className='nav flex-column nav-pills me-3' id='v-pets-tab' role='pets' aria-orientation='vertical'>
 					{state.store.Mascotas.map((mascota, index) => {
 						return (
 							<li className='nav-item' key={index} role='presentation'>
@@ -23,7 +23,6 @@ const PetInfo = () => {
 									role='tab'
 									onClick={() => {
 										setPets(index)
-										console.log(mascota, 'petInfo')
 										state.actions.addPet(mascota)
 									}}
 									aria-selected='false'

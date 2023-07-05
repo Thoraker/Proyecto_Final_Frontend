@@ -110,8 +110,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then((result) => {
 						setStore({
 							Mascotas: result.User.Mascotas,
+							Pet: result.Pet,
 						})
-						alert(result)
+						alert(result.Response)
 					})
 					.catch((error) => alert('error', error))
 			},
@@ -167,8 +168,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then((result) => {
 						setStore({
 							User: result.User,
+							Direcciones: result.User.Direcciones,
 						})
-						console.log(result)
+						alert(result.Response)
 					})
 					.catch((error) => alert('error', error))
 			},
