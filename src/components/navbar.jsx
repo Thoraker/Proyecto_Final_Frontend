@@ -21,7 +21,7 @@ const Navbar = () => {
 				>
 					<span className='navbar-toggler-icon'></span>
 				</button>
-				<Link className='navbar-brand fs-1 px-5' to='/'>
+				<Link className='navbar-brand text- text-danger fs-1 px-5' to='/'>
 					Dame una Pata
 				</Link>
 				<div className='collapse navbar-collapse'>
@@ -38,32 +38,22 @@ const Navbar = () => {
 								</Link>
 							</p>
 						</li>
-						{/* Solo como ejemplo  */}
+
+
+						<li className="nav-item">
+							<a className="nav-link" href="/invite">
+								Invitar <i className="bi bi-share-fill"></i>
+							</a>
+						</li>
+
 						{/* <li className='nav-item'>
-							<Link to='/login' className='nav-link'>
-								login
-							</Link>
-						</li> */}
-						{/* <li className='nav-item'>
-							<Link to='/pet' className='nav-link'>
-								mascotas
-							</Link>
-						</li>
-						<li className='nav-item'>
-							<Link to='/user/data' className='nav-link'>
-								userData
-							</Link>
-						</li>
-						<li className='nav-item'>
-							<Link to='/user/address' className='nav-link'>
-								userAddress
-							</Link>
-						</li>
-						<li className='nav-item'>
-							<Link to='/user/pet' className='nav-link'>
-								userPet
-							</Link>
-						</li> */}
+							<p>
+								<Link to='/invite' className='nav-link' >
+									Invitar <i className="bi bi-share-fill"></i>
+								</Link>
+							</p>
+						</li>						 */}
+
 					</ul>
 				</div>
 				<div className='col-2'>

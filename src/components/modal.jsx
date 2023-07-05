@@ -1,6 +1,6 @@
 // import React from 'react';
 // import PropTypes from 'prop-types';
-// import InviteFriends from './InviteFriends';
+// import InviteFriends from './inviteFri';
 
 // const Modal = ({ onClose }) => {
 //     return (

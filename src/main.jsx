@@ -16,6 +16,7 @@ import Pagina from './components/landingPage'
 import InviteFriends from './components/inviteFri'
 import RegisterPage from './routes/RegisterPage'
 import RegisterForm from './components/registerForm'
+import InvitePage from './routes/InvitePage'
 // import UserData from './routes/UserData'
 
 const domNode = document.getElementById('root')
@@ -47,6 +48,12 @@ const router = createBrowserRouter([
 				path: '/foundations',
 				element: <FoundationsPage />,
 			},
+			{
+				path: '/invite',
+				element: <InvitePage />,
+			},
+
+
 			{
 				path: '/user',
 				element: <UserPage />,
