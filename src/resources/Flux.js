@@ -208,6 +208,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 				console.log(getStore().ActivePet, 'flux')
 			},
+			sendMessage: async (values) => {
+				const myHeaders = new Headers()
+				myHeaders.append('Authorization', 'Bearer ' + getStore().Token)
+				myHeaders.append('Content-Type', 'application/json')
+
+				const raw = JSON.stringify({
+					reference_post_id: values.referencePostId,
+					pet_id: values.petId,
+					title: values.title,
+					message: values.message,
+				})
+
+				const requestOptions = {
+					method: 'POST',
+					headers: myHeaders,
+					body: raw,
+					redirect: 'follow',
+				}
+
+				fetch('http://127.0.0.1:3000/post', requestOptions)
+					.then((response) => response.json())
+					.then((result) => alert(result.Response))
+					.catch((error) => alert('error', error))
+			}
 		},
 	}
 }
