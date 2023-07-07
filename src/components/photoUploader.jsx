@@ -24,10 +24,18 @@ const PhotoUploader = () => {
 			}
 		)
 	}, [])
+
 	return (
-		<button className='w-25 me-2 btn btn-outline-light rounded-pill' onClick={() => widgetRef.current.open()}>
-			Subir Foto
-		</button>
+		<div className='pb-2 text-center'>
+			<button
+				className='w-50 btn btn-outline-light rounded-pill border-dark text-dark fw-bold'
+				id='formbtn'
+				style={{ borderColor: '#654321' }}
+				onClick={() => widgetRef.current.open()}
+			>
+				Subir Foto/video <i className="bi bi-camera-fill"></i>
+			</button>
+		</div>
 	)
 }
 
