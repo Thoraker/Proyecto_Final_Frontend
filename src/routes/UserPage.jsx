@@ -5,6 +5,7 @@ import PetInfo from '../components/petInfo'
 import AddressInfo from '../components/addressInfo'
 import PetForm from '../components/petForm'
 import AddressForm from '../components/addressForm'
+import MessageBoard from '../components/messageInfo'
 
 const UserPage = () => {
 	const state = useContext(AppContext)
@@ -76,9 +77,8 @@ const UserPage = () => {
 						role='tab'
 						aria-controls='pills-disabled'
 						aria-selected='false'
-						disabled
 					>
-						Disabled
+						Mensajes
 					</button>
 				</li>
 			</ul>
@@ -117,7 +117,7 @@ const UserPage = () => {
 					aria-labelledby='pills-disabled-tab'
 					tabIndex='0'
 				>
-					...
+					<MessageBoard />
 				</div>
 			</div>
 		</div>

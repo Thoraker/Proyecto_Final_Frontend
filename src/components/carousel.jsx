@@ -21,7 +21,7 @@ const Carousel = ({ photos }) => {
 	}
 
 	return (
-		<div className='position-relative m-5'>
+		<div className='position-relative m-3'>
 			<div
 				className='position-absolute top-50 z-1 start-0 translate-middle-y fs-1 text-light'
 				role='button'

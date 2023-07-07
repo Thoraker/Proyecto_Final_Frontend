@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react'
 import { AppContext } from '../routes/App'
+import { Link } from 'react-router-dom'
 
 const AddressInfo = () => {
 	const state = useContext(AppContext)
-	const [tab, setTab] = useState(0)
+	const [address, setAddress] = useState(0)
 
 	const Region = (region) => {
 		if (region === 1) {
@@ -48,44 +49,49 @@ const AddressInfo = () => {
 					role='addresses'
 					aria-orientation='vertical'
 				>
-					{state.store.Direcciones.length === 0
-						? 'No hay direcciones'
-						: state.store.Direcciones.map((direccion, index) => {
-								return (
-									<li className='nav-item' key={index} role='presentation'>
-										<button
-											className='nav-link'
-											id='profile-tab'
-											data-bs-toggle='tab'
-											data-bs-target='#profile-tab-pane'
-											type='button'
-											role='tab'
-											onClick={() => {
-												setTab(index)
-											}}
-											aria-selected='false'
-										>
-											{direccion.Calle}
-										</button>
-									</li>
-								)
-						  })}
+					{state.store.Direcciones.map((direccion, index) => {
+						return (
+							<li className='nav-item' key={index} role='presentation'>
+								<button
+									className='nav-link px-5 m-2 w-100'
+									id='profile-tab'
+									data-bs-toggle='tab'
+									data-bs-target='#profile-tab-pane'
+									type='button'
+									role='tab'
+									onClick={() => {
+										setAddress(index)
+									}}
+									aria-selected='false'
+								>
+									{direccion.Calle}
+								</button>
+							</li>
+						)
+					})}
 				</div>
 				<div className='tab-content' id='v-addresses-tabContent'>
-					<div className='card' style={{ width: '18rem' }}>
-						<div className='card-body'>
+					<div className='card bg-info col m-3 w-100'>
+						<div className='card-body py-5'>
 							<h4 className='card-title'>
-								{state.store.Direcciones[tab].Calle} {state.store.Direcciones[tab].Numero}
+								{state.store.Direcciones[address].Calle} {state.store.Direcciones[address].Numero}
 							</h4>
-							<h5 className='card-subtitle mb-2 text-body-secondary'>
-								{state.store.Direcciones[tab].Comuna}
+							<h5 className='card-subtitle m-3 text-body-secondary'>
+								{state.store.Direcciones[address].Comuna}
 							</h5>
-							<p className='card-text'>Departamento : {state.store.Direcciones[tab].Departamento}</p>
-							<p className='card-text'>Region: {Region(state.store.Direcciones[tab].Region)}</p>
+							<p className='card-text'>Departamento : {state.store.Direcciones[address].Departamento}</p>
+							<p className='card-text'>Region: {Region(state.store.Direcciones[address].Region)}</p>
 							<p className='card-text'>
-								{state.store.Direcciones[tab].Necesita_Patio ? 'Tiene Patio' : 'No Tiene Patio'}
+								{state.store.Direcciones[address].Tiene_Patio ? 'Tiene Patio' : 'No Tiene Patio'}
 							</p>
 						</div>
+					</div>
+					<div className='col m-3'>
+						<button type='button' className='btn btn-primary '>
+							<Link className='text-light' to='/address'>
+								Inscribe una Dirección
+							</Link>
+						</button>
 					</div>
 				</div>
 			</div>
