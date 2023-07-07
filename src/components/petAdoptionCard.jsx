@@ -7,8 +7,10 @@ const PetAdoptionCard = ({ pet }) => {
 	const state = useContext(AppContext)
 	const [title, setTitle] = useState('Yo le cuidaré')
 	const [message, setMessage] = useState('')
+	const id = pet.id
 
-	const petId = pet.id
+	console.log(pet, 'pet')
+
 	const referencePostId = null
 
 	const Specie = (specie) => {
@@ -75,7 +77,7 @@ const PetAdoptionCard = ({ pet }) => {
 							<form
 								onSubmit={(e) => {
 									e.preventDefault()
-									state.actions.sendMessage({ referencePostId, petId, title, message })
+									state.actions.sendMessage({ referencePostId, id, title, message })
 								}}
 							>
 								<div className='mb-3'>
