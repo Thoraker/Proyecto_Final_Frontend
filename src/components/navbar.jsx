@@ -21,7 +21,7 @@ const Navbar = () => {
 				>
 					<span className='navbar-toggler-icon'></span>
 				</button>
-				<Link className='navbar-brand fs-1 px-5' to='/'>
+				<Link className='navbar-brand text- text-danger fs-1 px-5' to='/'>
 					Dame una Pata
 				</Link>
 				<div className='collapse navbar-collapse'>
@@ -38,6 +38,24 @@ const Navbar = () => {
 								</Link>
 							</p>
 						</li>
+<<<<<<< HEAD
+
+
+						<li className="nav-item">
+							<a className="nav-link" href="/invite">
+								Invitar <i className="bi bi-share-fill"></i>
+							</a>
+						</li>
+
+						{/* <li className='nav-item'>
+							<p>
+								<Link to='/invite' className='nav-link' >
+									Invitar <i className="bi bi-share-fill"></i>
+								</Link>
+							</p>
+						</li>						 */}
+
+=======
 						{/* Solo como ejemplo  */}
 						<li className='nav-item'>
 							<Link to='/login' className='nav-link'>
@@ -49,6 +67,7 @@ const Navbar = () => {
 								mascotas
 							</Link>
 						</li>
+>>>>>>> 96f2fc3a9e4372f2fab8e3a7f8431ab1569148e4
 					</ul>
 				</div>
 				<div className='col-2'>{state.store.User.Usuario !== '' ? <UserDropdown /> : <NoUserDropdown />}</div>

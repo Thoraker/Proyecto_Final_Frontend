@@ -1,4 +1,10 @@
+<<<<<<< HEAD
+// import React from 'react';
+// import PropTypes from 'prop-types';
+// import InviteFriends from './inviteFri';
+=======
 import React from 'react'
+>>>>>>> 96f2fc3a9e4372f2fab8e3a7f8431ab1569148e4
 
 const Modal = (text) => {
 	return (
