@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useRef } from 'react'
+import AppContext from '../routes/App'
 import '../resources/Flux.js'
-import { AppContext } from '../routes/App.jsx'
 
 const PhotoUploader = () => {
+	const state = useContext(AppContext)
 	const cloudinaryRef = useRef()
 	const widgetRef = useRef()
-	const state = useContext(AppContext)
 
 	useEffect(() => {
 		cloudinaryRef.current = window.cloudinary
@@ -16,32 +16,26 @@ const PhotoUploader = () => {
 			},
 			function (error, result) {
 				if (!error && result && result.event === 'success') {
+					state.actions.getPetPhoto(result.info.url)
 					console.log('Done! Here is the image info: ', result)
-					state.actions.createPetPhoto(result.info.secure_url)
 				} else if (error) {
 					console.log(error)
 				}
 			}
 		)
 	}, [])
+
 	return (
-<<<<<<< HEAD
-		<div>
-			<h5 className='p-6'>Subir Foto</h5>
-			<button className='w-25 me-2 btn btn-outline-light rounded-pill' onClick={() => widgetRef.current.open()}>
-				<i className="bi bi-upload"></i>
+		<div className='pb-2 text-center'>
+			<button
+				className='w-50 btn btn-outline-light rounded-pill border-dark text-dark fw-bold'
+				id='formbtn'
+				style={{ borderColor: '#654321' }}
+				onClick={() => widgetRef.current.open()}
+			>
+				Subir Foto/video <i className="bi bi-camera-fill"></i>
 			</button>
 		</div>
-
-=======
-		<button
-			className='w-50 btn btn-outline-light rounded-pill mx-4'
-			type='button'
-			onClick={() => widgetRef.current.open()}
-		>
-			Subir Foto
-		</button>
->>>>>>> 96f2fc3a9e4372f2fab8e3a7f8431ab1569148e4
 	)
 }
 
