@@ -13,6 +13,8 @@ const PetForm = () => {
 	const [description, setDescription] = useState('')
 	const [progress, setProgress] = useState(0)
 
+	const [message, setMessage] = useState('')
+
 	useEffect(() => progressUpdate(), [specie, size])
 
 	const progressUpdate = () => {

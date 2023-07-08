@@ -32,6 +32,11 @@ const Navbar = () => {
 							</Link>
 						</li>
 						<li className='nav-item'>
+							<Link to='/adoption' className='nav-link'>
+								Mascotas en Adopción
+							</Link>
+						</li>
+						<li className='nav-item'>
 							<p>
 								<Link to='/foundations' className='nav-link'>
 									Fundaciones Amigas

@@ -21,7 +21,7 @@ const Carousel = ({ photos }) => {
 	}
 
 	return (
-		<div className='position-relative m-5'>
+		<div className='position-relative m-3'>
 			<div
 				className='position-absolute top-50 z-1 start-0 translate-middle-y fs-1 text-light'
 				role='button'
@@ -32,7 +32,7 @@ const Carousel = ({ photos }) => {
 			<div className='ratio ratio-16x9'>
 				{photos.length < 1 ? (
 					<img
-						src='https://res.cloudinary.com/dqehz6slh/image/upload/v1688248915/kghpgp7zvkr8rqk6msgp.webp'
+						src='https://res.cloudinary.com/dqehz6slh/image/upload/v1688428662/i4wkbtuttjhln2xenvuc.webp'
 						alt=''
 					/>
 				) : (

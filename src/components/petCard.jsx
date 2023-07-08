@@ -34,7 +34,7 @@ const PetCard = ({ pet }) => {
 				<div className='col-5'>
 					<div className='card-body py-5'>
 						<h4 className='card-title'>{pet.Nombre}</h4>
-						<h5 className='card-subtitle mb-2 text-body-secondary'>{Specie(pet.Especie)}</h5>
+						<h5 className='card-subtitle m-3 text-body-secondary'>{Specie(pet.Especie)}</h5>
 						<p className='card-text'>Tamaño: {Size(pet.Tamano)}</p>
 						<p className='card-text'>Edad : {pet.Edad}</p>
 						<p className='card-text'>{pet.Necesita_Patio ? 'Necesita Patio' : 'No Necesita Patio'}</p>
