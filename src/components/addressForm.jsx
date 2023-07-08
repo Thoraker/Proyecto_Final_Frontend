@@ -75,10 +75,7 @@ const AddressForm = () => {
 									}}
 								/>
 							</div>
-<<<<<<< HEAD
-=======
 
->>>>>>> main
 							<div className='form-group pb-2'>
 								<input
 									type='text'
@@ -161,11 +158,6 @@ const AddressForm = () => {
 							Publicar
 						</button>
 					</div>
-<<<<<<< HEAD
-=======
-
-
->>>>>>> main
 				</form>
 			</div>
 		</div>

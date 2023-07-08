@@ -11,12 +11,6 @@ import PetPage from './routes/PetPage'
 import FoundationsPage from './routes/FoundationsPage'
 import InviteFriends from './components/inviteFri'
 import RegisterPage from './routes/RegisterPage'
-<<<<<<< HEAD
-import RegisterForm from './components/registerForm'
-import InvitePage from './routes/InvitePage'
-// import UserData from './routes/UserData'
-=======
->>>>>>> 96f2fc3a9e4372f2fab8e3a7f8431ab1569148e4
 
 const domNode = document.getElementById('root')
 const root = createRoot(domNode)

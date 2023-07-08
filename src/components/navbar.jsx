@@ -38,7 +38,6 @@ const Navbar = () => {
 								</Link>
 							</p>
 						</li>
-<<<<<<< HEAD
 
 
 						<li className="nav-item">
@@ -55,19 +54,6 @@ const Navbar = () => {
 							</p>
 						</li>						 */}
 
-=======
-						{/* Solo como ejemplo  */}
-						<li className='nav-item'>
-							<Link to='/login' className='nav-link'>
-								login
-							</Link>
-						</li>
-						<li className='nav-item'>
-							<Link to='/pet' className='nav-link'>
-								mascotas
-							</Link>
-						</li>
->>>>>>> 96f2fc3a9e4372f2fab8e3a7f8431ab1569148e4
 					</ul>
 				</div>
 				<div className='col-2'>{state.store.User.Usuario !== '' ? <UserDropdown /> : <NoUserDropdown />}</div>
