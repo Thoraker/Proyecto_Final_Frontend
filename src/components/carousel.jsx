@@ -32,7 +32,7 @@ const Carousel = ({ photos }) => {
 			<div className='ratio ratio-16x9'>
 				{photos.length < 1 ? (
 					<img
-						src='https://res.cloudinary.com/dqehz6slh/image/upload/v1688248915/kghpgp7zvkr8rqk6msgp.webp'
+						src='https://res.cloudinary.com/dqehz6slh/image/upload/v1688428662/i4wkbtuttjhln2xenvuc.webp'
 						alt=''
 					/>
 				) : (

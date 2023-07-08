@@ -9,11 +9,11 @@ import UserPage from './routes/UserData'
 import PetPage from './routes/PetPage'
 import FoundationsPage from './routes/FoundationsPage'
 import InviteFriends from './components/inviteFri'
-import InvitePage from './routes/InvitePage'
 import RegisterPage from './routes/RegisterPage'
 import RegisterForm from './components/registerForm'
 import AdoptMe from './routes/AdoptMe'
 import './index.css'
+import AddressPage from './routes/AddressPage.jsx'
 
 const domNode = document.getElementById('root')
 const root = createRoot(domNode)
@@ -49,8 +49,8 @@ const router = createBrowserRouter([
 				element: <FoundationsPage />,
 			},
 			{
-				path: '/invite',
-				element: <InvitePage />,
+				path: '/address',
+				element: <AddressPage />,
 			},
 			{
 				path: '/user',

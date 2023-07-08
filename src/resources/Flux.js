@@ -39,7 +39,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log(getStore().For_Adoption);
 					}
 						)
-					.catch(error => console.log('error', error));
+					.catch(error => alert('error', error));
 			},
 
 			createUser: async (values) => {
@@ -124,6 +124,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then((response) => response.json())
 					.then((result) => {
 						setStore({
+							User: result.User,
 							Mascotas: result.User.Mascotas,
 							Pet: result.Pet,
 						})
@@ -161,7 +162,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			createAddress: async (values) => {
-				console.log(getStore().User.Token, 'token')
+				console.log(getStore().Token, 'token')
 				const myHeaders = new Headers()
 				myHeaders.append('Authorization', 'Bearer ' + getStore().Token)
 				myHeaders.append('Content-Type', 'application/json')
@@ -206,7 +207,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						Fotos: value.Fotos,
 					},
 				})
-				console.log(getStore().ActivePet, 'flux')
 			},
 			sendMessage: async (values) => {
 				const myHeaders = new Headers()
@@ -214,9 +214,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				myHeaders.append('Content-Type', 'application/json')
 
 				const raw = JSON.stringify({
-					reference_post_id: values.referencePostId,
-					pet_id: values.petId,
-					title: values.title,
+					reference_post_id: values.Mensajes[0].id,
+					pet_id: values.id,
 					message: values.message,
 				})
 
@@ -231,6 +230,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then((response) => response.json())
 					.then((result) => alert(result.Response))
 					.catch((error) => alert('error', error))
+			}, 
+			cleanDirections: () => {
+				setStore({
+					Direcciones: [],
+				})
+			}, 
+			cleanPets: () => {
+				setStore({
+					Mascotas: [],
+				})				
 			}
 		},
 	}
