@@ -110,6 +110,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					size: values.size,
 					need_backyard: values.needBackyard,
 					for_adoption: values.forAdoption,
+					message: values.message,
 				})
 
 				const requestOptions = {
@@ -153,7 +154,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then((result) => {
 						setStore({
 							Mascotas: result.User.Mascotas,
-							ActivePet: result.Pet,
 						})
 						alert(result.Response)
 					})
