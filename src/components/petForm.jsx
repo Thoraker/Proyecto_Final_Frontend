@@ -1,55 +1,73 @@
-
-import React, { useState, useEffect, useContext } from 'react'
-import PhotoUploader from './photoUploader'
-import { AppContext } from '../routes/App'
-import './formStyles.css'
+import React, { useState, useEffect, useContext } from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import PhotoUploader from './photoUploader';
+import { AppContext } from '../routes/App';
+import './formStyles.css';
 
 const PetForm = () => {
-	const state = useContext(AppContext)
-	const [name, setName] = useState('')
-	const [age, setAge] = useState('')
-	const [specie, setSpecie] = useState('')
-	const [size, setSize] = useState('')
-	const [description, setDescription] = useState('')
-	const [progress, setProgress] = useState(0)
+	const state = useContext(AppContext);
+	const [progress, setProgress] = useState(0);
+	const [successMessage, setSuccessMessage] = useState('');
 
-	const [message, setMessage] = useState('')
+	const validationSchema = Yup.object().shape({
+		name: Yup.string().required('El nombre es requerido.'),
+		age: Yup.string().required('La edad es requerida.'),
+		specie: Yup.string().required('La especie es requerida.'),
+		size: Yup.string().required('El tamaño es requerido.'),
+		description: Yup.string().required('La descripción es requerida.'),
+	});
 
-	useEffect(() => progressUpdate(), [specie, size])
+	const formik = useFormik({
+		initialValues: {
+			name: '',
+			age: '',
+			specie: '',
+			size: '',
+			description: '',
+		},
+		validationSchema,
+		onSubmit: (values) => {
+			state.actions.createPet(values.name, values.age, values.specie, values.size, values.description);
+			setSuccessMessage('Su registro ha sido exitoso.');
+			setTimeout(() => {
+				setSuccessMessage('');
+				// Redireccionar al usuario a otra página aquí
+			}, 5000);
+		},
+	});
+
+	useEffect(() => {
+		progressUpdate();
+	}, [formik.values]);
 
 	const progressUpdate = () => {
-		const fullFields = [name, age, specie, size, description].filter((field) => field !== '')
-		const newProgress = (fullFields.length / 5) * 100 // Suponiendo 5 campos en total
-		console.log(specie)
-		setProgress(newProgress)
-	}
+		const fullFields = Object.values(formik.values).filter((field) => field !== '');
+		const newProgress = (fullFields.length / Object.keys(formik.values).length) * 100;
+		setProgress(newProgress);
+	};
 
 	return (
 		<div className='container'>
-			<div className='container fst-italic rounded-3'
+			<div
+				className='container fst-italic rounded-3'
 				style={{
 					background: 'linear-gradient(90deg, rgba(234,225,224,1) 34%, rgba(181,96,82,1) 98%)',
 				}}
-				>
-				<form
-					className='p-3 m-3'
-					onSubmit={(ev) => {
-						ev.preventDefault()
-						state.actions.createPet(name, age, specie, size, description)
-					}}
-				>
+			>
+				<form className='p-3 m-3' onSubmit={formik.handleSubmit}>
 					<h3 className='text-center'>Cuéntanos acerca de la Mascota</h3>
 					<div className='form-group pb-2'>
 						<input
 							type='text'
 							className='form-control'
 							placeholder='Nombre'
-							value={name}
-							onChange={(ev) => {
-								setName(ev.target.value)
-								progressUpdate()
-							}}
+							name='name'
+							value={formik.values.name}
+							onChange={formik.handleChange}
+							onBlur={formik.handleBlur}
 						/>
+						{formik.errors.name && formik.touched.name && <div className='error-message'>{formik.errors.name}</div>}
 					</div>
 
 					<div className='form-group pb-2'>
@@ -57,12 +75,12 @@ const PetForm = () => {
 							type='text'
 							className='form-control'
 							placeholder='Edad'
-							value={age}
-							onChange={(ev) => {
-								setAge(ev.target.value)
-								progressUpdate()
-							}}
+							name='age'
+							value={formik.values.age}
+							onChange={formik.handleChange}
+							onBlur={formik.handleBlur}
 						/>
+						{formik.errors.age && formik.touched.age && <div className='error-message'>{formik.errors.age}</div>}
 					</div>
 
 					<div className='form-group pb-2'>
@@ -70,11 +88,10 @@ const PetForm = () => {
 							<div className='col'>
 								<select
 									className='form-select'
-									value={specie}
-									onChange={(ev) => {
-										setSpecie(ev.target.value)
-										progressUpdate()
-									}}
+									name='specie'
+									value={formik.values.specie}
+									onChange={formik.handleChange}
+									onBlur={formik.handleBlur}
 								>
 									<option value=''>Especie</option>
 									<option value='Perros'>Perros</option>
@@ -82,21 +99,26 @@ const PetForm = () => {
 									<option value='Aves'>Aves</option>
 									<option value='Otros'>Otros</option>
 								</select>
+								{formik.errors.specie && formik.touched.specie && (
+									<div className='error-message'>{formik.errors.specie}</div>
+								)}
 							</div>
 							<div className='col'>
 								<select
 									className='form-select'
-									value={size}
-									onChange={(ev) => {
-										setSize(ev.target.value)
-										progressUpdate()
-									}}
+									name='size'
+									value={formik.values.size}
+									onChange={formik.handleChange}
+									onBlur={formik.handleBlur}
 								>
 									<option value=''>Tamaño</option>
 									<option value='Pequeño'>Pequeño</option>
 									<option value='Mediano'>Mediano</option>
 									<option value='Grande'>Grande</option>
 								</select>
+								{formik.errors.size && formik.touched.size && (
+									<div className='error-message'>{formik.errors.size}</div>
+								)}
 							</div>
 						</div>
 					</div>
@@ -107,14 +129,16 @@ const PetForm = () => {
 							id='Description1'
 							placeholder='Su Historia'
 							rows='3'
-							value={description}
-							onChange={(ev) => {
-								setDescription(ev.target.value)
-								progressUpdate()
-							}}
+							name='description'
+							value={formik.values.description}
+							onChange={formik.handleChange}
+							onBlur={formik.handleBlur}
 							maxLength={100}
 						></textarea>
-						<p>Remaining characters: {100 - description.length}</p>
+						<p>Remaining characters: {100 - formik.values.description.length}</p>
+						{formik.errors.description && formik.touched.description && (
+							<div className='error-message'>{formik.errors.description}</div>
+						)}
 					</div>
 
 					<div
@@ -128,22 +152,26 @@ const PetForm = () => {
 						}}
 					></div>
 
+
 					<div className='pb-2 text-center'>
-						<div><PhotoUploader />  </div>
-						<div>  <button
-							type='submit'
-							className='w-50 btn btn-outline-light rounded-pill border-dark text-dark fw-bold'
-							id='formbtn'
-							style={{ borderColor: '#654321' }}
-						>
-							Publicar <i className='bi bi-upload'></i>
-						</button>  </div>
-						
+						<div>
+							<PhotoUploader />
+						</div>
+						<div>
+							<button
+								type='submit'
+								className='w-50 btn btn-outline-light rounded-pill border-dark text-dark fw-bold'
+								id='formbtn'
+								style={{ borderColor: '#654321' }}
+							>
+								Publicar <i className='bi bi-upload'></i>
+							</button>
+						</div>
 					</div>
 				</form>
 			</div>
 		</div>
-	)
-}
+	);
+};
 
-export default PetForm
+export default PetForm;

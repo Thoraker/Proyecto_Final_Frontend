@@ -1,25 +1,49 @@
-import React, { useState, useContext, useEffect } from 'react'
-import { AppContext } from '../routes/App'
-import './formStyles.css'
+import React, { useState, useContext, useEffect } from 'react';
+import { AppContext } from '../routes/App';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import './formStyles.css';
 
 const RegisterForm = () => {
-	const state = useContext(AppContext)
-	const [userName, setUserName] = useState('')
-	const [email, setEmail] = useState('')
-	const [password, setPassword] = useState('')
-	const [firstName, setFirstName] = useState('')
-	const [lastName, setLastName] = useState('')
-	const [avatar, setAvatar] = useState('')
-	const [donor, setDonor] = useState(true)
-	const [progress, setProgress] = useState(0)
+	const state = useContext(AppContext);
+	const [progress, setProgress] = useState(0);
+	const [successMessage, setSuccessMessage] = useState('');
 
-	useEffect(() => progressUpdate(), [donor, avatar])
+	const validationSchema = Yup.object().shape({
+		userName: Yup.string().required('El nombre de usuario es requerido.'),
+		email: Yup.string().email('Correo electrónico inválido.').required('El correo es requerido.'),
+		password: Yup.string().required('La contraseña es requerida.'),
+		firstName: Yup.string().required('El nombre es requerido.'),
+		lastName: Yup.string().required('El apellido es requerido.'),
+		avatar: Yup.string().required('Elige un avatar.'),
+	});
 
-	const progressUpdate = () => {
-		const fullFields = [userName, email, password, firstName, lastName, avatar].filter((field) => field !== '')
-		const newProgress = (fullFields.length / 6) * 100
-		setProgress(newProgress)
-	}
+	const formik = useFormik({
+		initialValues: {
+			userName: '',
+			email: '',
+			password: '',
+			firstName: '',
+			lastName: '',
+			avatar: '',
+			donor: true,
+		},
+		validationSchema,
+		onSubmit: (values) => {
+			state.actions.createUser(values);
+			setSuccessMessage('Su registro ha sido exitoso.');
+			setTimeout(() => {
+				setSuccessMessage('');
+				// Redireccionar al usuario a otra página aquí
+			}, 5000);
+		},
+	});
+
+	useEffect(() => {
+		const fullFields = Object.values(formik.values).filter((field) => field !== '');
+		const newProgress = (fullFields.length / Object.keys(formik.values).length) * 100;
+		setProgress(newProgress);
+	}, [formik.values]);
 
 	return (
 		<div className='container-fluid'>
@@ -29,35 +53,35 @@ const RegisterForm = () => {
 					background: 'linear-gradient(90deg, rgba(234,225,224,1) 34%, rgba(181,96,82,1) 98%)',
 				}}
 			>
-				<form
-					className='p-3 m-3'
-					onSubmit={(ev) => {
-						ev.preventDefault()
-						state.actions.createUser({ userName, email, password, firstName, lastName, avatar, donor })
-					}}
-					autoComplete='off'
-				>
+				<form className='p-3 m-3' onSubmit={formik.handleSubmit} autoComplete='off'>
 					<h3 className='text-center'>Regístrate</h3>
 					<div className='row'>
 						<div className='col-lg-4'>
 							<img
 								className='img-fluid rounded-5 p-3'
-								src={avatar === '' ? 'src/assets/invitado.png' : avatar}
+								src={formik.values.avatar === '' ? 'src/assets/invitado.png' : formik.values.avatar}
 								alt='Avatar'
 							/>
 						</div>
 						<div className='col-lg-8 col-md-6 col-sm-12 p-3'>
+							{successMessage && (
+								<div className='alert alert-success' role='alert'>
+									{successMessage}
+								</div>
+							)}
+
 							<div className='form-group pb-2'>
 								<input
 									type='text'
 									className='form-control'
 									placeholder='Nombre de Usuario'
-									value={userName}
-									onChange={(ev) => {
-										setUserName(ev.target.value)
-										progressUpdate()
-									}}
+									name='userName'
+									value={formik.values.userName}
+									onChange={formik.handleChange}
 								/>
+								{formik.errors.userName && formik.touched.userName && (
+									<div className='error-message'>{formik.errors.userName}</div>
+								)}
 							</div>
 
 							<div className='form-group pb-2'>
@@ -65,12 +89,13 @@ const RegisterForm = () => {
 									type='text'
 									className='form-control'
 									placeholder='Correo'
-									value={email}
-									onChange={(ev) => {
-										setEmail(ev.target.value)
-										progressUpdate()
-									}}
+									name='email'
+									value={formik.values.email}
+									onChange={formik.handleChange}
 								/>
+								{formik.errors.email && formik.touched.email && (
+									<div className='error-message'>{formik.errors.email}</div>
+								)}
 							</div>
 
 							<div className='form-group pb-2'>
@@ -78,12 +103,13 @@ const RegisterForm = () => {
 									type='password'
 									className='form-control'
 									placeholder='Contraseña'
-									value={password}
-									onChange={(ev) => {
-										setPassword(ev.target.value)
-										progressUpdate()
-									}}
+									name='password'
+									value={formik.values.password}
+									onChange={formik.handleChange}
 								/>
+								{formik.errors.password && formik.touched.password && (
+									<div className='error-message'>{formik.errors.password}</div>
+								)}
 							</div>
 
 							<div className='form-group pb-2'>
@@ -91,12 +117,13 @@ const RegisterForm = () => {
 									type='text'
 									className='form-control'
 									placeholder='Nombre'
-									value={firstName}
-									onChange={(ev) => {
-										setFirstName(ev.target.value)
-										progressUpdate()
-									}}
+									name='firstName'
+									value={formik.values.firstName}
+									onChange={formik.handleChange}
 								/>
+								{formik.errors.firstName && formik.touched.firstName && (
+									<div className='error-message'>{formik.errors.firstName}</div>
+								)}
 							</div>
 
 							<div className='form-group pb-2'>
@@ -104,22 +131,21 @@ const RegisterForm = () => {
 									type='text'
 									className='form-control'
 									placeholder='Apellido'
-									value={lastName}
-									onChange={(ev) => {
-										setLastName(ev.target.value)
-										progressUpdate()
-									}}
+									name='lastName'
+									value={formik.values.lastName}
+									onChange={formik.handleChange}
 								/>
+								{formik.errors.lastName && formik.touched.lastName && (
+									<div className='error-message'>{formik.errors.lastName}</div>
+								)}
 							</div>
 
 							<div className='form-group pb-2'>
 								<select
 									className='form-select me-2'
-									value={avatar}
-									onChange={(ev) => {
-										setAvatar(ev.target.value)
-										progressUpdate()
-									}}
+									name='avatar'
+									value={formik.values.avatar}
+									onChange={formik.handleChange}
 								>
 									<option value=''>Elige tu Avatar</option>
 									<option value='src/assets/1.png'>Avatar 1</option>
@@ -133,17 +159,17 @@ const RegisterForm = () => {
 									<option value='src/assets/9.png'>Avatar 9</option>
 									<option value='src/assets/10.png'>Avatar 10</option>
 								</select>
+								{formik.errors.avatar && formik.touched.avatar && (
+									<div className='error-message'>{formik.errors.avatar}</div>
+								)}
 							</div>
 
 							<div className='form-check my-3'>
 								<input
 									type='checkbox'
-									name='myCheckbox'
-									value={donor}
-									onChange={(ev) => {
-										setDonor(!donor)
-										progressUpdate()
-									}}
+									name='donor'
+									checked={formik.values.donor}
+									onChange={formik.handleChange}
 								/>
 								<label className='form-check-label'>Quiero dar mascotas en adopción</label>
 							</div>
@@ -173,7 +199,7 @@ const RegisterForm = () => {
 				</form>
 			</div>
 		</div>
-	)
-}
+	);
+};
 
-export default RegisterForm
+export default RegisterForm;

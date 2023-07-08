@@ -14,7 +14,10 @@ const initialValues = {
 const InviteFriends = () => {
 	return (
 		<div className="container">
-			<div className="d-flex flex-column align-items-center mt-5 p-4 bg-success-subtle border border-success rounded border border-1 w-50">
+			<div className="d-flex flex-column align-items-center mt-5 p-4 rounded border border-1 w-50"
+				style={{
+					background: 'linear-gradient(90deg, rgba(234,225,224,1) 34%, rgba(181,96,82,1) 98%)',
+				}}>
 				<h1 className="text-center">Invite friends</h1>
 				<Formik
 					initialValues={initialValues}
@@ -36,7 +39,7 @@ const InviteFriends = () => {
 														<Field
 															className="form-control"
 															name={`friends.${index}.name`}
-															placeholder="Jane Doe"
+															placeholder="Peter"
 															type="text"
 														/>
 														<ErrorMessage
@@ -50,7 +53,7 @@ const InviteFriends = () => {
 														<Field
 															className="form-control"
 															name={`friends.${index}.email`}
-															placeholder="jane@acme.com"
+															placeholder="peter@gmail.com"
 															type="email"
 														/>
 														<ErrorMessage
@@ -72,13 +75,14 @@ const InviteFriends = () => {
 											))}
 										<button type="button"
 											className="btn btn-link"
-											onClick={() => push({ name: '', email: '' })}>Agrega Amigos</button>
+											onClick={() => push({ name: '', email: '' })}>
+											<i className="bi bi-person-plus-fill"></i>Agregar Amigos</button>
 									</div>
 								)}
 							</FieldArray>
 							<div className="text-center mt-4">
 								<button type="submit" className="btn btn-outline-success">
-									Invitar
+									Invitar <i className="bi bi-envelope-check-fill"></i>
 								</button>
 							</div>
 						</Form>

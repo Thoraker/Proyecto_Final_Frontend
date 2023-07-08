@@ -20,6 +20,86 @@ const AddressForm = () => {
 		setProgress(newProgress)
 	}
 
+	const [errors, setErrors] = useState({
+		street: '',
+		buildingNumber: '',
+		departmentNumber: '',
+		region: '',
+		commune: ''
+
+	});
+
+	const validateStreet = () => {
+		if (street.trim() === '') {
+			setErrors((prevErrors) => ({
+				...prevErrors,
+				street: 'La calle es requerida.'
+			}));
+		} else {
+			setErrors((prevErrors) => ({
+				...prevErrors,
+				street: ''
+			}));
+		}
+	};
+
+	const validateBuilding = () => {
+		if (buildingNumber.trim() === '') {
+			setErrors((prevErrors) => ({
+				...prevErrors,
+				buildingNumber: 'El número es requerido.'
+			}));
+		} else {
+			setErrors((prevErrors) => ({
+				...prevErrors,
+				buildingNumber: ''
+			}));
+		}
+	};
+
+	const validateDepartment = () => {
+		if (departmentNumber.trim() === '') {
+			setErrors((prevErrors) => ({
+				...prevErrors,
+				departmentNumber: 'El número es requerido.'
+			}));
+		} else {
+			setErrors((prevErrors) => ({
+				...prevErrors,
+				departmentNumber: ''
+			}));
+		}
+	};
+
+	const validateRegion = () => {
+		if (region.trim() === '') {
+			setErrors((prevErrors) => ({
+				...prevErrors,
+				region: 'La región es requerida.'
+			}));
+		} else {
+			setErrors((prevErrors) => ({
+				...prevErrors,
+				region: ''
+			}));
+		}
+	};
+
+	const validateCommune = () => {
+		if (commune.trim() === '') {
+			setErrors((prevErrors) => ({
+				...prevErrors,
+				commune: 'La comuna es requerida.'
+			}));
+		} else {
+			setErrors((prevErrors) => ({
+				...prevErrors,
+				commune: ''
+			}));
+		}
+	};
+
+
 	return (
 		<div className='container'>
 			<div className='container fst-italic rounded-3'
@@ -54,7 +134,7 @@ const AddressForm = () => {
 								<input
 									type='text'
 									className='form-control'
-									placeholder='Edad'
+									placeholder='Número'
 									value={buildingNumber}
 									onChange={(ev) => {
 										SetBuildingNumber(ev.target.value)
@@ -67,7 +147,7 @@ const AddressForm = () => {
 								<input
 									type='text'
 									className='form-control'
-									placeholder='Edad'
+									placeholder='Dep. Número'
 									value={departmentNumber}
 									onChange={(ev) => {
 										setDepartmentNumber(ev.target.value)
@@ -80,7 +160,7 @@ const AddressForm = () => {
 								<input
 									type='text'
 									className='form-control'
-									placeholder='Edad'
+									placeholder='Comuna'
 									value={commune}
 									onChange={(ev) => {
 										setCommune(ev.target.value)
