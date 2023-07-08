@@ -152,7 +152,11 @@ const AddressForm = () => {
 				></div>
 
 				<div className='text-center p-0 m-0'>
-					<button type='submit' className='w-50 btn btn-outline-light rounded-pill mb-2'>
+					<button
+						type='submit'
+						className='w-50 btn btn-outline-light rounded-pill mb-2'
+						style={{ background: '#465084' }}
+					>
 						Publicar
 					</button>
 				</div>

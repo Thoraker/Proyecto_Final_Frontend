@@ -12,6 +12,8 @@ const PetForm = () => {
 	const [forAdoption, setForAdoption] = useState(false)
 	const [progress, setProgress] = useState(0)
 
+	const [message, setMessage] = useState('')
+
 	useEffect(() => progressUpdate(), [specie, size])
 
 	const progressUpdate = () => {
@@ -20,24 +22,18 @@ const PetForm = () => {
 		setProgress(newProgress)
 	}
 
-
 	return (
 		<div
 			className='container fst-italic rounded-3 pb-3'
 			style={{
-<<<<<<< HEAD
-				backgroundColor: '#00DBDE',
-				background: 'linear - gradient(90deg, rgba(171, 199, 176, 1) 16 %, rgba(13, 102, 23, 1) 89 %)',
-=======
-				backgroundImage: 'linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%)',
->>>>>>> 96f2fc3a9e4372f2fab8e3a7f8431ab1569148e4
+				background: 'linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%)',
 			}}
 		>
 			<form
 				className='p-0 m-0'
 				onSubmit={(ev) => {
 					ev.preventDefault()
-					state.actions.createPet({ name, age, specie, size, needBackyard, forAdoption })
+					state.actions.createPet({ name, age, specie, size, needBackyard, forAdoption, message })
 				}}
 			>
 				<h3 className='text-center pt-4'>Inscribe tu Mascota</h3>
@@ -111,10 +107,23 @@ const PetForm = () => {
 					/>
 					<label className='form-check-label'>Necesita un jardín amplio</label>
 				</div>
+
 				<div>
-					<div className="">
-						<label htmlFor="exampleFormControlTextarea1" className="form-label"> * Cuéntanos sobre su historia, temperamento, si esta vacunada o desparasitada, cualquier dato relevante. </label>
-						<textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+					<div className='p-2'>
+						<textarea
+							className='form-control'
+							id='exampleFormControlTextarea1'
+							rows='3'
+							placeholder='Su historia'
+							value={message}
+							onChange={(ev) => {
+								setMessage(ev.target.value)
+							}}
+						></textarea>
+						<label htmlFor='exampleFormControlTextarea1' className='form-label'>
+							* Cuéntanos sobre su historia, temperamento, si esta vacunada o desparasitada, cualquier
+							dato relevante.
+						</label>
 					</div>
 				</div>
 
@@ -138,29 +147,20 @@ const PetForm = () => {
 						transition: 'width 0.5s ease-in-out',
 					}}
 				></div>
-<<<<<<< HEAD
-				<div className='pb-2 text-center'>
-					<button type='submit' className='w-25 me-2 btn btn-outline-light rounded-pill'
-					style={{background: '#465084'}}>
-						Publicar 
+
+				<div className='py-2 text-center'>
+					<button
+						type='submit'
+						className='w-50 btn btn-outline-light rounded-pill'
+						style={{ background: '#465084' }}
+					>
+						Publicar
 					</button>
 				</div>
 			</form>
 			<div className='text-center'>
 				<PhotoUploader />
 			</div>
-			
-=======
-				<div className='text-center p-0 m-0'>
-					<button type='submit' className='w-50 btn btn-outline-light rounded-pill mb-2'>
-						Inscribir
-					</button>
-				</div>
-			</form>
-			<div className='p-0 m-0 text-center'>
-				<PhotoUploader />
-			</div>
->>>>>>> 96f2fc3a9e4372f2fab8e3a7f8431ab1569148e4
 		</div>
 	)
 }

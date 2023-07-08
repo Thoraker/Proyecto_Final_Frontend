@@ -1,22 +1,19 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import ErrorPage from './routes/ErrorPage'
-import './index.css'
 import App from './routes/App.jsx'
-import LoginPage from './routes/LoginPage'
+import ErrorPage from './routes/ErrorPage'
 import LandingPage from './routes/LandingPage'
-import UserPage from './routes/UserPage'
+import LoginPage from './routes/LoginPage'
+import UserPage from './routes/UserData'
 import PetPage from './routes/PetPage'
 import FoundationsPage from './routes/FoundationsPage'
 import InviteFriends from './components/inviteFri'
 import RegisterPage from './routes/RegisterPage'
-<<<<<<< HEAD
 import RegisterForm from './components/registerForm'
-import InvitePage from './routes/InvitePage'
-// import UserData from './routes/UserData'
-=======
->>>>>>> 96f2fc3a9e4372f2fab8e3a7f8431ab1569148e4
+import AdoptMe from './routes/AdoptMe'
+import './index.css'
+import AddressPage from './routes/AddressPage.jsx'
 
 const domNode = document.getElementById('root')
 const root = createRoot(domNode)
@@ -48,19 +45,13 @@ const router = createBrowserRouter([
 				element: <AdoptMe />,
 			},
 			{
-				path: '/pet',
-				element: <PetPage />,
-			},
-			{
 				path: '/foundations',
 				element: <FoundationsPage />,
 			},
 			{
-				path: '/invite',
-				element: <InvitePage />,
+				path: '/address',
+				element: <AddressPage />,
 			},
-
-
 			{
 				path: '/user',
 				element: <UserPage />,

@@ -19,7 +19,9 @@ const PetInfo = () => {
 						return (
 							<li className='nav-item' key={index} role='presentation'>
 								<button
-									className='nav-link px-5 m-2 w-100'
+									className={
+										index === pets ? 'nav-link active px-5 m-2 w-100' : 'nav-link px-5 m-2 w-100'
+									}
 									id='profile-tab'
 									data-bs-toggle='tab'
 									data-bs-target='#profile-tab-pane'
