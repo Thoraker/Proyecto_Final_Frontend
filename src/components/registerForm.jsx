@@ -10,9 +10,19 @@ const RegisterForm = () => {
 	const [successMessage, setSuccessMessage] = useState('');
 
 	const validationSchema = Yup.object().shape({
-		userName: Yup.string().required('El nombre de usuario es requerido.'),
-		email: Yup.string().email('Correo electrónico inválido.').required('El correo es requerido.'),
-		password: Yup.string().required('La contraseña es requerida.'),
+		userName: Yup.string()
+			.required('El nombre de usuario es requerido.')
+			.matches(/^[a-zA-Z0-9_]+$/, 'El nombre de usuario solo puede contener letras, números y guiones bajos.'),
+
+		email: Yup.string()
+			.email('Correo electrónico inválido.')
+			.required('El correo es requerido.'),
+
+		password: Yup.string()
+			.required('La contraseña es requerida.')
+			.min(8, 'La contraseña debe tener al menos 8 caracteres.')
+			.matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/, 'La contraseña debe contener al menos una letra mayúscula, una letra minúscula y un número.'),
+			
 		firstName: Yup.string().required('El nombre es requerido.'),
 		lastName: Yup.string().required('El apellido es requerido.'),
 		avatar: Yup.string().required('Elige un avatar.'),
