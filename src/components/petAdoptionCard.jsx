@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Carousel from './carousel'
 import PropTypes from 'prop-types'
+import { AppContext } from '../routes/App'
 
-const PetAdoptionCard = ({ pet }, key) => {
-	console.log(pet, 'pet')
+const PetAdoptionCard = ({ pet }) => {
+	const state = useContext(AppContext)
 
 	const Specie = (specie) => {
 		if (specie === 1) {
@@ -47,25 +48,26 @@ const PetAdoptionCard = ({ pet }, key) => {
 				type='button'
 				className='btn btn-primary'
 				data-bs-toggle='modal'
-				data-bs-target={'#' + key + 'staticBackdrop'}
+				data-bs-target='#exampleModal'
+				onClick={async () => {
+					state.actions.getPet(pet.id)
+				}}
 			>
-				{console.log(pet, 'pet')}
+				Launch demo modal
 			</button>
 
 			<div
 				className='modal fade'
-				id={key + 'staticBackdrop'}
-				data-bs-backdrop='static'
-				data-bs-keyboard='false'
+				id='exampleModal'
 				tabIndex='-1'
-				aria-labelledby='staticBackdropLabel'
+				aria-labelledby='exampleModalLabel'
 				aria-hidden='true'
 			>
-				<div className='modal-dialog'>
+				<div className='modal-dialog modal-dialog-scrollable'>
 					<div className='modal-content'>
 						<div className='modal-header'>
-							<h1 className='modal-title fs-5' id='staticBackdropLabel'>
-								Modal title
+							<h1 className='modal-title fs-5' id='exampleModalLabel'>
+								{state.store.ActivePet.Nombre}
 							</h1>
 							<button
 								type='button'
@@ -74,13 +76,47 @@ const PetAdoptionCard = ({ pet }, key) => {
 								aria-label='Close'
 							></button>
 						</div>
-						<div className='modal-body'>...</div>
+						<div className='modal-body'>
+							<p>
+								{state.store.ActivePet.Mensajes.map((message) => {
+									return (
+										<>
+											<div className='row' key={message.id}>
+												<div className='col-2'>
+													<img
+														className='img-fluid w-50'
+														src={message.Usuario.Avatar}
+														alt='Avatar'
+													/>
+												</div>
+												<div className='col'>{message.Mensaje}</div>
+											</div>
+											<p className='fs-6 align-left' onClick={() => alert('hola')}>
+												Responder
+											</p>
+											<form
+												onSubmit={(ev) => {
+													ev.preventDefault()
+													alert('enviado')
+												}}
+											>
+												<textarea
+													className='form-control'
+													id='exampleFormControlTextarea1'
+													rows='3'
+												></textarea>
+												<button type='submit' className='btn btn-primary'>
+													Save changes
+												</button>
+											</form>
+										</>
+									)
+								})}
+							</p>
+						</div>
 						<div className='modal-footer'>
 							<button type='button' className='btn btn-secondary' data-bs-dismiss='modal'>
 								Close
-							</button>
-							<button type='button' className='btn btn-primary'>
-								Understood
 							</button>
 						</div>
 					</div>
