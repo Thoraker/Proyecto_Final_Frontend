@@ -10,11 +10,11 @@ const UserDropdown = () => {
 			<button className='btn btn-outline-success card' type='button' data-bs-toggle='dropdown'>
 				<div className='row g-0'>
 					<div className='col-4'>
-						<img className='img-fluid' style={{ maxHeight: '70px' }} src={state.store.User.Avatar} />
+						<img className='img-fluid' style={{ maxHeight: '70px' }} src={state.store.usuario.avatar} />
 					</div>
 					<div className='col-8'>
 						<div className='card-body'>
-							<h5 className='card-text'>{state.store.User.Usuario}</h5>
+							<h5 className='card-text'>{state.store.usuario.user}</h5>
 						</div>
 					</div>
 				</div>

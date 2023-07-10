@@ -13,14 +13,14 @@ const UserPage = () => {
 	const [addressView, setAddressView] = useState(<AddressForm />)
 
 	useEffect(() => {
-		if (state.store.Mascotas.length === 0) {
+		if (state.store.mascotas.length === 0) {
 			setPetView(<PetForm />)
 		} else setPetView(<PetInfo />)
 
-		if (state.store.Direcciones.length === 0) {
+		if (state.store.direcciones.length === 0) {
 			setAddressView(<AddressForm />)
 		} else setAddressView(<AddressInfo />)
-	}, [state.store.Direcciones, state.store.Mascotas])
+	}, [state.store.direcciones, state.store.mascotas])
 
 	return (
 		<div className='card' style={{ paddingTop: '6rem' }}>

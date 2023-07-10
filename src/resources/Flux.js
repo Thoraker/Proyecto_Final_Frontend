@@ -1,25 +1,27 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			for_Adoption: [],
+			mascotasEnAdopcion: [],
 			direcciones: [],
 			mascotas: [],
 			usuario: {
-				usuario: '',
+				user: '',
 				email: '',
-				nombre: '',
-				apellido: '',
+				first_name: '',
+				last_name: '',
 				avatar: '',
 			},
 			token: '',
-			activePet: {
+			mascotaActiva: {
 				id: '',
-				nombre: '',
-				especie: '',
-				tamano: '',
-				necesitaPatio: false,
-				enAdopcion: false,
-				fotos: [],
+				age:'',
+				name: '',
+				specie: '',
+				size: '',
+				need_backyard: false,
+				for_adoption: false,
+				photos: [],
+				messages: [],
 			},
 		},
 
@@ -34,10 +36,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => response.json())
 					.then(result => {
 						setStore({
-							for_Adoption: result,
-							activePet: result[0],
+							mascotasEnAdopcion: result,
+							mascotaActiva: result[0],
 						})
-						console.log(getStore().for_Adoption)
+						console.log(getStore().mascotasEnAdopcion)
 					}
 						)
 					.catch(error => alert('error', error));
@@ -65,7 +67,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				fetch('http://127.0.0.1:3000/register', requestOptions)
 					.then((response) => response.json())
-					.then((result) => alert(result.Response))
+					.then((result) => alert(result.response))
 					.catch((error) => alert('error', error))
 			},
 
@@ -90,7 +92,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then((result) => {
 						setStore({
 							usuario: result.user,
-							direcciones: result.user.directions,
+							direcciones: result.user.addresses,
 							mascotas: result.user.pets,
 							token: result.token,
 						})
@@ -127,7 +129,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({
 							usuario: result.user,
 							mascotas: result.user.pets,
-							activePet: result.pet,
+							mascotaActiva: result.pet,
 						})
 						alert(result.response)
 					})
@@ -229,7 +231,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				fetch('http://127.0.0.1:3000/post', requestOptions)
 					.then((response) => response.json())
-					.then((result) => alert(result.Response))
+					.then((result) => alert(result.response))
 					.catch((error) => alert('error', error))
 			}, 
 			cleanDirections: () => {
@@ -252,7 +254,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => response.json())
 					.then(result => 
 						setStore({
-							activePet: result.pet
+							mascotaActiva: result.pet
 					}))
 					.catch(error => console.log('error', error))
 				

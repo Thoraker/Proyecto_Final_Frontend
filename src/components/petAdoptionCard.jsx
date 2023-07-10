@@ -30,17 +30,17 @@ const PetAdoptionCard = ({ pet }) => {
 
 	return (
 		<div className='card bg-info h-100'>
-			<h4 className='card-title text-center'>{pet.Nombre}</h4>
+			<h4 className='card-title text-center'>{pet.name}</h4>
 			<div className='col w-100'>
-				<Carousel photos={pet.Fotos} />
+				<Carousel photos={pet.photos} />
 			</div>
 			<div className='col'>
 				<div className='card-body p-2'>
 					<h5 className='card-subtitle m-3 text-body-secondary'>{Specie(pet.Especie)}</h5>
-					<p className='card-text'>Tamaño: {Size(pet.Tamano)}</p>
-					<p className='card-text'>Edad : {pet.Edad}</p>
-					<p className='card-text'>Info : {pet.Mensajes[0].Mensaje}</p>
-					<p className='card-text'>{pet.Necesita_Patio ? 'Necesita Patio' : 'No Necesita Patio'}</p>
+					<p className='card-text'>Tamaño: {Size(pet.size)}</p>
+					<p className='card-text'>Edad : {pet.age}</p>
+					<p className='card-text'>Info : {pet.messages[0].message}</p>
+					<p className='card-text'>{pet.need_backyard ? 'Necesita Patio' : 'No Necesita Patio'}</p>
 				</div>
 			</div>
 
@@ -67,7 +67,7 @@ const PetAdoptionCard = ({ pet }) => {
 					<div className='modal-content'>
 						<div className='modal-header'>
 							<h1 className='modal-title fs-5' id='exampleModalLabel'>
-								{state.store.ActivePet.Nombre}
+								{state.store.mascotaActiva.name}
 							</h1>
 							<button
 								type='button'
@@ -78,18 +78,18 @@ const PetAdoptionCard = ({ pet }) => {
 						</div>
 						<div className='modal-body'>
 							<p>
-								{state.store.ActivePet.Mensajes.map((message) => {
+								{state.store.mascotaActiva.messages.map((message) => {
 									return (
 										<>
 											<div className='row' key={message.id}>
 												<div className='col-2'>
 													<img
 														className='img-fluid w-50'
-														src={message.Usuario.Avatar}
+														src={message.user.avatar}
 														alt='Avatar'
 													/>
 												</div>
-												<div className='col'>{message.Mensaje}</div>
+												<div className='col'>{message.message}</div>
 											</div>
 											<p className='fs-6 align-left' onClick={() => alert('hola')}>
 												Responder

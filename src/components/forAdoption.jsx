@@ -7,7 +7,7 @@ const ForAdoption = () => {
 
 	return (
 		<div className='row row-cols-1 row-cols-md-4 g-4'>
-			{state.store.For_Adoption.map((pet, index) => {
+			{state.store.mascotasEnAdopcion.map((pet, index) => {
 				return (
 					<div className='col' key={index}>
 						<PetAdoptionCard pet={pet} />

@@ -6,26 +6,29 @@ const UserInfo = () => {
 	const state = useContext(AppContext)
 
 	return (
-		<div className='card mb-3' style={{ background: 'linear - gradient(90deg, rgba(171, 199, 176, 1) 16 %, rgba(13, 102, 23, 1) 89 %)' }}>
+		<div
+			className='card mb-3'
+			style={{ background: 'linear - gradient(90deg, rgba(171, 199, 176, 1) 16 %, rgba(13, 102, 23, 1) 89 %)' }}
+		>
 			<div className='row g-0'>
 				<div className='col-md-3 p-4'>
-					<img src={state.store.User.Avatar} className='img-fluid' alt='Avatar' />
+					<img src={state.store.usuario.avatar} className='img-fluid' alt='Avatar' />
 				</div>
 				<div className='col-md-8 m-2'>
 					<div className='card-body'>
-						<h3 className='card-title'>{state.store.User.Usuario}</h3>
+						<h3 className='card-title'>{state.store.usuario.user}</h3>
 						<div className='card-text'>
 							<ul className='list-group list-group-horizontal my-2'>
 								<li className='list-group-item col-3'>Nombre</li>
-								<li className='list-group-item col-9'>{state.store.User.Nombre}</li>
+								<li className='list-group-item col-9'>{state.store.usuario.first_name}</li>
 							</ul>
 							<ul className='list-group list-group-horizontal my-2'>
 								<li className='list-group-item col-3'>Apellido</li>
-								<li className='list-group-item col-9'>{state.store.User.Apellido}</li>
+								<li className='list-group-item col-9'>{state.store.usuario.last_name}</li>
 							</ul>
 							<ul className='list-group list-group-horizontal my-2'>
 								<li className='list-group-item col-3'>Email</li>
-								<li className='list-group-item col-9'>{state.store.User.Email}</li>
+								<li className='list-group-item col-9'>{state.store.usuario.email}</li>
 							</ul>
 						</div>
 						<p className='card-text'>
