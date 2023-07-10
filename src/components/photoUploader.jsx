@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useRef } from 'react'
+import AppContext from '../routes/App'
 import '../resources/Flux.js'
-import { AppContext } from '../routes/App.jsx'
 
 const PhotoUploader = () => {
+	const state = useContext(AppContext)
 	const cloudinaryRef = useRef()
 	const widgetRef = useRef()
-	const state = useContext(AppContext)
 
 	useEffect(() => {
 		cloudinaryRef.current = window.cloudinary
@@ -16,23 +16,26 @@ const PhotoUploader = () => {
 			},
 			function (error, result) {
 				if (!error && result && result.event === 'success') {
+					state.actions.getPetPhoto(result.info.url)
 					console.log('Done! Here is the image info: ', result)
-					state.actions.createPetPhoto(result.info.secure_url)
 				} else if (error) {
 					console.log(error)
 				}
 			}
 		)
 	}, [])
+
 	return (
-		<button
-			className='w-50 btn btn-outline-light rounded-pill mx-4'
-			type='button'
-			onClick={() => widgetRef.current.open()}
-			style={{ background: '#465084' }}
-		>
-			Subir Foto
-		</button>
+		<div className='pb-2 text-center'>
+			<button
+				className='w-50 btn btn-outline-light rounded-pill border-dark text-dark fw-bold'
+				id='formbtn'
+				style={{ borderColor: '#654321' }}
+				onClick={() => widgetRef.current.open()}
+			>
+				Subir Foto/video <i className="bi bi-camera-fill"></i>
+			</button>
+		</div>
 	)
 }
 

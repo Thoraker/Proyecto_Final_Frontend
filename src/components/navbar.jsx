@@ -24,8 +24,8 @@ const Navbar = () => {
 				<Link className='navbar-brand text- text-danger fs-1 px-5' to='/'>
 					Dame una Pata
 				</Link>
-				<div className='collapse navbar-collapse'>
-					<ul className='navbar-nav'>
+				<div className='collapse navbar-collapse' id='navbarTogglerDemo01'>
+					<ul className='navbar-nav me-auto mb-2 mb-lg-0'>
 						<li className='nav-item'>
 							<Link to='/register' className='nav-link'>
 								Regístrate
@@ -37,21 +37,13 @@ const Navbar = () => {
 							</Link>
 						</li>
 						<li className='nav-item'>
-							<p>
-								<Link to='/foundations' className='nav-link'>
-									Fundaciones Amigas
-								</Link>
-							</p>
-						</li>
-						{/* Solo como ejemplo  */}
-						<li className='nav-item'>
-							<Link to='/login' className='nav-link'>
-								login
+							<Link to='/foundations' className='nav-link'>
+								Fundaciones Amigas
 							</Link>
 						</li>
 						<li className='nav-item'>
-							<Link to='/pet' className='nav-link'>
-								mascotas
+							<Link to='/invite' className='nav-link'>
+								Invitar <i className='bi bi-share-fill'></i>
 							</Link>
 						</li>
 					</ul>

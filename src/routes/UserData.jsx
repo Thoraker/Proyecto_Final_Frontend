@@ -78,7 +78,7 @@ const UserPage = () => {
 						aria-controls='pills-disabled'
 						aria-selected='false'
 					>
-						Mensajes
+						Mensajes <i className="bi bi-chat-text-fill"></i>
 					</button>
 				</li>
 			</ul>
