@@ -8,7 +8,6 @@ import LoginPage from './routes/LoginPage'
 import UserPage from './routes/UserData'
 import PetPage from './routes/PetPage'
 import FoundationsPage from './routes/FoundationsPage'
-import InviteFriends from './components/inviteFri'
 import RegisterPage from './routes/RegisterPage'
 import RegisterForm from './components/registerForm'
 import AdoptMe from './routes/AdoptMe'
@@ -16,6 +15,8 @@ import './index.css'
 import AddressPage from './routes/AddressPage.jsx'
 import PetForm from './components/petForm.jsx'
 import PetCard from './components/petCard.jsx'
+import InviteFriends from './components/inviteFriends.jsx'
+
 
 const domNode = document.getElementById('root')
 const root = createRoot(domNode)
