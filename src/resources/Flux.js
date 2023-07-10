@@ -217,7 +217,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				myHeaders.append('Content-Type', 'application/json')
 
 				const raw = JSON.stringify({
-					reference_post_id: values.mensajes[0].id,
+					reference_post_id: values.id,
 					pet_id: values.id,
 					message: values.message,
 				})

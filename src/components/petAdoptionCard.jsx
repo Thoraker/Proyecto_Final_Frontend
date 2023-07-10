@@ -1,10 +1,12 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import Carousel from './carousel'
 import PropTypes from 'prop-types'
 import { AppContext } from '../routes/App'
 
 const PetAdoptionCard = ({ pet }) => {
 	const state = useContext(AppContext)
+	const [messageObject, setMessageObject] = useState(state.store.mascotaActiva.messages[0])
+	const [response, setResponse] = useState('')
 
 	const Specie = (specie) => {
 		if (specie === 1) {
@@ -63,7 +65,7 @@ const PetAdoptionCard = ({ pet }) => {
 				aria-labelledby='exampleModalLabel'
 				aria-hidden='true'
 			>
-				<div className='modal-dialog modal-dialog-scrollable'>
+				<div className='modal-dialog modal-lg modal-dialog-scrollable'>
 					<div className='modal-content'>
 						<div className='modal-header'>
 							<h1 className='modal-title fs-5' id='exampleModalLabel'>
@@ -77,47 +79,68 @@ const PetAdoptionCard = ({ pet }) => {
 							></button>
 						</div>
 						<div className='modal-body'>
-							<p>
-								{state.store.mascotaActiva.messages.map((message) => {
-									return (
-										<>
-											<div className='row' key={message.id}>
-												<div className='col-2'>
-													<img
-														className='img-fluid w-50'
-														src={message.user.avatar}
-														alt='Avatar'
-													/>
-												</div>
-												<div className='col'>{message.message}</div>
+							{state.store.mascotaActiva.messages.map((message) => {
+								return (
+									<div className='container-fluid' key={message.id}>
+										<div className='row'>
+											<div className='col-3'>
+												<img
+													className='img-fluid w-25 float-start px-2'
+													src={message.user.avatar}
+													alt='Avatar'
+												/>
+												<div className='col'>{message.user.user}</div>
 											</div>
-											<p className='fs-6 align-left' onClick={() => alert('hola')}>
-												Responder
-											</p>
-											<form
-												onSubmit={(ev) => {
-													ev.preventDefault()
-													alert('enviado')
+											<div className='col-9'>{message.message}</div>
+										</div>
+										<div className='row'>
+											<span
+												className='text-muted'
+												role='button'
+												onClick={() => {
+													setMessageObject(message)
 												}}
 											>
-												<textarea
-													className='form-control'
-													id='exampleFormControlTextarea1'
-													rows='3'
-												></textarea>
-												<button type='submit' className='btn btn-primary'>
-													Save changes
-												</button>
-											</form>
-										</>
-									)
-								})}
-							</p>
-						</div>
-						<div className='modal-footer'>
-							<button type='button' className='btn btn-secondary' data-bs-dismiss='modal'>
-								Close
-							</button>
+												Responder Comentario
+											</span>
+										</div>
+									</div>
+								)
+							})}
+							<form
+								onSubmit={(ev) => {
+									ev.preventDefault()
+									console.log({
+										message: response,
+										pet_id: messageObject.pet_id,
+										id: messageObject.id,
+									})
+									state.actions.sendMessage({
+										message: response,
+										pet_id: messageObject.pet_id,
+										id: messageObject.id,
+									})
+								}}
+							>
+								<label htmlFor=''>Responder a {messageObject.user.user}</label>
+								<textarea
+									className='form-control'
+									id='exampleFormControlTextarea1'
+									rows='2'
+									value={response}
+									onChange={(ev) => {
+										setResponse(ev.target.value)
+									}}
+								></textarea>
+								<div className='modal-footer'>
+									<button type='submit' className='btn btn-primary'>
+										Enviar Comentario
+									</button>
+									<button type='button' className='btn btn-secondary' data-bs-dismiss='modal'>
+										Close
+									</button>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
