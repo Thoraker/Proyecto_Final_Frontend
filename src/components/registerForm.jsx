@@ -203,7 +203,7 @@ const RegisterForm = () => {
 							className='w-50 me-2 btn btn-outline-light rounded-pill border-dark text-dark fw-bold'
 							style={{ borderColor: '#654321' }}
 						>
-							Registrarse
+							Registrarse <i className='bi bi-upload'></i>
 						</button>
 					</div>
 				</form>

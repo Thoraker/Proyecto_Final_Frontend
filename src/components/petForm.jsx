@@ -122,7 +122,7 @@ const PetForm = () => {
 							</div>
 						</div>
 					</div>
-
+					
 					<div className='form-group pb-2 d-flex flex-column align-items-center'>
 						<textarea
 							className='form-control'
@@ -139,6 +139,13 @@ const PetForm = () => {
 						{formik.errors.description && formik.touched.description && (
 							<div className='error-message'>{formik.errors.description}</div>
 						)}
+					</div>
+
+					<div className="form-check">
+						<input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+							<label className="form-check-label" htmlFor="flexCheckDefault">
+								Busco un hogar
+							</label>
 					</div>
 
 					<div
