@@ -123,6 +123,46 @@ const PetForm = () => {
 						</div>
 					</div>
 					
+
+					<div className='form-group pb-2'>
+						<div className='row'>
+							<div className='col'>
+								<select
+									className='form-select'
+									name='needBackyard'
+									value={formik.values.needBackyard}
+									onChange={formik.handleChange}
+									onBlur={formik.handleBlur}
+								>
+									<option value=''>Necesita patio?</option>
+									<option value='Perros'>Si necesita patio</option>
+									<option value='Gatos'>No necesita patio </option>
+									
+								</select>
+								{formik.errors.needBackyard && formik.touched.needBackyard && (
+									<div className='error-message'>{formik.errors.needBackyard}</div>
+								)}
+							</div>
+							<div className='col'>
+								<select
+									className='form-select'
+									name='forAdoption'
+									value={formik.values.forAdoption}
+									onChange={formik.handleChange}
+									onBlur={formik.handleBlur}
+								>
+									<option value=''>En adopción</option>
+									<option value='Pequeño'>Si</option>
+									<option value='Mediano'>No</option>
+									
+								</select>
+								{formik.errors.forAdoption && formik.touched.forAdoption && (
+									<div className='error-message'>{formik.errors.forAdoption}</div>
+								)}
+							</div>
+						</div>
+					</div>
+
 					<div className='form-group pb-2 d-flex flex-column align-items-center'>
 						<textarea
 							className='form-control'
@@ -139,13 +179,6 @@ const PetForm = () => {
 						{formik.errors.description && formik.touched.description && (
 							<div className='error-message'>{formik.errors.description}</div>
 						)}
-					</div>
-
-					<div className="form-check">
-						<input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-							<label className="form-check-label" htmlFor="flexCheckDefault">
-								Busco un hogar
-							</label>
 					</div>
 
 					<div
