@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../routes/App';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -8,6 +9,10 @@ const RegisterForm = () => {
 	const state = useContext(AppContext);
 	const [progress, setProgress] = useState(0);
 	const [successMessage, setSuccessMessage] = useState('');
+	const navigate = useNavigate();
+
+	
+
 
 	const validationSchema = Yup.object().shape({
 		userName: Yup.string()

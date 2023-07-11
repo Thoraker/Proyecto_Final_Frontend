@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../routes/App';
 import './formStyles.css';
+import { FaMapMarkerAlt } from "react-icons/fa";
+
 
 const AddressForm = () => {
 	const state = useContext(AppContext);
@@ -11,6 +14,8 @@ const AddressForm = () => {
 	const [commune, setCommune] = useState('');
 	const [hasBackyard, setHasBackyard] = useState(false);
 	const [progress, setProgress] = useState(0);
+	const navigate = useNavigate();
+
 	const [errors, setErrors] = useState({
 		street: '',
 		buildingNumber: '',
@@ -105,6 +110,7 @@ const AddressForm = () => {
 
 		if (handleValidation()) {
 			state.actions.createPet({ street, buildingNumber, departmentNumber, commune, region, hasBackyard });
+			navigate('/user'); 
 		}
 	};
 
@@ -188,7 +194,7 @@ const AddressForm = () => {
 										}}
 									>
 										<option value="" defaultValue>
-											Selecciona la región
+											Selecciona la región <FaMapMarkerAlt />
 										</option>
 										<option value="1">1 Tarapacá</option>
 										<option value="2">2 Antofagasta</option>
