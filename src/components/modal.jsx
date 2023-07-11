@@ -1,18 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Button from 'react-bootstrap/Button'
+import Modal from 'react-bootstrap/Modal'
 
-const Modal = (pet, key) => {
+function Example() {
+	const [show, setShow] = useState(false)
+
+	const handleClose = () => setShow(false)
+	const handleShow = () => setShow(true)
+
 	return (
 		<>
-			<button type='button' className='btn btn-info btn-lg' data-toggle='modal' data-target={'#myModal' + key}>
-				Open Modal {key}
-			</button>
-			<div className='modal fade bg-info' id={'myModal' + key}>
-				<div className='modal-dialog'>
-					<h1>Modal</h1>
-				</div>
-			</div>
+			<Button variant='primary' onClick={handleShow}>
+				Launch static backdrop modal
+			</Button>
+
+			<Modal show={show} onHide={handleClose} backdrop='static' keyboard={false} size='lg'>
+				<Modal.Header closeButton>
+					<Modal.Title>Modal title</Modal.Title>
+				</Modal.Header>
+				<Modal.Body>I will not close if you click outside me. Don not even try to press escape key.</Modal.Body>
+				<Modal.Footer>
+					<Button variant='secondary' onClick={handleClose}>
+						Close
+					</Button>
+					<Button variant='primary'>Understood</Button>
+				</Modal.Footer>
+			</Modal>
 		</>
 	)
 }
 
-export default Modal
+export default Example

@@ -8,7 +8,9 @@ const MessageBoard = () => {
 	return (
 		<div className='card'>
 			<div className='d-flex align-items-start'>
-				<h4 className='card-title'>Mensajes enviados <i className="bi bi-send-check"></i></h4>
+				<h4 className='card-title'>
+					Mensajes enviados <i className='bi bi-send-check'></i>
+				</h4>
 				<div
 					className='nav flex-column nav-pills me-3'
 					id='v-addresses-tab'
