@@ -18,9 +18,9 @@ const App = () => {
 		})
 	)
 
-	// useEffect(() => {
-	// 	state.actions.loadInitialData()
-	// }, [])
+	useEffect(() => {
+		state.actions.loadInitialData()
+	}, [])
 
 	return (
 		<AppContext.Provider value={state}>

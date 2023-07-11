@@ -39,9 +39,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							mascotasEnAdopcion: result,
 							mascotaActiva: result[0],
 						})
-						console.log(getStore().mascotasEnAdopcion)
-					}
-						)
+					console.log(getStore());})
 					.catch(error => alert('error', error));
 			},
 
@@ -96,8 +94,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							mascotas: result.user.pets,
 							token: result.token,
 						})
-						alert('Login correcto')
-					})
+						alert('Login correcto')})
 					.catch((error) => alert('error', error))
 			},
 
@@ -234,17 +231,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then((result) => alert(result.response))
 					.catch((error) => alert('error', error))
 			}, 
-			cleanDirections: () => {
-				setStore({
-					direcciones: [],
-				})
-			}, 
-			cleanPets: () => {
-				setStore({
-					mascotas: [],
-				})				
-			},
-			getPet: (id) => {
+			getPet: async (id) => {
 				const requestOptions = {
 					method: 'GET',
 					redirect: 'follow'

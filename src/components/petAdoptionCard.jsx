@@ -38,7 +38,7 @@ const PetAdoptionCard = ({ pet }) => {
 			</div>
 			<div className='col'>
 				<div className='card-body p-2'>
-					<h5 className='card-subtitle m-3 text-body-secondary'>{Specie(pet.Especie)}</h5>
+					<h5 className='card-subtitle m-3 text-body-secondary'>{Specie(pet.specie)}</h5>
 					<p className='card-text'>Tamaño: {Size(pet.size)}</p>
 					<p className='card-text'>Edad : {pet.age}</p>
 					<p className='card-text'>Info : {pet.messages[0].message}</p>
@@ -51,7 +51,7 @@ const PetAdoptionCard = ({ pet }) => {
 				className='btn btn-primary'
 				data-bs-toggle='modal'
 				data-bs-target='#exampleModal'
-				onClick={async () => {
+				onClick={() => {
 					state.actions.getPet(pet.id)
 				}}
 			>
