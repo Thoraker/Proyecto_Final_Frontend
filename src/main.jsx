@@ -4,7 +4,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './routes/App.jsx'
 import ErrorPage from './routes/ErrorPage'
 import LandingPage from './routes/LandingPage'
-import LoginPage from './routes/LoginPage'
 import UserPage from './routes/UserData'
 import PetPage from './routes/PetPage'
 import FoundationsPage from './routes/FoundationsPage'
@@ -16,6 +15,10 @@ import AddressPage from './routes/AddressPage.jsx'
 import PetForm from './components/petForm.jsx'
 import PetCard from './components/petCard.jsx'
 import InviteFriends from './components/inviteFriends.jsx'
+import LoginModal from './components/login.jsx'
+import AddressForm from './components/addressForm.jsx'
+
+
 
 
 const domNode = document.getElementById('root')
@@ -32,8 +35,8 @@ const router = createBrowserRouter([
 				element: <LandingPage />,
 			},
 			{
-				path: '/login',
-				element: <LoginPage />,
+				path: '/dos',
+				element: <LoginModal />,
 			},
 			{
 				path: '/register',
@@ -53,7 +56,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: '/address',
-				element: <InviteFriends />,
+				element: <AddressForm />,
 			},
 			{
 				path: '/user',
@@ -61,12 +64,18 @@ const router = createBrowserRouter([
 			},
 			{
 				path: '/prueba',
-				element: <PetForm />,
+				element: < LoginModal />,
 			},
 			{
 				path: '/post',
 				element: <RegisterForm />,
 			},
+			{
+				path: '/petFrom',
+				element: <PetForm />,
+			},
+			
+			
 			
 
 		],
