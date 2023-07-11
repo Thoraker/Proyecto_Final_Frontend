@@ -29,17 +29,17 @@ const PetCard = ({ pet }) => {
 		<div className='card bg-info col m-3'>
 			<div className='row'>
 				<div className='col w-100'>
-					<Carousel photos={pet.Fotos} />
+					<Carousel photos={pet.photos} />
 				</div>
 				<div className='col-5'>
 					<div className='card-body py-5'>
-						<h4 className='card-title'>{pet.Nombre}</h4>
-						<h5 className='card-subtitle m-3 text-body-secondary'>{Specie(pet.Especie)}</h5>
-						<p className='card-text'>Tamaño: {Size(pet.Tamano)}</p>
-						<p className='card-text'>Edad : {pet.Edad}</p>
-						<p className='card-text'>{pet.Necesita_Patio ? 'Necesita Patio' : 'No Necesita Patio'}</p>
+						<h4 className='card-title'>{pet.name}</h4>
+						<h5 className='card-subtitle m-3 text-body-secondary'>{Specie(pet.specie)}</h5>
+						<p className='card-text'>Tamaño: {Size(pet.size)}</p>
+						<p className='card-text'>Edad : {pet.age}</p>
+						<p className='card-text'>{pet.need_backyard ? 'Necesita Patio' : 'No Necesita Patio'}</p>
 						<p className='card-text'>
-							{pet.En_Adopcion ? 'Se entrega en Adopción' : 'No disponible para Adopción'}
+							{pet.for_adoption ? 'Se entrega en Adopción' : 'No disponible para Adopción'}
 						</p>
 					</div>
 					<div className='col-12'>

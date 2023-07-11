@@ -1,16 +1,24 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import UserDropdown from './UserDropdown';
-import NoUserDropdown from './NoUserDropdown';
-import { AppContext } from '../routes/App';
+import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
+import UserDropdown from './UserDropdown'
+import NoUserDropdown from './NoUserDropdown'
+import { AppContext } from '../routes/App'
 
 const Navbar = () => {
-	const state = useContext(AppContext);
+	const state = useContext(AppContext)
 
 	return (
-		<nav className='navbar navbar-expand-lg fst-italic fixed-top' style={{ backgroundColor: 'rgba(255, 255, 255, 0.3)' }}>
+		<nav
+			className='navbar navbar-expand-lg fst-italic fixed-top'
+			style={{ backgroundColor: 'rgba(255, 255, 255, 0.3)' }}
+		>
 			<div className='container-fluid'>
-				<button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarTogglerDemo01'>
+				<button
+					className='navbar-toggler'
+					type='button'
+					data-bs-toggle='collapse'
+					data-bs-target='#navbarTogglerDemo01'
+				>
 					<span className='navbar-toggler-icon'></span>
 				</button>
 				<Link className='navbar-brand text- text-danger fs-1 px-5' to='/'>
@@ -40,12 +48,10 @@ const Navbar = () => {
 						</li>
 					</ul>
 				</div>
-				<div className='col-2'>
-					{state.store.User.Usuario !== '' ? <UserDropdown /> : <NoUserDropdown />}
-				</div>
+				<div className='col-2'>{state.store.usuario.user !== '' ? <UserDropdown /> : <NoUserDropdown />}</div>
 			</div>
 		</nav>
-	);
-};
+	)
+}
 
-export default Navbar;
+export default Navbar
