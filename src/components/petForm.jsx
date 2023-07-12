@@ -25,6 +25,8 @@ const PetForm = () => {
 			specie: '',
 			size: '',
 			description: '',
+			needBackyard: false,
+			upForAdoption: false,
 		},
 		validationSchema,
 		onSubmit: (values) => {
@@ -122,7 +124,41 @@ const PetForm = () => {
 							</div>
 						</div>
 					</div>
-					
+					<div className='form-group pb-2'>
+						<div className='row'>
+							<form onSubmit={formik.handleSubmit}/>
+								<div className='form-group pb-2'>
+									<div className='row'>
+										<div className='col'>
+											<div>
+												<label>
+													<input
+														type='checkbox'
+														name='needBackyard'
+														checked={formik.values.needBackyard}
+														onChange={formik.handleChange}
+														onBlur={formik.handleBlur}
+													/>
+													Necesita patio
+												</label>
+											</div>
+											<div>
+												<label>
+													<input
+														type='checkbox'
+														name='upForAdoption'
+														checked={formik.values.upForAdoption}
+														onChange={formik.handleChange}
+														onBlur={formik.handleBlur}
+													/>
+													Se da en adopción
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+						</div>
+					</div>
 					<div className='form-group pb-2 d-flex flex-column align-items-center'>
 						<textarea
 							className='form-control'
@@ -140,14 +176,6 @@ const PetForm = () => {
 							<div className='error-message'>{formik.errors.description}</div>
 						)}
 					</div>
-
-					<div className="form-check">
-						<input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-							<label className="form-check-label" htmlFor="flexCheckDefault">
-								Busco un hogar
-							</label>
-					</div>
-
 					<div
 						className='progress mb-3 pb-2 mx-auto'
 						style={{
@@ -158,8 +186,6 @@ const PetForm = () => {
 							transformOrigin: 'center',
 						}}
 					></div>
-
-
 					<div className='pb-2 text-center'>
 						<div>
 							<PhotoUploader />

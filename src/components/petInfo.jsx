@@ -44,7 +44,7 @@ const PetInfo = () => {
 					<div className='col m-3'>
 						<button type='button' className='btn btn-primary '>
 							<Link className='text-light' to='/pet'>
-								Inscribe una Mascota
+								Inscribe tu Mascota
 							</Link>
 						</button>
 					</div>
