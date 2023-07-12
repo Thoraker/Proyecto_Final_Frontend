@@ -15,10 +15,12 @@ const MessageBoard = () => {
 					role='addresses'
 					aria-orientation='vertical'
 				>
+
 					{state.store.User.Mensajes.length === 0 ? (
 						<h3> No tienes mensajes </h3>
+
 					) : (
-						state.store.User.Mensajes.map((message, index) => {
+						state.store.usuario.messages.map((message, index) => {
 							return (
 								<li className='nav-item' key={index} role='presentation'>
 									<button
@@ -28,12 +30,9 @@ const MessageBoard = () => {
 										data-bs-target='#profile-tab-pane'
 										type='button'
 										role='tab'
-										onClick={() => {
-											setPet(index)
-										}}
 										aria-selected='false'
 									>
-										{message.Titulo}
+										{message.message}
 									</button>
 								</li>
 							)
@@ -51,8 +50,8 @@ const MessageBoard = () => {
 					role='addresses'
 					aria-orientation='vertical'
 				>
-					{state.store.User.Mascotas.map((mascota, index) => {
-						return mascota.Mensajes.length > 0 ? (
+					{state.store.usuario.pets.map((mascota, index) => {
+						return mascota.messages.length > 0 ? (
 							<li className='nav-item' key={index} role='presentation'>
 								<button
 									className='nav-link px-5 m-2 w-100'
@@ -66,8 +65,8 @@ const MessageBoard = () => {
 									}}
 									aria-selected='false'
 								>
-									{mascota.Mensajes.map((message, index) => {
-										return <h3 key={index}>{message.Titulo}</h3>
+									{mascota.messages.map((message, index) => {
+										return <h3 key={index}>{message.messages}</h3>
 									})}
 								</button>
 							</li>

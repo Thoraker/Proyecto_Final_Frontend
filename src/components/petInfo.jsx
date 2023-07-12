@@ -8,14 +8,14 @@ const PetInfo = () => {
 	const [pets, setPets] = useState(0)
 
 	useEffect(() => {
-		state.actions.addPet(state.store.Mascotas[pets])
+		state.actions.addPet(state.store.mascotas[pets])
 	}, [])
 
 	return (
 		<div className='card'>
 			<div className='d-flex align-items-start'>
 				<div className='nav flex-column nav-pills me-3' id='v-pets-tab' role='pets' aria-orientation='vertical'>
-					{state.store.Mascotas.map((mascota, index) => {
+					{state.store.mascotas.map((mascota, index) => {
 						return (
 							<li className='nav-item' key={index} role='presentation'>
 								<button
@@ -33,14 +33,14 @@ const PetInfo = () => {
 									}}
 									aria-selected='false'
 								>
-									{mascota.Nombre}
+									{mascota.name}
 								</button>
 							</li>
 						)
 					})}
 				</div>
 				<div className='col'>
-					<PetCard pet={state.store.Mascotas[pets]} />
+					<PetCard pet={state.store.mascotas[pets]} />
 					<div className='col m-3'>
 						<button type='button' className='btn btn-primary '>
 							<Link className='text-light' to='/pet'>

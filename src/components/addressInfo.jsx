@@ -49,7 +49,7 @@ const AddressInfo = () => {
 					role='addresses'
 					aria-orientation='vertical'
 				>
-					{state.store.Direcciones.map((direccion, index) => {
+					{state.store.direcciones.map((direccion, index) => {
 						return (
 							<li className='nav-item' key={index} role='presentation'>
 								<button
@@ -66,7 +66,7 @@ const AddressInfo = () => {
 									}}
 									aria-selected='false'
 								>
-									{direccion.Calle}
+									{direccion.street}
 								</button>
 							</li>
 						)
@@ -76,15 +76,17 @@ const AddressInfo = () => {
 					<div className='card bg-info col m-3 w-100'>
 						<div className='card-body py-5'>
 							<h4 className='card-title'>
-								{state.store.Direcciones[address].Calle} {state.store.Direcciones[address].Numero}
+								{state.store.direcciones[address].street} {state.store.direcciones[address].number}
 							</h4>
 							<h5 className='card-subtitle m-3 text-body-secondary'>
-								{state.store.Direcciones[address].Comuna}
+								{state.store.direcciones[address].commune}
 							</h5>
-							<p className='card-text'>Departamento : {state.store.Direcciones[address].Departamento}</p>
-							<p className='card-text'>Region: {Region(state.store.Direcciones[address].Region)}</p>
 							<p className='card-text'>
-								{state.store.Direcciones[address].Tiene_Patio ? 'Tiene Patio' : 'No Tiene Patio'}
+								Departamento : {state.store.direcciones[address].department_number}
+							</p>
+							<p className='card-text'>Region: {Region(state.store.direcciones[address].region)}</p>
+							<p className='card-text'>
+								{state.store.direcciones[address].has_backyard ? 'Tiene Patio' : 'No Tiene Patio'}
 							</p>
 						</div>
 					</div>

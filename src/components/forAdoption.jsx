@@ -6,11 +6,11 @@ const ForAdoption = () => {
 	const state = useContext(AppContext)
 
 	return (
-		<div className='row row-cols-1 row-cols-md-3 g-4'>
-			{state.store.For_Adoption.map((pet, index) => {
+		<div className='row row-cols-1 row-cols-md-4 g-4'>
+			{state.store.mascotasEnAdopcion.map((pet, index) => {
 				return (
 					<div className='col' key={index}>
-						<PetAdoptionCard pet={pet} key={index} />
+						<PetAdoptionCard pet={pet} />
 					</div>
 				)
 			})}
