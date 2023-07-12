@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import LoginModal from './login'
 
 const NoUserDropdown = () => {
 	return (
@@ -22,9 +23,7 @@ const NoUserDropdown = () => {
 			</button>
 			<ul className='dropdown-menu'>
 				<li>
-					<Link className='dropdown-item' to='/login'>
-						Ingresa
-					</Link>
+					<LoginModal />
 				</li>
 				<li>
 					<Link className='dropdown-item' to='/register'>
