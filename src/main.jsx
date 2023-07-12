@@ -71,7 +71,7 @@ const router = createBrowserRouter([
 				element: <RegisterForm />,
 			},
 			{
-				path: '/petFrom',
+				path: '/petF',
 				element: <PetForm />,
 			},
 			

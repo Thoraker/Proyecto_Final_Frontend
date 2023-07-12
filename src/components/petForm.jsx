@@ -26,9 +26,9 @@ const PetForm = () => {
 			age: '',
 			specie: '',
 			size: '',
-			needBackyard: '',
-			forAdoption: '',
-			message: '',
+			description: '',
+			needBackyard: false,
+			upForAdoption: false,
 		},
 		validationSchema,
 		onSubmit: (values) => {
@@ -166,21 +166,11 @@ const PetForm = () => {
 						)}
 					</div>
 
-					<div className='col'>
-						<select
-							className='form-select'
-							name='forAdoption'
-							value={formik.values.forAdoption}
-							onChange={formik.handleChange}
-							onBlur={formik.handleBlur}
-						>
-							<option value=''>¿Lo entregas en adopción?</option>
-							<option value='true'>Disponible para ser adoptado</option>
-							<option value='false'>No disponible para ser adoptado</option>
-						</select>
-						{formik.errors.forAdoption && formik.touched.forAdoption && (
-							<div className='error-message'>{formik.errors.forAdoption}</div>
-						)}
+					<div className='form-check'>
+						<input className='form-check-input' type='checkbox' value='' id='flexCheckDefault' />
+						<label className='form-check-label' htmlFor='flexCheckDefault'>
+							Busco un hogar
+						</label>
 					</div>
 
 					<div

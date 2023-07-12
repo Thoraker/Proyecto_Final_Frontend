@@ -28,7 +28,7 @@ const UserDropdown = () => {
 				</li>
 				<li>
 					<Link className='dropdown-item' to='/user/pet'>
-						Mis Mensajes
+						Mis Mensajes 
 					</Link>
 				</li>
 				<li>
