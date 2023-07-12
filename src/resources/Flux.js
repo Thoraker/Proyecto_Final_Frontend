@@ -1,3 +1,5 @@
+import { boolean } from "yup";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
