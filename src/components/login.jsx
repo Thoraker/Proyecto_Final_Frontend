@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { AppContext } from '../routes/App'
 import { PiPawPrintBold } from 'react-icons/pi'
 import { Modal } from 'react-bootstrap'
@@ -8,7 +8,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 const LoginModal = () => {
 	const state = useContext(AppContext)
-	const navigate = useNavigate()
 	const [showModal, setShowModal] = useState(false)
 	const [user, setUser] = useState('')
 	const [password, setPassword] = useState('')
@@ -40,7 +39,6 @@ const LoginModal = () => {
 		validationSchema
 			.validate({ user, password })
 			.then(() => {
-				navigate('/')
 				state.actions.login(user, password)
 				handleCloseModal()
 				setLoginSuccess(true)
