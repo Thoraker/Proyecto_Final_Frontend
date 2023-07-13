@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, redirect } from 'react-router-dom'
 import { AppContext } from '../routes/App'
 import { PiPawPrintBold } from 'react-icons/pi'
 import { Modal } from 'react-bootstrap'
@@ -23,6 +23,7 @@ const LoginModal = () => {
 	})
 
 	const handleCloseModal = () => {
+		redirect('/')
 		setUser('')
 		setPassword('')
 		setLoginError(false)

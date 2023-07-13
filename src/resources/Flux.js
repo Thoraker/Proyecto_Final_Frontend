@@ -162,7 +162,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			createAddress: async (values) => {
-				console.log(getStore().Token, 'token')
 				const myHeaders = new Headers()
 				myHeaders.append('Authorization', 'Bearer ' + getStore().token)
 				myHeaders.append('Content-Type', 'application/json')
