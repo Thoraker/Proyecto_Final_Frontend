@@ -15,7 +15,7 @@ const PetForm = () => {
 		age: Yup.string().required('La edad es requerida.'),
 		specie: Yup.string().required('La especie es requerida.'),
 		size: Yup.string().required('El tamaño es requerido.'),
-		description: Yup.string().required('La descripción es requerida.'),
+		message: Yup.string().required('La descripción es requerida.'),
 	})
 
 	const formik = useFormik({
@@ -24,7 +24,7 @@ const PetForm = () => {
 			age: '',
 			specie: '',
 			size: '',
-			description: '',
+			message: '',
 			needBackyard: false,
 			forAdoption: false,
 		},
@@ -98,10 +98,10 @@ const PetForm = () => {
 									onBlur={formik.handleBlur}
 								>
 									<option value=''>Especie</option>
-									<option value='Perros'>Perros</option>
-									<option value='Gatos'>Gatos</option>
-									<option value='Aves'>Aves</option>
-									<option value='Otros'>Otros</option>
+									<option value='1'>Perros</option>
+									<option value='2'>Gatos</option>
+									<option value='3'>Aves</option>
+									<option value='4'>Otros</option>
 								</select>
 								{formik.errors.specie && formik.touched.specie && (
 									<div className='error-message'>{formik.errors.specie}</div>
@@ -116,9 +116,9 @@ const PetForm = () => {
 									onBlur={formik.handleBlur}
 								>
 									<option value=''>Tamaño</option>
-									<option value='Pequeño'>Pequeño</option>
-									<option value='Mediano'>Mediano</option>
-									<option value='Grande'>Grande</option>
+									<option value='1'>Pequeño</option>
+									<option value='2'>Mediano</option>
+									<option value='3'>Grande</option>
 								</select>
 								{formik.errors.size && formik.touched.size && (
 									<div className='error-message'>{formik.errors.size}</div>
@@ -129,18 +129,18 @@ const PetForm = () => {
 					<div className='form-group pb-2 d-flex flex-column align-items-center'>
 						<textarea
 							className='form-control'
-							id='Description1'
+							id='Message'
 							placeholder='Su Historia'
 							rows='3'
-							name='description'
-							value={formik.values.description}
+							name='message'
+							value={formik.values.message}
 							onChange={formik.handleChange}
 							onBlur={formik.handleBlur}
 							maxLength={100}
 						></textarea>
-						<p>Remaining characters: {100 - formik.values.description.length}</p>
-						{formik.errors.description && formik.touched.description && (
-							<div className='error-message'>{formik.errors.description}</div>
+						<p>Remaining characters: {100 - formik.values.message.length}</p>
+						{formik.errors.message && formik.touched.message && (
+							<div className='error-message'>{formik.errors.message}</div>
 						)}
 					</div>
 					<div className='form-group pb-2'>
