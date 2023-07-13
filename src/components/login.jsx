@@ -40,7 +40,7 @@ const LoginModal = () => {
 		validationSchema
 			.validate({ user, password })
 			.then(() => {
-				navigate('/')
+				// navigate('/')
 				state.actions.login(user, password)
 				handleCloseModal()
 				setLoginSuccess(true)

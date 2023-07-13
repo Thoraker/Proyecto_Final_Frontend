@@ -133,36 +133,64 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch((error) => alert('error', error))
 			},
 
-			createPetPhoto: async (link) => {
-				const myHeaders = new Headers()
-				myHeaders.append('Authorization', 'Bearer ' + getStore().token)
-				myHeaders.append('Content-Type', 'application/json')
+			newPetPhoto: async (link) => {
+				console.log(link, 'link');
+				const myHeaders = new Headers();
+				myHeaders.append("Authorization", "Bearer " + getStore().token);
+				myHeaders.append("Content-Type", "application/json");
 
 				const raw = JSON.stringify({
-					url: link,
-					pet_id: getStore().activePet.id,
-				})
+					"url": link,
+					"pet_id": getStore().mascotaActiva.id,
+				});
 
 				const requestOptions = {
 					method: 'POST',
 					headers: myHeaders,
 					body: raw,
-					redirect: 'follow',
-				}
+					redirect: 'follow'
+				};
 
-				fetch('http://127.0.0.1:3000/photo', requestOptions)
-					.then((response) => response.json())
-					.then((result) => {
-						setStore({
-							mascotas: result.user.pets,
-						})
-						alert(result.response)
-					})
-					.catch((error) => alert('error', error))
+				fetch("http://127.0.0.1:3000/photo", requestOptions)
+					.then(response => response.json())
+					.then(result => console.log(result))
+					.catch(error => console.log('error', error));
+
+
+
+
+
+
+				// const myHeaders = new Headers()
+				// myHeaders.append('Authorization', 'Bearer ' + getStore().token)
+				// myHeaders.append('Content-Type', 'application/json')
+
+				// const raw = JSON.stringify({
+				// 	url: link,
+				// 	pet_id: getStore().mascotaActiva.id,
+				// })
+
+				// console.log(raw, 'raw')
+
+				// const requestOptions = {
+				// 	method: 'POST',
+				// 	headers: myHeaders,
+				// 	body: raw,
+				// 	redirect: 'follow',
+				// }
+
+				// fetch('http://127.0.0.1:3000/photo', requestOptions)
+				// 	.then((response) => response.json())
+				// 	.then((result) => {
+				// 		setStore({
+				// 			mascotas: result.user.pets,
+				// 		})
+				// 		alert(result.response)
+				// 	})
+				// 	.catch((error) => alert('error', error))
 			},
 
 			createAddress: async (values) => {
-				console.log(getStore().Token, 'token')
 				const myHeaders = new Headers()
 				myHeaders.append('Authorization', 'Bearer ' + getStore().token)
 				myHeaders.append('Content-Type', 'application/json')
