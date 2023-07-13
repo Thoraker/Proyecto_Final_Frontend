@@ -123,7 +123,7 @@ const AddressForm = () => {
 				}}
 			>
 				<form className="p-3 m-3" onSubmit={handleSubmit}>
-					<h3 className="text-center">Cuéntanos acerca de la Mascota</h3>
+					<h3 className="text-center">Indicanos la dirección</h3>
 					<div className="row">
 						<div className="col-lg-6">
 							<div className="form-group pb-2">
