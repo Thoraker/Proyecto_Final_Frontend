@@ -1,24 +1,22 @@
-import React, { useState, useEffect, useContext } from 'react'
-import { useFormik } from 'formik'
-import * as Yup from 'yup'
-import PhotoUploader from './photoUploader'
-import { AppContext } from '../routes/App'
-import './formStyles.css'
+import React, { useState, useEffect, useContext } from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import PhotoUploader from './photoUploader';
+import { AppContext } from '../routes/App';
+import './formStyles.css';
 
 const PetForm = () => {
-	const state = useContext(AppContext)
-	const [progress, setProgress] = useState(0)
-	const [successMessage, setSuccessMessage] = useState('')
+	const state = useContext(AppContext);
+	const [progress, setProgress] = useState(0);
+	const [successMessage, setSuccessMessage] = useState('');
 
 	const validationSchema = Yup.object().shape({
 		name: Yup.string().required('El nombre es requerido.'),
 		age: Yup.string().required('La edad es requerida.'),
 		specie: Yup.string().required('La especie es requerida.'),
 		size: Yup.string().required('El tamaño es requerido.'),
-		needBackyard: Yup.string().required('El tamaño es requerido.'),
-		forAdoption: Yup.string().required('El tamaño es requerido.'),
-		message: Yup.string().required('La descripción es requerida.'),
-	})
+		description: Yup.string().required('La descripción es requerida.'),
+	});
 
 	const formik = useFormik({
 		initialValues: {
@@ -26,33 +24,35 @@ const PetForm = () => {
 			age: '',
 			specie: '',
 			size: '',
-			message: '',
+			description: '',
 			needBackyard: false,
 			upForAdoption: false,
 		},
 		validationSchema,
 		onSubmit: (values) => {
-			state.actions.createPet(values)
-			setSuccessMessage('Su registro ha sido exitoso.')
-			setTimeout(() => {
-				setSuccessMessage('')
+			state.actions.createPet(values.name, values.age, values.specie, values.size, values.description);
+			setSuccessMessage('Se ha publicado tu mascota');
+			setTimeout(() => {			
 				// Redireccionar al usuario a otra página aquí
-			}, 5000)
+			}, 5000);
+			
 		},
-	})
+	});
 
 	useEffect(() => {
-		progressUpdate()
-	}, [formik.values])
+		progressUpdate();
+	}, [formik.values]);
 
 	const progressUpdate = () => {
-		const fullFields = Object.values(formik.values).filter((field) => field !== '')
-		const newProgress = (fullFields.length / Object.keys(formik.values).length) * 100
-		setProgress(newProgress)
-	}
+		const { name, age, specie, size, description } = formik.values;
+		const fullFields = [name, age, specie, size, description];
+		const newProgress =
+			(fullFields.filter((field) => field !== '').length / 5) * 100;
+		setProgress(newProgress);
+	};
 
 	return (
-		<div className='container'>
+		<div className='container p-5'>
 			<div
 				className='container fst-italic rounded-3'
 				style={{
@@ -71,11 +71,8 @@ const PetForm = () => {
 							onChange={formik.handleChange}
 							onBlur={formik.handleBlur}
 						/>
-						{formik.errors.name && formik.touched.name && (
-							<div className='error-message'>{formik.errors.name}</div>
-						)}
+						{formik.errors.name && formik.touched.name && <div className='error-message'>{formik.errors.name}</div>}
 					</div>
-
 					<div className='form-group pb-2'>
 						<input
 							type='text'
@@ -86,11 +83,8 @@ const PetForm = () => {
 							onChange={formik.handleChange}
 							onBlur={formik.handleBlur}
 						/>
-						{formik.errors.age && formik.touched.age && (
-							<div className='error-message'>{formik.errors.age}</div>
-						)}
+						{formik.errors.age && formik.touched.age && <div className='error-message'>{formik.errors.age}</div>}
 					</div>
-
 					<div className='form-group pb-2'>
 						<div className='row'>
 							<div className='col'>
@@ -102,10 +96,10 @@ const PetForm = () => {
 									onBlur={formik.handleBlur}
 								>
 									<option value=''>Especie</option>
-									<option value='1'>Perros</option>
-									<option value='2'>Gatos</option>
-									<option value='3'>Aves</option>
-									<option value='4'>Otros</option>
+									<option value='Perros'>Perros</option>
+									<option value='Gatos'>Gatos</option>
+									<option value='Aves'>Aves</option>
+									<option value='Otros'>Otros</option>
 								</select>
 								{formik.errors.specie && formik.touched.specie && (
 									<div className='error-message'>{formik.errors.specie}</div>
@@ -120,59 +114,68 @@ const PetForm = () => {
 									onBlur={formik.handleBlur}
 								>
 									<option value=''>Tamaño</option>
-									<option value='1'>Pequeño</option>
-									<option value='2'>Mediano</option>
-									<option value='3'>Grande</option>
+									<option value='Pequeño'>Pequeño</option>
+									<option value='Mediano'>Mediano</option>
+									<option value='Grande'>Grande</option>
 								</select>
 								{formik.errors.size && formik.touched.size && (
 									<div className='error-message'>{formik.errors.size}</div>
 								)}
 							</div>
 						</div>
-					</div>
-
+					</div>					
 					<div className='form-group pb-2 d-flex flex-column align-items-center'>
 						<textarea
 							className='form-control'
-							id='Message'
+							id='Description1'
 							placeholder='Su Historia'
 							rows='3'
-							name='message'
-							value={formik.values.message}
+							name='description'
+							value={formik.values.description}
 							onChange={formik.handleChange}
 							onBlur={formik.handleBlur}
-							maxLength={150}
+							maxLength={100}
 						></textarea>
-						<p>Remaining characters: {100 - formik.values.message.length}</p>
-						{formik.errors.message && formik.touched.message && (
-							<div className='error-message'>{formik.errors.message}</div>
+						<p>Remaining characters: {100 - formik.values.description.length}</p>
+						{formik.errors.description && formik.touched.description && (
+							<div className='error-message'>{formik.errors.description}</div>
 						)}
 					</div>
-
-					<div className='col'>
-						<select
-							className='form-select'
-							name='needBackyard'
-							value={formik.values.needBackyard}
-							onChange={formik.handleChange}
-							onBlur={formik.handleBlur}
-						>
-							<option value=''>¿Acostumbra estar en espacios exteriores?</option>
-							<option value='true'>Acostumbrado a exteriores</option>
-							<option value='false'>Acostumbrado a interiores</option>
-						</select>
-						{formik.errors.needBackyard && formik.touched.needBackyard && (
-							<div className='error-message'>{formik.errors.needBackyard}</div>
-						)}
+					<div className='form-group pb-2'>
+						<div className='row'>
+							<form onSubmit={formik.handleSubmit} />
+							<div className='form-group pb-2'>
+								<div className='row'>
+									<div className='col'>
+										<div>
+											<label>
+												<input
+													type='checkbox'
+													name='needBackyard'
+													checked={formik.values.needBackyard}
+													onChange={formik.handleChange}
+													onBlur={formik.handleBlur}
+												/>
+												Se da en adopción
+											</label>
+										</div>
+										<div>
+											<label>
+												<input
+													type='checkbox'
+													name='upForAdoption'
+													checked={formik.values.upForAdoption}
+													onChange={formik.handleChange}
+													onBlur={formik.handleBlur}
+												/>
+												Necesita patio
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
-
-					<div className='form-check'>
-						<input className='form-check-input' type='checkbox' value='' id='flexCheckDefault' />
-						<label className='form-check-label' htmlFor='flexCheckDefault'>
-							Busco un hogar
-						</label>
-					</div>
-
 					<div
 						className='progress mb-3 pb-2 mx-auto'
 						style={{
@@ -183,7 +186,6 @@ const PetForm = () => {
 							transformOrigin: 'center',
 						}}
 					></div>
-
 					<div className='pb-2 text-center'>
 						<div>
 							<PhotoUploader />
@@ -202,7 +204,7 @@ const PetForm = () => {
 				</form>
 			</div>
 		</div>
-	)
-}
+	);
+};
 
-export default PetForm
+export default PetForm;
