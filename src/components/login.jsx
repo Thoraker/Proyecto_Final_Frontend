@@ -1,19 +1,19 @@
-import React, { useState, useContext } from 'react';
-import { Link, redirect } from 'react-router-dom';
-import { AppContext } from '../routes/App';
-import { PiPawPrintBold } from 'react-icons/pi';
-import { Modal } from 'react-bootstrap';
-import * as Yup from 'yup';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState, useContext } from 'react'
+import { Link, redirect } from 'react-router-dom'
+import { AppContext } from '../routes/App'
+import { PiPawPrintBold } from 'react-icons/pi'
+import { Modal, Button } from 'react-bootstrap'
+import * as Yup from 'yup'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const LoginModal = () => {
-	const state = useContext(AppContext);
-	const [showModal, setShowModal] = useState(false);
-	const [user, setUser] = useState('');
-	const [password, setPassword] = useState('');
-	const [loginError, setLoginError] = useState(false);
-	const [loginSuccess, setLoginSuccess] = useState(false);
-	
+	const state = useContext(AppContext)
+	const [showModal, setShowModal] = useState(false)
+	const [user, setUser] = useState('')
+	const [password, setPassword] = useState('')
+	const [userFocused, setUserFocused] = useState(false)
+	const [loginError, setLoginError] = useState(false)
+	const [loginSuccess, setLoginSuccess] = useState(false)
 
 	const validationSchema = Yup.object().shape({
 		user: Yup.string().required('El nombre de usuario es requerido.'),
@@ -21,48 +21,51 @@ const LoginModal = () => {
 			.required('La contraseña es requerida.')
 			.min(8, 'La contraseña debe tener al menos 8 caracteres.')
 			.max(20, 'La contraseña debe tener como máximo 20 caracteres.'),
-	});
+	})
 
 	const handleCloseModal = () => {
-		setUser('');
-		setPassword('');
-		setLoginError(false);
-		setShowModal(false);
-			};
+		setUser('')
+		setPassword('')
+		setLoginError(false)
+		setShowModal(false)
+	}
 
 	const handleShowModal = () => {
-		setShowModal(true);
-	};
+		setShowModal(true)
+	}
 
 	const handleLogin = (event) => {
-		event.preventDefault();
-		
-
+		event.preventDefault()
+		redirect('/')
 		validationSchema
 			.validate({ user, password })
 			.then(() => {
-				state.actions.login(user, password);
-				handleCloseModal();
-				redirect('/')
-				setLoginSuccess(true);
+				state.actions.login(user, password)
+				handleCloseModal()
+				setLoginSuccess(true)
 				setTimeout(() => {
-					setLoginSuccess(false);
-					
-				}, 4000);
+					setLoginSuccess(false)
+				}, 4000)
 			})
 			.catch((error) => {
-				console.log(error.message);
-				setLoginError(true);
-			});
-	};
+				console.log(error.message)
+				setLoginError(true)
+			})
+	}
 
 	return (
 		<>
-			<Link className='dropdown-item' onClick={handleShowModal}>
-				Ingresa
-			</Link>
+			<div style={{ paddingTop: '8rem' }}>
+				<Button
+					variant='primary'
+					onClick={handleShowModal}
+					className='btn border border-success bg-transparent text-success fw-bold fst-italic'
+				>
+					Log in
+				</Button>
+			</div>
 
-			<Modal show={showModal} onHide={handleCloseModal} centered>
+			<Modal show={showModal} onHide={handleCloseModal} centered id='Log'>
 				<Modal.Header closeButton onClick={handleCloseModal}>
 					<Modal.Title className='text-center'>Iniciar sesión</Modal.Title>
 
@@ -84,7 +87,9 @@ const LoginModal = () => {
 							</div>
 							<div className='row py-3'>
 								<input
-									className='fs-5 border-0 border-bottom bg-transparent mx-auto w-75'
+									className={`fs-5 border-0 border-bottom bg-transparent mx-auto w-75 ${
+										userFocused ? 'border border-success rounded' : ''
+									}`}
 									type='text'
 									placeholder='Nombre de Usuario'
 									value={user}
@@ -124,7 +129,7 @@ const LoginModal = () => {
 				</Modal.Body>
 			</Modal>
 		</>
-	);
-};
+	)
+}
 
-export default LoginModal;
+export default LoginModal
