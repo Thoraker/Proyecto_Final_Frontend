@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { redirect, useNavigate } from 'react-router-dom'
+import { redirect } from 'react-router-dom'
 import { AppContext } from '../routes/App'
 import './formStyles.css'
 import { FaMapMarkerAlt } from 'react-icons/fa'
@@ -111,6 +111,7 @@ const AddressForm = () => {
 		if (handleValidation()) {
 			state.actions.createAddress({ street, buildingNumber, departmentNumber, commune, region, hasBackyard })
 			redirect('/')
+			state.actions.createPet({ street, buildingNumber, departmentNumber, commune, region, hasBackyard })
 		}
 	}
 
@@ -123,7 +124,7 @@ const AddressForm = () => {
 				}}
 			>
 				<form className='p-3 m-3' onSubmit={handleSubmit}>
-					<h3 className='text-center'>Cuéntanos acerca de la Mascota</h3>
+					<h3 className='text-center'>Indícanos la dirección</h3>
 					<div className='row'>
 						<div className='col-lg-6'>
 							<div className='form-group pb-2'>

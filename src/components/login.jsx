@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import { Link, redirect } from 'react-router-dom'
 import { AppContext } from '../routes/App'
 import { PiPawPrintBold } from 'react-icons/pi'
-import { Modal } from 'react-bootstrap'
+import { Modal, Button } from 'react-bootstrap'
 import * as Yup from 'yup'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -11,6 +11,7 @@ const LoginModal = () => {
 	const [showModal, setShowModal] = useState(false)
 	const [user, setUser] = useState('')
 	const [password, setPassword] = useState('')
+	const [userFocused, setUserFocused] = useState(false)
 	const [loginError, setLoginError] = useState(false)
 	const [loginSuccess, setLoginSuccess] = useState(false)
 
@@ -36,7 +37,7 @@ const LoginModal = () => {
 
 	const handleLogin = (event) => {
 		event.preventDefault()
-
+		redirect('/')
 		validationSchema
 			.validate({ user, password })
 			.then(() => {
@@ -55,11 +56,17 @@ const LoginModal = () => {
 
 	return (
 		<>
-			<Link className='dropdown-item' onClick={handleShowModal}>
-				Ingresa
-			</Link>
+			<div style={{ paddingTop: '8rem' }}>
+				<Button
+					variant='primary'
+					onClick={handleShowModal}
+					className='btn border border-success bg-transparent text-success fw-bold fst-italic'
+				>
+					Log in
+				</Button>
+			</div>
 
-			<Modal show={showModal} onHide={handleCloseModal} centered>
+			<Modal show={showModal} onHide={handleCloseModal} centered id='Log'>
 				<Modal.Header closeButton onClick={handleCloseModal}>
 					<Modal.Title className='text-center'>Iniciar sesión</Modal.Title>
 
@@ -81,11 +88,15 @@ const LoginModal = () => {
 							</div>
 							<div className='row py-3'>
 								<input
-									className='fs-5 border-0 border-bottom bg-transparent mx-auto w-75'
+									className={`fs-5 border-0 border-bottom bg-transparent mx-auto w-75 ${
+										userFocused ? 'border border-success rounded' : ''
+									}`}
 									type='text'
 									placeholder='Nombre de Usuario'
 									value={user}
 									onChange={(ev) => setUser(ev.target.value)}
+									onFocus={() => setUserFocused(true)}
+									onBlur={() => setUserFocused(false)}
 								/>
 							</div>
 							<div className='row py-3'>

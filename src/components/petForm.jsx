@@ -15,8 +15,6 @@ const PetForm = () => {
 		age: Yup.string().required('La edad es requerida.'),
 		specie: Yup.string().required('La especie es requerida.'),
 		size: Yup.string().required('El tamaño es requerido.'),
-		needBackyard: Yup.string().required('El tamaño es requerido.'),
-		forAdoption: Yup.string().required('El tamaño es requerido.'),
 		message: Yup.string().required('La descripción es requerida.'),
 	})
 
@@ -28,14 +26,13 @@ const PetForm = () => {
 			size: '',
 			message: '',
 			needBackyard: false,
-			upForAdoption: false,
+			forAdoption: false,
 		},
 		validationSchema,
 		onSubmit: (values) => {
-			state.actions.createPet(values)
-			setSuccessMessage('Su registro ha sido exitoso.')
+			state.actions.createPet(values.name, values.age, values.specie, values.size, values.description)
+			setSuccessMessage('Se ha publicado tu mascota')
 			setTimeout(() => {
-				setSuccessMessage('')
 				// Redireccionar al usuario a otra página aquí
 			}, 5000)
 		},
@@ -46,13 +43,14 @@ const PetForm = () => {
 	}, [formik.values])
 
 	const progressUpdate = () => {
-		const fullFields = Object.values(formik.values).filter((field) => field !== '')
-		const newProgress = (fullFields.length / Object.keys(formik.values).length) * 100
+		const { name, age, specie, size, description } = formik.values
+		const fullFields = [name, age, specie, size, description]
+		const newProgress = (fullFields.filter((field) => field !== '').length / 5) * 100
 		setProgress(newProgress)
 	}
 
 	return (
-		<div className='container'>
+		<div className='container p-5'>
 			<div
 				className='container fst-italic rounded-3'
 				style={{
@@ -75,7 +73,6 @@ const PetForm = () => {
 							<div className='error-message'>{formik.errors.name}</div>
 						)}
 					</div>
-
 					<div className='form-group pb-2'>
 						<input
 							type='text'
@@ -90,7 +87,6 @@ const PetForm = () => {
 							<div className='error-message'>{formik.errors.age}</div>
 						)}
 					</div>
-
 					<div className='form-group pb-2'>
 						<div className='row'>
 							<div className='col'>
@@ -130,7 +126,6 @@ const PetForm = () => {
 							</div>
 						</div>
 					</div>
-
 					<div className='form-group pb-2 d-flex flex-column align-items-center'>
 						<textarea
 							className='form-control'
@@ -141,38 +136,48 @@ const PetForm = () => {
 							value={formik.values.message}
 							onChange={formik.handleChange}
 							onBlur={formik.handleBlur}
-							maxLength={150}
+							maxLength={100}
 						></textarea>
 						<p>Remaining characters: {100 - formik.values.message.length}</p>
 						{formik.errors.message && formik.touched.message && (
 							<div className='error-message'>{formik.errors.message}</div>
 						)}
 					</div>
-
-					<div className='col'>
-						<select
-							className='form-select'
-							name='needBackyard'
-							value={formik.values.needBackyard}
-							onChange={formik.handleChange}
-							onBlur={formik.handleBlur}
-						>
-							<option value=''>¿Acostumbra estar en espacios exteriores?</option>
-							<option value='true'>Acostumbrado a exteriores</option>
-							<option value='false'>Acostumbrado a interiores</option>
-						</select>
-						{formik.errors.needBackyard && formik.touched.needBackyard && (
-							<div className='error-message'>{formik.errors.needBackyard}</div>
-						)}
+					<div className='form-group pb-2'>
+						<div className='row'>
+							<form onSubmit={formik.handleSubmit} />
+							<div className='form-group pb-2'>
+								<div className='row'>
+									<div className='col'>
+										<div>
+											<label>
+												<input
+													type='checkbox'
+													name='needBackyard'
+													checked={formik.values.needBackyard}
+													onChange={formik.handleChange}
+													onBlur={formik.handleBlur}
+												/>
+												Se da en adopción
+											</label>
+										</div>
+										<div>
+											<label>
+												<input
+													type='checkbox'
+													name='upForAdoption'
+													checked={formik.values.upForAdoption}
+													onChange={formik.handleChange}
+													onBlur={formik.handleBlur}
+												/>
+												Necesita patio
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
-
-					<div className='form-check'>
-						<input className='form-check-input' type='checkbox' value='' id='flexCheckDefault' />
-						<label className='form-check-label' htmlFor='flexCheckDefault'>
-							Busco un hogar
-						</label>
-					</div>
-
 					<div
 						className='progress mb-3 pb-2 mx-auto'
 						style={{
@@ -183,7 +188,6 @@ const PetForm = () => {
 							transformOrigin: 'center',
 						}}
 					></div>
-
 					<div className='pb-2 text-center'>
 						<div>
 							<PhotoUploader />

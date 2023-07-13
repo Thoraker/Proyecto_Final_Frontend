@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef } from 'react'
-import AppContext from '../routes/App'
+import { AppContext } from '../routes/App'
 
 const PhotoUploader = () => {
 	const state = useContext(AppContext)
@@ -15,8 +15,8 @@ const PhotoUploader = () => {
 			},
 			function (error, result) {
 				if (!error && result && result.event === 'success') {
-					state.actions.getPetPhoto(result.info.url)
 					console.log('Done! Here is the image info: ', result)
+					state.actions.newPetPhoto(result.info.url)
 				} else if (error) {
 					console.log(error)
 				}
