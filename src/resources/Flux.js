@@ -197,26 +197,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			addPet: (value) => {
 				setStore({
-					activePet: {
+					mascotaActiva: {
 						id: value.id,
-						nombre: value.name,
-						especie: value.specie,
-						tamano: value.size,
-						necesita_Patio: value.need_backyard,
-						enAdopcion: value.for_Adoption,
-						fotos: value.Fotos,
-					},
-				})
+						age: value.age,
+						name: value.name,
+						specie: value.specie,
+						size: value.size,
+						need_backyard: value.needBackyard,
+						for_adoption: value.for_adoption,
+						photos: value.photos,
+						messages: value.messages,
+					}})
+				console.log(getStore().mascotaActiva, 'addPet')
 			},
-			sendMessage: async (values) => {
+			sendMessage: async (input) => {
 				const myHeaders = new Headers()
 				myHeaders.append('Authorization', 'Bearer ' + getStore().token)
 				myHeaders.append('Content-Type', 'application/json')
 
 				const raw = JSON.stringify({
-					reference_post_id: values.id,
-					pet_id: values.id,
-					message: values.message,
+					reference_post_id: getStore().mascotaActiva.messages[0].id,
+					pet_id: getStore().mascotaActiva.id,
+					message: input,
 				})
 
 				const requestOptions = {
@@ -239,10 +241,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				  
 				fetch("http://127.0.0.1:3000/pet/"+id, requestOptions)
 					.then(response => response.json())
-					.then(result => 
+					.then(result => {
 						setStore({
 							mascotaActiva: result.pet
-					}))
+					})
+					console.log(getStore().mascotaActiva)})
 					.catch(error => console.log('error', error))
 				
 			},

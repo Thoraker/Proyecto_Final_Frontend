@@ -8,17 +8,17 @@ const MessageBoard = () => {
 	return (
 		<div className='card'>
 			<div className='d-flex align-items-start'>
-				<h4 className='card-title'>Mensajes enviados <i className="bi bi-send-check"></i></h4>
+				<h4 className='card-title'>
+					Mensajes enviados <i className='bi bi-send-check'></i>
+				</h4>
 				<div
 					className='nav flex-column nav-pills me-3'
 					id='v-addresses-tab'
 					role='addresses'
 					aria-orientation='vertical'
 				>
-
-					{state.store.User.Mensajes.length === 0 ? (
+					{state.store.usuario.messages.length === 0 ? (
 						<h3> No tienes mensajes </h3>
-
 					) : (
 						state.store.usuario.messages.map((message, index) => {
 							return (
@@ -43,7 +43,7 @@ const MessageBoard = () => {
 				<div></div>
 			</div>
 			<div className='d-flex align-items-start'>
-				<h4 className='card-title'>Mensajes Recibidos   </h4>
+				<h4 className='card-title'>Mensajes Recibidos </h4>
 				<div
 					className='nav flex-column nav-pills me-3'
 					id='v-addresses-tab'

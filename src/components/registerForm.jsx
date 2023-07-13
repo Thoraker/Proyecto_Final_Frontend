@@ -1,37 +1,35 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { AppContext } from '../routes/App';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import './formStyles.css';
+import React, { useState, useContext, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { AppContext } from '../routes/App'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
+import './formStyles.css'
 
 const RegisterForm = () => {
-	const state = useContext(AppContext);
-	const [progress, setProgress] = useState(0);
-	const [successMessage, setSuccessMessage] = useState('');
-	const navigate = useNavigate();
-
-	
-
+	const state = useContext(AppContext)
+	const [progress, setProgress] = useState(0)
+	const [successMessage, setSuccessMessage] = useState('')
+	const navigate = useNavigate()
 
 	const validationSchema = Yup.object().shape({
 		userName: Yup.string()
 			.required('El nombre de usuario es requerido.')
 			.matches(/^[a-zA-Z0-9_]+$/, 'El nombre de usuario solo puede contener letras, números y guiones bajos.'),
 
-		email: Yup.string()
-			.email('Correo electrónico inválido.')
-			.required('El correo es requerido.'),
+		email: Yup.string().email('Correo electrónico inválido.').required('El correo es requerido.'),
 
 		password: Yup.string()
 			.required('La contraseña es requerida.')
 			.min(8, 'La contraseña debe tener al menos 8 caracteres.')
-			.matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/, 'La contraseña debe contener al menos una letra mayúscula, una letra minúscula y un número.'),
-			
+			.matches(
+				/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
+				'La contraseña debe contener al menos una letra mayúscula, una letra minúscula y un número.'
+			),
+
 		firstName: Yup.string().required('El nombre es requerido.'),
 		lastName: Yup.string().required('El apellido es requerido.'),
 		avatar: Yup.string().required('Elige un avatar.'),
-	});
+	})
 
 	const formik = useFormik({
 		initialValues: {
@@ -41,24 +39,23 @@ const RegisterForm = () => {
 			firstName: '',
 			lastName: '',
 			avatar: '',
-			donor: true,
 		},
 		validationSchema,
 		onSubmit: (values) => {
-			state.actions.createUser(values);
-			setSuccessMessage('Su registro ha sido exitoso.');
+			state.actions.createUser(values)
+			setSuccessMessage('Su registro ha sido exitoso.')
 			setTimeout(() => {
-				setSuccessMessage('');
+				setSuccessMessage('')
 				// Redireccionar al usuario a otra página aquí
-			}, 5000);
+			}, 5000)
 		},
-	});
+	})
 
 	useEffect(() => {
-		const fullFields = Object.values(formik.values).filter((field) => field !== '');
-		const newProgress = (fullFields.length / Object.keys(formik.values).length) * 100;
-		setProgress(newProgress);
-	}, [formik.values]);
+		const fullFields = Object.values(formik.values).filter((field) => field !== '')
+		const newProgress = (fullFields.length / Object.keys(formik.values).length) * 100
+		setProgress(newProgress)
+	}, [formik.values])
 
 	return (
 		<div className='container-fluid'>
@@ -79,12 +76,6 @@ const RegisterForm = () => {
 							/>
 						</div>
 						<div className='col-lg-8 col-md-6 col-sm-12 p-3'>
-							{successMessage && (
-								<div className='alert alert-success' role='alert'>
-									{successMessage}
-								</div>
-							)}
-
 							<div className='form-group pb-2'>
 								<input
 									type='text'
@@ -178,16 +169,11 @@ const RegisterForm = () => {
 									<div className='error-message'>{formik.errors.avatar}</div>
 								)}
 							</div>
-
-							<div className='form-check my-3'>
-								<input
-									type='checkbox'
-									name='donor'
-									checked={formik.values.donor}
-									onChange={formik.handleChange}
-								/>
-								<label className='form-check-label'>Quiero dar mascotas en adopción</label>
-							</div>
+							{successMessage && (
+								<div className='alert alert-success' role='alert'>
+									{successMessage}
+								</div>
+							)}
 						</div>
 					</div>
 					<div
@@ -204,7 +190,6 @@ const RegisterForm = () => {
 					<div className='pb-2 text-center'>
 						<button
 							type='submit'
-							id='formbtn'
 							className='w-50 me-2 btn btn-outline-light rounded-pill border-dark text-dark fw-bold'
 							style={{ borderColor: '#654321' }}
 						>
@@ -214,7 +199,7 @@ const RegisterForm = () => {
 				</form>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
-export default RegisterForm;
+export default RegisterForm

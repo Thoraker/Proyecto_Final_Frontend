@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useRef } from 'react'
 import AppContext from '../routes/App'
-import '../resources/Flux.js'
 
 const PhotoUploader = () => {
 	const state = useContext(AppContext)
@@ -33,7 +32,7 @@ const PhotoUploader = () => {
 				style={{ borderColor: '#654321' }}
 				onClick={() => widgetRef.current.open()}
 			>
-				Subir Foto/video <i className="bi bi-camera-fill"></i>
+				Subir Foto/video <i className='bi bi-camera-fill'></i>
 			</button>
 		</div>
 	)
