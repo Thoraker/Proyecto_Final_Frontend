@@ -123,7 +123,8 @@ const PetForm = () => {
 								)}
 							</div>
 						</div>
-					</div>					
+					</div>
+					
 					<div className='form-group pb-2 d-flex flex-column align-items-center'>
 						<textarea
 							className='form-control'
