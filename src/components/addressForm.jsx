@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../routes/App';
 import './formStyles.css';
 import { FaMapMarkerAlt } from "react-icons/fa";
@@ -14,7 +13,7 @@ const AddressForm = () => {
 	const [commune, setCommune] = useState('');
 	const [hasBackyard, setHasBackyard] = useState(false);
 	const [progress, setProgress] = useState(0);
-	const navigate = useNavigate();
+	
 
 	const [errors, setErrors] = useState({
 		street: '',

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, redirect } from 'react-router-dom';
 import { AppContext } from '../routes/App';
 import { PiPawPrintBold } from 'react-icons/pi';
 import { Modal } from 'react-bootstrap';
@@ -13,7 +13,7 @@ const LoginModal = () => {
 	const [password, setPassword] = useState('');
 	const [loginError, setLoginError] = useState(false);
 	const [loginSuccess, setLoginSuccess] = useState(false);
-	const [redirectTo, setRedirectTo] = useState('');
+	
 
 	const validationSchema = Yup.object().shape({
 		user: Yup.string().required('El nombre de usuario es requerido.'),
@@ -28,7 +28,7 @@ const LoginModal = () => {
 		setPassword('');
 		setLoginError(false);
 		setShowModal(false);
-	};
+			};
 
 	const handleShowModal = () => {
 		setShowModal(true);
@@ -36,12 +36,14 @@ const LoginModal = () => {
 
 	const handleLogin = (event) => {
 		event.preventDefault();
+		
 
 		validationSchema
 			.validate({ user, password })
 			.then(() => {
 				state.actions.login(user, password);
 				handleCloseModal();
+				redirect('/')
 				setLoginSuccess(true);
 				setTimeout(() => {
 					setLoginSuccess(false);
@@ -53,10 +55,6 @@ const LoginModal = () => {
 				setLoginError(true);
 			});
 	};
-
-	if (redirectTo) {
-		return <Redirect to={redirectTo} />; // Redireccionar al usuario si hay una ruta establecida
-	}
 
 	return (
 		<>

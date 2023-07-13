@@ -67,6 +67,11 @@ const router = createBrowserRouter([
 				path: '/post',
 				element: <RegisterForm />,
 			},
+			{
+				path: '/put',
+				element: <PetForm />,
+			},
+
 			
 		],
 	},
