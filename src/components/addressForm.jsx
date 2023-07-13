@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { redirect } from 'react-router-dom'
 import { AppContext } from '../routes/App'
 import './formStyles.css'
 import { FaMapMarkerAlt } from 'react-icons/fa'
@@ -110,8 +109,6 @@ const AddressForm = () => {
 
 		if (handleValidation()) {
 			state.actions.createAddress({ street, buildingNumber, departmentNumber, commune, region, hasBackyard })
-			redirect('/')
-			state.actions.createPet({ street, buildingNumber, departmentNumber, commune, region, hasBackyard })
 		}
 	}
 
