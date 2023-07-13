@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { AppContext } from '../routes/App'
 import { PiPawPrintBold } from 'react-icons/pi'
 import { Modal, Button } from 'react-bootstrap'
@@ -22,8 +22,6 @@ const LoginModal = () => {
 			.min(8, 'La contraseña debe tener al menos 8 caracteres.')
 			.max(20, 'La contraseña debe tener como máximo 20 caracteres.'),
 	})
-
-	const history = useHistory()
 
 	const handleCloseModal = () => {
 		setUser('')
