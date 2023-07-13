@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, redirect } from 'react-router-dom'
 import { AppContext } from '../routes/App'
 import { PiPawPrintBold } from 'react-icons/pi'
 import { Modal, Button } from 'react-bootstrap'
@@ -36,7 +36,7 @@ const LoginModal = () => {
 
 	const handleLogin = (event) => {
 		event.preventDefault()
-
+		redirect('/')
 		validationSchema
 			.validate({ user, password })
 			.then(() => {
@@ -45,7 +45,6 @@ const LoginModal = () => {
 				setLoginSuccess(true)
 				setTimeout(() => {
 					setLoginSuccess(false)
-					history.push('/adoption') // Redirigir a la página "/adoption"
 				}, 4000)
 			})
 			.catch((error) => {
