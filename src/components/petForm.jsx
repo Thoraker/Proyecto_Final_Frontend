@@ -26,7 +26,7 @@ const PetForm = () => {
 			age: '',
 			specie: '',
 			size: '',
-			description: '',
+			message: '',
 			needBackyard: false,
 			upForAdoption: false,
 		},
