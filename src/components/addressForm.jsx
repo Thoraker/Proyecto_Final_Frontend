@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { AppContext } from '../routes/App'
+import Data from '../resources/data.json'
 import './formStyles.css'
-import { FaMapMarkerAlt } from 'react-icons/fa'
 
 const AddressForm = () => {
 	const state = useContext(AppContext)
@@ -104,6 +104,15 @@ const AddressForm = () => {
 		return formIsValid
 	}
 
+	const closeForm = () => {
+		setStreet('')
+		setBuildingNumber('')
+		setDepartmentNumber('')
+		setRegion('')
+		setCommune('')
+		setHasBackyard(false)
+	}
+
 	const handleSubmit = (event) => {
 		event.preventDefault()
 
@@ -121,23 +130,35 @@ const AddressForm = () => {
 				}}
 			>
 				<form className='p-3 m-3' onSubmit={handleSubmit}>
-					<h3 className='text-center'>Indícanos la dirección</h3>
+					<div className='formulario-header d-flex justify-content-between align-items-center'>
+						<div className='text-center flex-grow-1'>
+							<h3>
+								Indícanos tu ubicación <i className='bi bi-geo-alt-fill'></i>{' '}
+							</h3>
+						</div>
+						<a
+							href='/'
+							type='button'
+							className='btn-close custom-button'
+							aria-label='Close'
+							onClick={closeForm}
+						></a>
+					</div>
 					<div className='row'>
 						<div className='col-lg-6'>
 							<div className='form-group pb-2'>
 								<input
 									type='text'
 									className='form-control'
-									placeholder='Nombre'
+									placeholder='Calle/Av.'
 									value={street}
 									onChange={(ev) => {
 										setStreet(ev.target.value)
 										progressUpdate()
 									}}
 								/>
-								{errors.street && <div className='error'>{errors.street}</div>}
+								{errors.street && <div className='error error-red'>{errors.street}</div>}
 							</div>
-
 							<div className='form-group pb-2'>
 								<input
 									type='text'
@@ -149,9 +170,10 @@ const AddressForm = () => {
 										progressUpdate()
 									}}
 								/>
-								{errors.buildingNumber && <div className='error'>{errors.buildingNumber}</div>}
+								{errors.buildingNumber && (
+									<div className='error error-red'>{errors.buildingNumber}</div>
+								)}
 							</div>
-
 							<div className='form-group pb-2'>
 								<input
 									type='text'
@@ -163,57 +185,48 @@ const AddressForm = () => {
 										progressUpdate()
 									}}
 								/>
-								{errors.departmentNumber && <div className='error'>{errors.departmentNumber}</div>}
-							</div>
-
-							<div className='form-group pb-2'>
-								<input
-									type='text'
-									className='form-control'
-									placeholder='Comuna'
-									value={commune}
-									onChange={(ev) => {
-										setCommune(ev.target.value)
-										progressUpdate()
-									}}
-								/>
-								{errors.commune && <div className='error'>{errors.commune}</div>}
+								{errors.departmentNumber && (
+									<div className='error error-red'>{errors.departmentNumber}</div>
+								)}
 							</div>
 						</div>
 						<div className='col-lg-6'>
 							<div className='form-group pb-2'>
-								<div className='d-flex align-items-center'>
-									<select
-										className='form-select'
-										value={region}
-										onChange={(ev) => {
-											setRegion(ev.target.value)
-											progressUpdate()
-										}}
-									>
-										<option value='' defaultValue>
-											Selecciona la región <FaMapMarkerAlt />
-										</option>
-										<option value='1'>1 Tarapacá</option>
-										<option value='2'>2 Antofagasta</option>
-										<option value='3'>3 Atacama</option>
-										<option value='4'>4 Coquimbo</option>
-										<option value='5'>5 Valparaiso</option>
-										<option value='6'>6 O`Higgins</option>
-										<option value='7'>7 Maule</option>
-										<option value='8'>8 Bio - Bio</option>
-										<option value='9'>9 Araucania</option>
-										<option value='10'>10 Los Lagos</option>
-										<option value='11'>11 Aysén</option>
-										<option value='12'>12 Magallanes Y Antártica</option>
-										<option value='13'>13 Metropolitana</option>
-										<option value='14'>14 Los Rios</option>
-										<option value='15'>15 Arica y Parinacota</option>
-									</select>
-								</div>
-								{errors.region && <div className='error'>{errors.region}</div>}
+								<select
+									className='form-select'
+									aria-label='Selecciona una Región'
+									value={region}
+									onChange={(e) => setRegion(e.target.value)}
+								>
+									<option value=''>Selecciona la Región</option>
+									{Data.map((region, index) =>
+										region.region_number > 0 ? (
+											<option key={index} value={region.region_number}>
+												{region.region}
+											</option>
+										) : null
+									)}
+								</select>
 							</div>
-
+							<div className='form-group pb-2'>
+								<select
+									className='form-select'
+									aria-label='Selecciona una Comuna'
+									value={commune}
+									onChange={(e) => setCommune(e.target.value)}
+								>
+									<option value=''>Selecciona la Comuna</option>
+									{region === ''
+										? null
+										: Data[region - 1].comunas.map((comuna, index) => {
+												return (
+													<option key={index} value={comuna.code}>
+														{comuna.name}
+													</option>
+												)
+										  })}
+								</select>
+							</div>
 							<div className='form-check my-3'>
 								<input
 									type='checkbox'
@@ -228,7 +241,6 @@ const AddressForm = () => {
 							</div>
 						</div>
 					</div>
-
 					<div
 						className='progress mb-3 pb-2 mx-auto'
 						style={{
@@ -239,7 +251,6 @@ const AddressForm = () => {
 							transformOrigin: 'center',
 						}}
 					></div>
-
 					<div className='pb-2 text-center'>
 						<button
 							type='submit'

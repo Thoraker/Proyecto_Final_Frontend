@@ -2,3 +2,17 @@
     background-color: #d2948b;
     color: white;
 }
+
+.custom-button {
+    border: 2px solid white;
+    border-radius: 6px;
+    width: 30px;
+}
+
+.error-message {
+    color: red;
+}
+
+.error-red {
+    color: red;
+}

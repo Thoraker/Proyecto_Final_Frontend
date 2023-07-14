@@ -5,7 +5,6 @@ import App from './routes/App.jsx'
 import ErrorPage from './routes/ErrorPage'
 import LandingPage from './routes/LandingPage'
 import UserPage from './routes/UserData'
-import PetPage from './routes/PetPage'
 import FoundationsPage from './routes/FoundationsPage'
 import RegisterPage from './routes/RegisterPage'
 import RegisterForm from './components/registerForm'
@@ -65,7 +64,7 @@ const router = createBrowserRouter([
 				element: <RegisterForm />,
 			},
 			{
-				path: '/petF',
+				path: '/put',
 				element: <PetForm />,
 			},
 		],
