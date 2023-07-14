@@ -1,28 +1,5 @@
 [
     {
-        "region": "Arica y Parinacota",
-        "region_number": 15,
-        "region_iso_3166_2": "CL-AP",
-        "comunas": [
-            {
-                "name": "Arica",
-                "code": 115101
-            },
-            {
-                "name": "Camarones",
-                "code": 115102
-            },
-            {
-                "name": "Putre",
-                "code": 115201
-            },
-            {
-                "name": "General Lagos",
-                "code": 115202
-            }
-        ]
-    },
-    {
         "region": "Tarapacá",
         "region_number": 1,
         "region_iso_3166_2": "CL-TA",
@@ -1001,61 +978,6 @@
         ]
     },
     {
-        "region": "Región de los Ríos",
-        "region_number": 14,
-        "region_iso_3166_2": "CL-LR",
-        "comunas": [
-            {
-                "name": "Valdivia",
-                "code": 114101
-            },
-            {
-                "name": "Corral",
-                "code": 114102
-            },
-            {
-                "name": "Lanco",
-                "code": 114103
-            },
-            {
-                "name": "Los Lagos",
-                "code": 114104
-            },
-            {
-                "name": "Máfil",
-                "code": 114105
-            },
-            {
-                "name": "Mariquina",
-                "code": 114106
-            },
-            {
-                "name": "Paillaco",
-                "code": 114107
-            },
-            {
-                "name": "Panguipulli",
-                "code": 114108
-            },
-            {
-                "name": "La Unión",
-                "code": 114201
-            },
-            {
-                "name": "Futrono",
-                "code": 114202
-            },
-            {
-                "name": "Lago Ranco",
-                "code": 114203
-            },
-            {
-                "name": "Río Bueno",
-                "code": 114204
-            }
-        ]
-    },
-    {
         "region": "Región de los Lagos",
         "region_number": 10,
         "region_iso_3166_2": "CL-LL",
@@ -1492,6 +1414,84 @@
             {
                 "name": "Peñaflor",
                 "code": 113605
+            }
+        ]
+    },
+    {
+        "region": "Región de los Ríos",
+        "region_number": 14,
+        "region_iso_3166_2": "CL-LR",
+        "comunas": [
+            {
+                "name": "Valdivia",
+                "code": 114101
+            },
+            {
+                "name": "Corral",
+                "code": 114102
+            },
+            {
+                "name": "Lanco",
+                "code": 114103
+            },
+            {
+                "name": "Los Lagos",
+                "code": 114104
+            },
+            {
+                "name": "Máfil",
+                "code": 114105
+            },
+            {
+                "name": "Mariquina",
+                "code": 114106
+            },
+            {
+                "name": "Paillaco",
+                "code": 114107
+            },
+            {
+                "name": "Panguipulli",
+                "code": 114108
+            },
+            {
+                "name": "La Unión",
+                "code": 114201
+            },
+            {
+                "name": "Futrono",
+                "code": 114202
+            },
+            {
+                "name": "Lago Ranco",
+                "code": 114203
+            },
+            {
+                "name": "Río Bueno",
+                "code": 114204
+            }
+        ]
+    },
+    {
+        "region": "Arica y Parinacota",
+        "region_number": 15,
+        "region_iso_3166_2": "CL-AP",
+        "comunas": [
+            {
+                "name": "Arica",
+                "code": 115101
+            },
+            {
+                "name": "Camarones",
+                "code": 115102
+            },
+            {
+                "name": "Putre",
+                "code": 115201
+            },
+            {
+                "name": "General Lagos",
+                "code": 115202
             }
         ]
     }

@@ -5,16 +5,13 @@ import App from './routes/App.jsx'
 import ErrorPage from './routes/ErrorPage'
 import LandingPage from './routes/LandingPage'
 import UserPage from './routes/UserData'
-import PetPage from './routes/PetPage'
 import FoundationsPage from './routes/FoundationsPage'
 import RegisterPage from './routes/RegisterPage'
 import RegisterForm from './components/registerForm'
 import AdoptMe from './routes/AdoptMe'
 import './index.css'
-import AddressPage from './routes/AddressPage.jsx'
 import PetForm from './components/petForm.jsx'
 import PetCard from './components/petCard.jsx'
-import InviteFriends from './components/inviteFriends.jsx'
 import LoginModal from './components/login.jsx'
 import AddressForm from './components/addressForm.jsx'
 import NewAddressForm from './components/newAddressForm.jsx'
@@ -68,9 +65,11 @@ const router = createBrowserRouter([
 				element: <RegisterForm />,
 			},
 			{
-				path: '/petF',
+				path: '/put',
 				element: <PetForm />,
 			},
+
+			
 		],
 	},
 ])

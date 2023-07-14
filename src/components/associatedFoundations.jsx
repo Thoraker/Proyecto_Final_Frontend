@@ -4,10 +4,10 @@ import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 const AssociatedFoundations = () => {
 	const foundations = [
 		{
-			name: 'Garras y Patas',
-			photo: 'https://lh3.googleusercontent.com/p/AF1QipPLNcjJt9AUQUPdXdoNOntu_GNu9RzWUwRyXZPm=s1360-w1360-h1020',
+			name: 'Bunny Lovers',
+			photo: 'https://w0.peakpx.com/wallpaper/693/654/HD-wallpaper-bunny-animal-conejo-fun-mascota-pet-rabbit-tierno.jpg',
 			description: 'Breve descripción de la fundación A.',
-			webpage: 'https://www.garrasypatas.cl/',
+			webpage: 'https://bunnylovers.cl/',
 		},
 		{
 			name: 'Huella Animal',

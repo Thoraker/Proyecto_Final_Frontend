@@ -64,11 +64,9 @@ const LoginModal = () => {
 					Log in
 				</Button>
 			</div>
-
 			<Modal show={showModal} onHide={handleCloseModal} centered id='Log'>
 				<Modal.Header closeButton onClick={handleCloseModal}>
 					<Modal.Title className='text-center'>Iniciar sesión</Modal.Title>
-
 					{loginSuccess && (
 						<div className='alert alert-success' role='alert'>
 							Login exitoso!
@@ -94,8 +92,6 @@ const LoginModal = () => {
 									placeholder='Nombre de Usuario'
 									value={user}
 									onChange={(ev) => setUser(ev.target.value)}
-									onFocus={() => setUserFocused(true)}
-									onBlur={() => setUserFocused(false)}
 								/>
 							</div>
 							<div className='row py-3'>

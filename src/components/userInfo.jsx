@@ -33,7 +33,7 @@ const UserInfo = () => {
 						</div>
 						<p className='card-text'>
 							<small className='text-body-secondary'>
-								Si quieres modificar tu contraseña presiona <Link to='/forgotten'>aquí</Link>
+								Modificar contraseña <Link to='/forgotten'>aquí</Link>
 							</small>
 						</p>
 					</div>

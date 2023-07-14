@@ -9,6 +9,15 @@ const PetForm = () => {
 	const state = useContext(AppContext)
 	const [progress, setProgress] = useState(0)
 	const [successMessage, setSuccessMessage] = useState('')
+	const [mostrarFormulario, setMostrarFormulario] = useState(true);
+
+	const cerrarFormulario = () => {
+		setMostrarFormulario(false);
+	};
+
+	if (!mostrarFormulario) {
+		return null; // No muestra el formulario si mostrarFormulario es false
+	}
 
 	const validationSchema = Yup.object().shape({
 		name: Yup.string().required('El nombre es requerido.'),
@@ -30,7 +39,7 @@ const PetForm = () => {
 		},
 		validationSchema,
 		onSubmit: (values) => {
-			state.actions.createPet(values.name, values.age, values.specie, values.size, values.description)
+			state.actions.createPet(values)
 			setSuccessMessage('Se ha publicado tu mascota')
 			setTimeout(() => {
 				// Redireccionar al usuario a otra página aquí
@@ -43,8 +52,8 @@ const PetForm = () => {
 	}, [formik.values])
 
 	const progressUpdate = () => {
-		const { name, age, specie, size, description } = formik.values
-		const fullFields = [name, age, specie, size, description]
+		const { name, age, specie, size, message } = formik.values
+		const fullFields = [name, age, specie, size, message]
 		const newProgress = (fullFields.filter((field) => field !== '').length / 5) * 100
 		setProgress(newProgress)
 	}
@@ -58,7 +67,18 @@ const PetForm = () => {
 				}}
 			>
 				<form className='p-3 m-3' onSubmit={formik.handleSubmit}>
-					<h3 className='text-center'>Cuéntanos acerca de la Mascota</h3>
+					<div className="formulario-header d-flex justify-content-between align-items-center">
+						<div className="text-center flex-grow-1">
+							<h3>Cuéntanos acerca de la Mascota</h3>
+						</div>
+						<a href="/"
+							type="button"
+							className="btn-close custom-button"
+							aria-label="Close"
+							onClick={cerrarFormulario}
+						></a>
+					</div>
+
 					<div className='form-group pb-2'>
 						<input
 							type='text'
