@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { AppContext } from '../routes/App'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
@@ -9,8 +8,6 @@ const RegisterForm = () => {
 	const state = useContext(AppContext)
 	const [progress, setProgress] = useState(0)
 	const [successMessage, setSuccessMessage] = useState('')
-	const navigate = useNavigate()
-
 	const validationSchema = Yup.object().shape({
 		userName: Yup.string()
 			.required('El nombre de usuario es requerido.')
@@ -30,6 +27,11 @@ const RegisterForm = () => {
 		lastName: Yup.string().required('El apellido es requerido.'),
 		avatar: Yup.string().required('Elige un avatar.'),
 	})
+
+	const closeForm = () => {
+
+
+	}
 
 	const formik = useFormik({
 		initialValues: {
@@ -66,7 +68,17 @@ const RegisterForm = () => {
 				}}
 			>
 				<form className='p-3 m-3' onSubmit={formik.handleSubmit} autoComplete='off'>
-					<h3 className='text-center'>Regístrate</h3>
+					<div className="formulario-header d-flex justify-content-between align-items-center">
+						<div className="text-center flex-grow-1">
+							<h3>Registrate</h3>
+						</div>
+						<a href="/"
+							type="button"
+							className="btn-close custom-button"
+							aria-label="Close"
+							onClick={closeForm}
+						></a>
+					</div>				
 					<div className='row'>
 						<div className='col-lg-4'>
 							<img
@@ -89,7 +101,6 @@ const RegisterForm = () => {
 									<div className='error-message'>{formik.errors.userName}</div>
 								)}
 							</div>
-
 							<div className='form-group pb-2'>
 								<input
 									type='text'
@@ -103,7 +114,6 @@ const RegisterForm = () => {
 									<div className='error-message'>{formik.errors.email}</div>
 								)}
 							</div>
-
 							<div className='form-group pb-2'>
 								<input
 									type='password'
@@ -117,7 +127,6 @@ const RegisterForm = () => {
 									<div className='error-message'>{formik.errors.password}</div>
 								)}
 							</div>
-
 							<div className='form-group pb-2'>
 								<input
 									type='text'
@@ -131,7 +140,6 @@ const RegisterForm = () => {
 									<div className='error-message'>{formik.errors.firstName}</div>
 								)}
 							</div>
-
 							<div className='form-group pb-2'>
 								<input
 									type='text'
@@ -145,7 +153,6 @@ const RegisterForm = () => {
 									<div className='error-message'>{formik.errors.lastName}</div>
 								)}
 							</div>
-
 							<div className='form-group pb-2'>
 								<select
 									className='form-select me-2'
@@ -186,7 +193,6 @@ const RegisterForm = () => {
 							transformOrigin: 'center',
 						}}
 					></div>
-
 					<div className='pb-2 text-center'>
 						<button
 							type='submit'
