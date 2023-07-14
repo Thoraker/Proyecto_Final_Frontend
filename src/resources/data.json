@@ -1,28 +1,5 @@
 [
     {
-        "region": "Arica y Parinacota",
-        "region_number": 15,
-        "region_iso_3166_2": "CL-AP",
-        "comunas": [
-            {
-                "name": "Arica",
-                "code": 115101
-            },
-            {
-                "name": "Camarones",
-                "code": 115102
-            },
-            {
-                "name": "Putre",
-                "code": 115201
-            },
-            {
-                "name": "General Lagos",
-                "code": 115202
-            }
-        ]
-    },
-    {
         "region": "Tarapacá",
         "region_number": 1,
         "region_iso_3166_2": "CL-TA",
@@ -636,97 +613,6 @@
         ]
     },
     {
-        "region": "Región de Ñuble",
-        "region_number": 16,
-        "region_iso_3166_2": "CL-NB",
-        "comunas": [
-            {
-                "name": "Chillán",
-                "code": 116101
-            },
-            {
-                "name": "Chillán Viejo",
-                "code": 116102
-            },
-            {
-                "name": "Quillón",
-                "code": 116103
-            },
-            {
-                "name": "Bulnes",
-                "code": 116104
-            },
-            {
-                "name": "San Ignacio",
-                "code": 116105
-            },
-            {
-                "name": "El Carmen",
-                "code": 116106
-            },
-            {
-                "name": "Pinto",
-                "code": 116107
-            },
-            {
-                "name": "Pemuco",
-                "code": 116108
-            },
-            {
-                "name": "Yungay",
-                "code": 116109
-            },
-            {
-                "name": "Quirihue",
-                "code": 116201
-            },
-            {
-                "name": "Cobquecura",
-                "code": 116202
-            },
-            {
-                "name": "Ninhue",
-                "code": 116203
-            },
-            {
-                "name": "Treguaco",
-                "code": 116204
-            },
-            {
-                "name": "Coelemu",
-                "code": 116205
-            },
-            {
-                "name": "Portezuelo",
-                "code": 116206
-            },
-            {
-                "name": "Ránqui",
-                "code": 116207
-            },
-            {
-                "name": "San Carlos",
-                "code": 116301
-            },
-            {
-                "name": "Ñiquén",
-                "code": 116302
-            },
-            {
-                "name": "Coihueco",
-                "code": 116303
-            },
-            {
-                "name": "San Fabián",
-                "code": 116304
-            },
-            {
-                "name": "San Nico",
-                "code": 116305
-            }
-        ]
-    },
-    {
         "region": "Región del Biobío",
         "region_number": 8,
         "region_iso_3166_2": "CL-BI",
@@ -997,61 +883,6 @@
             {
                 "name": "Victoria",
                 "code": 109211
-            }
-        ]
-    },
-    {
-        "region": "Región de los Ríos",
-        "region_number": 14,
-        "region_iso_3166_2": "CL-LR",
-        "comunas": [
-            {
-                "name": "Valdivia",
-                "code": 114101
-            },
-            {
-                "name": "Corral",
-                "code": 114102
-            },
-            {
-                "name": "Lanco",
-                "code": 114103
-            },
-            {
-                "name": "Los Lagos",
-                "code": 114104
-            },
-            {
-                "name": "Máfil",
-                "code": 114105
-            },
-            {
-                "name": "Mariquina",
-                "code": 114106
-            },
-            {
-                "name": "Paillaco",
-                "code": 114107
-            },
-            {
-                "name": "Panguipulli",
-                "code": 114108
-            },
-            {
-                "name": "La Unión",
-                "code": 114201
-            },
-            {
-                "name": "Futrono",
-                "code": 114202
-            },
-            {
-                "name": "Lago Ranco",
-                "code": 114203
-            },
-            {
-                "name": "Río Bueno",
-                "code": 114204
             }
         ]
     },
@@ -1492,6 +1323,175 @@
             {
                 "name": "Peñaflor",
                 "code": 113605
+            }
+        ]
+    },
+    {
+        "region": "Región de los Ríos",
+        "region_number": 14,
+        "region_iso_3166_2": "CL-LR",
+        "comunas": [
+            {
+                "name": "Valdivia",
+                "code": 114101
+            },
+            {
+                "name": "Corral",
+                "code": 114102
+            },
+            {
+                "name": "Lanco",
+                "code": 114103
+            },
+            {
+                "name": "Los Lagos",
+                "code": 114104
+            },
+            {
+                "name": "Máfil",
+                "code": 114105
+            },
+            {
+                "name": "Mariquina",
+                "code": 114106
+            },
+            {
+                "name": "Paillaco",
+                "code": 114107
+            },
+            {
+                "name": "Panguipulli",
+                "code": 114108
+            },
+            {
+                "name": "La Unión",
+                "code": 114201
+            },
+            {
+                "name": "Futrono",
+                "code": 114202
+            },
+            {
+                "name": "Lago Ranco",
+                "code": 114203
+            },
+            {
+                "name": "Río Bueno",
+                "code": 114204
+            }
+        ]
+    },
+    {
+        "region": "Arica y Parinacota",
+        "region_number": 15,
+        "region_iso_3166_2": "CL-AP",
+        "comunas": [
+            {
+                "name": "Arica",
+                "code": 115101
+            },
+            {
+                "name": "Camarones",
+                "code": 115102
+            },
+            {
+                "name": "Putre",
+                "code": 115201
+            },
+            {
+                "name": "General Lagos",
+                "code": 115202
+            }
+        ]
+    },
+    {
+        "region": "Región de Ñuble",
+        "region_number": 16,
+        "region_iso_3166_2": "CL-NB",
+        "comunas": [
+            {
+                "name": "Chillán",
+                "code": 116101
+            },
+            {
+                "name": "Chillán Viejo",
+                "code": 116102
+            },
+            {
+                "name": "Quillón",
+                "code": 116103
+            },
+            {
+                "name": "Bulnes",
+                "code": 116104
+            },
+            {
+                "name": "San Ignacio",
+                "code": 116105
+            },
+            {
+                "name": "El Carmen",
+                "code": 116106
+            },
+            {
+                "name": "Pinto",
+                "code": 116107
+            },
+            {
+                "name": "Pemuco",
+                "code": 116108
+            },
+            {
+                "name": "Yungay",
+                "code": 116109
+            },
+            {
+                "name": "Quirihue",
+                "code": 116201
+            },
+            {
+                "name": "Cobquecura",
+                "code": 116202
+            },
+            {
+                "name": "Ninhue",
+                "code": 116203
+            },
+            {
+                "name": "Treguaco",
+                "code": 116204
+            },
+            {
+                "name": "Coelemu",
+                "code": 116205
+            },
+            {
+                "name": "Portezuelo",
+                "code": 116206
+            },
+            {
+                "name": "Ránqui",
+                "code": 116207
+            },
+            {
+                "name": "San Carlos",
+                "code": 116301
+            },
+            {
+                "name": "Ñiquén",
+                "code": 116302
+            },
+            {
+                "name": "Coihueco",
+                "code": 116303
+            },
+            {
+                "name": "San Fabián",
+                "code": 116304
+            },
+            {
+                "name": "San Nico",
+                "code": 116305
             }
         ]
     }

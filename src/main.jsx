@@ -14,7 +14,7 @@ import './index.css'
 import PetForm from './components/petForm.jsx'
 import LoginModal from './components/login.jsx'
 import AddressForm from './components/addressForm.jsx'
-import NewAddressForm from './components/newAddressForm.jsx'
+import HomePage2 from './components/homePrueba.jsx'
 const domNode = document.getElementById('root')
 const root = createRoot(domNode)
 
@@ -58,7 +58,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: '/prueba',
-				element: <NewAddressForm />,
+				element: <HomePage2 />,
 			},
 			{
 				path: '/post',

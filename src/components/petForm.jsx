@@ -13,8 +13,8 @@ const PetForm = () => {
 	const validationSchema = Yup.object().shape({
 		name: Yup.string().required('El nombre es requerido.'),
 		age: Yup.string().required('La edad es requerida.'),
-		specie: Yup.string().required('La especie es requerida.'),
-		size: Yup.string().required('El tamaño es requerido.'),
+		specie: Yup.number().required('La especie es requerida.'),
+		size: Yup.number().required('El tamaño es requerido.'),
 		message: Yup.string().required('La descripción es requerida.'),
 	})
 
@@ -30,7 +30,7 @@ const PetForm = () => {
 		},
 		validationSchema,
 		onSubmit: (values) => {
-			state.actions.createPet(values.name, values.age, values.specie, values.size, values.description)
+			state.actions.createPet(values)
 			setSuccessMessage('Se ha publicado tu mascota')
 			setTimeout(() => {
 				// Redireccionar al usuario a otra página aquí

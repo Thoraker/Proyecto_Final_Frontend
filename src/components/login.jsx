@@ -56,14 +56,10 @@ const LoginModal = () => {
 
 	return (
 		<>
-			<div style={{ paddingTop: '8rem' }}>
-				<Button
-					variant='primary'
-					onClick={handleShowModal}
-					className='btn border border-success bg-transparent text-success fw-bold fst-italic'
-				>
-					Log in
-				</Button>
+			<div>
+				<Link className='dropdown-item' to='/' onClick={handleShowModal}>
+					Login
+				</Link>
 			</div>
 
 			<Modal show={showModal} onHide={handleCloseModal} centered id='Log'>
