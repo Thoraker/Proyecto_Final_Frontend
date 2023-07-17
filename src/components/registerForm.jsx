@@ -47,7 +47,7 @@ const RegisterForm = () => {
 			setTimeout(() => {
 				setSuccessMessage('')
 				// Redireccionar al usuario a otra página aquí
-				navigate('/')
+				redirect('/')
 			}, 5000)
 		},
 	})
@@ -61,7 +61,7 @@ const RegisterForm = () => {
 	return (
 		<div className='container-fluid'>
 			<div
-				className='container fst-italic rounded-3 gradiente100'
+				className='container fst-italic rounded-3 gradiente100 shadow-lg'
 				// style={{
 				// 	background: 'linear-gradient(90deg, rgba(234,225,224,1) 34%, rgba(181,96,82,1) 98%)',
 				// }}
@@ -69,7 +69,7 @@ const RegisterForm = () => {
 				<form className='p-3 m-3' onSubmit={formik.handleSubmit} autoComplete='off'>
 					<div className='formulario-header d-flex justify-content-between align-items-center'>
 						<div className='text-center flex-grow-1'>
-							<h3>Registrate</h3>
+							<h3>Regístrate</h3>
 						</div>
 						<a
 							href='/'

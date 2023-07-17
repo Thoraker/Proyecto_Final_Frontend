@@ -39,7 +39,7 @@ body {
 }
 
 .navbar {
-    height: 75px;
+    height: 50px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
@@ -83,4 +83,20 @@ body {
 
 .gradiente60 {
     background: linear-gradient(135deg, rgba(102, 205, 170, 0.6), rgba(119, 201, 212, 0.6)) !important;
+}
+
+.feather {
+    background-color: rgb(119, 201, 212) !important;
+}
+
+.marine {
+    background-color: rgb(87, 188, 144) !important;
+}
+
+.forest {
+    background-color: rgb(1, 82, 73) !important;
+}
+
+.sleekGray {
+    background-color: #a5a5af !important;
 }

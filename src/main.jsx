@@ -13,6 +13,7 @@ import AdoptMe from './routes/AdoptMe'
 import AddressForm from './components/addressForm.jsx'
 import PetPage from './routes/PetPage.jsx'
 import HomePage from './components/homePrueba.jsx'
+import InvitePage from './routes/InvitePage'
 
 const domNode = document.getElementById('root')
 const root = createRoot(domNode)
@@ -52,8 +53,8 @@ const router = createBrowserRouter([
 				element: <UserPage />,
 			},
 			{
-				path: '/prueba',
-				element: <HomePage />,
+				path: '/invite',
+				element: <InvitePage />,
 			},
 			{
 				path: '/post',

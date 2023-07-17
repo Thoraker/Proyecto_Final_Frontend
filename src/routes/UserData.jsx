@@ -23,7 +23,7 @@ const UserPage = () => {
 	}, [state.store.direcciones, state.store.mascotas])
 
 	return (
-		<div className='card col-10 my-3' style={{ backgroundColor: '#A5A5AF' }}>
+		<div className='card col m-5  sleekGray'>
 			<ul className='nav nav-pills m-3' id='pills-tab' role='tablist'>
 				<li className='nav-item' role='presentation'>
 					<button

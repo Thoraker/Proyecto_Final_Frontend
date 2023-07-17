@@ -60,7 +60,7 @@ const PetForm = () => {
 	return (
 		<div className='container p-5'>
 			<div
-				className='container fst-italic rounded-3 gradiente100'
+				className='container fst-italic rounded-3 gradiente100 shadow'
 				// style={{
 				// 	background: 'linear-gradient(90deg, rgba(234,225,224,1) 34%, rgba(181,96,82,1) 98%)',
 				// }}

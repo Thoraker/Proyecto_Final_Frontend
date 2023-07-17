@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom'
 import UserDropdown from './UserDropdown'
 import NoUserDropdown from './NoUserDropdown'
 import { AppContext } from '../routes/App'
+import InviteFriends from './inviteFriends'
 
 const Navbar = () => {
 	const state = useContext(AppContext)
 
 	return (
-		<nav className='navbar navbar-expand-lg fixed-top mt-0 mt-lg-3 pt-0 pt-lg-3'>
-			<div className='container-fluid justify-content-between'>
+		<nav className='navbar navbar-expand-lg fixed-top mt-0 mt-lg-3 pt-0 pt-lg-3 '>
+			<div className='container-fluid justify-content-between shadow'>
 				<button
 					className='navbar-toggler'
 					type='button'
@@ -21,7 +22,7 @@ const Navbar = () => {
 					<span className='navbar-toggler-icon'></span>
 				</button>
 				<div className='col d-flex text-center' id='logo'>
-					<Link className='navbar-brand fs-1 fw-bold fst-italic m-3 mx-auto lh-1' to='/'>
+					<Link className='navbar-brand fs-2 fw-bold fst-italic m-3 mx-auto lh-1 text-wrap' to='/'>
 						<span style={{ fontSize: '50px' }}>Dame</span> <br />
 						una Pata
 					</Link>
@@ -49,9 +50,7 @@ const Navbar = () => {
 							</Link>
 						</li>
 						<li className='nav-item'>
-							<Link to='/invite' className='nav-link'>
-								Invitar <i className='bi bi-share-fill'></i>
-							</Link>
+							<InviteFriends />
 						</li>
 					</ul>
 				</div>
