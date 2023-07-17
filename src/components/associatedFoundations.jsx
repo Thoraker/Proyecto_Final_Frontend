@@ -5,7 +5,7 @@ const AssociatedFoundations = () => {
 	const foundations = [
 		{
 			name: 'Bunny Lovers',
-			photo: 'https://w0.peakpx.com/wallpaper/693/654/HD-wallpaper-bunny-animal-conejo-fun-mascota-pet-rabbit-tierno.jpg',
+			photo: 'src/assets/Rebe.jpg',
 			description: 'Breve descripción de la fundación A.',
 			webpage: 'https://bunnylovers.cl/',
 		},

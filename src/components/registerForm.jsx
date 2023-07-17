@@ -70,7 +70,7 @@ const RegisterForm = () => {
 				<form className='p-3 m-3' onSubmit={formik.handleSubmit} autoComplete='off'>
 					<div className="formulario-header d-flex justify-content-between align-items-center">
 						<div className="text-center flex-grow-1">
-							<h3>Registrate</h3>
+							<h3>Regístrate</h3>
 						</div>
 						<a href="/"
 							type="button"

@@ -32,8 +32,7 @@ const InviteFriends = () => {
                     className="btn border border-success bg-transparent text-success fw-bold fst-italic">
                     Invite Friends
                 </Button>
-            </div>
-            
+            </div>            
             <Modal show={showModal} onHide={handleCloseModal}>
                 <Modal.Header closeButton className="text-center">
                     <Modal.Title className="mx-auto">Invite friends</Modal.Title>

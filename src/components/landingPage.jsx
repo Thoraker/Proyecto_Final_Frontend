@@ -5,7 +5,7 @@ import { PiPawPrintBold } from 'react-icons/pi';
 
 const Pagina = () => {
 	return (
-		<div className='d-flex justify-content-center vh-100'>
+		<div className='d-flex justify-content-center vh-100 p-5'>
 			<div className='container'>
 				<div className='row vh-100 justify-content-center align-items-center'>
 					<div className='col-lg-7'>
