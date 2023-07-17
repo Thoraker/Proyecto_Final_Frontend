@@ -23,8 +23,8 @@ const UserPage = () => {
 	}, [state.store.direcciones, state.store.mascotas])
 
 	return (
-		<div className='card' style={{ paddingTop: '6rem' }}>
-			<ul className='nav nav-pills mb-3' id='pills-tab' role='tablist'>
+		<div className='card col-10 my-3' style={{ backgroundColor: '#A5A5AF' }}>
+			<ul className='nav nav-pills m-3' id='pills-tab' role='tablist'>
 				<li className='nav-item' role='presentation'>
 					<button
 						className='nav-link active'
@@ -78,7 +78,7 @@ const UserPage = () => {
 						aria-controls='pills-disabled'
 						aria-selected='false'
 					>
-						Mensajes <i className="bi bi-chat-text-fill"></i>
+						Mensajes <i className='bi bi-chat-text-fill'></i>
 					</button>
 				</li>
 			</ul>
