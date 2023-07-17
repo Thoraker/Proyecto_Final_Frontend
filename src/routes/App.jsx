@@ -20,7 +20,7 @@ const App = () => {
 
 	useEffect(() => {
 		state.actions.loadInitialData()
-	}, [])
+	}, [state.store.usuario])
 
 	return (
 		<AppContext.Provider value={state}>

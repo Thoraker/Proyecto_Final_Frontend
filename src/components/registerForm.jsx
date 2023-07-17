@@ -2,9 +2,10 @@ import React, { useState, useContext, useEffect } from 'react'
 import { AppContext } from '../routes/App'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { redirect } from 'react-router-dom'
+import { redirect, useNavigate } from 'react-router-dom'
 
 const RegisterForm = () => {
+	const navigate = useNavigate()
 	const state = useContext(AppContext)
 	const [progress, setProgress] = useState(0)
 	const [successMessage, setSuccessMessage] = useState('')
@@ -46,7 +47,7 @@ const RegisterForm = () => {
 			setTimeout(() => {
 				setSuccessMessage('')
 				// Redireccionar al usuario a otra página aquí
-				redirect('/')
+				navigate('/')
 			}, 5000)
 		},
 	})
