@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import { AppContext } from '../routes/App'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { redirect, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const RegisterForm = () => {
 	const navigate = useNavigate()

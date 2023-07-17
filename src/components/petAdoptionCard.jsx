@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react'
 import Carousel from './carousel'
 import PropTypes from 'prop-types'
 import { AppContext } from '../routes/App'
-import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 
 const PetAdoptionCard = ({ pet }) => {
@@ -76,7 +75,7 @@ const PetAdoptionCard = ({ pet }) => {
 						)
 					})}
 				</Modal.Body>
-				<Modal.Footer className='gradiente100 shadow rounded'>
+				<Modal.Body className='gradiente100 rounded-bottom shadow'>
 					<form
 						className='form-group'
 						onSubmit={(e) => {
@@ -97,7 +96,7 @@ const PetAdoptionCard = ({ pet }) => {
 							Enviar
 						</button>
 					</form>
-				</Modal.Footer>
+				</Modal.Body>
 			</Modal>
 		</div>
 	)

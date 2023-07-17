@@ -1,5 +1,4 @@
 import React from 'react'
-
 import UserInfo from '../components/userData'
 
 const UserData = () => {
