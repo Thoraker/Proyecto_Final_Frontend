@@ -1,5 +1,5 @@
-import React from 'react';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import React from 'react'
+import { Container, Row, Col, Card, Button } from 'react-bootstrap'
 
 const AssociatedFoundations = () => {
 	const foundations = [
@@ -27,10 +27,10 @@ const AssociatedFoundations = () => {
 		// 	description: 'Breve descripción de la fundación D.',
 		// 	webpage: 'www.foundationD.com',
 		// },
-	];
+	]
 
 	const tarjetas = foundations.map((foundation, index) => (
-		<Col key={index} xs={12} md={6} lg={4} className="mb-4">
+		<Col key={index} xs={12} md={6} lg={4} className='mb-4'>
 			<Card className='bg-light'>
 				<Card.Header>
 					<Card.Title className='text-center'>{foundation.name}</Card.Title>
@@ -46,15 +46,14 @@ const AssociatedFoundations = () => {
 				</Card.Footer>
 			</Card>
 		</Col>
-	));
+	))
 
 	return (
 		<Container
 			fluid
-			className='vh-100 d-flex flex-column justify-content-center'
+			className='w-100 d-flex flex-column justify-content-center'
 			style={{
 				background: 'linear-gradient(90deg, rgba(234,225,224,1) 34%, rgba(181,96,82,1) 98%)',
-				paddingTop: '6rem',
 			}}
 		>
 			<div>
@@ -70,11 +69,9 @@ const AssociatedFoundations = () => {
 				</h5>
 			</div>
 
-			<Row className='text-center'>
-				{tarjetas}
-			</Row>
+			<Row className='text-center'>{tarjetas}</Row>
 		</Container>
-	);
-};
+	)
+}
 
-export default AssociatedFoundations;
+export default AssociatedFoundations

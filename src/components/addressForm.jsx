@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { AppContext } from '../routes/App'
 import Data from '../resources/data.json'
-import './formStyles.css'
 
 const AddressForm = () => {
 	const state = useContext(AppContext)
@@ -124,10 +123,10 @@ const AddressForm = () => {
 	return (
 		<div className='container pt-5'>
 			<div
-				className='container fst-italic rounded-3'
-				style={{
-					background: 'linear-gradient(90deg, rgba(234,225,224,1) 34%, rgba(181,96,82,1) 98%)',
-				}}
+				className='container fst-italic rounded-3 gradiente100'
+				// style={{
+				// 	background: 'linear-gradient(90deg, rgba(234,225,224,1) 34%, rgba(181,96,82,1) 98%)',
+				// }}
 			>
 				<form className='p-3 m-3' onSubmit={handleSubmit}>
 					<div className='formulario-header d-flex justify-content-between align-items-center'>

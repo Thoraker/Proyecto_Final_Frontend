@@ -24,13 +24,11 @@ const App = () => {
 
 	return (
 		<AppContext.Provider value={state}>
-			<div className='container-fluid'>
-				<div className='row'>
-					<Navbar />
-				</div>
-				<div className='row'>
-					<Outlet />
-				</div>
+			<div className='container'>
+				<Navbar />
+			</div>
+			<div className='row'>
+				<Outlet />
 			</div>
 		</AppContext.Provider>
 	)

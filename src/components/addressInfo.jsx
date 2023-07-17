@@ -1,43 +1,18 @@
 import React, { useContext, useState } from 'react'
 import { AppContext } from '../routes/App'
 import { Link } from 'react-router-dom'
+import Data from '../resources/data.json'
 
 const AddressInfo = () => {
 	const state = useContext(AppContext)
 	const [address, setAddress] = useState(0)
 
-	const Region = (region) => {
-		if (region === 1) {
-			return 'Tarapacá'
-		} else if (region === 2) {
-			return 'Antofagasta'
-		} else if (region === 3) {
-			return 'Atacama'
-		} else if (region === 4) {
-			return 'Coquimbo'
-		} else if (region === 5) {
-			return 'Valparaiso'
-		} else if (region === 6) {
-			return 'O`Higgins'
-		} else if (region === 7) {
-			return 'Maule'
-		} else if (region === 8) {
-			return 'Bio - Bio'
-		} else if (region === 9) {
-			return 'Araucania'
-		} else if (region === 10) {
-			return 'Los Lagos'
-		} else if (region === 11) {
-			return 'Aysén'
-		} else if (region === 12) {
-			return 'Magallanes Y Antártica'
-		} else if (region === 13) {
-			return 'Metropolitana'
-		} else if (region === 14) {
-			return 'Los Rios'
-		} else if (region === 15) {
-			return 'Arica y Parinacota'
-		}
+	const Region = (regionNumber) => {
+		return Data[regionNumber - 1].region
+	}
+
+	const Comuna = (region, comuna) => {
+		return Data[region - 1].comunas.find((com) => com.code === comuna).name
 	}
 
 	return (
@@ -79,7 +54,10 @@ const AddressInfo = () => {
 								{state.store.direcciones[address].street} {state.store.direcciones[address].number}
 							</h4>
 							<h5 className='card-subtitle m-3 text-body-secondary'>
-								{state.store.direcciones[address].commune}
+								{Comuna(
+									state.store.direcciones[address].region,
+									state.store.direcciones[address].commune
+								)}
 							</h5>
 							<p className='card-text'>
 								Departamento : {state.store.direcciones[address].department_number}

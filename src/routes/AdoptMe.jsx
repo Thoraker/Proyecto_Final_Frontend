@@ -3,7 +3,7 @@ import ForAdoption from '../components/forAdoption'
 
 const AdoptMe = () => {
 	return (
-		<div className='container-fluid' style={{ paddingTop: '6rem' }}>
+		<div className='container-fluid'>
 			<ForAdoption />
 		</div>
 	)

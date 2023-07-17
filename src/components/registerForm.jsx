@@ -2,9 +2,10 @@ import React, { useState, useContext, useEffect } from 'react'
 import { AppContext } from '../routes/App'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import './formStyles.css'
+import { redirect, useNavigate } from 'react-router-dom'
 
 const RegisterForm = () => {
+	const navigate = useNavigate()
 	const state = useContext(AppContext)
 	const [progress, setProgress] = useState(0)
 	const [successMessage, setSuccessMessage] = useState('')
@@ -28,10 +29,7 @@ const RegisterForm = () => {
 		avatar: Yup.string().required('Elige un avatar.'),
 	})
 
-	const closeForm = () => {
-
-
-	}
+	const closeForm = () => {}
 
 	const formik = useFormik({
 		initialValues: {
@@ -49,6 +47,7 @@ const RegisterForm = () => {
 			setTimeout(() => {
 				setSuccessMessage('')
 				// Redireccionar al usuario a otra página aquí
+				navigate('/')
 			}, 5000)
 		},
 	})
@@ -62,28 +61,33 @@ const RegisterForm = () => {
 	return (
 		<div className='container-fluid'>
 			<div
-				className='container fst-italic rounded-3'
-				style={{
-					background: 'linear-gradient(90deg, rgba(234,225,224,1) 34%, rgba(181,96,82,1) 98%)',
-				}}
+				className='container fst-italic rounded-3 gradiente100'
+				// style={{
+				// 	background: 'linear-gradient(90deg, rgba(234,225,224,1) 34%, rgba(181,96,82,1) 98%)',
+				// }}
 			>
 				<form className='p-3 m-3' onSubmit={formik.handleSubmit} autoComplete='off'>
-					<div className="formulario-header d-flex justify-content-between align-items-center">
-						<div className="text-center flex-grow-1">
+					<div className='formulario-header d-flex justify-content-between align-items-center'>
+						<div className='text-center flex-grow-1'>
 							<h3>Registrate</h3>
 						</div>
-						<a href="/"
-							type="button"
-							className="btn-close custom-button"
-							aria-label="Close"
+						<a
+							href='/'
+							type='button'
+							className='btn-close custom-button'
+							aria-label='Close'
 							onClick={closeForm}
 						></a>
-					</div>				
+					</div>
 					<div className='row'>
 						<div className='col-lg-4'>
 							<img
 								className='img-fluid rounded-5 p-3'
-								src={formik.values.avatar === '' ? 'src/assets/invitado.png' : formik.values.avatar}
+								src={
+									formik.values.avatar === ''
+										? 'https://res.cloudinary.com/dqehz6slh/image/upload/v1689374344/avm3mcl5uxg74y3jkcdu.png'
+										: formik.values.avatar
+								}
 								alt='Avatar'
 							/>
 						</div>
@@ -161,16 +165,36 @@ const RegisterForm = () => {
 									onChange={formik.handleChange}
 								>
 									<option value=''>Elige tu Avatar</option>
-									<option value='src/assets/1.png'>Avatar 1</option>
-									<option value='src/assets/2.png'>Avatar 2</option>
-									<option value='src/assets/3.png'>Avatar 3</option>
-									<option value='src/assets/4.png'>Avatar 4</option>
-									<option value='src/assets/5.png'>Avatar 5</option>
-									<option value='src/assets/6.png'>Avatar 6</option>
-									<option value='src/assets/7.png'>Avatar 7</option>
-									<option value='src/assets/8.png'>Avatar 8</option>
-									<option value='src/assets/9.png'>Avatar 9</option>
-									<option value='src/assets/10.png'>Avatar 10</option>
+									<option value='https://res.cloudinary.com/dqehz6slh/image/upload/v1689374343/uvovsxgcem2aobnsmxvg.png'>
+										Avatar 1
+									</option>
+									<option value='https://res.cloudinary.com/dqehz6slh/image/upload/v1689374344/sdhxvd6lvhlamnue40pz.png'>
+										Avatar 2
+									</option>
+									<option value='https://res.cloudinary.com/dqehz6slh/image/upload/v1689374344/pd5dq34iblk6kvpuzyzh.png'>
+										Avatar 3
+									</option>
+									<option value='https://res.cloudinary.com/dqehz6slh/image/upload/v1689374344/jryfyaeok0iz1xwqinho.png'>
+										Avatar 4
+									</option>
+									<option value='https://res.cloudinary.com/dqehz6slh/image/upload/v1689374343/uyy7npglhnlpjskzdogp.png'>
+										Avatar 5
+									</option>
+									<option value='https://res.cloudinary.com/dqehz6slh/image/upload/v1689374343/yapieddyiw6za2fgylze.png'>
+										Avatar 6
+									</option>
+									<option value='https://res.cloudinary.com/dqehz6slh/image/upload/v1689374343/lrd7g0lmakk8rxrxynsu.png'>
+										Avatar 7
+									</option>
+									<option value='https://res.cloudinary.com/dqehz6slh/image/upload/v1689374343/js9tfcaabxrpea07doiu.png'>
+										Avatar 8
+									</option>
+									<option value='https://res.cloudinary.com/dqehz6slh/image/upload/v1689374344/dr74netm4ntzpmnmbi3w.png'>
+										Avatar 9
+									</option>
+									<option value='https://res.cloudinary.com/dqehz6slh/image/upload/v1689374343/cjenigyspmltnytj3sxk.png'>
+										Avatar 10
+									</option>
 								</select>
 								{formik.errors.avatar && formik.touched.avatar && (
 									<div className='error-message'>{formik.errors.avatar}</div>
@@ -197,7 +221,8 @@ const RegisterForm = () => {
 						<button
 							type='submit'
 							className='w-50 me-2 btn btn-outline-light rounded-pill border-dark text-dark fw-bold'
-							style={{ borderColor: '#654321' }}
+							// style={{ borderColor: '#654321' }}
+							id='formbtn'
 						>
 							Registrarse <i className='bi bi-upload'></i>
 						</button>

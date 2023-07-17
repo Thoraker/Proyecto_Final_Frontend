@@ -1,3 +1,4 @@
+import './index.css'
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
@@ -9,11 +10,10 @@ import FoundationsPage from './routes/FoundationsPage'
 import RegisterPage from './routes/RegisterPage'
 import RegisterForm from './components/registerForm'
 import AdoptMe from './routes/AdoptMe'
-import './index.css'
-import PetForm from './components/petForm.jsx'
-import LoginModal from './components/login.jsx'
 import AddressForm from './components/addressForm.jsx'
-import HomePage2 from './components/homePrueba.jsx'
+import PetPage from './routes/PetPage.jsx'
+import HomePage from './components/homePrueba.jsx'
+
 const domNode = document.getElementById('root')
 const root = createRoot(domNode)
 
@@ -26,10 +26,6 @@ const router = createBrowserRouter([
 			{
 				path: '/',
 				element: <LandingPage />,
-			},
-			{
-				path: '/dos',
-				element: <LoginModal />,
 			},
 			{
 				path: '/register',
@@ -57,15 +53,11 @@ const router = createBrowserRouter([
 			},
 			{
 				path: '/prueba',
-				element: <HomePage2 />,
+				element: <HomePage />,
 			},
 			{
 				path: '/post',
 				element: <RegisterForm />,
-			},
-			{
-				path: '/put',
-				element: <PetForm />,
 			},
 		],
 	},

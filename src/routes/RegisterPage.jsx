@@ -3,7 +3,7 @@ import RegisterForm from '../components/registerForm'
 
 const RegisterPage = () => {
 	return (
-		<div className='container vh-100' style={{ paddingTop: '6rem' }}>
+		<div className='container'>
 			<RegisterForm />
 		</div>
 	)

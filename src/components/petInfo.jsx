@@ -39,7 +39,7 @@ const PetInfo = () => {
 						)
 					})}
 				</div>
-				<div className='col'>
+				<div className='col-md-3'>
 					<PetCard pet={state.store.mascotas[pets]} />
 					<div className='col m-3'>
 						<button type='button' className='btn btn-primary '>

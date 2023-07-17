@@ -1,25 +1,63 @@
+// import { QRCodeSVG } from 'qrcode.react'
 import React from 'react'
+import { PiPawPrintBold } from 'react-icons/pi'
 
 const HomePage = () => {
 	return (
-		<div className='container-fluid mx-0 px-0 g-5' style={{ paddingTop: '6rem' }}>
-			<div className='row g-0 mx-0 px-0 mb-5'>
-				<div className='col-4 m-0' style={{ backgroundColor: 'rgba(0, 100, 150, 0.5)' }}>
-					<h3>Bienvenidos</h3>
-				</div>
-				<div className='col m-0'>
-					<img src='src/assets/perro_callejero.jpg' alt='' className='img-fluid vw-100' />
+		<>
+			<div className='card text-bg-dark rounded-0 mb-0 pb-0'>
+				<img
+					src='src/assets/perro_callejero21_9.jpg'
+					className='img-fluid p-0 rounded-0'
+					alt='Perro Callejero'
+				/>
+				<div className='card-img-overlay position-absolute top-50 start-50 translate-middle w-100 d-none d-lg-inline gradiente60'>
+					<div className='col-6 text-center '>
+						<div className='text-white'>
+							<h1 className='fw-bold'>BIENVENIDOS</h1>
+							<div className='fw-semibold'>Adopta tu mascota y descubre más opciones.</div>
+							<button className='btn btn-outline-light rounded-pill w-50 border-2'>
+								INGRESA <PiPawPrintBold />
+							</button>
+							{/* <div className='p-5'>
+								<label>
+									<p>Escanee el código QR para acceder a la aplicación:</p>
+								</label>
+								<div className='border border-white'>
+									<QRCodeSVG value='https://localhost:5173/pet:11' />
+								</div>
+							</div> */}
+						</div>
+					</div>
 				</div>
 			</div>
-			<div className='row g-0 mx-0 px-0 mt-5'>
-				<div className='col m-0'>
-					<img src='src/assets/cachorro_callejero2.jpg' alt='' className='img-fluid vw-100' />
-				</div>
-				<div className='col-4 m-0' style={{ backgroundColor: 'rgba(0, 100, 150, 0.5)' }}>
-					<h3>Bienvenidos</h3>
+			<div className='w-100 d-lg-none mt-0 gradiente80'>
+				<div className='col'>
+					<div className='text-center text-dark'>
+						<h1 className='title pt-4 fw-bold'>BIENVENIDOS</h1>
+						<div className='fw-semibold px-5'>Adopta tu mascota y descubre más opciones.</div>
+						<button
+							className='btn mt-3 mb-5 rounded-pill w-50'
+							style={{
+								backgroundColor: 'transparent',
+								border: '2px solid #000',
+								width: '180px',
+							}}
+						>
+							INGRESA <PiPawPrintBold />
+						</button>
+						{/* <div className='p-5'>
+								<label>
+									<p>Escanee el código QR para acceder a la aplicación:</p>
+								</label>
+								<div className='border border-white'>
+									<QRCodeSVG value='https://localhost:5173/pet:11' />
+								</div>
+							</div> */}
+					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	)
 }
 

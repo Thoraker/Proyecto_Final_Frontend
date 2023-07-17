@@ -5,7 +5,7 @@ const ErrorPage = () => {
 
 	return (
 		<>
-			<div className='card w-50 mx-auto mt-3'>
+			<div className='card w-50 mx-auto mt-3 gradiente100'>
 				<div className='card-body'>
 					<h2 className='card-title'>Oh ohh</h2>
 					<p className='card-text'>

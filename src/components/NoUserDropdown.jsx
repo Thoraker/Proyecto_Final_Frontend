@@ -5,23 +5,18 @@ import LoginModal from './login'
 const NoUserDropdown = () => {
 	return (
 		<div className='dropdown'>
-			<button className='btn btn-outline-primary card' type='button' data-bs-toggle='dropdown'>
-				<div className='row g-0'>
-					<div className='col-4'>
-						<img
-							className='img-fluid'
-							src='https://res.cloudinary.com/dqehz6slh/image/upload/v1688397737/smhqmpxo8pvj3q8pcowx.png'
-							style={{ maxHeight: '70px' }}
-						/>
-					</div>
-					<div className='col-8'>
-						<div className='card-body'>
-							<h5 className='card-text'>Ingreso</h5>
-						</div>
-					</div>
+			<button className='btn' id='noUserButton' type='button' data-bs-toggle='dropdown'>
+				<div className='row'>
+					<img
+						className='img-fluid'
+						src='https://res.cloudinary.com/dqehz6slh/image/upload/v1689374344/avm3mcl5uxg74y3jkcdu.png'
+					/>
 				</div>
 			</button>
-			<ul className='dropdown-menu'>
+			<ul className='dropdown-menu dropdown-menu-end'>
+				<li>
+					<h5 className='dropdown-header'>Ingreso</h5>
+				</li>
 				<li>
 					<LoginModal />
 				</li>
