@@ -62,7 +62,7 @@ const LoginModal = () => {
 				</Link>
 			</div>
 			<Modal show={showModal} onHide={handleCloseModal} centered id='Log'>
-				<Modal.Header closeButton onClick={handleCloseModal}>
+				<Modal.Header closeButton onClick={handleCloseModal} className='gradiente100'>
 					<Modal.Title className='text-center'>Iniciar sesión</Modal.Title>
 					{loginSuccess && (
 						<div className='alert alert-success' role='alert'>
@@ -113,7 +113,7 @@ const LoginModal = () => {
 							<div className='d-grid gap-2 col-6 mx-auto py-3'>
 								<button
 									type='submit'
-									className='btn btn-outline-success  rounded-pill'
+									className='btn btn-outline forest text-light rounded-pill'
 									style={{ borderWidth: '2px' }}
 								>
 									Log in <PiPawPrintBold />
