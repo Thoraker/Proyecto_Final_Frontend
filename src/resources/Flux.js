@@ -1,6 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			token: '',
 			mascotasEnAdopcion: [],
 			direcciones: [],
 			mascotas: [],
@@ -11,7 +12,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				last_name: '',
 				avatar: '',
 			},
-			token: '',
 			mascotaActiva: {
 				id: '',
 				age:'',
@@ -34,13 +34,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				  
 				  fetch("http://127.0.0.1:3000/pets", requestOptions)
 					.then(response => response.json())
-					.then(result => {
-						setStore({
-							mascotasEnAdopcion: result,
-							mascotaActiva: result[0],
-						})
-					console.log(getStore());})
-					.catch(error => alert('error', error));
+					.then(result => setStore({
+										mascotasEnAdopcion: result,
+										mascotaActiva: result[0],
+									}))
+					.catch(error => alert('error', error))
 			},
 
 			createUser: async (values) => {
@@ -65,7 +63,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				fetch('http://127.0.0.1:3000/register', requestOptions)
 					.then((response) => response.json())
-					.then((result) => alert(result.response))
+					.then((result) => {
+						alert(result.response)
+					})
 					.catch((error) => alert('error', error))
 			},
 
@@ -88,13 +88,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch('http://127.0.0.1:3000/login', requestOptions)
 					.then((response) => response.json())
 					.then((result) => {
+						console.log(result)
+						alert(result.response)
 						setStore({
 							usuario: result.user,
 							direcciones: result.user.addresses,
 							mascotas: result.user.pets,
 							token: result.token,
-						})
-						alert('Login correcto')})
+						})})
 					.catch((error) => alert('error', error))
 			},
 
@@ -123,13 +124,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch('http://127.0.0.1:3000/pet', requestOptions)
 					.then((response) => response.json())
 					.then((result) => {
+						alert(result.response)
 						setStore({
 							usuario: result.user,
 							mascotas: result.user.pets,
 							mascotaActiva: result.pet,
-						})
-						alert(result.response)
-					})
+						})})
 					.catch((error) => alert('error', error))
 			},
 
@@ -151,43 +151,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: 'follow'
 				};
 
-				fetch("http://127.0.0.1:3000/photo", requestOptions)
-					.then(response => response.json())
-					.then(result => console.log(result))
-					.catch(error => console.log('error', error));
-
-
-
-
-
-
-				// const myHeaders = new Headers()
-				// myHeaders.append('Authorization', 'Bearer ' + getStore().token)
-				// myHeaders.append('Content-Type', 'application/json')
-
-				// const raw = JSON.stringify({
-				// 	url: link,
-				// 	pet_id: getStore().mascotaActiva.id,
-				// })
-
-				// console.log(raw, 'raw')
-
-				// const requestOptions = {
-				// 	method: 'POST',
-				// 	headers: myHeaders,
-				// 	body: raw,
-				// 	redirect: 'follow',
-				// }
-
-				// fetch('http://127.0.0.1:3000/photo', requestOptions)
-				// 	.then((response) => response.json())
-				// 	.then((result) => {
-				// 		setStore({
-				// 			mascotas: result.user.pets,
-				// 		})
-				// 		alert(result.response)
-				// 	})
-				// 	.catch((error) => alert('error', error))
+				fetch('http://127.0.0.1:3000/photo', requestOptions)
+					.then((response) => response.json())
+					.then((result) => {
+						alert(result.response)
+						setStore({
+							mascotas: result.user.pets,
+						})})
+					.catch((error) => alert('error', error))
 			},
 
 			createAddress: async (values) => {
@@ -214,12 +185,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch('http://127.0.0.1:3000/address', requestOptions)
 					.then((response) => response.json())
 					.then((result) => {
+						alert(result.response)
 						setStore({
 							usuario: result.user,
-							direcciones: result.user.address,
-						})
-						alert(result.response)
-					})
+							direcciones: result.user.addresses,
+						})})
 					.catch((error) => alert('error', error))
 			},
 
@@ -236,8 +206,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						photos: value.photos,
 						messages: value.messages,
 					}})
-				console.log(getStore().mascotaActiva, 'addPet')
 			},
+
 			sendMessage: async (input) => {
 				const myHeaders = new Headers()
 				myHeaders.append('Authorization', 'Bearer ' + getStore().token)
@@ -258,9 +228,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				fetch('http://127.0.0.1:3000/post', requestOptions)
 					.then((response) => response.json())
-					.then((result) => alert(result.response))
+					.then(result => {
+						alert(result.response)
+						getActions().loadInitialData()						
+					})
 					.catch((error) => alert('error', error))
 			}, 
+
 			getPet: async (id) => {
 				const requestOptions = {
 					method: 'GET',

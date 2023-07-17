@@ -1,3 +1,4 @@
+import './index.css'
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
@@ -9,12 +10,11 @@ import FoundationsPage from './routes/FoundationsPage'
 import RegisterPage from './routes/RegisterPage'
 import RegisterForm from './components/registerForm'
 import AdoptMe from './routes/AdoptMe'
-import './index.css'
-import PetForm from './components/petForm.jsx'
-import PetCard from './components/petCard.jsx'
-import LoginModal from './components/login.jsx'
 import AddressForm from './components/addressForm.jsx'
-import NewAddressForm from './components/newAddressForm.jsx'
+import PetPage from './routes/PetPage.jsx'
+import HomePage from './components/homePrueba.jsx'
+import InvitePage from './routes/InvitePage'
+
 const domNode = document.getElementById('root')
 const root = createRoot(domNode)
 
@@ -29,16 +29,12 @@ const router = createBrowserRouter([
 				element: <LandingPage />,
 			},
 			{
-				path: '/dos',
-				element: <LoginModal />,
-			},
-			{
 				path: '/register',
 				element: <RegisterPage />,
 			},
 			{
 				path: '/pet',
-				element: <PetCard />,
+				element: <PetPage />,
 			},
 			{
 				path: '/adoption',
@@ -57,19 +53,13 @@ const router = createBrowserRouter([
 				element: <UserPage />,
 			},
 			{
-				path: '/prueba',
-				element: <NewAddressForm />,
+				path: '/invite',
+				element: <InvitePage />,
 			},
 			{
 				path: '/post',
 				element: <RegisterForm />,
 			},
-			{
-				path: '/put',
-				element: <PetForm />,
-			},
-
-			
 		],
 	},
 ])

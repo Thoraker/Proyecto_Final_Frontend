@@ -3,27 +3,26 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import PhotoUploader from './photoUploader'
 import { AppContext } from '../routes/App'
-import './formStyles.css'
 
 const PetForm = () => {
 	const state = useContext(AppContext)
 	const [progress, setProgress] = useState(0)
 	const [successMessage, setSuccessMessage] = useState('')
-	const [mostrarFormulario, setMostrarFormulario] = useState(true);
+	const [mostrarFormulario, setMostrarFormulario] = useState(true)
 
 	const cerrarFormulario = () => {
-		setMostrarFormulario(false);
-	};
+		setMostrarFormulario(false)
+	}
 
 	if (!mostrarFormulario) {
-		return null; // No muestra el formulario si mostrarFormulario es false
+		return null // No muestra el formulario si mostrarFormulario es false
 	}
 
 	const validationSchema = Yup.object().shape({
 		name: Yup.string().required('El nombre es requerido.'),
 		age: Yup.string().required('La edad es requerida.'),
-		specie: Yup.string().required('La especie es requerida.'),
-		size: Yup.string().required('El tamaño es requerido.'),
+		specie: Yup.number().required('La especie es requerida.'),
+		size: Yup.number().required('El tamaño es requerido.'),
 		message: Yup.string().required('La descripción es requerida.'),
 	})
 
@@ -61,20 +60,21 @@ const PetForm = () => {
 	return (
 		<div className='container p-5'>
 			<div
-				className='container fst-italic rounded-3'
-				style={{
-					background: 'linear-gradient(90deg, rgba(234,225,224,1) 34%, rgba(181,96,82,1) 98%)',
-				}}
+				className='container fst-italic rounded-3 gradiente100 shadow'
+				// style={{
+				// 	background: 'linear-gradient(90deg, rgba(234,225,224,1) 34%, rgba(181,96,82,1) 98%)',
+				// }}
 			>
 				<form className='p-3 m-3' onSubmit={formik.handleSubmit}>
-					<div className="formulario-header d-flex justify-content-between align-items-center">
-						<div className="text-center flex-grow-1">
+					<div className='formulario-header d-flex justify-content-between align-items-center'>
+						<div className='text-center flex-grow-1'>
 							<h3>Cuéntanos acerca de la Mascota</h3>
 						</div>
-						<a href="/"
-							type="button"
-							className="btn-close custom-button"
-							aria-label="Close"
+						<a
+							href='/'
+							type='button'
+							className='btn-close custom-button'
+							aria-label='Close'
 							onClick={cerrarFormulario}
 						></a>
 					</div>
@@ -185,8 +185,8 @@ const PetForm = () => {
 											<label>
 												<input
 													type='checkbox'
-													name='upForAdoption'
-													checked={formik.values.upForAdoption}
+													name='forAdoption'
+													checked={formik.values.forAdoption}
 													onChange={formik.handleChange}
 													onBlur={formik.handleBlur}
 												/>
@@ -215,7 +215,7 @@ const PetForm = () => {
 						<div>
 							<button
 								type='submit'
-								className='w-50 btn btn-outline-light rounded-pill border-dark text-dark fw-bold'
+								className='w-50 btn rounded-pill border-dark text-dark fw-bold'
 								id='formbtn'
 								style={{ borderColor: '#654321' }}
 							>

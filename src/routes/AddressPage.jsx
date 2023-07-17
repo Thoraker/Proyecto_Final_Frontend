@@ -3,7 +3,7 @@ import AddressForm from '../components/addressForm'
 
 const AddressPage = () => {
 	return (
-		<div className='container bg-secondary vh-100' style={{ paddingTop: '6rem' }}>
+		<div className='container'>
 			<AddressForm />
 		</div>
 	)

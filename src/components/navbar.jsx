@@ -3,29 +3,37 @@ import { Link } from 'react-router-dom'
 import UserDropdown from './UserDropdown'
 import NoUserDropdown from './NoUserDropdown'
 import { AppContext } from '../routes/App'
+import InviteFriends from './inviteFriends'
 
 const Navbar = () => {
 	const state = useContext(AppContext)
 
 	return (
-		<nav
-			className='navbar navbar-expand-lg fst-italic fixed-top'
-			style={{ backgroundColor: 'rgba(255, 255, 255, 0.3)' }}
-		>
-			<div className='container-fluid'>
+		<nav className='navbar navbar-expand-lg fixed-top mt-0 mt-lg-3 pt-0 pt-lg-3 '>
+			<div className='container-fluid justify-content-between shadow'>
 				<button
 					className='navbar-toggler'
 					type='button'
-					data-bs-toggle='collapse'
-					data-bs-target='#navbarTogglerDemo01'
+					data-bs-toggle='offcanvas'
+					data-bs-target='#offcanvasNavbar1'
+					aria-controls='offcanvasNavbar'
+					aria-label='Toggle navigation'
 				>
 					<span className='navbar-toggler-icon'></span>
 				</button>
-				<Link className='navbar-brand text- text-danger fs-1 px-5' to='/'>
-					Dame una Pata
-				</Link>
-				<div className='collapse navbar-collapse' id='navbarTogglerDemo01'>
-					<ul className='navbar-nav me-auto mb-2 mb-lg-0'>
+				<div className='col d-flex text-center' id='logo'>
+					<Link className='navbar-brand fs-2 fw-bold fst-italic m-3 mx-auto lh-1 text-wrap' to='/'>
+						<span style={{ fontSize: '50px' }}>Dame</span> <br />
+						una Pata
+					</Link>
+				</div>
+				<div
+					className='offcanvas offcanvas-start'
+					tabIndex='-1'
+					id='offcanvasNavbar1'
+					aria-labelledby='offcanvasNavbarLabel'
+				>
+					<ul className='navbar-nav mb-lg-0 nav-justified '>
 						<li className='nav-item'>
 							<Link to='/register' className='nav-link'>
 								Regístrate
@@ -42,13 +50,13 @@ const Navbar = () => {
 							</Link>
 						</li>
 						<li className='nav-item'>
-							<Link to='/invite' className='nav-link'>
-								Invitar <i className='bi bi-share-fill'></i>
-							</Link>
+							<InviteFriends />
 						</li>
 					</ul>
 				</div>
-				<div className='col-2'>{state.store.usuario.user !== '' ? <UserDropdown /> : <NoUserDropdown />}</div>
+				<div className='col d-flex justify-content-end me-3'>
+					{state.store.usuario.user !== '' ? <UserDropdown /> : <NoUserDropdown />}
+				</div>
 			</div>
 		</nav>
 	)

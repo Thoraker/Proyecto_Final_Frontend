@@ -1,8 +1,8 @@
 import React from 'react'
-import InviteFriends from '../components/inviteFri'
+import InviteFriends from '../components/inviteFriends'
 
 const InvitePage = () => {
-	return (        
+	return (
 		<div className='container-fluid'>
 			<InviteFriends />
 		</div>

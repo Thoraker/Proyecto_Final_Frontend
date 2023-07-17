@@ -7,8 +7,8 @@ const UserInfo = () => {
 
 	return (
 		<div
-			className='card mb-3'
-			style={{ background: 'linear - gradient(90deg, rgba(171, 199, 176, 1) 16 %, rgba(13, 102, 23, 1) 89 %)' }}
+			className='card m-3 gradiente100'
+			// style={{ background: 'linear - gradient(90deg, rgba(171, 199, 176, 1) 16 %, rgba(13, 102, 23, 1) 89 %)' }}
 		>
 			<div className='row g-0'>
 				<div className='col-md-3 p-4'>
