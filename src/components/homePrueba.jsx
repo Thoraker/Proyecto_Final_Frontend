@@ -1,6 +1,7 @@
 // import { QRCodeSVG } from 'qrcode.react'
 import React from 'react'
 import { PiPawPrintBold } from 'react-icons/pi'
+import LoginModal from './login'
 
 const HomePage = () => {
 	return (
@@ -16,8 +17,8 @@ const HomePage = () => {
 						<div className='text-white'>
 							<h1 className='fw-bold'>BIENVENIDOS</h1>
 							<div className='fw-semibold'>Adopta tu mascota y descubre más opciones.</div>
-							<button className='btn btn-outline-light rounded-pill w-50 border-2'>
-								INGRESA <PiPawPrintBold />
+							<button className='btn btn-outline-light rounded-pill w-50 border-2 my-3'>
+								<LoginModal /> <PiPawPrintBold />
 							</button>
 							{/* <div className='p-5'>
 								<label>
@@ -37,14 +38,14 @@ const HomePage = () => {
 						<h1 className='title pt-4 fw-bold'>BIENVENIDOS</h1>
 						<div className='fw-semibold px-5'>Adopta tu mascota y descubre más opciones.</div>
 						<button
-							className='btn mt-3 mb-5 rounded-pill w-50'
+							className='btn mt-3 mb-5 rounded-pill w-50 my-3'
 							style={{
 								backgroundColor: 'transparent',
 								border: '2px solid #000',
 								width: '180px',
 							}}
 						>
-							INGRESA <PiPawPrintBold />
+							<LoginModal /> <PiPawPrintBold />
 						</button>
 						{/* <div className='p-5'>
 								<label>

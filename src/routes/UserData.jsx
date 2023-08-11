@@ -5,7 +5,8 @@ import PetInfo from '../components/petInfo'
 import AddressInfo from '../components/addressInfo'
 import PetForm from '../components/petForm'
 import AddressForm from '../components/addressForm'
-import MessageBoard from '../components/messageInfo'
+// import MessageInfo from '../components/messageInfo'
+// import MessageBoard from '../components/messageInfo'
 
 const UserPage = () => {
 	const state = useContext(AppContext)
@@ -67,7 +68,7 @@ const UserPage = () => {
 						Mis Direcciones
 					</button>
 				</li>
-				<li className='nav-item' role='presentation'>
+				{/* <li className='nav-item' role='presentation'>
 					<button
 						className='nav-link'
 						id='pills-disabled-tab'
@@ -80,7 +81,7 @@ const UserPage = () => {
 					>
 						Mensajes <i className='bi bi-chat-text-fill'></i>
 					</button>
-				</li>
+				</li> */}
 			</ul>
 			<div className='tab-content' id='pills-tabContent'>
 				<div
@@ -110,15 +111,15 @@ const UserPage = () => {
 				>
 					{addressView}
 				</div>
-				<div
+				{/* <div
 					className='tab-pane fade'
 					id='pills-disabled'
 					role='tabpanel'
 					aria-labelledby='pills-disabled-tab'
 					tabIndex='0'
 				>
-					<MessageBoard />
-				</div>
+					<MessageInfo />
+				</div> */}
 			</div>
 		</div>
 	)

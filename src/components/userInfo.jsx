@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { AppContext } from '../routes/App'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 const UserInfo = () => {
 	const state = useContext(AppContext)
@@ -31,11 +31,11 @@ const UserInfo = () => {
 								<li className='list-group-item col-9'>{state.store.usuario.email}</li>
 							</ul>
 						</div>
-						<p className='card-text'>
+						{/* <p className='card-text'>
 							<small className='text-body-secondary'>
 								Modificar contraseña <Link to='/forgotten'>aquí</Link>
 							</small>
-						</p>
+						</p> */}
 					</div>
 				</div>
 			</div>

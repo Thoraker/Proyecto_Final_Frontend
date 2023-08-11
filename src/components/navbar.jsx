@@ -10,7 +10,7 @@ const Navbar = () => {
 
 	return (
 		<nav className='navbar navbar-expand-lg fixed-top mt-0 mt-lg-3 pt-0 pt-lg-3 '>
-			<div className='container-fluid justify-content-between shadow'>
+			<div className='container-fluid bg-light justify-content-between shadow'>
 				<button
 					className='navbar-toggler'
 					type='button'
