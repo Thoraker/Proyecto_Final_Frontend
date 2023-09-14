@@ -3,7 +3,7 @@ from ..models.models import *
 from flask import Blueprint, jsonify, request
 from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
-from datetime import datetime
+import datetime
 from functools import wraps
 from ..extensions import get_uuid
 
@@ -47,7 +47,7 @@ def get_available_pets():
 @bp.route("/register", methods=["GET", "POST"])
 def register_user():
     data = request.get_json()
-    hashed_password = generate_password_hash(data["password"], method="sha256")
+    hashed_password = generate_password_hash(data["password"], method="scrypt")
     new_user = User(
         public_id=get_uuid(),
         user_name=data["user_name"],

@@ -32,7 +32,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: 'follow',
 				}
 
-				fetch('http://127.0.0.1:3000/pets', requestOptions)
+				fetch('http://127.0.0.1:5000/pets', requestOptions)
 					.then((response) => response.json())
 					.then((result) =>
 						setStore({
@@ -63,7 +63,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: 'follow',
 				}
 
-				fetch('http://127.0.0.1:3000/register', requestOptions)
+				fetch('http://127.0.0.1:5000/register', requestOptions)
 					.then((response) => response.json())
 					.then((result) => {
 						alert(result.response)
@@ -87,17 +87,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: 'follow',
 				}
 
-				fetch('http://127.0.0.1:3000/login', requestOptions)
+				fetch('http://127.0.0.1:5000/login', requestOptions)
 					.then((response) => response.json())
 					.then((result) => {
-						console.log(result)
-						alert(result.response)
 						setStore({
 							usuario: result.user,
 							direcciones: result.user.addresses,
 							mascotas: result.user.pets,
 							token: result.token,
 						})
+						return result.message
 					})
 					.catch((error) => alert('error', error))
 			},
@@ -124,7 +123,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: 'follow',
 				}
 
-				fetch('http://127.0.0.1:3000/pet', requestOptions)
+				fetch('http://127.0.0.1:5000/pet', requestOptions)
 					.then((response) => response.json())
 					.then((result) => {
 						alert(result.response)
@@ -155,7 +154,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: 'follow',
 				}
 
-				fetch('http://127.0.0.1:3000/photo', requestOptions)
+				fetch('http://127.0.0.1:5000/photo', requestOptions)
 					.then((response) => response.json())
 					.then((result) => {
 						alert(result.response)
@@ -187,7 +186,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: 'follow',
 				}
 
-				fetch('http://127.0.0.1:3000/address', requestOptions)
+				fetch('http://127.0.0.1:5000/address', requestOptions)
 					.then((response) => response.json())
 					.then((result) => {
 						alert(result.response)
@@ -233,7 +232,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: 'follow',
 				}
 
-				fetch('http://127.0.0.1:3000/post', requestOptions)
+				fetch('http://127.0.0.1:5000/post', requestOptions)
 					.then((response) => response.json())
 					.then((result) => {
 						alert(result.response)
@@ -248,7 +247,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: 'follow',
 				}
 
-				fetch('http://127.0.0.1:3000/pet/' + id, requestOptions)
+				fetch('http://127.0.0.1:5000/pet/' + id, requestOptions)
 					.then((response) => response.json())
 					.then((result) => {
 						setStore({
