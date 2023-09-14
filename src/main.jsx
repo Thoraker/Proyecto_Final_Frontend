@@ -12,7 +12,6 @@ import RegisterForm from './components/registerForm'
 import AdoptMe from './routes/AdoptMe'
 import AddressForm from './components/addressForm.jsx'
 import PetPage from './routes/PetPage.jsx'
-import HomePage from './components/homePrueba.jsx'
 import InvitePage from './routes/InvitePage'
 
 const domNode = document.getElementById('root')

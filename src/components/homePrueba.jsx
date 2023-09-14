@@ -1,4 +1,3 @@
-// import { QRCodeSVG } from 'qrcode.react'
 import React from 'react'
 import { PiPawPrintBold } from 'react-icons/pi'
 import LoginModal from './login'

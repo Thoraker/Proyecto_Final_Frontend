@@ -14,7 +14,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			mascotaActiva: {
 				id: '',
-				age:'',
+				age: '',
 				name: '',
 				specie: '',
 				size: '',
@@ -29,16 +29,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 			loadInitialData: async () => {
 				const requestOptions = {
 					method: 'GET',
-					redirect: 'follow'
-				  }
-				  
-				  fetch("http://127.0.0.1:3000/pets", requestOptions)
-					.then(response => response.json())
-					.then(result => setStore({
-										mascotasEnAdopcion: result,
-										mascotaActiva: result[0],
-									}))
-					.catch(error => alert('error', error))
+					redirect: 'follow',
+				}
+
+				fetch('http://127.0.0.1:3000/pets', requestOptions)
+					.then((response) => response.json())
+					.then((result) =>
+						setStore({
+							mascotasEnAdopcion: result,
+							mascotaActiva: result[0],
+						})
+					)
+					.catch((error) => alert('error', error))
 			},
 
 			createUser: async (values) => {
@@ -95,7 +97,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 							direcciones: result.user.addresses,
 							mascotas: result.user.pets,
 							token: result.token,
-						})})
+						})
+					})
 					.catch((error) => alert('error', error))
 			},
 
@@ -129,27 +132,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 							usuario: result.user,
 							mascotas: result.user.pets,
 							mascotaActiva: result.pet,
-						})})
+						})
+					})
 					.catch((error) => alert('error', error))
 			},
 
 			newPetPhoto: async (link) => {
-				console.log(link, 'link');
-				const myHeaders = new Headers();
-				myHeaders.append("Authorization", "Bearer " + getStore().token);
-				myHeaders.append("Content-Type", "application/json");
+				console.log(link, 'link')
+				const myHeaders = new Headers()
+				myHeaders.append('Authorization', 'Bearer ' + getStore().token)
+				myHeaders.append('Content-Type', 'application/json')
 
 				const raw = JSON.stringify({
-					"url": link,
-					"pet_id": getStore().mascotaActiva.id,
-				});
+					url: link,
+					pet_id: getStore().mascotaActiva.id,
+				})
 
 				const requestOptions = {
 					method: 'POST',
 					headers: myHeaders,
 					body: raw,
-					redirect: 'follow'
-				};
+					redirect: 'follow',
+				}
 
 				fetch('http://127.0.0.1:3000/photo', requestOptions)
 					.then((response) => response.json())
@@ -157,7 +161,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						alert(result.response)
 						setStore({
 							mascotas: result.user.pets,
-						})})
+						})
+					})
 					.catch((error) => alert('error', error))
 			},
 
@@ -189,7 +194,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({
 							usuario: result.user,
 							direcciones: result.user.addresses,
-						})})
+						})
+					})
 					.catch((error) => alert('error', error))
 			},
 
@@ -205,7 +211,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						for_adoption: value.for_adoption,
 						photos: value.photos,
 						messages: value.messages,
-					}})
+					},
+				})
 			},
 
 			sendMessage: async (input) => {
@@ -228,28 +235,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				fetch('http://127.0.0.1:3000/post', requestOptions)
 					.then((response) => response.json())
-					.then(result => {
+					.then((result) => {
 						alert(result.response)
-						getActions().loadInitialData()						
+						getActions().loadInitialData()
 					})
 					.catch((error) => alert('error', error))
-			}, 
+			},
 
 			getPet: async (id) => {
 				const requestOptions = {
 					method: 'GET',
-					redirect: 'follow'
-				  }
-				  
-				fetch("http://127.0.0.1:3000/pet/"+id, requestOptions)
-					.then(response => response.json())
-					.then(result => {
+					redirect: 'follow',
+				}
+
+				fetch('http://127.0.0.1:3000/pet/' + id, requestOptions)
+					.then((response) => response.json())
+					.then((result) => {
 						setStore({
-							mascotaActiva: result.pet
+							mascotaActiva: result.pet,
+						})
+						console.log(getStore().mascotaActiva)
 					})
-					console.log(getStore().mascotaActiva)})
-					.catch(error => console.log('error', error))
-				
+					.catch((error) => console.log('error', error))
 			},
 		},
 	}
