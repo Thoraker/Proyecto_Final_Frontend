@@ -40,9 +40,6 @@ const PetForm = () => {
 		onSubmit: (values) => {
 			state.actions.createPet(values)
 			setSuccessMessage('Se ha publicado tu mascota')
-			setTimeout(() => {
-				// Redireccionar al usuario a otra página aquí
-			}, 5000)
 		},
 	})
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import UserInfo from '../components/userData'
+import UserInfo from '../components/userInfo'
 
 const UserData = () => {
 	return (

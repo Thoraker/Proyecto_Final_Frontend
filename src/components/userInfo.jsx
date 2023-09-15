@@ -6,10 +6,7 @@ const UserInfo = () => {
 	const state = useContext(AppContext)
 
 	return (
-		<div
-			className='card m-3 gradiente100'
-			// style={{ background: 'linear - gradient(90deg, rgba(171, 199, 176, 1) 16 %, rgba(13, 102, 23, 1) 89 %)' }}
-		>
+		<div className='card m-3 gradiente100'>
 			<div className='row g-0'>
 				<div className='col-md-3 p-4'>
 					<img src={state.store.usuario.avatar} className='img-fluid' alt='Avatar' />
@@ -31,11 +28,6 @@ const UserInfo = () => {
 								<li className='list-group-item col-9'>{state.store.usuario.email}</li>
 							</ul>
 						</div>
-						{/* <p className='card-text'>
-							<small className='text-body-secondary'>
-								Modificar contraseña <Link to='/forgotten'>aquí</Link>
-							</small>
-						</p> */}
 					</div>
 				</div>
 			</div>
