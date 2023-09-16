@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import Carousel from './carousel'
 import PropTypes from 'prop-types'
 import { AppContext } from '../routes/App'

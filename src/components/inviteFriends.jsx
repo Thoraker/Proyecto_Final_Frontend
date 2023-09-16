@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Formik, Field, Form, ErrorMessage, FieldArray } from 'formik'
 import { BsTrash3 } from 'react-icons/bs'
 import { Modal } from 'react-bootstrap'
@@ -46,7 +46,7 @@ const InviteFriends = () => {
 						{({ values }) => (
 							<Form className='w-100'>
 								<FieldArray name='friends'>
-									{({ insert, remove, push }) => (
+									{({ remove, push }) => (
 										<div>
 											{values.friends.length > 0 &&
 												values.friends.map((friend, index) => (

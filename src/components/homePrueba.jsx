@@ -1,4 +1,3 @@
-import React from 'react'
 import { PiPawPrintBold } from 'react-icons/pi'
 import LoginModal from './login'
 
@@ -19,14 +18,6 @@ const HomePage = () => {
 							<button className='btn btn-outline-light rounded-pill w-50 border-2 my-3'>
 								<LoginModal /> <PiPawPrintBold />
 							</button>
-							{/* <div className='p-5'>
-								<label>
-									<p>Escanee el código QR para acceder a la aplicación:</p>
-								</label>
-								<div className='border border-white'>
-									<QRCodeSVG value='https://localhost:5173/pet:11' />
-								</div>
-							</div> */}
 						</div>
 					</div>
 				</div>
@@ -46,14 +37,6 @@ const HomePage = () => {
 						>
 							<LoginModal /> <PiPawPrintBold />
 						</button>
-						{/* <div className='p-5'>
-								<label>
-									<p>Escanee el código QR para acceder a la aplicación:</p>
-								</label>
-								<div className='border border-white'>
-									<QRCodeSVG value='https://localhost:5173/pet:11' />
-								</div>
-							</div> */}
 					</div>
 				</div>
 			</div>

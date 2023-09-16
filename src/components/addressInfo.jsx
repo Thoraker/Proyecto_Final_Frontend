@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import { AppContext } from '../routes/App'
 import { Link } from 'react-router-dom'
 import Data from '../resources/data.json'

@@ -1,4 +1,3 @@
-import React from 'react'
 import ForAdoption from '../components/forAdoption'
 
 const AdoptMe = () => {

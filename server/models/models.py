@@ -105,9 +105,9 @@ class Pet(db.Model):
     __tablename__ = "pets"
     id = db.Column(db.String(256), primary_key=True, default=get_uuid)
     name = db.Column(db.String(256), unique=False, nullable=True)
-    specie = db.Column(db.String(256), unique=False, nullable=True)
+    specie = db.Column(db.Integer, unique=False, nullable=True)
     age = db.Column(db.String(256), unique=False, nullable=True)
-    size = db.Column(db.String(256), unique=False, nullable=True)
+    size = db.Column(db.Integer, unique=False, nullable=True)
     need_backyard = db.Column(db.Boolean, unique=False, nullable=True)
     for_adoption = db.Column(db.Boolean, unique=False, nullable=True)
 
@@ -156,8 +156,8 @@ class Address(db.Model):
     street = db.Column(db.String(256), unique=False, nullable=False)
     building_number = db.Column(db.String(256), unique=False, nullable=False)
     department_number = db.Column(db.String(256), unique=False, nullable=True)
-    commune = db.Column(db.String(256), unique=False, nullable=False)
-    region = db.Column(db.String(256), unique=False, nullable=True)
+    commune = db.Column(db.Integer, unique=False, nullable=False)
+    region = db.Column(db.Integer, unique=False, nullable=True)
     has_backyard = db.Column(db.Boolean, unique=False, nullable=True)
     habitant = db.Column(
         db.String(256), db.ForeignKey("users.id"), unique=False, nullable=True

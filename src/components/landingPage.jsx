@@ -1,16 +1,13 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { QRCodeSVG } from 'qrcode.react';
-import { PiPawPrintBold } from 'react-icons/pi';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { QRCodeSVG } from 'qrcode.react'
+import { PiPawPrintBold } from 'react-icons/pi'
 
 const Pagina = () => {
 	return (
 		<div className='d-flex justify-content-center vh-100'>
 			<div className='container'>
 				<div className='row vh-100 justify-content-center align-items-center'>
-					<div className='col-lg-7'>
-						{/* Contenido de la parte izquierda */}
-					</div>
+					<div className='col-lg-7'>{/* Contenido de la parte izquierda */}</div>
 					<div
 						className='col-lg-5 d-flex align-items-center'
 						style={{
@@ -44,7 +41,7 @@ const Pagina = () => {
 				</div>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
-export default Pagina;
+export default Pagina

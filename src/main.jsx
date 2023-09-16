@@ -1,5 +1,4 @@
 import './index.css'
-import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './routes/App.jsx'
@@ -13,9 +12,6 @@ import AdoptMe from './routes/AdoptMe'
 import AddressForm from './components/addressForm.jsx'
 import PetPage from './routes/PetPage.jsx'
 import InvitePage from './routes/InvitePage'
-
-const domNode = document.getElementById('root')
-const root = createRoot(domNode)
 
 const router = createBrowserRouter([
 	{
@@ -63,8 +59,4 @@ const router = createBrowserRouter([
 	},
 ])
 
-root.render(
-	<React.StrictMode>
-		<RouterProvider router={router} />
-	</React.StrictMode>
-)
+createRoot(document.getElementById('root')).render(<RouterProvider router={router} />)

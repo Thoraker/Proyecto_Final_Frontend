@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import { AppContext } from '../routes/App'
 
 const PhotoUploader = () => {
@@ -22,7 +22,7 @@ const PhotoUploader = () => {
 				}
 			}
 		)
-	}, [])
+	})
 
 	return (
 		<div className='pb-2 text-center'>

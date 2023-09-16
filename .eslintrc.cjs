@@ -9,7 +9,14 @@ module.exports = {
 			version: 'detect',
 		},
 	},
-	extends: ['standard', 'plugin:react/jsx-runtime', 'plugin:react/recommended', 'eslint:recommended', 'prettier'],
+	extends: [
+		'eslint:recommended',
+		'plugin:react/recommended',
+		'plugin:react/jsx-runtime',
+		'eslint:recommended',
+		'plugin:react-hooks/recommended',
+		'prettier',
+	],
 	parserOptions: {
 		ecmaVersion: 'latest',
 		sourceType: 'module',

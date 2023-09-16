@@ -1,6 +1,5 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { AppContext } from '../routes/App'
-// import { Link } from 'react-router-dom'
 
 const UserInfo = () => {
 	const state = useContext(AppContext)

@@ -1,4 +1,3 @@
-import React from 'react'
 import AssociatedFoundations from '../components/associatedFoundations'
 
 const FoundationsPage = () => {

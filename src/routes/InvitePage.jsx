@@ -1,4 +1,3 @@
-import React from 'react'
 import InviteFriends from '../components/inviteFriends'
 
 const InvitePage = () => {
