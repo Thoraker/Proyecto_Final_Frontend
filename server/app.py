@@ -5,7 +5,6 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 from flask_migrate import Migrate
 from .extensions import db, generate_sitemap, APIException
-from .models.models import *
 from .routes.routes import bp
 from .admin import setup_admin
 
@@ -19,8 +18,6 @@ migrate = Migrate(app, db)
 app.url_map.strict_slashes = False
 
 # Load configuration from .env file
-
-
 app.config.from_prefixed_env()
 
 # Initialize database

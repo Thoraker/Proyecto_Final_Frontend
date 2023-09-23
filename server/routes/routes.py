@@ -1,10 +1,10 @@
+import datetime
 import os
-from ..models.models import *
+import jwt
 from flask import Blueprint, jsonify, request
 from werkzeug.security import generate_password_hash, check_password_hash
-import jwt
-import datetime
 from functools import wraps
+from ..models.models import *
 from ..extensions import get_uuid
 
 
